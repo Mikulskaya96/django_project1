@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-     <h1>Index</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}DevLearn — Обучение программированию{% endblock %}
+
+{% block content %}
+<h1>DevLearn</h1>
+<p>Платформа для обучения программированию. Регистрируйся и начинай учиться!</p>
+<p><a href="{% url 'courses:course_list' %}" class="btn-primary">Смотреть курсы →</a></p>
+{% endblock %}

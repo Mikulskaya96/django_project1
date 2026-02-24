@@ -1,0 +1,363 @@
+/* 1. ПЕРЕМЕННЫЕ — светлая тема (по умолчанию) */
+:root {
+    --pink-50: #fdf2f8;
+    --pink-100: #fce7f3;
+    --pink-200: #fbcfe8;
+    --pink-300: #f9a8d4;
+    --pink-400: #f472b6;
+    --pink-500: #ec4899;
+    --pink-600: #db2777;
+    --pink-700: #be185d;
+    --pink-800: #9d174d;
+    --pink-900: #831843;
+
+    --bg: #faf5f8;
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --accent: #db2777;
+    --accent-hover: #be185d;
+    --border: #fbcfe8;
+    --nav-bg: linear-gradient(90deg, #fdf2f8 0%, #fce7f3 100%);
+    --nav-shadow: 0 2px 12px rgba(236, 72, 153, 0.08);
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 8px 30px rgba(236, 72, 153, 0.12);
+    --hr-color: #e5e7eb;
+}
+
+/* Тёмная тема */
+[data-theme="dark"] {
+    --bg: #1a1625;
+    --card-bg: #252030;
+    --text: #f3e8f0;
+    --text-muted: #c4b5c9;
+    --border: #3d3347;
+    --nav-bg: linear-gradient(90deg, #252030 0%, #2d2638 100%);
+    --nav-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --card-shadow-hover: 0 8px 30px rgba(236, 72, 153, 0.2);
+    --hr-color: #3d3347;
+}
+
+[data-theme="dark"] h1 { color: var(--pink-300); }
+[data-theme="dark"] h2 { color: var(--pink-400); }
+[data-theme="dark"] nav a,
+[data-theme="dark"] .btn-nav,
+[data-theme="dark"] .btn-logout { color: var(--pink-300); background: var(--card-bg); border-color: var(--border); }
+[data-theme="dark"] nav a:hover,
+[data-theme="dark"] .btn-nav:hover,
+[data-theme="dark"] .btn-logout:hover { background: rgba(236, 72, 153, 0.2); color: var(--pink-200); }
+[data-theme="dark"] .card { background: var(--card-bg); border-color: var(--border); }
+[data-theme="dark"] .btn-secondary { background: #2d2638; color: var(--pink-300); border-color: var(--border); }
+[data-theme="dark"] .btn-secondary:hover { background: #3d3347; }
+[data-theme="dark"] .btn-cat,
+[data-theme="dark"] .btn-course { background: var(--card-bg); border-color: var(--border); color: var(--pink-300); }
+[data-theme="dark"] .btn-cat:hover,
+[data-theme="dark"] .btn-course:hover { background: rgba(236, 72, 153, 0.2); color: var(--pink-200); }
+[data-theme="dark"] .course-item { background: var(--card-bg); border-color: var(--border); }
+[data-theme="dark"] .course-meta { color: var(--text-muted); }
+[data-theme="dark"] .btn-lesson,
+[data-theme="dark"] .btn-book { background: var(--card-bg); border-color: var(--border); color: var(--pink-300); }
+[data-theme="dark"] .btn-lesson:hover,
+[data-theme="dark"] .btn-book:hover { background: rgba(236, 72, 153, 0.2); color: var(--pink-200); }
+[data-theme="dark"] .lesson-locked { color: var(--text-muted); }
+[data-theme="dark"] .lesson-content pre { background: #252030; border: 1px solid var(--border); }
+[data-theme="dark"] footer hr { border-color: var(--hr-color); }
+
+/* 2. ОБЩИЕ СТИЛИ ТЕЛА */
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    /* Оптимальный шрифт (Вариант С) */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* 3. НАВИГАЦИЯ */
+nav {
+    background: var(--nav-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--nav-shadow);
+    display: flex; /* Чтобы всё было в одну строку */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap; /* Если ссылок много, они перенесутся */
+}
+
+nav a,
+.btn-nav {
+    display: inline-block;
+    color: var(--pink-700);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--pink-200);
+    background: var(--card-bg);
+    transition: background 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+nav a:hover,
+.btn-nav:hover {
+    background: rgba(236, 72, 153, 0.12);
+    color: var(--pink-800);
+    box-shadow: 0 2px 8px rgba(219, 39, 119, 0.15);
+}
+
+nav a.btn-nav {
+    border: 1px solid var(--pink-200);
+}
+
+/* Форма и кнопка «Выйти» в навбаре */
+nav .form-inline,
+nav form {
+    display: inline;
+}
+.btn-logout {
+    background: var(--card-bg);
+    border: 1px solid var(--pink-200);
+    color: var(--pink-700);
+    font-family: inherit;
+}
+.btn-logout:hover {
+    background: rgba(236, 72, 153, 0.12);
+    color: var(--pink-800);
+}
+
+/* 4. КНОПКИ */
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    color: white !important; /* Чтобы текст всегда был белым */
+    padding: 0.6rem 1.25rem;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(219, 39, 119, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(219, 39, 119, 0.45);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: var(--pink-50);
+    color: var(--pink-700);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--pink-200);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-secondary:hover {
+    background: var(--pink-100);
+}
+
+/* Кнопки-фильтры категорий и ссылки на курсы */
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.btn-cat {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid var(--pink-200);
+    background: var(--card-bg);
+    color: var(--pink-700);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-cat:hover {
+    background: rgba(236, 72, 153, 0.12);
+    color: var(--pink-800);
+    box-shadow: 0 2px 8px rgba(219, 39, 119, 0.15);
+}
+
+.course-list {
+    list-style: none;
+    padding: 0;
+}
+.course-item {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    transition: box-shadow 0.2s;
+}
+.course-item:hover {
+    box-shadow: var(--card-shadow);
+}
+.btn-course {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--pink-200);
+    background: var(--pink-50);
+    color: var(--pink-700);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-course:hover {
+    background: rgba(236, 72, 153, 0.15);
+    color: var(--pink-800);
+}
+.course-meta {
+    margin-left: 0.5rem;
+    color: var(--text-muted);
+    font-style: normal;
+}
+
+/* Списки уроков и книг на странице курса */
+.lesson-list,
+.book-list {
+    list-style: none;
+    padding: 0;
+}
+.lesson-item,
+.book-item {
+    margin-bottom: 0.75rem;
+}
+.btn-lesson,
+.btn-book {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--pink-200);
+    background: var(--pink-50);
+    color: var(--pink-700);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.btn-lesson:hover,
+.btn-book:hover {
+    background: rgba(236, 72, 153, 0.15);
+    color: var(--pink-800);
+}
+.lesson-locked {
+    color: var(--text-muted);
+}
+
+/* 5. КАРТОЧКИ (Курсы) */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border);
+    transition: box-shadow 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
+}
+
+/* 6. СООБЩЕНИЯ (Django Messages) */
+.messages-container {
+    margin-bottom: 1.5rem;
+}
+.msg {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.msg.success {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    color: #065f46;
+    border-left: 4px solid #10b981;
+}
+
+.msg.error {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: #991b1b;
+    border-left: 4px solid #ef4444;
+}
+
+/* Кнопка «Назад» */
+.back-row {
+    margin-bottom: 1.25rem;
+}
+.btn-back {
+    font-family: inherit;
+}
+
+/* 7. ЗАГОЛОВКИ */
+h1 {
+    color: var(--pink-800);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--pink-700);
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+/* 8. ФУТЕР */
+footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+}
+.footer-copy {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid var(--hr-color);
+}
+
+/* Переключатель темы */
+.theme-toggle {
+    margin-left: auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.theme-toggle:hover {
+    background: rgba(236, 72, 153, 0.15);
+}

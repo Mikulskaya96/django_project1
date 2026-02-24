@@ -1,10 +1,88 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DevLearn{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-     <h1>Base</h1>
+    <nav>
+        <a href="{% url 'index' %}" class="btn-nav">Главная</a>
+        <a href="{% url 'courses:course_list' %}" class="btn-nav">Курсы</a>
+
+        {% if user.is_authenticated %}
+            <span>Привет, <strong>{{ user.username }}</strong></span>
+            <a href="{% url 'courses:my_courses' %}" class="btn-nav">Мои курсы</a>
+            
+            {% if is_teacher %}
+                <a href="{% url 'courses:course_create' %}" class="btn-nav">Создать курс</a>
+            {% endif %}
+
+            <form method="post" action="{% url 'users:logout' %}" class="form-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn-nav btn-logout">Выйти</button>
+            </form>
+        {% else %}
+            <a href="{% url 'users:login' %}" class="btn-nav">Войти</a>
+            <a href="{% url 'users:register' %}" class="btn-nav">Регистрация</a>
+        {% endif %}
+
+        <button type="button" class="btn-nav theme-toggle" id="theme-toggle" aria-label="Переключить тему">🌞 Тема</button>
+    </nav>
+
+    {# Блок для всплывающих уведомлений (например, "Вы успешно вошли") #}
+    {% if messages %}
+        <div class="messages-container">
+            {% for msg in messages %}
+                <div class="msg {{ msg.tags }}">{{ msg }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <main>
+        {% if request.path != '/' %}
+        <p class="back-row">
+            <button type="button" class="btn-nav btn-back" onclick="history.back()" aria-label="Назад">← Назад</button>
+        </p>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p class="footer-copy">&copy; 2026 DevLearn</p>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+
+    <script>
+        (function() {
+            var STORAGE_KEY = 'devlearn-theme';
+            var toggle = document.getElementById('theme-toggle');
+            var html = document.documentElement;
+
+            function getTheme() {
+                try { return localStorage.getItem(STORAGE_KEY) || 'light'; } catch (e) { return 'light'; }
+            }
+            function setTheme(theme) {
+                html.setAttribute('data-theme', theme);
+                try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+                if (toggle) toggle.textContent = theme === 'dark' ? '🌙 Тема' : '🌞  Тема';
+            }
+
+            setTheme(getTheme());
+            if (toggle) {
+                toggle.addEventListener('click', function() {
+                    var next = getTheme() === 'dark' ? 'light' : 'dark';
+                    setTheme(next);
+                });
+            }
+        })();
+    </script>
 </body>
 </html>

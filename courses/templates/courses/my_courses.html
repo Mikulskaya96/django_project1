@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Мои курсы — DevLearn{% endblock %}
+
+{% block content %}
+<h1>Мои курсы</h1>
+<ul class="course-list">
+    {% for item in progress_list %}
+    <li class="course-item">
+        <a href="{% url 'courses:course_detail' item.enrollment.course.pk %}" class="btn-course">{{ item.enrollment.course.title }}</a>
+        <span class="course-meta">— {{ item.completed }}/{{ item.total }} уроков
+        {% if item.total > 0 %}({% widthratio item.completed item.total 100 %}%){% endif %}</span>
+    </li>
+    {% empty %}
+    <li class="course-item">Вы пока не записаны ни на один курс.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

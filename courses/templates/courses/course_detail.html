@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.title }} — DevLearn{% endblock %}
+
+{% block content %}
+<h1>{{ course.title }}</h1>
+<p>{{ course.description }}</p>
+<p>Автор: {{ course.author.username }} | Цена: {{ course.price }} ₽</p>
+
+{% if not is_enrolled and user.is_authenticated %}
+<form method="post" action="{% url 'courses:enroll' course.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="btn-primary">Записаться на курс</button>
+</form>
+{% endif %}
+
+<h2>Уроки</h2>
+<ul class="lesson-list">
+    {% for lesson in course.lessons.all %}
+    <li class="lesson-item">
+        {% if is_enrolled %}
+            <a href="{% url 'courses:lesson_detail' lesson.pk %}" class="btn-lesson">{{ lesson.title }}</a>
+        {% else %}
+            <span class="lesson-locked">{{ lesson.title }}</span> <em class="course-meta">(запишитесь, чтобы открыть)</em>
+        {% endif %}
+    </li>
+    {% empty %}
+    <li class="lesson-item">Уроков пока нет.</li>
+    {% endfor %}
+</ul>
+
+{% if course.books.all %}
+<h2>Книги</h2>
+<ul class="book-list">
+    {% for book in course.books.all %}
+    <li class="book-item"><a href="{% url 'courses:book_redirect' book.pk %}" class="btn-book" target="_blank" rel="noopener">{{ book.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

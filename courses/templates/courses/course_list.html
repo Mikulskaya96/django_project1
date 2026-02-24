@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Курсы — DevLearn{% endblock %}
+
+{% block content %}
+<h1>Курсы</h1>
+{% if categories %}
+<p class="category-filters">
+    {% for c in categories %}
+    <a href="?category={{ c.id }}" class="btn-cat">{{ c.name }}</a>
+    {% endfor %}
+    <a href="{% url 'courses:course_list' %}" class="btn-cat">Все</a>
+</p>
+{% endif %}
+<ul class="course-list">
+    {% for course in courses %}
+    <li class="course-item">
+        <a href="{% url 'courses:course_detail' course.pk %}" class="btn-course">{{ course.title }}</a>
+        {% if course.category %}<em class="course-meta">{{ course.category.name }}</em>{% endif %}
+        <span class="course-meta"> — {{ course.author.username }}, {{ course.price }} ₽</span>
+    </li>
+    {% empty %}
+    <li>Курсов пока нет.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

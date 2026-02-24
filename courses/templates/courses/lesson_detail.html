@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load course_extras %}
+
+{% block title %}{{ lesson.title }} — DevLearn{% endblock %}
+
+{% block extra_css %}
+<style>
+.lesson-content pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; }
+.lesson-content code { font-family: monospace; }
+</style>
+{% endblock %}
+
+{% block content %}
+<nav>
+    <a href="{% url 'courses:course_detail' lesson.course.pk %}">← {{ lesson.course.title }}</a>
+</nav>
+
+<h1>{{ lesson.title }}</h1>
+
+{% if lesson.content %}
+<div class="lesson-content">
+    {{ lesson.content|markdown_to_html }}
+</div>
+{% endif %}
+
+{% if lesson.video_url %}
+<p><a href="{{ lesson.video_url }}" target="_blank">Смотреть видео</a></p>
+{% endif %}
+
+{% if not is_completed %}
+<form method="post" action="{% url 'courses:complete_lesson' lesson.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="btn-primary">Отметить как пройденный</button>
+</form>
+{% else %}
+<p>✓ Урок пройден</p>
+{% endif %}
+{% endblock %}
