@@ -18,7 +18,6 @@ class RegisterView(CreateView):
         user = form.save(commit=False)
         user.email = form.cleaned_data["email"]
         user.save()
-        role = form.cleaned_data["role"]
-        Profile.objects.create(user=user, role=role)
+        Profile.objects.create(user=user, role="student")
         login(self.request, user, backend="django.contrib.auth.backends.ModelBackend")
         return redirect(self.success_url)

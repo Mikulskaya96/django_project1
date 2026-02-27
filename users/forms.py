@@ -4,14 +4,10 @@ from django.contrib.auth.models import User
 
 
 class RegisterForm(UserCreationForm):
-    """Форма регистрации. Расширяет стандартную UserCreationForm,
-    добавляя email и выбор роли."""
+    """Форма регистрации. Расширяет стандартную UserCreationForm, добавляя email.
+    Роль при регистрации всегда «студент»; преподавателя назначают в админке."""
 
     email = forms.EmailField(required=True)
-    role = forms.ChoiceField(
-        choices=[("student", "Студент"), ("teacher", "Преподаватель")],
-        required=True,
-    )
 
     class Meta:
         model = User

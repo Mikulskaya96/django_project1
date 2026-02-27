@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}{{ student.get_full_name|default:student.username }} — DevLearn{% endblock %}
+
+{% block content %}
+<div class="student-detail">
+    <h1>{{ student.get_full_name|default:student.username }}</h1>
+
+    <div class="student-info">
+        <p><strong>Логин:</strong> {{ student.username }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        {% if student.profile %}
+            <p><strong>Роль:</strong> {{ student.profile.get_role_display }}</p>
+            {% if student.profile.avatar %}
+                <p><strong>Аватар:</strong><br>
+                    <img src="{{ student.profile.avatar.url }}" alt="Аватар" style="max-width: 200px; border-radius: 10px;">
+                </p>
+            {% endif %}
+        {% endif %}
+        <p><strong>Дата присоединения:</strong> {{ student.date_joined|date:"d.m.Y H:i" }}</p>
+    </div>
+
+    <hr>
+
+    <h2>Курсы студента</h2>
+    {% if enrollments %}
+        <div class="courses-section">
+            {% for enrollment in enrollments %}
+                <div class="course-item">
+                    <h3><a href="{% url 'courses:course_detail' enrollment.course.id %}">{{ enrollment.course.title }}</a></h3>
+                    <p>{{ enrollment.course.description|truncatewords:20 }}</p>
+                    <p><strong>Дата записи:</strong> {{ enrollment.enrolled_at|date:"d.m.Y" }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Студент ещё не записан ни на один курс.</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>Оценки</h2>
+    {% if grades %}
+        <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Курс</th>
+                    <th>Оценка</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grade in grades %}
+                    <tr>
+                        <td><a href="{% url 'courses:course_detail' grade.course.id %}">{{ grade.course.title }}</a></td>
+                        <td style="text-align: center; font-weight: bold;">{{ grade.grade }}/5</td>
+                        <td>{{ grade.date|date:"d.m.Y H:i" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>У студента ещё нет оценок.</p>
+    {% endif %}
+</div>
+{% endblock %}

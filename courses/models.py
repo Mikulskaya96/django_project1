@@ -127,3 +127,33 @@ class LessonProgress(models.Model):
 
     class Meta:
         unique_together = ["user", "lesson"]
+
+
+class Grade(models.Model):
+    """Оценка студента по курсу. Содержит оценку и дату."""
+
+    student = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="grades",
+        verbose_name="Студент",
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name="grades",
+        verbose_name="Курс",
+    )
+    grade = models.IntegerField(
+        "Оценка",
+        choices=[(i, str(i)) for i in range(1, 6)],
+        default=1,
+    )
+    date = models.DateTimeField("Дата оценки", auto_now=True)
+
+    class Meta:
+        unique_together = ["student", "course"]
+        ordering = ["-date"]
+
+    def __str__(self):
+        return f"{self.student.username} — {self.course.title}: {self.grade}"

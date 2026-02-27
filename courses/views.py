@@ -4,9 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 
-from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress
-from .forms import CourseCreateForm
+from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade
+from .forms import CourseCreateForm, EnrollStudentForm
 
 
 class CourseListView(ListView):
@@ -155,3 +156,80 @@ def book_redirect(request, pk):
     if url and not url.startswith(("http://", "https://")):
         url = "https://" + url
     return redirect(url)
+
+
+@login_required
+def enroll_student(request, pk):
+    """Позволяет преподавателю записывать выбранного студента на курс."""
+    course = get_object_or_404(Course, pk=pk)
+    profile = getattr(request.user, "profile", None)
+    if not (profile and profile.role == "teacher"):
+        messages.error(request, "Только преподаватель может записывать студентов на курс.")
+        return redirect("courses:course_detail", pk=pk)
+
+    if request.method == "POST":
+        form = EnrollStudentForm(request.POST)
+        if form.is_valid():
+            student = form.cleaned_data["student"]
+            Enrollment.objects.get_or_create(student=student, course=course)
+            messages.success(request, f"Студент {student.username} записан на курс «{course.title}»")
+            return redirect("courses:course_detail", pk=pk)
+    else:
+        form = EnrollStudentForm()
+
+    return render(request, "courses/enroll_student.html", {"form": form, "course": course})
+
+
+class StudentListView(LoginRequiredMixin, ListView):
+    """Список студентов. Доступ только авторизованным."""
+
+    template_name = "courses/student_list.html"
+    context_object_name = "students"
+    paginate_by = 10
+    login_url = reverse_lazy("users:login")
+
+    def get_queryset(self):
+        return User.objects.filter(profile__role="student").select_related("profile")
+
+
+class StudentDetailView(LoginRequiredMixin, DetailView):
+    """Детальная информация о студенте. Доступ только авторизованным."""
+
+    model = User
+    login_url = reverse_lazy("users:login")
+    template_name = "courses/student_detail.html"
+    context_object_name = "student"
+
+    def get_queryset(self):
+        return User.objects.filter(profile__role="student").select_related("profile")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        student = self.object
+        # Курсы на которых записан студент
+        context["enrollments"] = Enrollment.objects.filter(student=student).select_related("course")
+        # Оценки студента
+        context["grades"] = Grade.objects.filter(student=student).select_related("course")
+        return context
+
+
+class GradeBookView(LoginRequiredMixin, ListView):
+    """Журнал оценок. Доступ только авторизованным."""
+
+    template_name = "courses/grade_book.html"
+    context_object_name = "grades"
+    login_url = reverse_lazy("users:login")
+
+    def get_queryset(self):
+        return Grade.objects.select_related("student", "course").order_by("-date")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Получаем уникальные курсы для фильтра
+        context["courses"] = Course.objects.all()
+        # Фильтруем по курсу, если задан параметр (только валидный id)
+        course_id = self.request.GET.get("course")
+        if course_id and course_id.isdigit():
+            context["grades"] = context["grades"].filter(course_id=int(course_id))
+            context["selected_course"] = int(course_id)
+        return context

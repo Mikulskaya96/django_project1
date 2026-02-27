@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress
+from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade
 
 
 @admin.register(Category)
@@ -32,3 +32,10 @@ class EnrollmentAdmin(admin.ModelAdmin):
 @admin.register(LessonProgress)
 class LessonProgressAdmin(admin.ModelAdmin):
     list_display = ("user", "lesson", "completed_at")
+
+
+@admin.register(Grade)
+class GradeAdmin(admin.ModelAdmin):
+    list_display = ("student", "course", "grade", "date")
+    list_filter = ("course", "grade")
+    search_fields = ("student__username",)

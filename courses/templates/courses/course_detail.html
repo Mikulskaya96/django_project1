@@ -14,6 +14,12 @@
 </form>
 {% endif %}
 
+{% if user.is_authenticated and is_teacher %}
+    <p>
+        <a href="{% url 'courses:enroll_student' course.pk %}" class="btn-nav">Записать студента на курс</a>
+    </p>
+{% endif %}
+
 <h2>Уроки</h2>
 <ul class="lesson-list">
     {% for lesson in course.lessons.all %}

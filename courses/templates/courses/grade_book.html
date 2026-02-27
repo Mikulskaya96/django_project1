@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Журнал оценок — DevLearn{% endblock %}
+
+{% block content %}
+<h1>Журнал оценок</h1>
+
+<!-- Фильтр по курсам -->
+<div class="filter-section">
+    <form method="get" class="filter-form">
+        <label for="course-select">Фильтр по курсу:</label>
+        <select name="course" id="course-select">
+            <option value="">Все курсы</option>
+            {% for course in courses %}
+                <option value="{{ course.id }}"
+                    {% if course.id == selected_course %}selected{% endif %}>
+                    {{ course.title }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn-primary">Фильтровать</button>
+        {% if selected_course %}
+            <a href="{% url 'courses:grade_book' %}" class="btn-nav">Сбросить</a>
+        {% endif %}
+    </form>
+</div>
+
+<hr>
+
+<!-- Таблица оценок -->
+{% if grades %}
+    <div class="grade-book-section">
+        <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Студент</th>
+                    <th>Курс</th>
+                    <th>Оценка</th>
+                    <th>Дата оценки</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grade in grades %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'courses:student_detail' grade.student.id %}">
+                                {{ grade.student.get_full_name|default:grade.student.username }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'courses:course_detail' grade.course.id %}">
+                                {{ grade.course.title }}
+                            </a>
+                        </td>
+                        <td style="text-align: center; font-weight: bold;">
+                            {% if grade.grade >= 4 %}
+                                <span style="color: green;">{{ grade.grade }}/5</span>
+                            {% elif grade.grade == 3 %}
+                                <span style="color: orange;">{{ grade.grade }}/5</span>
+                            {% else %}
+                                <span style="color: red;">{{ grade.grade }}/5</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ grade.date|date:"d.m.Y H:i" }}</td>
+                        <td>
+                            <a href="{% url 'courses:student_detail' grade.student.id %}" class="btn-nav">Профиль</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p>Оценок в журнале нет.</p>
+{% endif %}
+{% endblock %}
+
+<style>
+    .filter-form {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .filter-form select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    table tr:hover {
+        background-color: #f0f0f0;
+    }
+
+    table th {
+        background-color: #4CAF50;
+        color: white;
+        text-align: left;
+    }
+</style>
