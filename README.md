@@ -67,12 +67,12 @@ python manage.py test
 3. **Dashboard** → **New** → **Blueprint**. Укажи репозиторий и ветку (например `main`). Render подхватит `render.yaml` из корня.
 4. После создания сервиса открой **Environment** и добавь вручную:
    - `GEMINI_API_KEY` — твой ключ из [Google AI Studio](https://aistudio.google.com/apikey) (чтобы работал блок «Спросить ИИ»).
-5. Дождись окончания деплоя. Сайт будет доступен по ссылке вида `https://devlearn.onrender.com`.
-6. **Суперпользователь:** в Dashboard открой вкладку **Shell** и выполни:
-   ```bash
-   python manage.py createsuperuser
-   ```
-   Введи логин, email и пароль — после этого можно заходить в админку на продакшене.
+5. В **Environment** добавь переменные для админки (на бесплатном тарифе Shell нет, суперпользователь создаётся при сборке):
+   - `DJANGO_SUPERUSER_USERNAME` — логин для входа в админку (например `admin`)
+   - `DJANGO_SUPERUSER_EMAIL` — email (например `admin@example.com`)
+   - `DJANGO_SUPERUSER_PASSWORD` — пароль для этого пользователя
+   После следующего деплоя суперпользователь появится, заходить: `https://твой-сайт.onrender.com/admin/`
+6. Дождись окончания деплоя. Сайт будет доступен по ссылке вида `https://devlearn.onrender.com`.
 
 На бесплатном тарифе сервис «засыпает» после ~15 минут без заходов; первый запрос после сна может открываться 30–60 секунд.
 
