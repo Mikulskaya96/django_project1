@@ -5,7 +5,7 @@ from django.conf import settings
 class Category(models.Model):
     """Категория курсов (Python, JavaScript, Django и т.д.)."""
 
-    name = models.CharField("Название", max_length=50)
+    name = models.CharField("Название", max_length=100)
 
     def __str__(self):
         return self.name
@@ -14,7 +14,7 @@ class Category(models.Model):
 class Course(models.Model):
     """Курс. author — кто создал; price можно сделать 0 для бесплатных."""
 
-    title = models.CharField("Название", max_length=50)
+    title = models.CharField("Название", max_length=100)
     description = models.TextField("Описание", blank=True)
     category = models.ForeignKey(
         "Category",
@@ -54,7 +54,7 @@ class Book(models.Model):
         related_name="books",
         verbose_name="Курс",
     )
-    title = models.CharField("Название", max_length=50)
+    title = models.CharField("Название", max_length=100)
     url = models.URLField("Ссылка")
     order = models.PositiveIntegerField("Порядок", default=0)
 
@@ -74,7 +74,7 @@ class Lesson(models.Model):
         related_name="lessons",
         verbose_name="Курс",
     )
-    title = models.CharField("Название", max_length=50)
+    title = models.CharField("Название", max_length=100)
     content = models.TextField("Содержание (Markdown)", blank=True)
     video_url = models.URLField("Ссылка на видео", blank=True)
     order = models.PositiveIntegerField("Порядок", default=0)

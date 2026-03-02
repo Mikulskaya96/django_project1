@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
+from django.conf import settings
+from django.http import JsonResponse
 
 from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade
 from .forms import CourseCreateForm, EnrollStudentForm
@@ -75,7 +77,67 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
             user=self.request.user, lesson=lesson
         ).first()
         context["is_completed"] = progress is not None
+        context["gemini_available"] = bool(getattr(settings, "GEMINI_API_KEY", ""))
         return context
+
+
+@login_required
+def ask_lesson_ai(request, pk):
+    """Отвечает на вопрос по уроку через Gemini. POST: question. Доступ только записанным на курс."""
+    if request.method != "POST":
+        return JsonResponse({"error": "Метод не разрешён"}, status=405)
+
+    lesson = get_object_or_404(Lesson, pk=pk)
+    if not Enrollment.objects.filter(student=request.user, course=lesson.course).exists():
+        return JsonResponse({"error": "Нет доступа к этому курсу"}, status=403)
+
+    question = (request.POST.get("question") or "").strip()
+    if not question:
+        return JsonResponse({"error": "Введите вопрос"}, status=400)
+
+    api_key = getattr(settings, "GEMINI_API_KEY", "") or ""
+    if not api_key:
+        return JsonResponse({"error": "AI не настроен. Добавьте GEMINI_API_KEY в .env."}, status=503)
+
+    try:
+        import google.generativeai as genai
+        genai.configure(api_key=api_key)
+        context = (lesson.content or "")[:3000]
+        prompt = f"""Ты — помощник на учебной платформе. Тема урока: «{lesson.title}».
+Контекст урока (может быть пустым):
+{context}
+
+Вопрос студента: {question}
+
+Ответь кратко и по делу на русском."""
+        # Пробуем модели по очереди (только ID, поддерживаемые Google AI Studio)
+        last_error = None
+        for model_name in ("gemini-2.0-flash", "gemini-pro"):
+            try:
+                model = genai.GenerativeModel(model_name)
+                response = model.generate_content(prompt)
+                answer = (response.text or "").strip()
+                if answer:
+                    return JsonResponse({"answer": answer})
+            except Exception as inner:
+                last_error = inner
+                s = str(inner)
+                if "429" in s or "quota" in s.lower():
+                    continue
+                if "404" in s or "not found" in s.lower():
+                    continue
+                raise
+        err_msg = "Превышен лимит запросов. Подождите минуту и попробуйте снова."
+        if last_error and ("404" in str(last_error) or "not found" in str(last_error).lower()):
+            err_msg = "Сейчас модель недоступна. Попробуйте позже."
+        return JsonResponse({"error": err_msg}, status=503)
+    except Exception as e:
+        err = str(e)
+        if "429" in err or "quota" in err.lower():
+            return JsonResponse({
+                "error": "Превышен лимит бесплатного API. Подождите минуту и попробуйте снова."
+            }, status=429)
+        return JsonResponse({"error": f"Ошибка: {err}"}, status=500)
 
 
 class MyCoursesView(LoginRequiredMixin, ListView):

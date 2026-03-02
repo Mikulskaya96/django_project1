@@ -12,6 +12,7 @@ urlpatterns = [
     path("<int:pk>/enroll/", views.enroll_course, name="enroll"),
     path("lesson/<int:pk>/", views.LessonDetailView.as_view(), name="lesson_detail"),
     path("lesson/<int:pk>/complete/", views.complete_lesson, name="complete_lesson"),
+    path("lesson/<int:pk>/ask-ai/", views.ask_lesson_ai, name="ask_lesson_ai"),
     path("book/<int:pk>/go/", views.book_redirect, name="book_redirect"),
     # Студенты и оценки
     path("students/", views.StudentListView.as_view(), name="student_list"),
