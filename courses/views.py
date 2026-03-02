@@ -9,7 +9,7 @@ from django.conf import settings
 from django.http import JsonResponse
 
 from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade
-from .forms import CourseCreateForm, EnrollStudentForm
+from .forms import CourseCreateForm, EnrollStudentForm, GradeForm
 
 
 class CourseListView(ListView):
@@ -272,7 +272,58 @@ class StudentDetailView(LoginRequiredMixin, DetailView):
         context["enrollments"] = Enrollment.objects.filter(student=student).select_related("course")
         # Оценки студента
         context["grades"] = Grade.objects.filter(student=student).select_related("course")
+        # Форма оценки — только для преподавателей; курсы только те, на которые записан студент
+        profile = getattr(self.request.user, "profile", None)
+        if profile and profile.role == "teacher":
+            context["grade_form"] = GradeForm()
+            context["grade_form"].fields["course"].queryset = Course.objects.filter(
+                enrollments__student=student
+            ).distinct()
+        else:
+            context["grade_form"] = None
         return context
+
+
+@login_required
+def add_grade(request, pk):
+    """Поставить или изменить оценку студенту по курсу. Только преподаватели."""
+    student = get_object_or_404(User, pk=pk, profile__role="student")
+    profile = getattr(request.user, "profile", None)
+    if not (profile and profile.role == "teacher"):
+        messages.error(request, "Только преподаватель может выставлять оценки.")
+        return redirect("courses:student_detail", pk=pk)
+
+    if request.method != "POST":
+        return redirect("courses:student_detail", pk=pk)
+
+    courses_qs = Course.objects.filter(enrollments__student=student).distinct()
+    form = GradeForm(request.POST)
+    form.fields["course"].queryset = courses_qs
+
+    if request.method == "POST" and form.is_valid():
+        course = form.cleaned_data["course"]
+        grade_value = form.cleaned_data["grade"]
+        Grade.objects.update_or_create(
+            student=student,
+            course=course,
+            defaults={"grade": grade_value},
+        )
+        messages.success(request, f"Оценка {grade_value} по курсу «{course.title}» сохранена.")
+        return redirect("courses:student_detail", pk=pk)
+
+    # GET или невалидная форма — показываем страницу студента с формой
+    enrollments = Enrollment.objects.filter(student=student).select_related("course")
+    grades = Grade.objects.filter(student=student).select_related("course")
+    return render(
+        request,
+        "courses/student_detail.html",
+        {
+            "student": student,
+            "enrollments": enrollments,
+            "grades": grades,
+            "grade_form": form,
+        },
+    )
 
 
 class GradeBookView(LoginRequiredMixin, ListView):

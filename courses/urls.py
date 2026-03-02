@@ -17,6 +17,7 @@ urlpatterns = [
     # Студенты и оценки
     path("students/", views.StudentListView.as_view(), name="student_list"),
     path("students/<int:pk>/", views.StudentDetailView.as_view(), name="student_detail"),
+    path("students/<int:pk>/grade/", views.add_grade, name="add_grade"),
     path("grade-book/", views.GradeBookView.as_view(), name="grade_book"),
     # Запись студентов (только для преподавателей)
     path("<int:pk>/enroll-student/", views.enroll_student, name="enroll_student"),

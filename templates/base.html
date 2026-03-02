@@ -13,6 +13,9 @@
 <body>
     <nav>
         <a href="{% url 'index' %}" class="btn-nav">Главная</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'courses:student_list' %}" class="btn-nav">Студенты</a>
+        {% endif %}
         <a href="{% url 'courses:course_list' %}" class="btn-nav">Курсы</a>
 
         {% if user.is_authenticated %}

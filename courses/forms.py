@@ -23,3 +23,19 @@ class CourseCreateForm(forms.ModelForm):
     class Meta:
         model = Course
         fields = ("title", "description", "category", "price")
+
+
+class GradeForm(forms.Form):
+    """Форма выставления оценки студенту по курсу. Только для преподавателей."""
+
+    course = forms.ModelChoiceField(
+        queryset=Course.objects.none(),
+        label="Курс",
+        widget=forms.Select(attrs={"class": "form-control"}),
+    )
+    grade = forms.TypedChoiceField(
+        choices=[(i, str(i)) for i in range(1, 6)],
+        coerce=int,
+        label="Оценка",
+        widget=forms.Select(attrs={"class": "form-control"}),
+    )

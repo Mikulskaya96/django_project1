@@ -40,6 +40,16 @@
     <hr>
 
     <h2>Оценки</h2>
+    {% if grade_form %}
+        <div class="grade-form" style="margin-bottom: 1.5rem;">
+            <h3>Поставить оценку</h3>
+            <form method="post" action="{% url 'courses:add_grade' student.pk %}">
+                {% csrf_token %}
+                {{ grade_form.as_p }}
+                <button type="submit" class="btn-primary">Сохранить оценку</button>
+            </form>
+        </div>
+    {% endif %}
     {% if grades %}
         <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
             <thead>
