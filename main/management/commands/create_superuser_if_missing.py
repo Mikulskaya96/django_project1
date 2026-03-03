@@ -6,6 +6,7 @@ DJANGO_SUPERUSER_USERNAME, DJANGO_SUPERUSER_EMAIL, DJANGO_SUPERUSER_PASSWORD.
 import os
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
+from users.models import Profile
 
 
 class Command(BaseCommand):
@@ -30,5 +31,6 @@ class Command(BaseCommand):
             )
             return
 
-        User.objects.create_superuser(username=username, email=email, password=password)
+        user = User.objects.create_superuser(username=username, email=email, password=password)
+        Profile.objects.get_or_create(user=user, defaults={"role": "teacher"})
         self.stdout.write(self.style.SUCCESS(f"Суперпользователь «{username}» создан."))

@@ -19,7 +19,11 @@
         <a href="{% url 'courses:course_list' %}" class="btn-nav">Курсы</a>
 
         {% if user.is_authenticated %}
+            {% if profile_avatar_url %}
+                <img src="{{ profile_avatar_url }}" alt="" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; vertical-align: middle;">
+            {% endif %}
             <span>Привет, <strong>{{ user.username }}</strong></span>
+            <a href="{% url 'users:profile_edit' %}" class="btn-nav">Мой профиль</a>
             <a href="{% url 'courses:my_courses' %}" class="btn-nav">Мои курсы</a>
             
             {% if is_teacher %}
