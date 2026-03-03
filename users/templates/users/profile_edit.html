@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Мой профиль — DevLearn{% endblock %}
+
+{% block content %}
+<h1>Мой профиль</h1>
+
+{% if profile.avatar %}
+    <p><img src="{{ profile.avatar.url }}" alt="Аватар" style="max-width: 150px; height: auto; border-radius: 50%; object-fit: cover;"></p>
+{% else %}
+    <p>Аватар не загружен.</p>
+{% endif %}
+
+{% if can_upload_avatar %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-primary">Сохранить</button>
+</form>
+{% else %}
+<p class="muted">Загрузка аватара доступна только при локальном запуске проекта (учебный проект).</p>
+{% endif %}
+
+<p><a href="{% url 'index' %}">← На главную</a></p>
+{% endblock %}
