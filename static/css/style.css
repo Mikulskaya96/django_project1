@@ -79,14 +79,14 @@ body {
 /* 3. НАВИГАЦИЯ */
 nav {
     background: var(--nav-bg);
-    padding: 1rem 1.5rem;
+    padding: 0.65rem 1.25rem;
     border-radius: 16px;
     box-shadow: var(--nav-shadow);
-    display: flex; /* Чтобы всё было в одну строку */
+    display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     margin-bottom: 2.5rem;
-    flex-wrap: wrap; /* Если ссылок много, они перенесутся */
+    flex-wrap: nowrap; /* Всё в одну строку */
 }
 
 nav a,
@@ -95,13 +95,14 @@ nav a,
     color: var(--pink-700);
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.75rem;
     border-radius: 10px;
     border: 1px solid var(--pink-200);
     background: var(--card-bg);
     transition: background 0.2s, box-shadow 0.2s;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
 }
 
 nav a:hover,
@@ -115,16 +116,21 @@ nav a.btn-nav {
     border: 1px solid var(--pink-200);
 }
 
-/* Форма и кнопка «Выйти» в навбаре */
+/* Форма и кнопка «Выйти» в навбаре — в одну строку с остальными */
 nav .form-inline,
 nav form {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    flex-shrink: 0;
 }
 .btn-logout {
     background: var(--card-bg);
     border: 1px solid var(--pink-200);
     color: var(--pink-700);
     font-family: inherit;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.875rem;
 }
 .btn-logout:hover {
     background: rgba(236, 72, 153, 0.12);
@@ -470,4 +476,11 @@ footer hr {
     box-shadow:
         0 0 0 1px rgba(248, 250, 252, 0.9),
         0 0 0 4px rgba(56, 189, 248, 0.8);
+}
+
+/* Навбар на узких экранах — разрешаем перенос */
+@media (max-width: 900px) {
+    nav {
+        flex-wrap: wrap;
+    }
 }
