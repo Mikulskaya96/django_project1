@@ -27,6 +27,7 @@ urlpatterns = [
     path("", index, name="index"),
     path("users/", include("users.urls", namespace="users")),
     path("courses/", include("courses.urls", namespace="courses")),
+    path("api/", include("courses.api_urls")),  # REST API для курсов
 ]
 # Раздача медиа (аватары) — и в dev, и на Render
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
