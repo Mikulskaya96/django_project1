@@ -47,6 +47,19 @@
     <div id="ai-answer" style="margin-top: 1rem; display: none;"></div>
     <div id="ai-loading" style="margin-top: 1rem; display: none;">ИИ думает...</div>
 </section>
+{% if ai_messages %}
+<section style="margin-top: 1.5rem;">
+    <h3>Ваши недавние вопросы</h3>
+    <ul>
+        {% for msg in ai_messages %}
+        <li style="margin-bottom: 0.5rem;">
+            <strong>Вы:</strong> {{ msg.question }}<br>
+            <strong>ИИ:</strong> {{ msg.answer|linebreaksbr }}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
 <script>
 document.getElementById("ask-ai-form").addEventListener("submit", async function(e) {
     e.preventDefault();

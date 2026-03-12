@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     """Профиль пользователя — расширяет стандартного User.
-    Позволяет хранить аватар и роль (Студент/Преподаватель)."""
+    Позволяет хранить аватар, роль (Студент/Преподаватель) и доступ к платному контенту."""
 
     ROLE_CHOICES = [
         ("student", "Студент"),
@@ -26,6 +26,10 @@ class Profile(models.Model):
         max_length=10,
         choices=ROLE_CHOICES,
         default="student",
+    )
+    has_access = models.BooleanField(
+        "Есть доступ к платному контенту",
+        default=False,
     )
 
     def __str__(self):

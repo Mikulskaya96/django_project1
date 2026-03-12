@@ -1,4 +1,5 @@
 from django.contrib import admin
+from markdownx.admin import MarkdownxModelAdmin
 from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade
 
 
@@ -39,3 +40,7 @@ class GradeAdmin(admin.ModelAdmin):
     list_display = ("student", "course", "grade", "date")
     list_filter = ("course", "grade")
     search_fields = ("student__username",)
+    
+@admin.register(Lesson)
+class LessonAdmin(MarkdownxModelAdmin):
+    list_display = ("title", "course", "order")

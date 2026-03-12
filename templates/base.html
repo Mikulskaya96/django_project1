@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +13,23 @@
 </head>
 <body>
     <nav>
-        <a href="{% url 'index' %}" class="btn-nav">Главная</a>
+        <span id="current-time" class="nav-time"></span>
+        <a href="{% url 'index' %}" class="btn-nav">{% trans "Главная" %}</a>
         {% if user.is_authenticated %}
-        <a href="{% url 'courses:student_list' %}" class="btn-nav">Студенты</a>
+        <a href="{% url 'courses:student_list' %}" class="btn-nav">{% trans "Студенты" %}</a>
         {% endif %}
-        <a href="{% url 'courses:course_list' %}" class="btn-nav">Курсы</a>
+        <a href="{% url 'courses:course_list' %}" class="btn-nav">{% trans "Курсы" %}</a>
 
         {% if user.is_authenticated %}
             {% if profile_avatar_url %}
                 <img src="{{ profile_avatar_url }}" alt="" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; vertical-align: middle;">
             {% endif %}
-            <span>Привет, <strong>{{ user.username }}</strong></span>
-            <a href="{% url 'users:profile_edit' %}" class="btn-nav">Мой профиль</a>
-            <a href="{% url 'courses:my_courses' %}" class="btn-nav">Мои курсы</a>
+            <span>{% trans "Привет," %} <strong>{{ user.username }}</strong></span>
+            <a href="{% url 'users:profile_edit' %}" class="btn-nav">{% trans "Мой профиль" %}</a>
+            <a href="{% url 'courses:my_courses' %}" class="btn-nav">{% trans "Мои курсы" %}</a>
             
             {% if is_teacher %}
-                <a href="{% url 'courses:course_create' %}" class="btn-nav">Создать курс</a>
+                <a href="{% url 'courses:course_create' %}" class="btn-nav">{% trans "Создать курс" %}</a>
             {% endif %}
 
             <form method="post" action="{% url 'users:logout' %}" class="form-inline">
@@ -35,31 +37,42 @@
                 <button type="submit" class="btn-nav btn-logout">Выйти</button>
             </form>
         {% else %}
-            <a href="{% url 'users:login' %}" class="btn-nav">Войти</a>
-            <a href="{% url 'users:register' %}" class="btn-nav">Регистрация</a>
+            <a href="{% url 'users:login' %}" class="btn-nav">{% trans "Войти" %}</a>
+            <a href="{% url 'users:register' %}" class="btn-nav">{% trans "Регистрация" %}</a>
         {% endif %}
 
-        <button
-            type="button"
-            class="theme-toggle"
-            id="theme-toggle"
-            aria-label="Переключить тему"
-        >
-            <span class="theme-toggle__thumb">
-                <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 4.5V2m0 20v-2.5M4.22 4.22 5.64 5.64M18.36 18.36 19.78 19.78M4.5 12H2m20 0h-2.5M4.22 19.78 5.64 18.36M18.36 5.64 19.78 4.22M12 8.25A3.75 3.75 0 1 1 8.25 12 3.75 3.75 0 0 1 12 8.25Z"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
-                </svg>
-                <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M21 12.79A8.25 8.25 0 0 1 11.21 3 6.75 6.75 0 1 0 21 12.79Z"
-                          fill="currentColor" />
-                </svg>
-            </span>
-        </button>
+        <div class="nav-right">
+            <form method="post" action="{% url 'set_language' %}" class="lang-switcher">
+                {% csrf_token %}
+                <select name="language" onchange="this.form.submit()">
+                    <option value="ru" {% if LANGUAGE_CODE|slice:':2' == 'ru' %}selected{% endif %}>RU</option>
+                    <option value="en" {% if LANGUAGE_CODE|slice:':2' == 'en' %}selected{% endif %}>EN</option>
+                    <option value="it" {% if LANGUAGE_CODE|slice:':2' == 'it' %}selected{% endif %}>IT</option>
+                </select>
+            </form>
+
+            <button
+                type="button"
+                class="theme-toggle"
+                id="theme-toggle"
+                aria-label="Переключить тему"
+            >
+                <span class="theme-toggle__thumb">
+                    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 4.5V2m0 20v-2.5M4.22 4.22 5.64 5.64M18.36 18.36 19.78 19.78M4.5 12H2m20 0h-2.5M4.22 19.78 5.64 18.36M18.36 5.64 19.78 4.22M12 8.25A3.75 3.75 0 1 1 8.25 12 3.75 3.75 0 0 1 12 8.25Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                    </svg>
+                    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 12.79A8.25 8.25 0 0 1 11.21 3 6.75 6.75 0 1 0 21 12.79Z"
+                              fill="currentColor" />
+                    </svg>
+                </span>
+            </button>
+        </div>
     </nav>
 
     {# Блок для всплывающих уведомлений (например, "Вы успешно вошли") #}
@@ -117,6 +130,15 @@
                     applyTheme(next);
                 });
             }
+
+            function updateTime() {
+                var el = document.getElementById("current-time");
+                if (!el) return;
+                var now = new Date();
+                el.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            }
+            updateTime();
+            setInterval(updateTime, 60000);
         })();
     </script>
 </body>

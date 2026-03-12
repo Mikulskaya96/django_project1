@@ -22,12 +22,19 @@
 
 <h2>Уроки</h2>
 <ul class="lesson-list">
-    {% for lesson in course.lessons.all %}
+    {% for lesson in lessons %}
     <li class="lesson-item">
-        {% if is_enrolled %}
-            <a href="{% url 'courses:lesson_detail' lesson.pk %}" class="btn-lesson">{{ lesson.title }}</a>
+        {% if lesson.is_locked %}
+            <span class="lesson-locked">{{ lesson.title }}</span>
+            <em class="course-meta">(доступно после оплаты)</em>
+            <a href="{% url 'courses:checkout' %}" class="btn-course">Купить доступ за 4&nbsp;$</a>
         {% else %}
-            <span class="lesson-locked">{{ lesson.title }}</span> <em class="course-meta">(запишитесь, чтобы открыть)</em>
+            <a href="{% url 'courses:lesson_detail' lesson.pk %}" class="btn-lesson">
+                {{ lesson.title }}
+                {% if lesson.is_free and not has_access %}
+                    <span class="badge-free">Бесплатно</span>
+                {% endif %}
+            </a>
         {% endif %}
     </li>
     {% empty %}

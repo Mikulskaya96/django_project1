@@ -7,9 +7,35 @@ from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.http import JsonResponse
+import stripe
 
-from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade
+from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade, LessonAiMessage
 from .forms import CourseCreateForm, EnrollStudentForm, GradeForm
+
+
+FREE_LESSONS_PER_COURSE = 3
+
+
+def _user_has_lesson_access(user, lesson: Lesson) -> bool:
+    """Проверяет доступ пользователя к уроку с учётом бесплатных уроков и платного доступа."""
+    if not user.is_authenticated:
+        return False
+
+    profile = getattr(user, "profile", None)
+    has_access = bool(profile and getattr(profile, "has_access", False))
+    is_teacher = bool(profile and getattr(profile, "role", "") == "teacher")
+
+    if is_teacher or has_access:
+        return True
+
+    lessons = list(lesson.course.lessons.all().order_by("order", "id"))
+    try:
+        index = lessons.index(lesson) + 1
+    except ValueError:
+        index = FREE_LESSONS_PER_COURSE + 1
+
+    is_free = index <= FREE_LESSONS_PER_COURSE
+    return is_free
 
 
 class CourseListView(ListView):
@@ -46,11 +72,28 @@ class CourseDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
-        context["is_enrolled"] = False
+        course = self.object
+
+        profile = getattr(user, "profile", None) if user.is_authenticated else None
+        has_access = bool(profile and getattr(profile, "has_access", False))
+        is_teacher = bool(profile and getattr(profile, "role", "") == "teacher")
+
+        is_enrolled = False
         if user.is_authenticated:
-            context["is_enrolled"] = Enrollment.objects.filter(
-                student=user, course=self.object
+            is_enrolled = Enrollment.objects.filter(
+                student=user, course=course
             ).exists()
+
+        lessons = list(course.lessons.all().order_by("order", "id"))
+        for idx, lesson in enumerate(lessons, start=1):
+            is_free = idx <= FREE_LESSONS_PER_COURSE
+            lesson.is_free = is_free
+            lesson.is_locked = not (is_free or has_access or is_teacher)
+
+        context["is_enrolled"] = is_enrolled
+        context["has_access"] = has_access
+        context["is_teacher"] = is_teacher
+        context["lessons"] = lessons
         return context
 
 
@@ -66,9 +109,17 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     def test_func(self):
         lesson = self.get_object()
-        return Enrollment.objects.filter(
-            student=self.request.user, course=lesson.course
-        ).exists()
+        return _user_has_lesson_access(self.request.user, lesson)
+
+    def handle_no_permission(self):
+        if not self.request.user.is_authenticated:
+            return super().handle_no_permission()
+        lesson = self.get_object()
+        return render(
+            self.request,
+            "courses/access_denied.html",
+            {"lesson": lesson, "course": lesson.course},
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -77,67 +128,93 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
             user=self.request.user, lesson=lesson
         ).first()
         context["is_completed"] = progress is not None
-        context["gemini_available"] = bool(getattr(settings, "GEMINI_API_KEY", ""))
+        context["gemini_available"] = bool(
+            getattr(settings, "GROQ_API_KEY", "") or os.environ.get("GROQ_API_KEY", "")
+        )
+        # История последних вопросов к ИИ по уроку
+        context["ai_messages"] = LessonAiMessage.objects.filter(
+            user=self.request.user,
+            lesson=lesson,
+        )[:10]
         return context
 
 
 @login_required
 def ask_lesson_ai(request, pk):
-    """Отвечает на вопрос по уроку через Gemini. POST: question. Доступ только записанным на курс."""
+    """Отвечает на вопрос по уроку через внешнюю AI-модель. POST: question."""
     if request.method != "POST":
         return JsonResponse({"error": "Метод не разрешён"}, status=405)
 
     lesson = get_object_or_404(Lesson, pk=pk)
-    if not Enrollment.objects.filter(student=request.user, course=lesson.course).exists():
-        return JsonResponse({"error": "Нет доступа к этому курсу"}, status=403)
+    user = request.user
+    if not _user_has_lesson_access(user, lesson):
+        return JsonResponse({"error": "Нет доступа к этому уроку"}, status=403)
 
     question = (request.POST.get("question") or "").strip()
     if not question:
         return JsonResponse({"error": "Введите вопрос"}, status=400)
 
-    api_key = getattr(settings, "GEMINI_API_KEY", "") or ""
+    # Лимиты: бесплатным пользователям, без has_access — максимум 3 вопроса в день.
+    profile = getattr(user, "profile", None)
+    has_access = bool(profile and getattr(profile, "has_access", False))
+    if not has_access:
+        from django.utils import timezone
+
+        now = timezone.now()
+        start_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        used_today = LessonAiMessage.objects.filter(
+            user=user,
+            created_at__gte=start_day,
+        ).count()
+        if used_today >= 3:
+            return JsonResponse(
+                {"error": "Лимит бесплатных вопросов на сегодня исчерпан. Попробуйте завтра или оформите полный доступ."},
+                status=429,
+            )
+
+    api_key = getattr(settings, "GROQ_API_KEY", "") or os.environ.get("GROQ_API_KEY", "")
     if not api_key:
-        return JsonResponse({"error": "AI не настроен. Добавьте GEMINI_API_KEY в .env."}, status=503)
+        return JsonResponse({"error": "AI не настроен. Добавьте GROQ_API_KEY в .env."}, status=503)
 
     try:
-        import google.generativeai as genai
-        genai.configure(api_key=api_key)
+        from groq import Groq
+
+        client = Groq(api_key=api_key)
         context = (lesson.content or "")[:3000]
-        prompt = f"""Ты — помощник на учебной платформе. Тема урока: «{lesson.title}».
+        system_prompt = (
+            "Ты — доброжелательный ассистент на учебной платформе по Python. "
+            "Отвечай кратко, по делу и на понятном русском языке, можно с небольшими примерами кода."
+        )
+        user_content = f"""Тема урока: «{lesson.title}».
 Контекст урока (может быть пустым):
 {context}
 
 Вопрос студента: {question}
-
-Ответь кратко и по делу на русском."""
-        # Пробуем модели по очереди (только ID, поддерживаемые Google AI Studio)
-        last_error = None
-        for model_name in ("gemini-2.0-flash", "gemini-pro"):
-            try:
-                model = genai.GenerativeModel(model_name)
-                response = model.generate_content(prompt)
-                answer = (response.text or "").strip()
-                if answer:
-                    return JsonResponse({"answer": answer})
-            except Exception as inner:
-                last_error = inner
-                s = str(inner)
-                if "429" in s or "quota" in s.lower():
-                    continue
-                if "404" in s or "not found" in s.lower():
-                    continue
-                raise
-        err_msg = "Превышен лимит запросов. Подождите минуту и попробуйте снова."
-        if last_error and ("404" in str(last_error) or "not found" in str(last_error).lower()):
-            err_msg = "Сейчас модель недоступна. Попробуйте позже."
-        return JsonResponse({"error": err_msg}, status=503)
+"""
+        resp = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_content},
+            ],
+            temperature=0.2,
+            max_tokens=512,
+        )
+        answer = (resp.choices[0].message.content or "").strip()
+        if not answer:
+            return JsonResponse(
+                {"error": "Модель вернула пустой ответ. Попробуйте переформулировать вопрос."},
+                status=502,
+            )
+        LessonAiMessage.objects.create(
+            user=user,
+            lesson=lesson,
+            question=question,
+            answer=answer,
+        )
+        return JsonResponse({"answer": answer})
     except Exception as e:
-        err = str(e)
-        if "429" in err or "quota" in err.lower():
-            return JsonResponse({
-                "error": "Превышен лимит бесплатного API. Подождите минуту и попробуйте снова."
-            }, status=429)
-        return JsonResponse({"error": f"Ошибка: {err}"}, status=500)
+        return JsonResponse({"error": f"Ошибка AI: {e}"}, status=500)
 
 
 class MyCoursesView(LoginRequiredMixin, ListView):
@@ -346,3 +423,70 @@ class GradeBookView(LoginRequiredMixin, ListView):
             context["grades"] = context["grades"].filter(course_id=int(course_id))
             context["selected_course"] = int(course_id)
         return context
+
+
+@login_required
+def checkout(request):
+    """Страница оплаты: показывает информацию и кнопку оплаты."""
+    profile = getattr(request.user, "profile", None)
+    has_access = bool(profile and getattr(profile, "has_access", False))
+    stripe_enabled = bool(settings.STRIPE_SECRET_KEY and settings.STRIPE_PRICE_ID)
+    return render(
+        request,
+        "courses/checkout.html",
+        {
+            "has_access": has_access,
+            "price_usd": 4,
+            "stripe_enabled": stripe_enabled,
+        },
+    )
+
+
+@login_required
+def create_checkout_session(request):
+    """Создаёт Stripe Checkout Session и перенаправляет пользователя на оплату."""
+    if request.method != "POST":
+        return redirect("courses:checkout")
+
+    if not (settings.STRIPE_SECRET_KEY and settings.STRIPE_PRICE_ID):
+        messages.error(request, "Оплата ещё не настроена. Попробуйте позже.")
+        return redirect("courses:checkout")
+
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+
+    success_url = request.build_absolute_uri(
+        reverse_lazy("courses:checkout_success")
+    ) + "?session_id={CHECKOUT_SESSION_ID}"
+    cancel_url = request.build_absolute_uri(reverse_lazy("courses:checkout_cancel"))
+
+    try:
+        session = stripe.checkout.Session.create(
+            mode="payment",
+            line_items=[{"price": settings.STRIPE_PRICE_ID, "quantity": 1}],
+            success_url=success_url,
+            cancel_url=cancel_url,
+            customer_email=request.user.email or None,
+            metadata={"user_id": request.user.id},
+        )
+        return redirect(session.url)
+    except Exception as e:
+        messages.error(request, f"Ошибка при создании платежа: {e}")
+        return redirect("courses:checkout")
+
+
+@login_required
+def checkout_success(request):
+    """Успешная оплата: помечаем профиль как имеющий доступ."""
+    profile = getattr(request.user, "profile", None)
+    if profile and not profile.has_access:
+        profile.has_access = True
+        profile.save()
+    messages.success(request, "Оплата прошла успешно! Доступ к курсам открыт.")
+    return redirect("courses:course_list")
+
+
+@login_required
+def checkout_cancel(request):
+    """Отмена оплаты: просто сообщение и возврат к курсам."""
+    messages.info(request, "Оплата была отменена.")
+    return redirect("courses:checkout")

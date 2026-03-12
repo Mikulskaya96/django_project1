@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Нет доступа — {{ course.title }}{% endblock %}
+
+{% block content %}
+<h1>Доступ ограничен</h1>
+<p>Урок «{{ lesson.title }}» доступен только после оплаты полного доступа к курсу «{{ course.title }}».</p>
+
+<p>
+    <a href="{% url 'courses:checkout' %}" class="btn-primary">Купить доступ за 4&nbsp;$</a>
+    <a href="{% url 'courses:course_detail' course.pk %}" class="btn-secondary">Вернуться к курсу</a>
+</p>
+{% endblock %}
+

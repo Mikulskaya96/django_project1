@@ -21,13 +21,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from main.views import index
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
+    path("api/", include("courses.api_urls")),  # REST API для курсов
+    path("markdownx/", include("markdownx.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
+]
+
+urlpatterns += i18n_patterns(
     path("admin/", admin.site.urls),
     path("", index, name="index"),
     path("users/", include("users.urls", namespace="users")),
     path("courses/", include("courses.urls", namespace="courses")),
-    path("api/", include("courses.api_urls")),  # REST API для курсов
-]
+)
+
 # Раздача медиа (аватары) — и в dev, и на Render
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

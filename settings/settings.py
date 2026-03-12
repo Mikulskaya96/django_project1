@@ -47,15 +47,19 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "cloudinary",
+    "cloudinary_storage",
     "main",
     "users",
     "courses",
+    "markdownx",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -120,7 +124,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "ru-ru"
+LANGUAGE_CODE = "ru"
+
+LANGUAGES = [
+    ("ru", "Русский"),
+    ("en", "English"),
+    ("it", "Italiano"),
+]
 
 TIME_ZONE = "UTC"
 
@@ -137,17 +147,28 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [Path(BASE_DIR, "static/")]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# Медиа-файлы (аватары). В dev Django раздаёт их сам.
-MEDIA_URL = "media/"
+# Медиа-файлы (аватары, картинки уроков).
+MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# Если задан CLOUDINARY_URL — используем Cloudinary для хранения медиа
+CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "")
+if CLOUDINARY_URL:
+    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 # Куда перенаправлять после входа/выхода
 LOGIN_REDIRECT_URL = "index"
 LOGOUT_REDIRECT_URL = "index"
 LOGIN_URL = "users:login"
 
-# AI-помощник на странице урока (Google Gemini). Ключ: https://aistudio.google.com/apikey
+# AI-помощник на странице урока
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+
+# Stripe (оплата доступа)
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
+STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
+STRIPE_PRICE_ID = os.environ.get("STRIPE_PRICE_ID", "")
 
 # CSRF для домена Render (https://твой-сервис.onrender.com)
 if os.environ.get("RENDER_EXTERNAL_HOSTNAME"):

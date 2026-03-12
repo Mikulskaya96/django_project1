@@ -1,73 +1,74 @@
-/* 1. ПЕРЕМЕННЫЕ — светлая тема (по умолчанию) */
+/* 1. ПЕРЕМЕННЫЕ — базовые цвета (по умолчанию тёмная палитра в стиле Python) */
 :root {
-    --pink-50: #fdf2f8;
-    --pink-100: #fce7f3;
-    --pink-200: #fbcfe8;
-    --pink-300: #f9a8d4;
-    --pink-400: #f472b6;
-    --pink-500: #ec4899;
-    --pink-600: #db2777;
-    --pink-700: #be185d;
-    --pink-800: #9d174d;
-    --pink-900: #831843;
+    --color-bg: #0b1020;
+    --color-bg-alt: #151b2f;
+    --color-text: #f5f5f5;
+    --color-primary: #3776AB;         /* Python blue */
+    --color-primary-light: #4B8BBE;
+    --color-accent: #FFE873;          /* Python yellow */
+    --color-border: #252b3f;
 
-    --bg: #faf5f8;
-    --card-bg: #ffffff;
-    --text: #1f2937;
-    --text-muted: #6b7280;
-    --accent: #db2777;
-    --accent-hover: #be185d;
-    --border: #fbcfe8;
-    --nav-bg: linear-gradient(90deg, #fdf2f8 0%, #fce7f3 100%);
-    --nav-shadow: 0 2px 12px rgba(236, 72, 153, 0.08);
-    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    --card-shadow-hover: 0 8px 30px rgba(236, 72, 153, 0.12);
-    --hr-color: #e5e7eb;
+    --color-surface: #151b2f;         /* карточки, панели */
+    --color-muted: #c4b5c9;           /* второстепенный текст */
+    --color-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --color-shadow-strong: 0 8px 30px rgba(0, 0, 0, 0.45);
+
+    /* переменные для старых стилей, маппим на новые */
+    --card-bg: var(--color-surface);
+    --border: var(--color-border);
+    --text-muted: var(--color-muted);
+    --nav-shadow: var(--color-shadow);
+    --card-shadow: var(--color-shadow);
+    --card-shadow-hover: var(--color-shadow-strong);
+    --hr-color: var(--color-border);
 }
 
-/* Тёмная тема */
+/* Светлая тема переопределяет только базовые цвета */
+.light-theme {
+    --color-bg: #f4f5f9;
+    --color-bg-alt: #ffffff;
+    --color-text: #20222a;
+    --color-primary: #3776AB;
+    --color-primary-light: #4B8BBE;
+    --color-accent: #f3c954;
+    --color-border: #d0d4e4;
+
+    --color-surface: #ffffff;
+    --color-muted: #6b7280;
+    --color-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+    --color-shadow-strong: 0 10px 30px rgba(15, 23, 42, 0.18);
+
+    --card-bg: var(--color-surface);
+    --border: var(--color-border);
+    --text-muted: var(--color-muted);
+    --nav-shadow: var(--color-shadow);
+    --card-shadow: var(--color-shadow);
+    --card-shadow-hover: var(--color-shadow-strong);
+    --hr-color: var(--color-border);
+}
+
+/* Тёмная тема через data-theme переопределяет базовые цвета */
 [data-theme="dark"] {
-    --bg: #1a1625;
-    --card-bg: #252030;
-    --text: #f3e8f0;
-    --text-muted: #c4b5c9;
-    --border: #3d3347;
-    --nav-bg: linear-gradient(90deg, #252030 0%, #2d2638 100%);
-    --nav-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    --card-shadow-hover: 0 8px 30px rgba(236, 72, 153, 0.2);
-    --hr-color: #3d3347;
-}
+    --color-bg: #050816;
+    --color-bg-alt: #0b1020;
+    --color-text: #f9fafb;
+    --color-border: #30344a;
+    --color-surface: #151b2f;
+    --color-muted: #9ca3af;
 
-[data-theme="dark"] h1 { color: var(--pink-300); }
-[data-theme="dark"] h2 { color: var(--pink-400); }
-[data-theme="dark"] nav a,
-[data-theme="dark"] .btn-nav,
-[data-theme="dark"] .btn-logout { color: var(--pink-300); background: var(--card-bg); border-color: var(--border); }
-[data-theme="dark"] nav a:hover,
-[data-theme="dark"] .btn-nav:hover,
-[data-theme="dark"] .btn-logout:hover { background: rgba(236, 72, 153, 0.2); color: var(--pink-200); }
-[data-theme="dark"] .card { background: var(--card-bg); border-color: var(--border); }
-[data-theme="dark"] .btn-secondary { background: #2d2638; color: var(--pink-300); border-color: var(--border); }
-[data-theme="dark"] .btn-secondary:hover { background: #3d3347; }
-[data-theme="dark"] .btn-cat,
-[data-theme="dark"] .btn-course { background: var(--card-bg); border-color: var(--border); color: var(--pink-300); }
-[data-theme="dark"] .btn-cat:hover,
-[data-theme="dark"] .btn-course:hover { background: rgba(236, 72, 153, 0.2); color: var(--pink-200); }
-[data-theme="dark"] .course-item { background: var(--card-bg); border-color: var(--border); }
-[data-theme="dark"] .course-meta { color: var(--text-muted); }
-[data-theme="dark"] .btn-lesson,
-[data-theme="dark"] .btn-book { background: var(--card-bg); border-color: var(--border); color: var(--pink-300); }
-[data-theme="dark"] .btn-lesson:hover,
-[data-theme="dark"] .btn-book:hover { background: rgba(236, 72, 153, 0.2); color: var(--pink-200); }
-[data-theme="dark"] .lesson-locked { color: var(--text-muted); }
-[data-theme="dark"] .lesson-content pre { background: #252030; border: 1px solid var(--border); }
-[data-theme="dark"] footer hr { border-color: var(--hr-color); }
+    --card-bg: var(--color-surface);
+    --border: var(--color-border);
+    --text-muted: var(--color-muted);
+    --nav-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    --card-shadow-hover: 0 10px 34px rgba(15, 23, 42, 0.85);
+    --hr-color: var(--color-border);
+}
 
 /* 2. ОБЩИЕ СТИЛИ ТЕЛА */
 body {
-    background: var(--bg);
-    color: var(--text);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     line-height: 1.6;
     /* Оптимальный шрифт (Вариант С) */
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -78,7 +79,8 @@ body {
 
 /* 3. НАВИГАЦИЯ */
 nav {
-    background: var(--nav-bg);
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
     padding: 0.65rem 1.25rem;
     border-radius: 16px;
     box-shadow: var(--nav-shadow);
@@ -91,29 +93,27 @@ nav {
 
 nav a,
 .btn-nav {
-    display: inline-block;
-    color: var(--pink-700);
-    text-decoration: none;
-    font-weight: 500;
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.4rem 0.75rem;
     border-radius: 10px;
-    border: 1px solid var(--pink-200);
-    background: var(--card-bg);
-    transition: background 0.2s, box-shadow 0.2s;
-    cursor: pointer;
     font-size: 0.875rem;
     white-space: nowrap;
+    min-width: 90px; /* чтобы «Выйти» не была уже других */
 }
 
 nav a:hover,
 .btn-nav:hover {
-    background: rgba(236, 72, 153, 0.12);
-    color: var(--pink-800);
-    box-shadow: 0 2px 8px rgba(219, 39, 119, 0.15);
+    background: rgba(55, 118, 171, 0.12);
+    color: var(--color-primary-light);
 }
 
 nav a.btn-nav {
-    border: 1px solid var(--pink-200);
+    border: 1px solid var(--color-border);
 }
 
 /* Форма и кнопка «Выйти» в навбаре — в одну строку с остальными */
@@ -124,52 +124,60 @@ nav form {
     margin: 0;
     flex-shrink: 0;
 }
-.btn-logout {
-    background: var(--card-bg);
-    border: 1px solid var(--pink-200);
-    color: var(--pink-700);
-    font-family: inherit;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.875rem;
+
+.nav-right {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
-.btn-logout:hover {
-    background: rgba(236, 72, 153, 0.12);
-    color: var(--pink-800);
+
+.lang-switcher select {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
 }
 
 /* 4. КНОПКИ */
 .btn-primary {
     display: inline-block;
-    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
     color: white !important; /* Чтобы текст всегда был белым */
     padding: 0.6rem 1.25rem;
     border-radius: 12px;
     border: none;
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(219, 39, 119, 0.35);
+    box-shadow: 0 4px 14px rgba(55, 118, 171, 0.45);
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
 }
 
 .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(219, 39, 119, 0.45);
+    box-shadow: 0 6px 24px rgba(55, 118, 171, 0.65);
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
 }
 
 .btn-secondary {
     display: inline-block;
-    background: var(--pink-50);
-    color: var(--pink-700);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
     padding: 0.5rem 1rem;
     border-radius: 10px;
-    border: 1px solid var(--pink-200);
+    border: 1px solid var(--color-border);
     text-decoration: none;
     transition: 0.2s;
 }
 
 .btn-secondary:hover {
-    background: var(--pink-100);
+    background: rgba(55, 118, 171, 0.12);
+    color: var(--color-primary-light);
 }
 
 /* Кнопки-фильтры категорий и ссылки на курсы */
@@ -183,18 +191,18 @@ nav form {
     display: inline-block;
     padding: 0.4rem 0.9rem;
     border-radius: 10px;
-    border: 1px solid var(--pink-200);
-    background: var(--card-bg);
-    color: var(--pink-700);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
     transition: background 0.2s, box-shadow 0.2s;
 }
 .btn-cat:hover {
-    background: rgba(236, 72, 153, 0.12);
-    color: var(--pink-800);
-    box-shadow: 0 2px 8px rgba(219, 39, 119, 0.15);
+    background: rgba(55, 118, 171, 0.12);
+    color: var(--color-primary-light);
+    box-shadow: 0 2px 8px rgba(55, 118, 171, 0.18);
 }
 
 .course-list {
@@ -205,8 +213,8 @@ nav form {
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
     border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--card-bg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
     transition: box-shadow 0.2s;
 }
 .course-item:hover {
@@ -216,16 +224,16 @@ nav form {
     display: inline-block;
     padding: 0.35rem 0.75rem;
     border-radius: 8px;
-    border: 1px solid var(--pink-200);
-    background: var(--pink-50);
-    color: var(--pink-700);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
     text-decoration: none;
     font-weight: 600;
     transition: background 0.2s;
 }
 .btn-course:hover {
-    background: rgba(236, 72, 153, 0.15);
-    color: var(--pink-800);
+    background: rgba(55, 118, 171, 0.15);
+    color: var(--color-primary-light);
 }
 .course-meta {
     margin-left: 0.5rem;
@@ -245,20 +253,14 @@ nav form {
 }
 .btn-lesson,
 .btn-book {
-    display: inline-block;
-    padding: 0.4rem 0.9rem;
-    border-radius: 8px;
-    border: 1px solid var(--pink-200);
-    background: var(--pink-50);
-    color: var(--pink-700);
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.2s;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
 }
 .btn-lesson:hover,
 .btn-book:hover {
-    background: rgba(236, 72, 153, 0.15);
-    color: var(--pink-800);
+    background: rgba(55, 118, 171, 0.15);
+    color: var(--color-primary-light);
 }
 .lesson-locked {
     color: var(--text-muted);
@@ -341,16 +343,27 @@ nav form {
 
 /* 7. ЗАГОЛОВКИ */
 h1 {
-    color: var(--pink-800);
+    color: var(--color-primary-light);
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
 }
 
 h2 {
-    color: var(--pink-700);
+    color: var(--color-primary);
     font-weight: 600;
     margin-top: 1.5rem;
+}
+
+/* Ссылки в контенте (например, список студентов) */
+main a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+}
+
+main a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
 }
 
 /* 8. ФУТЕР */
@@ -391,7 +404,6 @@ footer hr {
     cursor: pointer;
     outline: none;
     transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
-    margin-left: auto;
 }
 
 .theme-toggle__thumb {
@@ -457,8 +469,8 @@ footer hr {
 
 .theme-toggle[data-theme-state="dark"] .theme-toggle__thumb {
     transform: translateX(0);
-    background: radial-gradient(circle at 30% 0%, #e2e8f0, #6366f1);
-    box-shadow: 0 8px 20px rgba(129, 140, 248, 0.9);
+    background: radial-gradient(circle at 30% 0%, #e2e8f0, #4B8BBE);
+    box-shadow: 0 8px 20px rgba(55, 118, 171, 0.6);
     color: #020617;
 }
 
@@ -483,4 +495,10 @@ footer hr {
     nav {
         flex-wrap: wrap;
     }
+}
+
+.nav-time {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-left: 1rem;
 }

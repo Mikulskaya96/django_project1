@@ -13,9 +13,22 @@ class Category(models.Model):
 
 class Course(models.Model):
     """Курс. author — кто создал; price можно сделать 0 для бесплатных."""
+    
+    LEVEL_JUNIOR = "junior"
+    LEVEL_PRO = "pro"
+    LEVEL_CHOICES = [
+        (LEVEL_JUNIOR, "Python для начинающих"),
+        (LEVEL_PRO, "Python для профессионалов"),
+    ]
 
     title = models.CharField("Название", max_length=100)
     description = models.TextField("Описание", blank=True)
+    level = models.CharField(
+        "Уровень",
+        max_length=20,
+        choices=LEVEL_CHOICES,
+        default=LEVEL_JUNIOR,
+    )
     category = models.ForeignKey(
         "Category",
         on_delete=models.SET_NULL,
@@ -36,7 +49,9 @@ class Course(models.Model):
         decimal_places=2,
         default=0,
     )
+    is_active = models.BooleanField("Опубликован", default=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    
 
     class Meta:
         ordering = ["-created_at"]
@@ -128,6 +143,26 @@ class LessonProgress(models.Model):
     class Meta:
         unique_together = ["user", "lesson"]
 
+
+class LessonAiMessage(models.Model):
+    """Сообщение диалога с ИИ по конкретному уроку."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="lesson_ai_messages",
+    )
+    lesson = models.ForeignKey(
+        Lesson,
+        on_delete=models.CASCADE,
+        related_name="ai_messages",
+    )
+    question = models.TextField("Вопрос")
+    answer = models.TextField("Ответ", blank=True)
+    created_at = models.DateTimeField("Время", auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
 
 class Grade(models.Model):
     """Оценка студента по курсу. Содержит оценку и дату."""
