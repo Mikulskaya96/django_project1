@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Контакты и поддержка — DevLearn" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Контакты и поддержка" %}</h1>
+
+<p>{% trans "Если у вас возникли вопросы по курсам, оплате или доступу, свяжитесь с нами:" %}</p>
+<ul>
+    <li>Email: <a href="mailto:support@devlearn.local">support@devlearn.local</a></li>
+    <li>{% trans "Время ответа: обычно в течение 24 часов." %}</li>
+</ul>
+{% endblock %}

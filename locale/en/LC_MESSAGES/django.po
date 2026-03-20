@@ -1,0 +1,445 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DevLearn\n"
+"POT-Creation-Date: 2026-03-19 00:00+0000\n"
+"PO-Revision-Date: 2026-03-19 00:00+0000\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Главная"
+msgstr "Home"
+
+msgid "Студенты"
+msgstr "Students"
+
+msgid "Курсы"
+msgstr "Courses"
+
+msgid "Привет,"
+msgstr "Hi,"
+
+msgid "Мой профиль"
+msgstr "My profile"
+
+msgid "Мои курсы"
+msgstr "My courses"
+
+msgid "Создать курс"
+msgstr "Create course"
+
+msgid "Войти"
+msgstr "Sign in"
+
+msgid "Регистрация"
+msgstr "Sign up"
+
+msgid "Выйти"
+msgstr "Sign out"
+
+msgid "Переключить тему"
+msgstr "Toggle theme"
+
+msgid "Назад"
+msgstr "Back"
+
+msgid "DevLearn — Обучение программированию"
+msgstr "DevLearn — Programming learning platform"
+
+msgid "Добро пожаловать на платформу"
+msgstr "Welcome to the platform"
+
+msgid "Выбери, что ты хочешь делать:"
+msgstr "Choose what you want to do:"
+
+msgid "Чтобы начать обучение, зарегистрируйся или войди в аккаунт."
+msgstr "To start learning, sign up or log in."
+
+msgid "📚 Каталог курсов"
+msgstr "📚 Course catalog"
+
+msgid "Исследуй большую коллекцию курсов и практик на Python"
+msgstr "Explore a large collection of Python courses and practice"
+
+msgid "Посмотреть курсы →"
+msgstr "View courses →"
+
+msgid "Посмотри список всех студентов на платформе"
+msgstr "See the full list of students on the platform"
+
+msgid "Список студентов →"
+msgstr "Students list →"
+
+msgid "📊 Журнал оценок"
+msgstr "📊 Grade book"
+
+msgid "Просмотри оценки студентов по датам и курсам"
+msgstr "Review student grades by date and course"
+
+msgid "Открыть журнал →"
+msgstr "Open grade book →"
+
+msgid "📖 Мои курсы"
+msgstr "📖 My courses"
+
+msgid "Вернись к своим курсам и продолжи обучение"
+msgstr "Return to your courses and continue learning"
+
+msgid "Мои курсы →"
+msgstr "My courses →"
+
+msgid "➕ Создать курс"
+msgstr "➕ Create course"
+
+msgid "Создай новый курс и начни учить других"
+msgstr "Create a new course and start teaching others"
+
+msgid "Создать курс →"
+msgstr "Create course →"
+
+msgid "🚀 Начни учиться"
+msgstr "🚀 Start learning"
+
+msgid "Зарегистрируйся и присоединись к тысячам студентов"
+msgstr "Sign up and join thousands of students"
+
+msgid "Курсы — DevLearn"
+msgstr "Courses — DevLearn"
+
+msgid "Направление:"
+msgstr "Category:"
+
+msgid "Все"
+msgstr "All"
+
+msgid "Уровень:"
+msgstr "Level:"
+
+msgid "Python для начинающих"
+msgstr "Python for beginners"
+
+msgid "Python для профессионалов"
+msgstr "Python for professionals"
+
+msgid "Все уровни"
+msgstr "All levels"
+
+msgid "Курсов пока нет."
+msgstr "No courses yet."
+
+msgid "Автор:"
+msgstr "Author:"
+
+msgid "Цена:"
+msgstr "Price:"
+
+msgid "В этом курсе первые 3 урока открыты бесплатно, остальные доступны после оплаты."
+msgstr "In this course, the first 3 lessons are free. The rest are available after payment."
+
+msgid "Записаться на курс"
+msgstr "Enroll in course"
+
+msgid "Записать студента на курс"
+msgstr "Enroll student in course"
+
+msgid "Уроки"
+msgstr "Lessons"
+
+msgid "доступно после оплаты"
+msgstr "available after payment"
+
+msgid "Купить доступ за 4 $"
+msgstr "Buy access for $4"
+
+msgid "Бесплатно"
+msgstr "Free"
+
+msgid "Уроков пока нет."
+msgstr "No lessons yet."
+
+msgid "Книги"
+msgstr "Books"
+
+msgid "Оплата доступа к курсам"
+msgstr "Course access payment"
+
+msgid "Оплата доступа к Python-курсам"
+msgstr "Payment for Python course access"
+
+msgid "У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!"
+msgstr "You already have full access to paid content. Thank you for your support!"
+
+msgid "Перейти к курсам"
+msgstr "Go to courses"
+
+msgid "Вы приобретаете полный доступ ко всем платным урокам курсов:"
+msgstr "You are purchasing full access to all paid course lessons:"
+
+msgid "Стоимость:"
+msgstr "Price:"
+
+msgid "примерная цена чашки кофе"
+msgstr "about the price of a cup of coffee"
+
+msgid "Оплатить картой (Stripe Checkout)"
+msgstr "Pay by card (Stripe Checkout)"
+
+msgid "Оплата ещё не настроена. Скоро здесь появится форма безопасной оплаты."
+msgstr "Payment is not configured yet. A secure payment form will appear here soon."
+
+msgid "Вернуться к курсам"
+msgstr "Back to courses"
+
+msgid "Нет доступа"
+msgstr "No access"
+
+msgid "Доступ ограничен"
+msgstr "Access denied"
+
+msgid "Урок доступен только после оплаты полного доступа к курсу."
+msgstr "This lesson is available only after purchasing full course access."
+
+msgid "Студенты — DevLearn"
+msgstr "Students — DevLearn"
+
+msgid "Логин:"
+msgstr "Username:"
+
+msgid "Роль:"
+msgstr "Role:"
+
+msgid "Подробнее →"
+msgstr "Details →"
+
+msgid "Первая"
+msgstr "First"
+
+msgid "Страница"
+msgstr "Page"
+
+msgid "из"
+msgstr "of"
+
+msgid "Дальше →"
+msgstr "Next →"
+
+msgid "Последняя"
+msgstr "Last"
+
+msgid "Студентов ещё нет."
+msgstr "No students yet."
+
+msgid "Аватар:"
+msgstr "Avatar:"
+
+msgid "Дата присоединения:"
+msgstr "Joined on:"
+
+msgid "Курсы студента"
+msgstr "Student courses"
+
+msgid "Дата записи:"
+msgstr "Enrollment date:"
+
+msgid "Студент ещё не записан ни на один курс."
+msgstr "The student is not enrolled in any course yet."
+
+msgid "Оценки"
+msgstr "Grades"
+
+msgid "Поставить оценку"
+msgstr "Set grade"
+
+msgid "Сохранить оценку"
+msgstr "Save grade"
+
+msgid "Курс"
+msgstr "Course"
+
+msgid "Оценка"
+msgstr "Grade"
+
+msgid "Дата"
+msgstr "Date"
+
+msgid "У студента ещё нет оценок."
+msgstr "This student has no grades yet."
+
+msgid "Журнал оценок — DevLearn"
+msgstr "Grade book — DevLearn"
+
+msgid "Журнал оценок"
+msgstr "Grade book"
+
+msgid "Фильтр по курсу:"
+msgstr "Filter by course:"
+
+msgid "Все курсы"
+msgstr "All courses"
+
+msgid "Фильтровать"
+msgstr "Filter"
+
+msgid "Сбросить"
+msgstr "Reset"
+
+msgid "Студент"
+msgstr "Student"
+
+msgid "Дата оценки"
+msgstr "Graded at"
+
+msgid "Действие"
+msgstr "Action"
+
+msgid "Профиль"
+msgstr "Profile"
+
+msgid "Оценок в журнале нет."
+msgstr "No grades in the grade book."
+
+msgid "Мои курсы — DevLearn"
+msgstr "My courses — DevLearn"
+
+msgid "уроков"
+msgstr "lessons"
+
+msgid "Вы пока не записаны ни на один курс."
+msgstr "You are not enrolled in any course yet."
+
+msgid "Смотреть видео"
+msgstr "Watch video"
+
+msgid "Отметить как пройденный"
+msgstr "Mark as completed"
+
+msgid "Урок пройден"
+msgstr "Lesson completed"
+
+msgid "Спросить ИИ по уроку"
+msgstr "Ask AI about this lesson"
+
+msgid "Задайте вопрос по теме урока..."
+msgstr "Ask a question about this lesson..."
+
+msgid "Отправить"
+msgstr "Send"
+
+msgid "ИИ думает..."
+msgstr "AI is thinking..."
+
+msgid "Ваши недавние вопросы"
+msgstr "Your recent questions"
+
+msgid "Вы:"
+msgstr "You:"
+
+msgid "Ответ:"
+msgstr "Answer:"
+
+msgid "Ошибка запроса."
+msgstr "Request error."
+
+msgid "Вход — DevLearn"
+msgstr "Sign in — DevLearn"
+
+msgid "Вход"
+msgstr "Sign in"
+
+msgid "Нет аккаунта?"
+msgstr "No account?"
+
+msgid "Регистрация — DevLearn"
+msgstr "Sign up — DevLearn"
+
+msgid "Зарегистрироваться"
+msgstr "Sign up"
+
+msgid "Уже есть аккаунт?"
+msgstr "Already have an account?"
+
+msgid "Мой профиль — DevLearn"
+msgstr "My profile — DevLearn"
+
+msgid "Аватар"
+msgstr "Avatar"
+
+msgid "Аватар не загружен."
+msgstr "Avatar is not uploaded."
+
+msgid "Сохранить"
+msgstr "Save"
+
+msgid "Загрузка аватара доступна только при локальном запуске проекта (учебный проект)."
+msgstr "Avatar upload is available only when running the project locally (training project)."
+
+msgid "На главную"
+msgstr "To home"
+
+msgid "Записать студента"
+msgstr "Enroll student"
+
+msgid "Записать студента на курс:"
+msgstr "Enroll student to course:"
+
+msgid "Записать"
+msgstr "Enroll"
+
+msgid "Отмена"
+msgstr "Cancel"
+
+msgid "Создать курс — DevLearn"
+msgstr "Create course — DevLearn"
+
+msgid "Создать"
+msgstr "Create"
+
+msgid "Публичная оферта"
+msgstr "Public offer"
+
+msgid "Политика конфиденциальности"
+msgstr "Privacy policy"
+
+msgid "Контакты"
+msgstr "Contacts"
+
+msgid "Публичная оферта — DevLearn"
+msgstr "Public offer — DevLearn"
+
+msgid "Настоящий документ является публичной офертой на предоставление доступа к обучающим материалам платформы DevLearn."
+msgstr "This document is a public offer for providing access to DevLearn educational materials."
+
+msgid "Оплачивая доступ, пользователь подтверждает согласие с условиями оферты и получает доступ к платному контенту в соответствии с выбранным тарифом."
+msgstr "By paying for access, the user confirms agreement with the offer terms and gets access to paid content according to the selected plan."
+
+msgid "Стоимость доступа отображается на странице оплаты и может изменяться до момента оплаты."
+msgstr "The access price is shown on the checkout page and may change until payment."
+
+msgid "По вопросам доступа, оплаты и возвратов обращайтесь в раздел Контакты."
+msgstr "For questions about access, payments, and refunds, please use the Contacts section."
+
+msgid "Политика конфиденциальности — DevLearn"
+msgstr "Privacy policy — DevLearn"
+
+msgid "Мы обрабатываем только данные, необходимые для работы платформы: логин, email, историю обучения и технические данные сессии."
+msgstr "We process only the data required to operate the platform: username, email, learning history, and technical session data."
+
+msgid "Персональные данные не передаются третьим лицам, за исключением сервисов, необходимых для функционирования платформы (например, платёжных провайдеров)."
+msgstr "Personal data is not shared with third parties, except services required for platform operation (for example, payment providers)."
+
+msgid "Вы можете запросить обновление или удаление данных, обратившись в поддержку через страницу Контакты."
+msgstr "You may request data update or deletion by contacting support via the Contacts page."
+
+msgid "Контакты и поддержка — DevLearn"
+msgstr "Contacts and support — DevLearn"
+
+msgid "Контакты и поддержка"
+msgstr "Contacts and support"
+
+msgid "Если у вас возникли вопросы по курсам, оплате или доступу, свяжитесь с нами:"
+msgstr "If you have questions about courses, payment, or access, contact us:"
+
+msgid "Время ответа: обычно в течение 24 часов."
+msgstr "Response time: usually within 24 hours."
