@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Студенты — DevLearn{% endblock %}
+{% block title %}{% trans "Студенты — DevLearn" %}{% endblock %}
 
 {% block content %}
-<h1>Студенты</h1>
+<h1>{% trans "Студенты" %}</h1>
 
 {% if students %}
     <div class="student-list">
@@ -14,12 +15,12 @@
                         {{ student.get_full_name|default:student.username }}
                     </a>
                 </h3>
-                <p><strong>Логин:</strong> {{ student.username }}</p>
+                <p><strong>{% trans "Логин:" %}</strong> {{ student.username }}</p>
                 <p><strong>Email:</strong> {{ student.email }}</p>
                 {% if student.profile %}
-                    <p><strong>Роль:</strong> {{ student.profile.get_role_display }}</p>
+                    <p><strong>{% trans "Роль:" %}</strong> {{ student.profile.get_role_display }}</p>
                 {% endif %}
-                <a href="{% url 'courses:student_detail' student.id %}" class="btn-primary">Подробнее →</a>
+                <a href="{% url 'courses:student_detail' student.id %}" class="btn-primary">{% trans "Подробнее →" %}</a>
             </div>
         {% endfor %}
     </div>
@@ -28,19 +29,19 @@
     {% if is_paginated %}
         <div class="pagination">
             {% if page_obj.has_previous %}
-                <a href="?page=1" class="btn-nav">Первая</a>
-                <a href="?page={{ page_obj.previous_page_number }}" class="btn-nav">← Назад</a>
+                <a href="?page=1" class="btn-nav">{% trans "Первая" %}</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn-nav">← {% trans "Назад" %}</a>
             {% endif %}
 
-            <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+            <span>{% trans "Страница" %} {{ page_obj.number }} {% trans "из" %} {{ page_obj.paginator.num_pages }}</span>
 
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" class="btn-nav">Дальше →</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-nav">Последняя</a>
+                <a href="?page={{ page_obj.next_page_number }}" class="btn-nav">{% trans "Дальше →" %}</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-nav">{% trans "Последняя" %}</a>
             {% endif %}
         </div>
     {% endif %}
 {% else %}
-    <p>Студентов ещё нет.</p>
+    <p>{% trans "Студентов ещё нет." %}</p>
 {% endif %}
 {% endblock %}

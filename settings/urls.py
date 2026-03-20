@@ -20,18 +20,20 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from main.views import index
 from django.conf.urls.i18n import i18n_patterns
+from courses.views import stripe_webhook
 
 urlpatterns = [
     path("api/", include("courses.api_urls")),  # REST API для курсов
     path("markdownx/", include("markdownx.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
+    # Webhook должен быть вне i18n_patterns, иначе Stripe получает redirect (302).
+    path("courses/stripe/webhook/", stripe_webhook, name="stripe_webhook_public"),
 ]
 
 urlpatterns += i18n_patterns(
     path("admin/", admin.site.urls),
-    path("", index, name="index"),
+    path("", include("main.urls")),
     path("users/", include("users.urls", namespace="users")),
     path("courses/", include("courses.urls", namespace="courses")),
 )

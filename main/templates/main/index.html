@@ -1,61 +1,65 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}DevLearn — Обучение программированию{% endblock %}
+{% block title %}{% trans "DevLearn — Обучение программированию" %}{% endblock %}
 
 {% block content %}
 <div class="index-section">
-    <h1>🎓 DevLearn</h1>
-    <p class="welcome-text">Добро пожаловать на платформу для обучения программированию!</p>
+    <h1 class="brand-title">
+        <span class="brand-logo">
+        <span class="brand-name">DevLearn</span>
+    </h1>
+    <p class="welcome-text">{% trans "Добро пожаловать на платформу" %}</p>
 
     {% if user.is_authenticated %}
-        <p>Привет, <strong>{{ user.username }}</strong>! 👋</p>
-        <p>Выбери, что ты хочешь делать:</p>
+        <p>{% trans "Привет," %} <strong>{{ user.username }}</strong>! </p>
+        <p>{% trans "Выбери, что ты хочешь делать:" %}</p>
     {% else %}
-        <p>Чтобы начать обучение, зарегистрируйся или войди в аккаунт.</p>
+        <p>{% trans "Чтобы начать обучение, зарегистрируйся или войди в аккаунт." %}</p>
     {% endif %}
 
     <div class="menu-cards">
         <div class="card">
-            <h3>📚 Каталог курсов</h3>
-            <p>Исследуй большую коллекцию курсов по программированию.</p>
-            <a href="{% url 'courses:course_list' %}" class="btn-primary">Посмотреть курсы →</a>
+            <h3>{% trans "📚 Каталог курсов" %}</h3>
+            <p>{% trans "Исследуй большую коллекцию курсов и практик на Python" %}</p>
+            <a href="{% url 'courses:course_list' %}" class="btn-primary">{% trans "Посмотреть курсы →" %}</a>
         </div>
 
         {% if user.is_authenticated %}
         <div class="card">
-            <h3>👥 Студенты</h3>
-            <p>Посмотри список всех студентов на платформе.</p>
-            <a href="{% url 'courses:student_list' %}" class="btn-primary">Список студентов →</a>
+            <h3>👥 {% trans "Студенты" %}</h3>
+            <p>{% trans "Посмотри список всех студентов на платформе" %}</p>
+            <a href="{% url 'courses:student_list' %}" class="btn-primary">{% trans "Список студентов →" %}</a>
         </div>
 
         <div class="card">
-            <h3>📊 Журнал оценок</h3>
-            <p>Просмотри оценки студентов по датам и курсам.</p>
-            <a href="{% url 'courses:grade_book' %}" class="btn-primary">Открыть журнал →</a>
+            <h3>{% trans "📊 Журнал оценок" %}</h3>
+            <p>{% trans "Просмотри оценки студентов по датам и курсам" %}</p>
+            <a href="{% url 'courses:grade_book' %}" class="btn-primary">{% trans "Открыть журнал →" %}</a>
         </div>
         {% endif %}
 
         {% if user.is_authenticated %}
             <div class="card">
-                <h3>📖 Мои курсы</h3>
-                <p>Вернись к своим курсам и продолжи обучение.</p>
-                <a href="{% url 'courses:my_courses' %}" class="btn-primary">Мои курсы →</a>
+                <h3>{% trans "📖 Мои курсы" %}</h3>
+                <p>{% trans "Вернись к своим курсам и продолжи обучение" %}</p>
+                <a href="{% url 'courses:my_courses' %}" class="btn-primary">{% trans "Мои курсы →" %}</a>
             </div>
         {% endif %}
 
         {% if is_teacher %}
             <div class="card">
-                <h3>➕ Создать курс</h3>
-                <p>Создай новый курс и начни учить других.</p>
-                <a href="{% url 'courses:course_create' %}" class="btn-primary">Создать курс →</a>
+                <h3>{% trans "➕ Создать курс" %}</h3>
+                <p>{% trans "Создай новый курс и начни учить других" %}</p>
+                <a href="{% url 'courses:course_create' %}" class="btn-primary">{% trans "Создать курс →" %}</a>
             </div>
         {% endif %}
 
         {% if not user.is_authenticated %}
             <div class="card">
-                <h3>🚀 Начни учиться</h3>
-                <p>Зарегистрируйся и присоединись к тысячам студентов.</p>
-                <a href="{% url 'users:register' %}" class="btn-primary">Регистрация →</a>
+                <h3>{% trans "🚀 Начни учиться" %}</h3>
+                <p>{% trans "Зарегистрируйся и присоединись к тысячам студентов" %}</p>
+                <a href="{% url 'users:register' %}" class="btn-primary">{% trans "Регистрация →" %}</a>
             </div>
         {% endif %}
     </div>

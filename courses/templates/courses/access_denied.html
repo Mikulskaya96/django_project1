@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Нет доступа — {{ course.title }}{% endblock %}
+{% block title %}{% trans "Нет доступа" %} — {{ course.title }}{% endblock %}
 
 {% block content %}
-<h1>Доступ ограничен</h1>
-<p>Урок «{{ lesson.title }}» доступен только после оплаты полного доступа к курсу «{{ course.title }}».</p>
+<h1>{% trans "Доступ ограничен" %}</h1>
+<p>{% trans "Урок доступен только после оплаты полного доступа к курсу." %}</p>
 
 <p>
-    <a href="{% url 'courses:checkout' %}" class="btn-primary">Купить доступ за 4&nbsp;$</a>
-    <a href="{% url 'courses:course_detail' course.pk %}" class="btn-secondary">Вернуться к курсу</a>
+    <a href="{% url 'courses:checkout' %}" class="btn-primary">{% trans "Купить доступ за 4 $" %}</a>
+    <a href="{% url 'courses:course_detail' course.pk %}" class="btn-secondary">{% trans "Вернуться к курсу" %}</a>
 </p>
 {% endblock %}
 

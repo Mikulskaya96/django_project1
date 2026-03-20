@@ -1,32 +1,33 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Оплата доступа к курсам{% endblock %}
+{% block title %}{% trans "Оплата доступа к курсам" %}{% endblock %}
 
 {% block content %}
-<h1>Оплата доступа к Python-курсам</h1>
+<h1>{% trans "Оплата доступа к Python-курсам" %}</h1>
 
 {% if has_access %}
-    <p>У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!</p>
-    <p><a href="{% url 'courses:course_list' %}" class="btn-primary">Перейти к курсам</a></p>
+    <p>{% trans "У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!" %}</p>
+    <p><a href="{% url 'courses:course_list' %}" class="btn-primary">{% trans "Перейти к курсам" %}</a></p>
 {% else %}
-    <p>Вы приобретаете полный доступ ко всем платным урокам курсов:</p>
+    <p>{% trans "Вы приобретаете полный доступ ко всем платным урокам курсов:" %}</p>
     <ul>
-        <li>«Python для начинающих»</li>
-        <li>«Python для профессионалов»</li>
+        <li>{% trans "Python для начинающих" %}</li>
+        <li>{% trans "Python для профессионалов" %}</li>
     </ul>
-    <p>Стоимость: <strong>{{ price_usd }} $</strong> (примерная цена «чашки кофе»).</p>
+    <p>{% trans "Стоимость:" %} <strong>{{ price_usd }} $</strong> ({% trans "примерная цена чашки кофе" %}).</p>
 
     {% if stripe_enabled %}
         <form method="post" action="{% url 'courses:create_checkout_session' %}">
             {% csrf_token %}
-            <button type="submit" class="btn-primary">Оплатить картой (Stripe Checkout)</button>
+            <button type="submit" class="btn-primary">{% trans "Оплатить картой (Stripe Checkout)" %}</button>
         </form>
     {% else %}
-        <p>Оплата ещё не настроена. Скоро здесь появится форма безопасной оплаты.</p>
+        <p>{% trans "Оплата ещё не настроена. Скоро здесь появится форма безопасной оплаты." %}</p>
     {% endif %}
 
     <p>
-        <a href="{% url 'courses:course_list' %}" class="btn-secondary">Вернуться к курсам</a>
+        <a href="{% url 'courses:course_list' %}" class="btn-secondary">{% trans "Вернуться к курсам" %}</a>
     </p>
 {% endif %}
 {% endblock %}

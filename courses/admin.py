@@ -1,6 +1,15 @@
 from django.contrib import admin
 from markdownx.admin import MarkdownxModelAdmin
-from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade
+from .models import (
+    Category,
+    Course,
+    Book,
+    Lesson,
+    Enrollment,
+    LessonProgress,
+    Grade,
+    CourseCertificate,
+)
 
 
 @admin.register(Category)
@@ -44,3 +53,10 @@ class GradeAdmin(admin.ModelAdmin):
 @admin.register(Lesson)
 class LessonAdmin(MarkdownxModelAdmin):
     list_display = ("title", "course", "order")
+
+
+@admin.register(CourseCertificate)
+class CourseCertificateAdmin(admin.ModelAdmin):
+    list_display = ("certificate_id", "user", "course", "issued_at")
+    list_filter = ("course", "issued_at")
+    search_fields = ("user__username", "course__title", "certificate_id")

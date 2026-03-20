@@ -1,13 +1,14 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Регистрация — DevLearn{% endblock %}
+{% block title %}{% trans "Регистрация — DevLearn" %}{% endblock %}
 
 {% block content %}
-<h1>Регистрация</h1>
+<h1>{% trans "Регистрация" %}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn-primary">Зарегистрироваться</button>
+    <button type="submit" class="btn-primary">{% trans "Зарегистрироваться" %}</button>
 </form>
-<p>Уже есть аккаунт? <a href="{% url 'users:login' %}">Войти</a></p>
+<p>{% trans "Уже есть аккаунт?" %} <a href="{% url 'users:login' %}">{% trans "Войти" %}</a></p>
 {% endblock %}

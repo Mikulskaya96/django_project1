@@ -1,25 +1,35 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Мой профиль — DevLearn{% endblock %}
+{% block title %}{% trans "Мой профиль — DevLearn" %}{% endblock %}
 
 {% block content %}
-<h1>Мой профиль</h1>
+<h1>{% trans "Мой профиль" %}</h1>
 
 {% if profile.avatar %}
-    <p><img src="{{ profile.avatar.url }}" alt="Аватар" style="max-width: 150px; height: auto; border-radius: 50%; object-fit: cover;"></p>
+    <p><img src="{{ profile.avatar.url }}" alt="{% trans 'Аватар' %}" style="max-width: 150px; height: auto; border-radius: 50%; object-fit: cover;"></p>
 {% else %}
-    <p>Аватар не загружен.</p>
+    <p>{% trans "Аватар не загружен." %}</p>
 {% endif %}
 
 {% if can_upload_avatar %}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn-primary">Сохранить</button>
+    {% if form.non_field_errors %}
+        <div class="msg error">{{ form.non_field_errors }}</div>
+    {% endif %}
+    <p>
+        <label for="{{ form.avatar.id_for_label }}">{% trans "Аватар" %}:</label>
+        {{ form.avatar }}
+        {% if form.avatar.errors %}
+            <span class="msg error">{{ form.avatar.errors }}</span>
+        {% endif %}
+    </p>
+    <button type="submit" class="btn-primary">{% trans "Сохранить" %}</button>
 </form>
 {% else %}
-<p class="muted">Загрузка аватара доступна только при локальном запуске проекта (учебный проект).</p>
+<p class="muted">{% trans "Загрузка аватара доступна только при локальном запуске проекта (учебный проект)." %}</p>
 {% endif %}
 
-<p><a href="{% url 'index' %}">← На главную</a></p>
+<p><a href="{% url 'index' %}">← {% trans "На главную" %}</a></p>
 {% endblock %}

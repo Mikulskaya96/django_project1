@@ -1,18 +1,24 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Мои курсы — DevLearn{% endblock %}
+{% block title %}{% trans "Мои курсы — DevLearn" %}{% endblock %}
 
 {% block content %}
-<h1>Мои курсы</h1>
+<h1>{% trans "Мои курсы" %}</h1>
 <ul class="course-list">
     {% for item in progress_list %}
     <li class="course-item">
         <a href="{% url 'courses:course_detail' item.enrollment.course.pk %}" class="btn-course">{{ item.enrollment.course.title }}</a>
-        <span class="course-meta">— {{ item.completed }}/{{ item.total }} уроков
+        <span class="course-meta">— {{ item.completed }}/{{ item.total }} {% trans "уроков" %}
         {% if item.total > 0 %}({% widthratio item.completed item.total 100 %}%){% endif %}</span>
+        {% if item.is_completed %}
+            <a href="{% url 'courses:download_certificate' item.enrollment.course.pk %}" class="btn-course">
+                {% trans "Скачать сертификат" %}
+            </a>
+        {% endif %}
     </li>
     {% empty %}
-    <li class="course-item">Вы пока не записаны ни на один курс.</li>
+    <li class="course-item">{% trans "Вы пока не записаны ни на один курс." %}</li>
     {% endfor %}
 </ul>
 {% endblock %}

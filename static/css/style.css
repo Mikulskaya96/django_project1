@@ -3,17 +3,16 @@
     --color-bg: #0b1020;
     --color-bg-alt: #151b2f;
     --color-text: #f5f5f5;
-    --color-primary: #3776AB;         /* Python blue */
+    --color-primary: #3776AB;
     --color-primary-light: #4B8BBE;
-    --color-accent: #FFE873;          /* Python yellow */
+    --color-accent: #FFE873;
     --color-border: #252b3f;
 
-    --color-surface: #151b2f;         /* карточки, панели */
-    --color-muted: #c4b5c9;           /* второстепенный текст */
+    --color-surface: #151b2f;
+    --color-muted: #c4b5c9;
     --color-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     --color-shadow-strong: 0 8px 30px rgba(0, 0, 0, 0.45);
 
-    /* переменные для старых стилей, маппим на новые */
     --card-bg: var(--color-surface);
     --border: var(--color-border);
     --text-muted: var(--color-muted);
@@ -23,20 +22,25 @@
     --hr-color: var(--color-border);
 }
 
-/* Светлая тема переопределяет только базовые цвета */
-.light-theme {
-    --color-bg: #f4f5f9;
-    --color-bg-alt: #ffffff;
-    --color-text: #20222a;
-    --color-primary: #3776AB;
-    --color-primary-light: #4B8BBE;
-    --color-accent: #f3c954;
-    --color-border: #d0d4e4;
+/* Светлая тема */
+[data-theme="light"] {
+    --color-bg: #fafafa;              /* мягкий светлый фон */
+    --color-bg-alt: #ffffff;          /* белые панели */
+    --color-text: #2e3440;            /* тёмно‑серый, нейтральный */
 
-    --color-surface: #ffffff;
-    --color-muted: #6b7280;
-    --color-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
-    --color-shadow-strong: 0 10px 30px rgba(15, 23, 42, 0.18);
+    /* Python accents */
+    --color-primary: #3776AB;         /* фирменный синий Python */
+    --color-primary-light: #4B8BBE;   /* светлый синий */
+    --color-accent: #FFE873;          /* мягкий жёлтый Python */
+
+    /* Тёплые элементы */
+    --color-border: #e4e4e4;          /* мягкая светлая граница */
+    --color-surface: #ffffff;         /* белые карточки */
+    --color-muted: #6b7280;           /* приглушённый серый */
+
+    /* Тени */
+    --color-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    --color-shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.10);
 
     --card-bg: var(--color-surface);
     --border: var(--color-border);
@@ -47,7 +51,11 @@
     --hr-color: var(--color-border);
 }
 
-/* Тёмная тема через data-theme переопределяет базовые цвета */
+
+
+
+
+/* Тёмная тема */
 [data-theme="dark"] {
     --color-bg: #050816;
     --color-bg-alt: #0b1020;
@@ -65,59 +73,121 @@
     --hr-color: var(--color-border);
 }
 
-/* 2. ОБЩИЕ СТИЛИ ТЕЛА */
+/* 2. ОБЩИЕ СТИЛИ */
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
-    /* Оптимальный шрифт (Вариант С) */
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 1.5rem;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 1.5rem 1.5rem 2rem;
+    font-size: 16px;
 }
 
-/* 3. НАВИГАЦИЯ */
+/* === 3. НОВЫЙ НАВБАР === */
 nav {
     background: var(--color-bg-alt);
     border-bottom: 1px solid var(--color-border);
     padding: 0.65rem 1.25rem;
     border-radius: 16px;
-    box-shadow: var(--nav-shadow);
+    box-shadow: 0 10px 30px rgba(3, 6, 23, 0.8);
+    max-width: 1000px;
+    margin: 0 auto 2.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+main,
+footer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Группы */
+.nav-left,
+.nav-right {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 2.5rem;
-    flex-wrap: nowrap; /* Всё в одну строку */
+    min-width: 0;
 }
 
+/* Левая часть растягивается */
+.nav-left {
+    flex: 1 1 auto;
+}
+
+/* Правая часть фиксированная */
+.nav-right {
+    flex-shrink: 0;
+}
+
+/* Кнопки */
 nav a,
 .btn-nav {
-    color: var(--color-primary);
-    border: 1px solid var(--color-border);
-    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 64, 175, 0.45));
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.4rem 0.75rem;
-    border-radius: 10px;
-    font-size: 0.875rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
     white-space: nowrap;
-    min-width: 90px; /* чтобы «Выйти» не была уже других */
+    min-width: auto;
 }
 
 nav a:hover,
 .btn-nav:hover {
-    background: rgba(55, 118, 171, 0.12);
-    color: var(--color-primary-light);
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.95), rgba(56, 189, 248, 0.9));
+    color: #f9fafb;
+    border-color: rgba(129, 140, 248, 0.9);
+    box-shadow: 0 4px 18px rgba(37, 99, 235, 0.6);
 }
 
-nav a.btn-nav {
-    border: 1px solid var(--color-border);
+/* Вариант кнопок ТОЛЬКО для светлой темы */
+[data-theme="light"] nav a,
+[data-theme="light"] .btn-nav {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    border-color: rgba(148, 163, 184, 0.6);
+    box-shadow: 0 2px 10px rgba(148, 163, 184, 0.35);
 }
 
-/* Форма и кнопка «Выйти» в навбаре — в одну строку с остальными */
-nav .form-inline,
+[data-theme="light"] nav a:hover,
+[data-theme="light"] .btn-nav:hover {
+    background: #d4a017;
+    color: #1f2933;
+    border-color: #d4a017;
+    box-shadow: 0 4px 16px rgba(212, 160, 23, 0.75);
+}
+
+/* Аватар */
+.nav-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Приветствие */
+.nav-hello {
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.nav-time {
+    font-weight: 600;
+    color: #d4a017; /* золотисто‑бежевый */
+}
+
+/* Форма выхода */
 nav form {
     display: inline-flex;
     align-items: center;
@@ -125,13 +195,7 @@ nav form {
     flex-shrink: 0;
 }
 
-.nav-right {
-    margin-left: auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
+/* Язык */
 .lang-switcher select {
     background: var(--color-surface);
     color: var(--color-text);
@@ -141,53 +205,16 @@ nav form {
     font-size: 0.8rem;
 }
 
-/* 4. КНОПКИ */
-.btn-primary {
-    display: inline-block;
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-    color: white !important; /* Чтобы текст всегда был белым */
-    padding: 0.6rem 1.25rem;
-    border-radius: 12px;
-    border: none;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(55, 118, 171, 0.45);
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
+/* Адаптив */
+@media (max-width: 900px) {
+    nav {
+        flex-wrap: wrap;
+    }
 }
 
-.btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 24px rgba(55, 118, 171, 0.65);
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
-}
-
-.btn-secondary {
-    display: inline-block;
-    background: var(--color-bg-alt);
-    color: var(--color-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    border: 1px solid var(--color-border);
-    text-decoration: none;
-    transition: 0.2s;
-}
-
-.btn-secondary:hover {
-    background: rgba(55, 118, 171, 0.12);
-    color: var(--color-primary-light);
-}
-
-/* Кнопки-фильтры категорий и ссылки на курсы */
-.category-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-.btn-cat {
+/* 4. БАЗОВЫЕ ЭЛЕМЕНТЫ */
+/* Базовый класс для кнопок */
+.btn {
     display: inline-block;
     padding: 0.4rem 0.9rem;
     border-radius: 10px;
@@ -197,18 +224,123 @@ nav form {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
-    transition: background 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+    cursor: pointer;
 }
-.btn-cat:hover {
+
+.btn:hover {
     background: rgba(55, 118, 171, 0.12);
     color: var(--color-primary-light);
     box-shadow: 0 2px 8px rgba(55, 118, 171, 0.18);
 }
 
+/* Обычные текстовые ссылки (например, "Вернуться к курсам") */
+a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--color-primary);
+}
+
+a:hover {
+    color: var(--color-primary-light);
+}
+
+/* Специфические кнопки */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white !important;
+    padding: 0.6rem 1.25rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(55, 118, 171, 0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(55, 118, 171, 0.65);
+    background-color: var(--color-primary-light);
+}
+
+.btn-cat {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.btn-cat:hover {
+    background: rgba(55, 118, 171, 0.12);
+    color: var(--color-primary-light);
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(55, 118, 171, 0.25);
+}
+
+.btn-course {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+}
+
+.btn-course:hover {
+    background: rgba(55, 118, 171, 0.15);
+}
+
+.btn-lesson,
+.btn-book {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+}
+
+.btn-lesson:hover,
+.btn-book:hover {
+    background: rgba(55, 118, 171, 0.15);
+    color: var(--color-primary-light);
+}
+
+/* 5. КАРТОЧКИ И СПИСКИ */
+/* Кнопки-фильтры категорий */
+.filters-block {
+    margin: 1rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filters-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-right: 0.25rem;
+}
+
+/* Списки курсов */
 .course-list {
     list-style: none;
     padding: 0;
 }
+
 .course-item {
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
@@ -217,56 +349,46 @@ nav form {
     background: var(--color-surface);
     transition: box-shadow 0.2s;
 }
+
 .course-item:hover {
     box-shadow: var(--card-shadow);
 }
-.btn-course {
-    display: inline-block;
-    padding: 0.35rem 0.75rem;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    background: var(--color-bg-alt);
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.2s;
-}
-.btn-course:hover {
-    background: rgba(55, 118, 171, 0.15);
-    color: var(--color-primary-light);
-}
+
 .course-meta {
     margin-left: 0.5rem;
     color: var(--text-muted);
     font-style: normal;
 }
 
-/* Списки уроков и книг на странице курса */
+/* Списки уроков и книг */
 .lesson-list,
 .book-list {
     list-style: none;
     padding: 0;
 }
+
 .lesson-item,
 .book-item {
     margin-bottom: 0.75rem;
 }
-.btn-lesson,
-.btn-book {
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    color: var(--color-text);
+
+.badge-free {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #1f2937;
+    background: var(--color-accent);
+    vertical-align: middle;
 }
-.btn-lesson:hover,
-.btn-book:hover {
-    background: rgba(55, 118, 171, 0.15);
-    color: var(--color-primary-light);
-}
+
 .lesson-locked {
     color: var(--text-muted);
 }
 
-/* 5. КАРТОЧКИ (Курсы) */
+/* Карточки курсов */
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -310,10 +432,11 @@ nav form {
     margin-top: 40px;
 }
 
-/* 6. СООБЩЕНИЯ (Django Messages) */
+/* 6. СООБЩЕНИЯ */
 .messages-container {
     margin-bottom: 1.5rem;
 }
+
 .msg {
     padding: 0.75rem 1.25rem;
     margin-bottom: 1.5rem;
@@ -322,30 +445,21 @@ nav form {
 }
 
 .msg.success {
-    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-    color: #065f46;
-    border-left: 4px solid #10b981;
+    background: linear-gradient(135deg, var(--color-bg-alt), var(--color-surface));
+    color: var(--color-accent);
+    border-left: 4px solid var(--color-primary);
 }
 
 .msg.error {
-    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-    color: #991b1b;
-    border-left: 4px solid #ef4444;
-}
-
-/* Кнопка «Назад» */
-.back-row {
-    margin-bottom: 1.25rem;
-}
-.btn-back {
-    font-family: inherit;
+    background: linear-gradient(135deg, var(--color-bg-alt), var(--color-surface));
+    color: var(--color-text);
+    border-left: 4px solid #ef4444; /* Можно адаптировать под переменную, если нужно */
 }
 
 /* 7. ЗАГОЛОВКИ */
 h1 {
     color: var(--color-primary-light);
     font-weight: 700;
-    letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
 }
 
@@ -355,40 +469,34 @@ h2 {
     margin-top: 1.5rem;
 }
 
-/* Ссылки в контенте (например, список студентов) */
-main a {
-    color: var(--color-primary-light);
-    text-decoration: none;
-}
-
-main a:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
-}
-
 /* 8. ФУТЕР */
 footer {
     margin-top: 3rem;
     padding-top: 1rem;
 }
+
 .footer-copy {
     text-align: center;
     color: var(--text-muted);
     font-size: 0.9rem;
 }
 
-footer hr {
-    border: none;
-    border-top: 1px solid var(--hr-color);
+.footer-links {
+    text-align: center;
+    margin: 0 0 0.5rem;
+    font-size: 0.92rem;
 }
 
-/* Переключатель темы — профессиональный toggle */
-.theme-toggle-bar {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 0.75rem;
+.footer-links a {
+    text-decoration: none;
+    color: var(--color-primary-light);
 }
 
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* 9. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ */
 .theme-toggle {
     position: relative;
     width: 2.5rem;
@@ -397,108 +505,32 @@ footer hr {
     border-radius: 999px;
     border: 1px solid var(--border);
     background: var(--card-bg);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
     display: inline-flex;
     align-items: center;
-    justify-content: flex-start;
     cursor: pointer;
-    outline: none;
-    transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: 0.2s;
 }
 
 .theme-toggle__thumb {
-    position: relative;
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 999px;
-    background: radial-gradient(circle at 30% 0%, #fefce8, #facc15);
-    box-shadow: 0 4px 14px rgba(250, 204, 21, 0.85);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #020617;
-    transform: translateX(0);
-    transition:
-        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-        background 0.25s ease-out,
-        box-shadow 0.25s ease-out;
+    background: var(--color-primary); /* по умолчанию (тёмная тема) — синий */
+    transition: 0.25s;
 }
 
 .theme-toggle__icon {
     width: 0.9rem;
     height: 0.9rem;
-    display: block;
-}
-
-.theme-toggle__icon--sun {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-}
-
-.theme-toggle__icon--moon {
-    opacity: 0;
-    transform: scale(0.75);
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-}
-
-.theme-toggle[data-theme-state="light"] {
-    background: var(--card-bg);
-    border-color: var(--border);
+    display: none; /* минимальный, более строгий вид без эмодзи */
 }
 
 .theme-toggle[data-theme-state="light"] .theme-toggle__thumb {
     transform: translateX(0.9rem);
-}
-
-.theme-toggle[data-theme-state="light"] .theme-toggle__icon--sun {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.theme-toggle[data-theme-state="light"] .theme-toggle__icon--moon {
-    opacity: 0;
-    transform: scale(0.75);
-}
-
-.theme-toggle[data-theme-state="dark"] {
-    background: #020617;
-    border-color: #4b5563;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.8);
+    background: #d4a017; /* светлая тема — жёлтый как у часов */
 }
 
 .theme-toggle[data-theme-state="dark"] .theme-toggle__thumb {
     transform: translateX(0);
-    background: radial-gradient(circle at 30% 0%, #e2e8f0, #4B8BBE);
-    box-shadow: 0 8px 20px rgba(55, 118, 171, 0.6);
-    color: #020617;
-}
-
-.theme-toggle[data-theme-state="dark"] .theme-toggle__icon--sun {
-    opacity: 0;
-    transform: scale(0.75);
-}
-
-.theme-toggle[data-theme-state="dark"] .theme-toggle__icon--moon {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.theme-toggle:focus-visible {
-    box-shadow:
-        0 0 0 1px rgba(248, 250, 252, 0.9),
-        0 0 0 4px rgba(56, 189, 248, 0.8);
-}
-
-/* Навбар на узких экранах — разрешаем перенос */
-@media (max-width: 900px) {
-    nav {
-        flex-wrap: wrap;
-    }
-}
-
-.nav-time {
-    font-size: 0.9rem;
-    color: var(--color-accent);
-    margin-left: 1rem;
+    background: var(--color-primary);
 }

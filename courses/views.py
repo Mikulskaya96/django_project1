@@ -1,3 +1,6 @@
+import os
+from io import BytesIO
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -6,10 +9,26 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.conf import settings
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 import stripe
+from users.models import Profile
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.utils import simpleSplit
+from django.utils import timezone
 
-from .models import Category, Course, Book, Lesson, Enrollment, LessonProgress, Grade, LessonAiMessage
+from .models import (
+    Category,
+    Course,
+    Book,
+    Lesson,
+    Enrollment,
+    LessonProgress,
+    Grade,
+    LessonAiMessage,
+    CourseCertificate,
+)
 from .forms import CourseCreateForm, EnrollStudentForm, GradeForm
 
 
@@ -50,6 +69,9 @@ class CourseListView(ListView):
         cat = self.request.GET.get("category")
         if cat:
             qs = qs.filter(category_id=cat)
+        level = self.request.GET.get("level")
+        if level:
+            qs = qs.filter(level=level)
         return qs
 
     def get_context_data(self, **kwargs):
@@ -246,7 +268,22 @@ class MyCoursesView(LoginRequiredMixin, ListView):
         for e in context["enrollments"]:
             total = len(e.course.lessons.all())
             completed = completed_by_course.get(e.course_id, 0)
-            progress_list.append({"enrollment": e, "total": total, "completed": completed})
+            is_completed = total > 0 and completed >= total
+            certificate = None
+            if is_completed:
+                certificate = CourseCertificate.objects.filter(
+                    user=user,
+                    course=e.course,
+                ).first()
+            progress_list.append(
+                {
+                    "enrollment": e,
+                    "total": total,
+                    "completed": completed,
+                    "is_completed": is_completed,
+                    "certificate": certificate,
+                }
+            )
         context["progress_list"] = progress_list
         return context
 
@@ -476,12 +513,39 @@ def create_checkout_session(request):
 
 @login_required
 def checkout_success(request):
-    """Успешная оплата: помечаем профиль как имеющий доступ."""
-    profile = getattr(request.user, "profile", None)
-    if profile and not profile.has_access:
-        profile.has_access = True
-        profile.save()
-    messages.success(request, "Оплата прошла успешно! Доступ к курсам открыт.")
+    """Страница после редиректа Stripe. Доступ выдаётся только через webhook."""
+    session_id = request.GET.get("session_id")
+    if not session_id:
+        messages.info(
+            request,
+            "Платёж обрабатывается. Обновите страницу через несколько секунд.",
+        )
+        return redirect("courses:course_list")
+
+    if not settings.STRIPE_SECRET_KEY:
+        messages.warning(
+            request,
+            "Платёж принят, но автоматическая проверка не настроена. Обратитесь в поддержку.",
+        )
+        return redirect("courses:course_list")
+
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    try:
+        session = stripe.checkout.Session.retrieve(session_id)
+    except Exception:
+        messages.info(
+            request,
+            "Платёж в обработке. Если доступ не откроется в течение минуты, обновите страницу.",
+        )
+        return redirect("courses:course_list")
+
+    if session.payment_status == "paid":
+        messages.success(request, "Оплата подтверждена. Доступ к курсам открыт.")
+    else:
+        messages.info(
+            request,
+            "Платёж ещё не подтверждён. Доступ откроется автоматически после подтверждения Stripe.",
+        )
     return redirect("courses:course_list")
 
 
@@ -490,3 +554,118 @@ def checkout_cancel(request):
     """Отмена оплаты: просто сообщение и возврат к курсам."""
     messages.info(request, "Оплата была отменена.")
     return redirect("courses:checkout")
+
+
+@csrf_exempt
+def stripe_webhook(request):
+    """Webhook Stripe: подтверждает оплату и выдаёт доступ пользователю."""
+    if request.method != "POST":
+        return HttpResponse(status=405)
+
+    webhook_secret = getattr(settings, "STRIPE_WEBHOOK_SECRET", "")
+    if not webhook_secret:
+        return HttpResponse(status=503)
+
+    payload = request.body
+    signature = request.META.get("HTTP_STRIPE_SIGNATURE", "")
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload=payload,
+            sig_header=signature,
+            secret=webhook_secret,
+        )
+    except ValueError:
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError:
+        return HttpResponse(status=400)
+
+    if event["type"] == "checkout.session.completed":
+        session = event["data"]["object"]
+        if session.get("payment_status") == "paid":
+            user_id = (session.get("metadata") or {}).get("user_id")
+            if user_id:
+                try:
+                    profile = Profile.objects.get(user_id=int(user_id))
+                    if not profile.has_access:
+                        profile.has_access = True
+                        profile.save(update_fields=["has_access"])
+                except (Profile.DoesNotExist, ValueError, TypeError):
+                    pass
+
+    return HttpResponse(status=200)
+
+
+@login_required
+def download_certificate(request, course_id):
+    """Генерирует и отдаёт PDF-сертификат, если курс завершён."""
+    course = get_object_or_404(Course, pk=course_id)
+    user = request.user
+
+    if not Enrollment.objects.filter(student=user, course=course).exists():
+        messages.error(request, "Вы не записаны на этот курс.")
+        return redirect("courses:my_courses")
+
+    total_lessons = Lesson.objects.filter(course=course).count()
+    completed_lessons = LessonProgress.objects.filter(
+        user=user,
+        lesson__course=course,
+    ).count()
+
+    if total_lessons == 0 or completed_lessons < total_lessons:
+        messages.info(request, "Сертификат доступен после завершения всех уроков курса.")
+        return redirect("courses:my_courses")
+
+    certificate, _ = CourseCertificate.objects.get_or_create(user=user, course=course)
+
+    buffer = BytesIO()
+    pdf = canvas.Canvas(buffer, pagesize=A4)
+    width, height = A4
+
+    pdf.setTitle(f"Certificate-{certificate.certificate_id}")
+
+    y = height - 90
+    pdf.setFont("Helvetica-Bold", 26)
+    pdf.drawCentredString(width / 2, y, "DevLearn Certificate")
+
+    y -= 50
+    pdf.setFont("Helvetica", 13)
+    pdf.drawCentredString(width / 2, y, "This certifies that")
+
+    y -= 35
+    full_name = user.get_full_name().strip() or user.username
+    pdf.setFont("Helvetica-Bold", 20)
+    pdf.drawCentredString(width / 2, y, full_name)
+
+    y -= 40
+    pdf.setFont("Helvetica", 13)
+    pdf.drawCentredString(width / 2, y, "has successfully completed the course")
+
+    y -= 30
+    pdf.setFont("Helvetica-Bold", 16)
+    for line in simpleSplit(course.title, "Helvetica-Bold", 16, width - 120):
+        pdf.drawCentredString(width / 2, y, line)
+        y -= 22
+
+    y -= 10
+    issued_date = timezone.localtime(certificate.issued_at).strftime("%Y-%m-%d")
+    pdf.setFont("Helvetica", 12)
+    pdf.drawCentredString(width / 2, y, f"Issued: {issued_date}")
+    y -= 20
+    pdf.drawCentredString(width / 2, y, f"Certificate ID: {certificate.certificate_id}")
+
+    y -= 70
+    pdf.line(90, y, 250, y)
+    pdf.line(width - 250, y, width - 90, y)
+    pdf.setFont("Helvetica", 10)
+    pdf.drawString(125, y - 14, "Instructor")
+    pdf.drawRightString(width - 125, y - 14, "DevLearn")
+
+    pdf.showPage()
+    pdf.save()
+    buffer.seek(0)
+
+    filename = f"certificate-{course_id}-{user.username}.pdf"
+    response = HttpResponse(buffer.getvalue(), content_type="application/pdf")
+    response["Content-Disposition"] = f'attachment; filename="{filename}"'
+    return response

@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Создать курс — DevLearn{% endblock %}
+{% block title %}{% trans "Создать курс — DevLearn" %}{% endblock %}
 
 {% block content %}
-<h1>Создать курс</h1>
+<h1>{% trans "Создать курс" %}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn-primary">Создать</button>
+    <button type="submit" class="btn-primary">{% trans "Создать" %}</button>
 </form>
 {% endblock %}

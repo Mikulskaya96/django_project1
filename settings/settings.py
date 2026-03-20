@@ -138,6 +138,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    BASE_DIR / "locale",
+]
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -169,6 +173,7 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
 STRIPE_PRICE_ID = os.environ.get("STRIPE_PRICE_ID", "")
+STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 
 # CSRF для домена Render (https://твой-сервис.onrender.com)
 if os.environ.get("RENDER_EXTERNAL_HOSTNAME"):

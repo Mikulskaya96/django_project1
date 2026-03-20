@@ -6,56 +6,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}DevLearn{% endblock %}</title>
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     {% block extra_css %}{% endblock %}
 </head>
 <body>
     <nav>
-        <span id="current-time" class="nav-time"></span>
-        <a href="{% url 'index' %}" class="btn-nav">{% trans "Главная" %}</a>
-        {% if user.is_authenticated %}
-        <a href="{% url 'courses:student_list' %}" class="btn-nav">{% trans "Студенты" %}</a>
-        {% endif %}
-        <a href="{% url 'courses:course_list' %}" class="btn-nav">{% trans "Курсы" %}</a>
-
-        {% if user.is_authenticated %}
-            {% if profile_avatar_url %}
-                <img src="{{ profile_avatar_url }}" alt="" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; vertical-align: middle;">
+        <div class="nav-left">
+            <a href="{% url 'index' %}" class="btn-nav">{% trans "Главная" %}</a>
+    
+            {% if user.is_authenticated %}
+                <a href="{% url 'courses:student_list' %}" class="btn-nav">{% trans "Студенты" %}</a>
             {% endif %}
-            <span>{% trans "Привет," %} <strong>{{ user.username }}</strong></span>
-            <a href="{% url 'users:profile_edit' %}" class="btn-nav">{% trans "Мой профиль" %}</a>
-            <a href="{% url 'courses:my_courses' %}" class="btn-nav">{% trans "Мои курсы" %}</a>
-            
-            {% if is_teacher %}
-                <a href="{% url 'courses:course_create' %}" class="btn-nav">{% trans "Создать курс" %}</a>
+    
+            <a href="{% url 'courses:course_list' %}" class="btn-nav">{% trans "Курсы" %}</a>
+    
+            {% if user.is_authenticated %}
+                {% if profile_avatar_url %}
+                    <img src="{{ profile_avatar_url }}" alt="" class="nav-avatar">
+                {% endif %}
+    
+                <span class="nav-hello">
+                    {% trans "Привет," %} <strong>{{ user.username }}</strong>
+                </span>
+    
+                <a href="{% url 'users:profile_edit' %}" class="btn-nav">{% trans "Мой профиль" %}</a>
+                <a href="{% url 'courses:my_courses' %}" class="btn-nav">{% trans "Мои курсы" %}</a>
+    
+                {% if is_teacher %}
+                    <a href="{% url 'courses:course_create' %}" class="btn-nav">{% trans "Создать курс" %}</a>
+                {% endif %}
+    
+                <form method="post" action="{% url 'users:logout' %}" class="form-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-nav btn-logout">{% trans "Выйти" %}</button>
+                </form>
+            {% else %}
+                <a href="{% url 'users:login' %}" class="btn-nav">{% trans "Войти" %}</a>
+                <a href="{% url 'users:register' %}" class="btn-nav">{% trans "Регистрация" %}</a>
             {% endif %}
-
-            <form method="post" action="{% url 'users:logout' %}" class="form-inline">
-                {% csrf_token %}
-                <button type="submit" class="btn-nav btn-logout">Выйти</button>
-            </form>
-        {% else %}
-            <a href="{% url 'users:login' %}" class="btn-nav">{% trans "Войти" %}</a>
-            <a href="{% url 'users:register' %}" class="btn-nav">{% trans "Регистрация" %}</a>
-        {% endif %}
-
+        </div>
+    
         <div class="nav-right">
+            <span id="current-time" class="nav-time"></span>
+    
             <form method="post" action="{% url 'set_language' %}" class="lang-switcher">
                 {% csrf_token %}
-                <select name="language" onchange="this.form.submit()">
-                    <option value="ru" {% if LANGUAGE_CODE|slice:':2' == 'ru' %}selected{% endif %}>RU</option>
-                    <option value="en" {% if LANGUAGE_CODE|slice:':2' == 'en' %}selected{% endif %}>EN</option>
-                    <option value="it" {% if LANGUAGE_CODE|slice:':2' == 'it' %}selected{% endif %}>IT</option>
+                <input type="hidden" name="next" id="lang-next" value="{{ request.get_full_path }}">
+                {% get_current_language as current_lang %}
+                <select name="language" onchange="submitLanguageForm(this.form)">
+                    <option value="ru" {% if current_lang|slice:':2' == 'ru' %}selected{% endif %}>RU</option>
+                    <option value="en" {% if current_lang|slice:':2' == 'en' %}selected{% endif %}>EN</option>
+                    <option value="it" {% if current_lang|slice:':2' == 'it' %}selected{% endif %}>IT</option>
                 </select>
             </form>
-
+    
             <button
                 type="button"
                 class="theme-toggle"
                 id="theme-toggle"
-                aria-label="Переключить тему"
+                aria-label="{% trans 'Переключить тему' %}"
             >
                 <span class="theme-toggle__thumb">
                     <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
@@ -74,6 +89,8 @@
             </button>
         </div>
     </nav>
+    
+    
 
     {# Блок для всплывающих уведомлений (например, "Вы успешно вошли") #}
     {% if messages %}
@@ -85,9 +102,9 @@
     {% endif %}
 
     <main>
-        {% if request.path != '/' %}
+        {% if request.resolver_match.url_name != 'index' %}
         <p class="back-row">
-            <button type="button" class="btn-nav btn-back" onclick="history.back()" aria-label="Назад">← Назад</button>
+            <button type="button" class="btn-nav btn-back" onclick="history.back()" aria-label="{% trans 'Назад' %}">← {% trans "Назад" %}</button>
         </p>
         {% endif %}
         {% block content %}{% endblock %}
@@ -95,6 +112,13 @@
 
     <footer>
         <hr>
+        <p class="footer-links">
+            <a href="{% url 'public_offer' %}">{% trans "Публичная оферта" %}</a>
+            <span>•</span>
+            <a href="{% url 'privacy_policy' %}">{% trans "Политика конфиденциальности" %}</a>
+            <span>•</span>
+            <a href="{% url 'contacts' %}">{% trans "Контакты" %}</a>
+        </p>
         <p class="footer-copy">&copy; 2026 DevLearn</p>
     </footer>
 
@@ -140,6 +164,29 @@
             updateTime();
             setInterval(updateTime, 60000);
         })();
+
+        function submitLanguageForm(form) {
+            var select = form.querySelector('select[name="language"]');
+            var nextInput = form.querySelector('#lang-next');
+            if (!select || !nextInput) {
+                form.submit();
+                return;
+            }
+            var targetLang = select.value;
+            var path = window.location.pathname || '/';
+            var query = window.location.search || '';
+            var hash = window.location.hash || '';
+            var normalized = path.replace(/^\/(ru|en|it)(\/|$)/, '/');
+            if (normalized.charAt(0) !== '/') {
+                normalized = '/' + normalized;
+            }
+            if (normalized === '/') {
+                nextInput.value = '/' + targetLang + '/';
+            } else {
+                nextInput.value = '/' + targetLang + normalized + query + hash;
+            }
+            form.submit();
+        }
     </script>
 </body>
 </html>

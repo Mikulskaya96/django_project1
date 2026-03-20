@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load course_extras %}
+{% load i18n %}
 
 {% block title %}{{ lesson.title }} — DevLearn{% endblock %}
 
@@ -17,6 +18,12 @@
 
 <h1>{{ lesson.title }}</h1>
 
+{% if lesson.image %}
+<p>
+    <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}" style="max-width: 260px; border-radius: 12px; box-shadow: var(--card-shadow);">
+</p>
+{% endif %}
+
 {% if lesson.content %}
 <div class="lesson-content">
     {{ lesson.content|markdown_to_html }}
@@ -24,36 +31,36 @@
 {% endif %}
 
 {% if lesson.video_url %}
-<p><a href="{{ lesson.video_url }}" target="_blank">Смотреть видео</a></p>
+<p><a href="{{ lesson.video_url }}" target="_blank">{% trans "Смотреть видео" %}</a></p>
 {% endif %}
 
 {% if not is_completed %}
 <form method="post" action="{% url 'courses:complete_lesson' lesson.pk %}">
     {% csrf_token %}
-    <button type="submit" class="btn-primary">Отметить как пройденный</button>
+    <button type="submit" class="btn-primary">{% trans "Отметить как пройденный" %}</button>
 </form>
 {% else %}
-<p>✓ Урок пройден</p>
+<p>✓ {% trans "Урок пройден" %}</p>
 {% endif %}
 
 {% if gemini_available %}
 <section class="ask-ai" style="margin-top: 2rem; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
-    <h2>Спросить ИИ по уроку</h2>
+    <h2>{% trans "Спросить ИИ по уроку" %}</h2>
     <form id="ask-ai-form">
         {% csrf_token %}
-        <textarea name="question" rows="3" placeholder="Задайте вопрос по теме урока..." style="width: 100%; max-width: 500px; display: block; margin-bottom: 0.5rem;"></textarea>
-        <button type="submit" class="btn-primary">Отправить</button>
+        <textarea name="question" rows="3" placeholder="{% trans 'Задайте вопрос по теме урока...' %}" style="width: 100%; max-width: 500px; display: block; margin-bottom: 0.5rem;"></textarea>
+        <button type="submit" class="btn-primary">{% trans "Отправить" %}</button>
     </form>
     <div id="ai-answer" style="margin-top: 1rem; display: none;"></div>
-    <div id="ai-loading" style="margin-top: 1rem; display: none;">ИИ думает...</div>
+    <div id="ai-loading" style="margin-top: 1rem; display: none;">{% trans "ИИ думает..." %}</div>
 </section>
 {% if ai_messages %}
 <section style="margin-top: 1.5rem;">
-    <h3>Ваши недавние вопросы</h3>
+    <h3>{% trans "Ваши недавние вопросы" %}</h3>
     <ul>
         {% for msg in ai_messages %}
         <li style="margin-bottom: 0.5rem;">
-            <strong>Вы:</strong> {{ msg.question }}<br>
+            <strong>{% trans "Вы:" %}</strong> {{ msg.question }}<br>
             <strong>ИИ:</strong> {{ msg.answer|linebreaksbr }}
         </li>
         {% endfor %}
@@ -75,7 +82,7 @@ document.getElementById("ask-ai-form").addEventListener("submit", async function
         var data = await r.json();
         loadingEl.style.display = "none";
         if (data.answer) {
-            answerEl.innerHTML = "<strong>Ответ:</strong><br>" + data.answer.replace(/\n/g, "<br>");
+            answerEl.innerHTML = "<strong>{% trans 'Ответ:' %}</strong><br>" + data.answer.replace(/\n/g, "<br>");
             answerEl.style.display = "block";
         } else if (data.error) {
             answerEl.innerHTML = "<span style='color: #c00'>" + data.error + "</span>";
@@ -83,7 +90,7 @@ document.getElementById("ask-ai-form").addEventListener("submit", async function
         }
     } catch (err) {
         loadingEl.style.display = "none";
-        answerEl.innerHTML = "<span style='color: #c00'>Ошибка запроса.</span>";
+        answerEl.innerHTML = "<span style='color: #c00'>{% trans 'Ошибка запроса.' %}</span>";
         answerEl.style.display = "block";
     }
 });

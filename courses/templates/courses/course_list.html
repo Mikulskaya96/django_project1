@@ -1,26 +1,41 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Курсы — DevLearn{% endblock %}
+{% block title %}{% trans "Курсы — DevLearn" %}{% endblock %}
 
 {% block content %}
-<h1>Курсы</h1>
-{% if categories %}
-<p class="category-filters">
-    {% for c in categories %}
-    <a href="?category={{ c.id }}" class="btn-cat">{{ c.name }}</a>
-    {% endfor %}
-    <a href="{% url 'courses:course_list' %}" class="btn-cat">Все</a>
-</p>
-{% endif %}
+<h1>{% trans "Курсы" %}</h1>
+
+<div class="filters-block">
+    {% if categories %}
+    <div class="category-filters">
+        <span class="filters-label">{% trans "Направление:" %}</span>
+        {% for c in categories %}
+            <a href="?category={{ c.id }}" class="btn-cat">{{ c.name }}</a>
+        {% endfor %}
+        <a href="{% url 'courses:course_list' %}" class="btn-cat">{% trans "Все" %}</a>
+    </div>
+    {% endif %}
+
+    <div class="category-filters">
+        <span class="filters-label">{% trans "Уровень:" %}</span>
+        <a href="?level=junior" class="btn-cat">{% trans "Python для начинающих" %}</a>
+        <a href="?level=pro" class="btn-cat">{% trans "Python для профессионалов" %}</a>
+        <a href="{% url 'courses:course_list' %}" class="btn-cat">{% trans "Все уровни" %}</a>
+    </div>
+</div>
 <ul class="course-list">
     {% for course in courses %}
     <li class="course-item">
+        {% if course.cover_image %}
+            <img src="{{ course.cover_image.url }}" alt="{{ course.title }}" style="max-width: 80px; border-radius: 8px; margin-right: 0.75rem; vertical-align: middle;">
+        {% endif %}
         <a href="{% url 'courses:course_detail' course.pk %}" class="btn-course">{{ course.title }}</a>
         {% if course.category %}<em class="course-meta">{{ course.category.name }}</em>{% endif %}
-        <span class="course-meta"> — {{ course.author.username }}, {{ course.price }} ₽</span>
+        <span class="course-meta"> — {{ course.author.username }}, {{ course.price }} $</span>
     </li>
     {% empty %}
-    <li>Курсов пока нет.</li>
+    <li>{% trans "Курсов пока нет." %}</li>
     {% endfor %}
 </ul>
 {% endblock %}

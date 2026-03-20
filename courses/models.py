@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from markdownx.models import MarkdownxField
+import uuid
 
 
 class Category(models.Model):
@@ -42,6 +44,12 @@ class Course(models.Model):
         on_delete=models.CASCADE,
         related_name="authored_courses",
         verbose_name="Автор",
+    )
+    cover_image = models.ImageField(
+        "Обложка курса",
+        upload_to="courses/covers/",
+        blank=True,
+        null=True,
     )
     price = models.DecimalField(
         "Цена",
@@ -90,7 +98,13 @@ class Lesson(models.Model):
         verbose_name="Курс",
     )
     title = models.CharField("Название", max_length=100)
-    content = models.TextField("Содержание (Markdown)", blank=True)
+    content = MarkdownxField("Содержание", blank=True)
+    image = models.ImageField(
+        "Картинка урока",
+        upload_to="courses/lessons/",
+        blank=True,
+        null=True,
+    )
     video_url = models.URLField("Ссылка на видео", blank=True)
     order = models.PositiveIntegerField("Порядок", default=0)
 
@@ -192,3 +206,34 @@ class Grade(models.Model):
 
     def __str__(self):
         return f"{self.student.username} — {self.course.title}: {self.grade}"
+
+
+class CourseCertificate(models.Model):
+    """Сертификат о завершении курса."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="course_certificates",
+        verbose_name="Пользователь",
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name="certificates",
+        verbose_name="Курс",
+    )
+    certificate_id = models.UUIDField(
+        "Идентификатор сертификата",
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+    )
+    issued_at = models.DateTimeField("Дата выдачи", auto_now_add=True)
+
+    class Meta:
+        unique_together = ["user", "course"]
+        ordering = ["-issued_at"]
+
+    def __str__(self):
+        return f"Certificate {self.certificate_id} — {self.user.username}/{self.course.title}"
