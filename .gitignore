@@ -21,6 +21,7 @@ media/
 # IDE
 .idea/
 # .vscode/
+.cursorignore
 DOKUMENTACJA.md
 
 # Личные заметки (не в репозитории)
