@@ -1,0 +1,32 @@
+{% load i18n %}
+<section class="course-outcomes" aria-labelledby="course-outcomes-title">
+    <h2 id="course-outcomes-title" class="course-outcomes__title">{% trans "Чему вы научитесь, пройдя оба курса" %}</h2>
+    <p class="course-outcomes__lead">
+        {% trans "Программа выстроена от первых шагов в Python до веб-приложений, API, тестов и деплоя — так, как это задано в уроках на платформе." %}
+    </p>
+    <div class="course-outcomes__grid">
+        <div class="course-outcomes__card">
+            <h3 class="course-outcomes__course">{% trans "Python для начинающих" %}</h3>
+            <ul class="course-outcomes__list">
+                <li>{% trans "Установка Python, терминал, IDE, первый запуск и стиль кода (PEP 8)" %}</li>
+                <li>{% trans "Переменные, типы данных, ввод и вывод" %}</li>
+                <li>{% trans "Условия if/else и разбор типичных ошибок (Debug Zone)" %}</li>
+                <li>{% trans "Циклы for и while" %}</li>
+                <li>{% trans "Списки и словари, range, enumerate, вложенные циклы" %}</li>
+                <li>{% trans "Функции, параметры, области видимости, работа с файлами" %}</li>
+                <li>{% trans "Мини-проект «счёт в кафе» и задачи в формате Debug Zone" %}</li>
+            </ul>
+        </div>
+        <div class="course-outcomes__card">
+            <h3 class="course-outcomes__course">{% trans "Python для профессионалов" %}</h3>
+            <ul class="course-outcomes__list">
+                <li>{% trans "Архитектура проекта, venv, логирование, .env и безопасность секретов" %}</li>
+                <li>{% trans "Flask API: CRUD, JSON, валидация, pytest и контракты HTTP" %}</li>
+                <li>{% trans "Django: модели, ORM, миграции и админка" %}</li>
+                <li>{% trans "Django REST Framework и авторизация" %}</li>
+                <li>{% trans "Тесты с pytest, CI (GitHub Actions) и деплой на Render" %}</li>
+                <li>{% trans "Финал: дорожная карта развития, мини-проект и итоги курса" %}</li>
+            </ul>
+        </div>
+    </div>
+</section>

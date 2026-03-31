@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n course_extras %}
 
-{% block title %}{% trans "Записать студента" %} — {{ course.title }}{% endblock %}
+{% block title %}{% trans "Записать студента" %} — {{ course.title|translate_db_text }}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Записать студента на курс:" %} {{ course.title }}</h1>
+<h1>{% trans "Записать студента на курс:" %} {{ course.title|translate_db_text }}</h1>
 
-<form method="post">
+<form method="post" class="form-styled">
     {% csrf_token %}
     <div class="form-row">
         {{ form.student.label_tag }}<br>

@@ -1,22 +1,22 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n course_extras %}
 
 {% block title %}{% trans "DevLearn — Обучение программированию" %}{% endblock %}
 
 {% block content %}
 <div class="index-section">
     <h1 class="brand-title">
-        <span class="brand-logo">
         <span class="brand-name">DevLearn</span>
     </h1>
     <p class="welcome-text">{% trans "Добро пожаловать на платформу" %}</p>
-
-    {% if user.is_authenticated %}
-        <p>{% trans "Привет," %} <strong>{{ user.username }}</strong>! </p>
-        <p>{% trans "Выбери, что ты хочешь делать:" %}</p>
-    {% else %}
-        <p>{% trans "Чтобы начать обучение, зарегистрируйся или войди в аккаунт." %}</p>
-    {% endif %}
+    <div class="index-greeting">
+        {% if user.is_authenticated %}
+            <p>{% trans "Привет," %} <strong>{{ user.username }}</strong>!</p>
+            <p class="index-subtitle">{% trans "Выбери, что ты хочешь делать:" %}</p>
+        {% else %}
+            <p class="index-subtitle">{% trans "Чтобы начать обучение, зарегистрируйся или войди в аккаунт." %}</p>
+        {% endif %}
+    </div>
 
     <div class="menu-cards">
         <div class="card">
@@ -25,17 +25,11 @@
             <a href="{% url 'courses:course_list' %}" class="btn-primary">{% trans "Посмотреть курсы →" %}</a>
         </div>
 
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and user.is_superuser %}
         <div class="card">
             <h3>👥 {% trans "Студенты" %}</h3>
             <p>{% trans "Посмотри список всех студентов на платформе" %}</p>
             <a href="{% url 'courses:student_list' %}" class="btn-primary">{% trans "Список студентов →" %}</a>
-        </div>
-
-        <div class="card">
-            <h3>{% trans "📊 Журнал оценок" %}</h3>
-            <p>{% trans "Просмотри оценки студентов по датам и курсам" %}</p>
-            <a href="{% url 'courses:grade_book' %}" class="btn-primary">{% trans "Открыть журнал →" %}</a>
         </div>
         {% endif %}
 
@@ -63,5 +57,50 @@
             </div>
         {% endif %}
     </div>
+
+    {% include "main/includes/course_outcomes.html" %}
+
+    {% if not user.is_authenticated %}
+    <section class="why-devlearn">
+        <h2 class="why-devlearn__title">{% trans "Почему DevLearn" %}</h2>
+        <div class="why-devlearn__grid">
+            <div class="why-devlearn__item">
+                <span class="why-devlearn__icon">📚</span>
+                <h3>{% trans "Структурированные курсы" %}</h3>
+                <p>{% trans "Теория, практика и домашние задания в каждом уроке" %}</p>
+            </div>
+            <div class="why-devlearn__item">
+                <span class="why-devlearn__icon">🤖</span>
+                <h3>{% trans "AI-помощник" %}</h3>
+                <p>{% trans "Задавай вопросы по материалу прямо в уроке" %}</p>
+            </div>
+            <div class="why-devlearn__item">
+                <span class="why-devlearn__icon">📜</span>
+                <h3>{% trans "Сертификат" %}</h3>
+                <p>{% trans "Получи сертификат после завершения курса" %}</p>
+            </div>
+        </div>
+    </section>
+
+    {% if courses_preview %}
+    <section class="course-preview">
+        <h2 class="course-preview__title">{% trans "Популярные курсы" %}</h2>
+        <div class="course-preview__grid">
+            {% for course in courses_preview %}
+            <a href="{% url 'courses:course_detail' course.pk %}" class="course-preview__card">
+                {% if course.cover_image %}
+                <img src="{{ course.cover_image.url }}" alt="{{ course.title|translate_db_text }}" class="course-preview__cover">
+                {% endif %}
+                <div class="course-preview__body">
+                    <h3>{{ course.title|translate_db_text }}</h3>
+                    <p>{{ course.get_level_display }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <p><a href="{% url 'courses:course_list' %}" class="btn-primary">{% trans "Все курсы" %} →</a></p>
+    </section>
+    {% endif %}
+    {% endif %}
 </div>
 {% endblock %}

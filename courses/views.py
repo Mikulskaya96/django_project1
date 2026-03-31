@@ -1,5 +1,6 @@
 import os
 from io import BytesIO
+from pathlib import Path
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
@@ -16,23 +17,45 @@ from users.models import Profile
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.utils import simpleSplit
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from django.utils import timezone
+from django.utils.translation import gettext as _, get_language
 
 from .models import (
-    Category,
     Course,
     Book,
     Lesson,
     Enrollment,
     LessonProgress,
-    Grade,
     LessonAiMessage,
     CourseCertificate,
+    CourseReview,
 )
-from .forms import CourseCreateForm, EnrollStudentForm, GradeForm
+from .forms import CourseCreateForm, EnrollStudentForm, CourseReviewForm
+from .templatetags.course_extras import translate_content as translate_lesson_content
 
 
 FREE_LESSONS_PER_COURSE = 3
+
+_CERT_PDF_FONTS = None
+
+
+def _certificate_pdf_fonts():
+    """Helvetica в PDF не рисует кириллицу (квадраты) — подключаем Noto Sans из static/fonts/."""
+    global _CERT_PDF_FONTS
+    if _CERT_PDF_FONTS is not None:
+        return _CERT_PDF_FONTS
+    base = settings.BASE_DIR / "static" / "fonts"
+    regular = base / "NotoSans-Regular.ttf"
+    bold = base / "NotoSans-Bold.ttf"
+    if regular.is_file() and bold.is_file():
+        pdfmetrics.registerFont(TTFont("NotoSans", str(regular)))
+        pdfmetrics.registerFont(TTFont("NotoSans-Bold", str(bold)))
+        _CERT_PDF_FONTS = ("NotoSans", "NotoSans-Bold")
+    else:
+        _CERT_PDF_FONTS = ("Helvetica", "Helvetica-Bold")
+    return _CERT_PDF_FONTS
 
 
 def _user_has_lesson_access(user, lesson: Lesson) -> bool:
@@ -65,7 +88,10 @@ class CourseListView(ListView):
     context_object_name = "courses"
 
     def get_queryset(self):
-        qs = Course.objects.select_related("author", "category")
+        from django.db.models import Count
+        qs = Course.objects.filter(is_active=True).select_related("author", "category").annotate(
+            lesson_count=Count("lessons")
+        )
         cat = self.request.GET.get("category")
         if cat:
             qs = qs.filter(category_id=cat)
@@ -75,9 +101,7 @@ class CourseListView(ListView):
         return qs
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["categories"] = Category.objects.all()
-        return context
+        return super().get_context_data(**kwargs)
 
 
 class CourseDetailView(DetailView):
@@ -101,21 +125,55 @@ class CourseDetailView(DetailView):
         is_teacher = bool(profile and getattr(profile, "role", "") == "teacher")
 
         is_enrolled = False
+        completed_count = 0
         if user.is_authenticated:
             is_enrolled = Enrollment.objects.filter(
                 student=user, course=course
             ).exists()
+            if is_enrolled:
+                lesson_ids = [l.pk for l in course.lessons.all()]
+                completed_count = LessonProgress.objects.filter(
+                    user=user, lesson_id__in=lesson_ids
+                ).count()
 
         lessons = list(course.lessons.all().order_by("order", "id"))
         for idx, lesson in enumerate(lessons, start=1):
             is_free = idx <= FREE_LESSONS_PER_COURSE
             lesson.is_free = is_free
             lesson.is_locked = not (is_free or has_access or is_teacher)
+            lesson.display_order = idx
+
+        # Группировка по модулям для курса Junior
+        lesson_modules = None
+        if course.level == "junior" and len(lessons) >= 15:
+            JUNIOR_MODULES = [
+                ("Модуль 1", 0, 5),
+                ("Модуль 2. Повторение и данные", 5, 10),
+                ("Модуль 3. Функции и простой проект", 10, 15),
+            ]
+            lesson_modules = []
+            for title, start, end in JUNIOR_MODULES:
+                module_lessons = lessons[start:end]
+                if module_lessons:
+                    lesson_modules.append({"title": title, "lessons": module_lessons})
 
         context["is_enrolled"] = is_enrolled
         context["has_access"] = has_access
         context["is_teacher"] = is_teacher
         context["lessons"] = lessons
+        context["lesson_modules"] = lesson_modules
+        context["lesson_count"] = len(lessons)
+        context["completed_count"] = completed_count
+
+        reviews = CourseReview.objects.filter(course=course).select_related("user").order_by("-created_at")
+        context["reviews"] = reviews
+
+        user_review = None
+        if user.is_authenticated:
+            user_review = CourseReview.objects.filter(course=course, user=user).first()
+        context["user_review"] = user_review
+        context["review_form"] = CourseReviewForm(instance=user_review) if is_enrolled else None
+
         return context
 
 
@@ -153,11 +211,16 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         context["gemini_available"] = bool(
             getattr(settings, "GROQ_API_KEY", "") or os.environ.get("GROQ_API_KEY", "")
         )
-        # История последних вопросов к ИИ по уроку
         context["ai_messages"] = LessonAiMessage.objects.filter(
             user=self.request.user,
             lesson=lesson,
         )[:10]
+        # Предыдущий и следующий урок
+        lessons = list(lesson.course.lessons.all().order_by("order", "id"))
+        idx = next((i for i, l in enumerate(lessons) if l.pk == lesson.pk), -1)
+        context["prev_lesson"] = lessons[idx - 1] if idx > 0 else None
+        context["next_lesson"] = lessons[idx + 1] if idx >= 0 and idx < len(lessons) - 1 else None
+        context["lesson_list"] = lessons
         return context
 
 
@@ -165,23 +228,21 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 def ask_lesson_ai(request, pk):
     """Отвечает на вопрос по уроку через внешнюю AI-модель. POST: question."""
     if request.method != "POST":
-        return JsonResponse({"error": "Метод не разрешён"}, status=405)
+        return JsonResponse({"error": _("Метод не разрешён")}, status=405)
 
     lesson = get_object_or_404(Lesson, pk=pk)
     user = request.user
     if not _user_has_lesson_access(user, lesson):
-        return JsonResponse({"error": "Нет доступа к этому уроку"}, status=403)
+        return JsonResponse({"error": _("Нет доступа к этому уроку")}, status=403)
 
     question = (request.POST.get("question") or "").strip()
     if not question:
-        return JsonResponse({"error": "Введите вопрос"}, status=400)
+        return JsonResponse({"error": _("Введите вопрос")}, status=400)
 
     # Лимиты: бесплатным пользователям, без has_access — максимум 3 вопроса в день.
     profile = getattr(user, "profile", None)
     has_access = bool(profile and getattr(profile, "has_access", False))
     if not has_access:
-        from django.utils import timezone
-
         now = timezone.now()
         start_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
         used_today = LessonAiMessage.objects.filter(
@@ -190,29 +251,49 @@ def ask_lesson_ai(request, pk):
         ).count()
         if used_today >= 3:
             return JsonResponse(
-                {"error": "Лимит бесплатных вопросов на сегодня исчерпан. Попробуйте завтра или оформите полный доступ."},
+                {
+                    "error": _(
+                        "Лимит бесплатных вопросов на сегодня исчерпан. Попробуйте завтра или оформите полный доступ."
+                    )
+                },
                 status=429,
             )
 
     api_key = getattr(settings, "GROQ_API_KEY", "") or os.environ.get("GROQ_API_KEY", "")
     if not api_key:
-        return JsonResponse({"error": "AI не настроен. Добавьте GROQ_API_KEY в .env."}, status=503)
+        return JsonResponse(
+            {"error": _("AI не настроен. Добавьте GROQ_API_KEY в .env.")},
+            status=503,
+        )
 
     try:
         from groq import Groq
 
         client = Groq(api_key=api_key)
-        context = (lesson.content or "")[:3000]
+        # Те же переводы, что на странице урока (gettext), чтобы модель не вставляла русские названия в EN/IT
+        lesson_title_for_ai = _(lesson.title)
+        raw_body = lesson.content or ""
+        context_ai = translate_lesson_content(raw_body)[:3000]
+        ui_lang = get_language() or "ru"
         system_prompt = (
-            "Ты — доброжелательный ассистент на учебной платформе по Python. "
-            "Отвечай кратко, по делу и на понятном русском языке, можно с небольшими примерами кода."
+            "You are a helpful teaching assistant for a Python learning platform. "
+            "Answer concisely and clearly; short code examples are welcome when useful.\n\n"
+            "LANGUAGE RULE (critical): Write your entire reply in the same language the "
+            "student's question is written in. Examples: if they ask in Italian, reply in Italian; "
+            "if in English, in English; if in Russian, in Russian. "
+            "If the question mixes languages, use the one that clearly dominates. "
+            "The lesson topic line below is already in the student's UI language when translations exist; "
+            "refer to it in that language. The lesson body may still be partly untranslated if truncated "
+            "— still answer in the question's language and do not quote Russian headings in a non-Russian reply.\n\n"
+            f"The student is viewing the site in locale «{ui_lang}» — use it only as a tie-breaker "
+            "if the question language is ambiguous."
         )
-        user_content = f"""Тема урока: «{lesson.title}».
-Контекст урока (может быть пустым):
-{context}
-
-Вопрос студента: {question}
-"""
+        user_content = (
+            f"Lesson topic: «{lesson_title_for_ai}».\n"
+            f"Lesson context (may be empty; lines translated when possible, same as on the site):\n"
+            f"{context_ai}\n\n"
+            f"Student question (reply in THIS question's language):\n{question}"
+        )
         resp = client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[
@@ -225,7 +306,11 @@ def ask_lesson_ai(request, pk):
         answer = (resp.choices[0].message.content or "").strip()
         if not answer:
             return JsonResponse(
-                {"error": "Модель вернула пустой ответ. Попробуйте переформулировать вопрос."},
+                {
+                    "error": _(
+                        "Модель вернула пустой ответ. Попробуйте переформулировать вопрос."
+                    )
+                },
                 status=502,
             )
         LessonAiMessage.objects.create(
@@ -236,7 +321,7 @@ def ask_lesson_ai(request, pk):
         )
         return JsonResponse({"answer": answer})
     except Exception as e:
-        return JsonResponse({"error": f"Ошибка AI: {e}"}, status=500)
+        return JsonResponse({"error": _("Ошибка AI: %(err)s") % {"err": e}}, status=500)
 
 
 class MyCoursesView(LoginRequiredMixin, ListView):
@@ -293,7 +378,31 @@ def enroll_course(request, pk):
     """Записаться на курс. Создаёт запись Enrollment."""
     course = get_object_or_404(Course, pk=pk)
     Enrollment.objects.get_or_create(student=request.user, course=course)
-    messages.success(request, f"Вы записаны на курс «{course.title}»")
+    messages.success(
+        request,
+        _("Вы записаны на курс «%(title)s»") % {"title": course.title},
+    )
+    return redirect("courses:course_detail", pk=pk)
+
+
+@login_required
+def add_review(request, pk):
+    """Добавить или изменить отзыв о курсе. Только для записанных."""
+    course = get_object_or_404(Course, pk=pk)
+    if not Enrollment.objects.filter(student=request.user, course=course).exists():
+        messages.error(request, _("Только записанные на курс могут оставлять отзывы."))
+        return redirect("courses:course_detail", pk=pk)
+
+    review = CourseReview.objects.filter(course=course, user=request.user).first()
+    if request.method == "POST":
+        form = CourseReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.course = course
+            obj.save()
+            messages.success(request, _("Отзыв сохранён."))
+            return redirect("courses:course_detail", pk=pk)
     return redirect("courses:course_detail", pk=pk)
 
 
@@ -311,7 +420,7 @@ class CourseCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        messages.success(self.request, "Курс создан")
+        messages.success(self.request, _("Курс создан"))
         return super().form_valid(form)
 
 
@@ -321,7 +430,7 @@ def complete_lesson(request, pk):
     lesson = get_object_or_404(Lesson, pk=pk)
     if Enrollment.objects.filter(student=request.user, course=lesson.course).exists():
         LessonProgress.objects.get_or_create(user=request.user, lesson=lesson)
-        messages.success(request, "Урок отмечен как пройденный")
+        messages.success(request, _("Урок отмечен как пройденный"))
     return redirect("courses:lesson_detail", pk=pk)
 
 
@@ -340,7 +449,10 @@ def enroll_student(request, pk):
     course = get_object_or_404(Course, pk=pk)
     profile = getattr(request.user, "profile", None)
     if not (profile and profile.role == "teacher"):
-        messages.error(request, "Только преподаватель может записывать студентов на курс.")
+        messages.error(
+            request,
+            _("Только преподаватель может записывать студентов на курс."),
+        )
         return redirect("courses:course_detail", pk=pk)
 
     if request.method == "POST":
@@ -348,7 +460,11 @@ def enroll_student(request, pk):
         if form.is_valid():
             student = form.cleaned_data["student"]
             Enrollment.objects.get_or_create(student=student, course=course)
-            messages.success(request, f"Студент {student.username} записан на курс «{course.title}»")
+            messages.success(
+                request,
+                _("Студент %(username)s записан на курс «%(title)s»")
+                % {"username": student.username, "title": course.title},
+            )
             return redirect("courses:course_detail", pk=pk)
     else:
         form = EnrollStudentForm()
@@ -356,20 +472,23 @@ def enroll_student(request, pk):
     return render(request, "courses/enroll_student.html", {"form": form, "course": course})
 
 
-class StudentListView(LoginRequiredMixin, ListView):
-    """Список студентов. Доступ только авторизованным."""
+class StudentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    """Список студентов. Только staff и superuser."""
 
     template_name = "courses/student_list.html"
     context_object_name = "students"
     paginate_by = 10
     login_url = reverse_lazy("users:login")
 
+    def test_func(self):
+        return self.request.user.is_superuser
+
     def get_queryset(self):
         return User.objects.filter(profile__role="student").select_related("profile")
 
 
 class StudentDetailView(LoginRequiredMixin, DetailView):
-    """Детальная информация о студенте. Доступ только авторизованным."""
+    """Детальная информация о студенте. Staff/superuser видят всех, обычный пользователь — только себя."""
 
     model = User
     login_url = reverse_lazy("users:login")
@@ -379,86 +498,18 @@ class StudentDetailView(LoginRequiredMixin, DetailView):
     def get_queryset(self):
         return User.objects.filter(profile__role="student").select_related("profile")
 
+    def dispatch(self, request, *args, **kwargs):
+        """Обычный пользователь может видеть только свой профиль."""
+        if not request.user.is_superuser:
+            if int(kwargs.get("pk", 0)) != request.user.pk:
+                from django.core.exceptions import PermissionDenied
+                raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         student = self.object
-        # Курсы на которых записан студент
         context["enrollments"] = Enrollment.objects.filter(student=student).select_related("course")
-        # Оценки студента
-        context["grades"] = Grade.objects.filter(student=student).select_related("course")
-        # Форма оценки — только для преподавателей; курсы только те, на которые записан студент
-        profile = getattr(self.request.user, "profile", None)
-        if profile and profile.role == "teacher":
-            context["grade_form"] = GradeForm()
-            context["grade_form"].fields["course"].queryset = Course.objects.filter(
-                enrollments__student=student
-            ).distinct()
-        else:
-            context["grade_form"] = None
-        return context
-
-
-@login_required
-def add_grade(request, pk):
-    """Поставить или изменить оценку студенту по курсу. Только преподаватели."""
-    student = get_object_or_404(User, pk=pk, profile__role="student")
-    profile = getattr(request.user, "profile", None)
-    if not (profile and profile.role == "teacher"):
-        messages.error(request, "Только преподаватель может выставлять оценки.")
-        return redirect("courses:student_detail", pk=pk)
-
-    if request.method != "POST":
-        return redirect("courses:student_detail", pk=pk)
-
-    courses_qs = Course.objects.filter(enrollments__student=student).distinct()
-    form = GradeForm(request.POST)
-    form.fields["course"].queryset = courses_qs
-
-    if request.method == "POST" and form.is_valid():
-        course = form.cleaned_data["course"]
-        grade_value = form.cleaned_data["grade"]
-        Grade.objects.update_or_create(
-            student=student,
-            course=course,
-            defaults={"grade": grade_value},
-        )
-        messages.success(request, f"Оценка {grade_value} по курсу «{course.title}» сохранена.")
-        return redirect("courses:student_detail", pk=pk)
-
-    # GET или невалидная форма — показываем страницу студента с формой
-    enrollments = Enrollment.objects.filter(student=student).select_related("course")
-    grades = Grade.objects.filter(student=student).select_related("course")
-    return render(
-        request,
-        "courses/student_detail.html",
-        {
-            "student": student,
-            "enrollments": enrollments,
-            "grades": grades,
-            "grade_form": form,
-        },
-    )
-
-
-class GradeBookView(LoginRequiredMixin, ListView):
-    """Журнал оценок. Доступ только авторизованным."""
-
-    template_name = "courses/grade_book.html"
-    context_object_name = "grades"
-    login_url = reverse_lazy("users:login")
-
-    def get_queryset(self):
-        return Grade.objects.select_related("student", "course").order_by("-date")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Получаем уникальные курсы для фильтра
-        context["courses"] = Course.objects.all()
-        # Фильтруем по курсу, если задан параметр (только валидный id)
-        course_id = self.request.GET.get("course")
-        if course_id and course_id.isdigit():
-            context["grades"] = context["grades"].filter(course_id=int(course_id))
-            context["selected_course"] = int(course_id)
         return context
 
 
@@ -486,7 +537,7 @@ def create_checkout_session(request):
         return redirect("courses:checkout")
 
     if not (settings.STRIPE_SECRET_KEY and settings.STRIPE_PRICE_ID):
-        messages.error(request, "Оплата ещё не настроена. Попробуйте позже.")
+        messages.error(request, _("Оплата ещё не настроена. Попробуйте позже."))
         return redirect("courses:checkout")
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -507,7 +558,10 @@ def create_checkout_session(request):
         )
         return redirect(session.url)
     except Exception as e:
-        messages.error(request, f"Ошибка при создании платежа: {e}")
+        messages.error(
+            request,
+            _("Ошибка при создании платежа: %(err)s") % {"err": e},
+        )
         return redirect("courses:checkout")
 
 
@@ -518,14 +572,16 @@ def checkout_success(request):
     if not session_id:
         messages.info(
             request,
-            "Платёж обрабатывается. Обновите страницу через несколько секунд.",
+            _("Платёж обрабатывается. Обновите страницу через несколько секунд."),
         )
         return redirect("courses:course_list")
 
     if not settings.STRIPE_SECRET_KEY:
         messages.warning(
             request,
-            "Платёж принят, но автоматическая проверка не настроена. Обратитесь в поддержку.",
+            _(
+                "Платёж принят, но автоматическая проверка не настроена. Обратитесь в поддержку."
+            ),
         )
         return redirect("courses:course_list")
 
@@ -535,16 +591,23 @@ def checkout_success(request):
     except Exception:
         messages.info(
             request,
-            "Платёж в обработке. Если доступ не откроется в течение минуты, обновите страницу.",
+            _(
+                "Платёж в обработке. Если доступ не откроется в течение минуты, обновите страницу."
+            ),
         )
         return redirect("courses:course_list")
 
     if session.payment_status == "paid":
-        messages.success(request, "Оплата подтверждена. Доступ к курсам открыт.")
+        messages.success(
+            request,
+            _("Оплата подтверждена. Доступ к курсам открыт."),
+        )
     else:
         messages.info(
             request,
-            "Платёж ещё не подтверждён. Доступ откроется автоматически после подтверждения Stripe.",
+            _(
+                "Платёж ещё не подтверждён. Доступ откроется автоматически после подтверждения Stripe."
+            ),
         )
     return redirect("courses:course_list")
 
@@ -552,7 +615,7 @@ def checkout_success(request):
 @login_required
 def checkout_cancel(request):
     """Отмена оплаты: просто сообщение и возврат к курсам."""
-    messages.info(request, "Оплата была отменена.")
+    messages.info(request, _("Оплата была отменена."))
     return redirect("courses:checkout")
 
 
@@ -603,7 +666,7 @@ def download_certificate(request, course_id):
     user = request.user
 
     if not Enrollment.objects.filter(student=user, course=course).exists():
-        messages.error(request, "Вы не записаны на этот курс.")
+        messages.error(request, _("Вы не записаны на этот курс."))
         return redirect("courses:my_courses")
 
     total_lessons = Lesson.objects.filter(course=course).count()
@@ -613,7 +676,10 @@ def download_certificate(request, course_id):
     ).count()
 
     if total_lessons == 0 or completed_lessons < total_lessons:
-        messages.info(request, "Сертификат доступен после завершения всех уроков курса.")
+        messages.info(
+            request,
+            _("Сертификат доступен после завершения всех уроков курса."),
+        )
         return redirect("courses:my_courses")
 
     certificate, _ = CourseCertificate.objects.get_or_create(user=user, course=course)
@@ -621,45 +687,58 @@ def download_certificate(request, course_id):
     buffer = BytesIO()
     pdf = canvas.Canvas(buffer, pagesize=A4)
     width, height = A4
+    font, font_bold = _certificate_pdf_fonts()
 
     pdf.setTitle(f"Certificate-{certificate.certificate_id}")
 
     y = height - 90
-    pdf.setFont("Helvetica-Bold", 26)
+    pdf.setFont(font_bold, 26)
     pdf.drawCentredString(width / 2, y, "DevLearn Certificate")
 
     y -= 50
-    pdf.setFont("Helvetica", 13)
+    pdf.setFont(font, 13)
     pdf.drawCentredString(width / 2, y, "This certifies that")
 
     y -= 35
     full_name = user.get_full_name().strip() or user.username
-    pdf.setFont("Helvetica-Bold", 20)
+    pdf.setFont(font_bold, 20)
     pdf.drawCentredString(width / 2, y, full_name)
 
     y -= 40
-    pdf.setFont("Helvetica", 13)
+    pdf.setFont(font, 13)
     pdf.drawCentredString(width / 2, y, "has successfully completed the course")
 
     y -= 30
-    pdf.setFont("Helvetica-Bold", 16)
-    for line in simpleSplit(course.title, "Helvetica-Bold", 16, width - 120):
+    pdf.setFont(font_bold, 16)
+    for line in simpleSplit(course.title, font_bold, 16, width - 120):
         pdf.drawCentredString(width / 2, y, line)
         y -= 22
 
     y -= 10
     issued_date = timezone.localtime(certificate.issued_at).strftime("%Y-%m-%d")
-    pdf.setFont("Helvetica", 12)
+    pdf.setFont(font, 12)
     pdf.drawCentredString(width / 2, y, f"Issued: {issued_date}")
     y -= 20
     pdf.drawCentredString(width / 2, y, f"Certificate ID: {certificate.certificate_id}")
 
     y -= 70
-    pdf.line(90, y, 250, y)
-    pdf.line(width - 250, y, width - 90, y)
-    pdf.setFont("Helvetica", 10)
-    pdf.drawString(125, y - 14, "Instructor")
-    pdf.drawRightString(width - 125, y - 14, "DevLearn")
+    y_line = y
+    sig_path = getattr(settings, "CERTIFICATE_INSTRUCTOR_SIGNATURE", None)
+    if sig_path and Path(sig_path).is_file():
+        pdf.drawImage(
+            str(sig_path),
+            92,
+            y_line + 3,
+            width=150,
+            height=36,
+            preserveAspectRatio=True,
+            mask="auto",
+        )
+    pdf.line(90, y_line, 250, y_line)
+    pdf.line(width - 250, y_line, width - 90, y_line)
+    pdf.setFont(font, 10)
+    pdf.drawString(125, y_line - 14, "Instructor")
+    pdf.drawRightString(width - 125, y_line - 14, "DevLearn")
 
     pdf.showPage()
     pdf.save()

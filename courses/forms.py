@@ -1,5 +1,7 @@
 from django import forms
-from .models import Course
+from django.utils.translation import gettext_lazy as _
+
+from .models import Course, CourseReview
 from django.contrib.auth.models import User
 
 
@@ -7,7 +9,7 @@ class EnrollStudentForm(forms.Form):
     """Форма для преподавателя: выбрать студента и записать на курс."""
     student = forms.ModelChoiceField(
         queryset=User.objects.none(),
-        label="Студент",
+        label=_("Студент"),
         widget=forms.Select(attrs={"class": "form-control"}),
     )
 
@@ -25,17 +27,21 @@ class CourseCreateForm(forms.ModelForm):
         fields = ("title", "description", "category", "price")
 
 
-class GradeForm(forms.Form):
-    """Форма выставления оценки студенту по курсу. Только для преподавателей."""
+class CourseReviewForm(forms.ModelForm):
+    """Форма отзыва о курсе."""
 
-    course = forms.ModelChoiceField(
-        queryset=Course.objects.none(),
-        label="Курс",
-        widget=forms.Select(attrs={"class": "form-control"}),
-    )
-    grade = forms.TypedChoiceField(
-        choices=[(i, str(i)) for i in range(1, 6)],
-        coerce=int,
-        label="Оценка",
-        widget=forms.Select(attrs={"class": "form-control"}),
-    )
+    class Meta:
+        model = CourseReview
+        fields = ("rating", "text")
+        labels = {"rating": _("Rating"), "text": _("Review text")}
+        widgets = {
+            "rating": forms.Select(attrs={"class": "form-styled"}),
+            "text": forms.Textarea(
+                attrs={
+                    "rows": 4,
+                    "placeholder": _("Leave an optional review about the course..."),
+                }
+            ),
+        }
+
+

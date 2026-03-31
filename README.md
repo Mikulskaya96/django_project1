@@ -1,88 +1,182 @@
 # DevLearn
 
-Платформа для обучения программированию на Django.
+Платформа для изучения программирования (Python, курсы, уроки, сертификаты).  
+Piattaforma per l’apprendimento della programmazione (Python, corsi, lezioni, certificati).
 
-## Стек
+---
 
-- Python 3.12+
-- Django 5.2
-- SQLite (разработка) / возможность перехода на PostgreSQL
+## Русский
 
-## Быстрый старт
+### Зависимости (`requirements.txt`)
 
-1. Клонировать репозиторий и перейти в папку проекта:
+Все пакеты перечислены в **`requirements.txt`**. Основные:
+
+| Назначение | Пакеты |
+|------------|--------|
+| Фреймворк | `Django` 5.2.x |
+| Медиа, изображения | `Pillow` |
+| Контент уроков | `markdown`, `django-markdownx` |
+| Конфигурация | `python-dotenv` |
+| API | `djangorestframework` |
+| AI на уроке | `groq` |
+| Оплата | `stripe` |
+| PDF-сертификаты | `reportlab` |
+| Облако для медиа (опционально) | `django-cloudinary-storage` |
+| Продакшен (Render и т.п.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
+
+Установка: **`pip install -r requirements.txt`** (из активированного виртуального окружения).
+
+### Стек
+
+- Python **3.12+**
+- Django **5.2**
+- SQLite (локально) / PostgreSQL через `DATABASE_URL` (например, Render)
+
+### Быстрый старт
+
+1. Клонировать репозиторий и перейти в каталог:
    ```bash
-   git clone https://github.com/ВАШ_ЛОГИН/django_project1.git
+   git clone https://github.com/Mikulskaya96/django_project1.git
    cd django_project1
    ```
 
-2. Создать виртуальное окружение и активировать его:
+2. Виртуальное окружение и активация:
    ```bash
    python -m venv .venv
    .venv\Scripts\activate
    ```
-   (Linux/macOS: `source .venv/bin/activate`)
+   Linux/macOS: `source .venv/bin/activate`
 
-3. Установить зависимости:
+3. Установить зависимости (**обязательно**):
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Настроить переменные окружения (опционально для разработки):
+4. Переменные окружения:
    ```bash
-   cp .env.example .env
+   copy .env.example .env
    ```
-   Отредактируйте `.env` при необходимости. Для продакшена обязательно задайте `DJANGO_SECRET_KEY` и `DJANGO_DEBUG=False`.
+   (Linux/macOS: `cp .env.example .env`)  
+   При необходимости отредактируйте `.env`. Для продакшена задайте `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`.  
+   Для AI-блока на уроке: **`GROQ_API_KEY`** (и при необходимости `GEMINI_API_KEY` — см. `settings.py`).  
+   Для Stripe, Cloudinary — см. комментарии в `.env.example`.
 
-5. Применить миграции:
+5. Миграции и (по желанию) данные:
    ```bash
    python manage.py migrate
+   python manage.py populate_db
    ```
 
-6. (Опционально) Создать суперпользователя для доступа в админку:
+6. Суперпользователь (доступ в `/admin/`):
    ```bash
    python manage.py createsuperuser
    ```
 
-7. Запустить сервер:
+7. Запуск:
    ```bash
    python manage.py runserver
    ```
+   Сайт: http://127.0.0.1:8000/ — админка: http://127.0.0.1:8000/admin/
 
-8. Открыть в браузере: http://127.0.0.1:8000/  
-   Админка: http://127.0.0.1:8000/admin/
-
-## Тестирование
+### Тесты
 
 ```bash
 python manage.py test
 ```
 
-В репозитории настроен GitHub Actions: при push в `main`/`master` автоматически запускаются тесты.
+При push в ветки `main` / `master` в репозитории настроен **GitHub Actions** (см. `.github/workflows/`).
 
-## Деплой на Render
+### Деплой на Render (кратко)
 
-1. Залей проект в **GitHub** (если ещё не залит).
-2. Зайди на [render.com](https://render.com), зарегистрируйся (можно через GitHub).
-3. **Dashboard** → **New** → **Blueprint**. Укажи репозиторий и ветку (например `main`). Render подхватит `render.yaml` из корня.
-4. После создания сервиса открой **Environment** и добавь вручную:
-   - `GEMINI_API_KEY` — твой ключ из [Google AI Studio](https://aistudio.google.com/apikey) (чтобы работал блок «Спросить ИИ»).
-5. В **Environment** добавь переменные для админки (на бесплатном тарифе Shell нет, суперпользователь создаётся при сборке):
-   - `DJANGO_SUPERUSER_USERNAME` — логин для входа в админку (например `admin`)
-   - `DJANGO_SUPERUSER_EMAIL` — email (например `admin@example.com`)
-   - `DJANGO_SUPERUSER_PASSWORD` — пароль для этого пользователя
-   После следующего деплоя суперпользователь появится, заходить: `https://твой-сайт.onrender.com/admin/`
-6. Дождись окончания деплоя. Сайт будет доступен по ссылке вида `https://devlearn.onrender.com`.
+Репозиторий на GitHub → сервис на [render.com](https://render.com), переменные окружения (`DJANGO_SECRET_KEY`, `DATABASE_URL`, при необходимости `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, суперпользователь для сборки и т.д.). Подробности — в настройках вашего сервиса и в `render.yaml`, если используется.
 
-На бесплатном тарифе сервис «засыпает» после ~15 минут без заходов; первый запрос после сна может открываться 30–60 секунд.
+### Структура проекта
 
-## Структура проекта
-
-- `main` — главная страница
-- `users` — регистрация, вход, профили (роли: студент/преподаватель)
-- `courses` — курсы, уроки, записи студентов, журнал оценок
+- `main` — главная, статические страницы (о нас, контакты, оферта)
+- `users` — регистрация, вход, профили (роли студент / преподаватель)
+- `courses` — курсы, уроки, записи, API `/api/`, сертификаты PDF
 - `settings` — конфигурация Django
 
-## Лицензия
+---
 
-MIT (или укажите свою).
+## Italiano
+
+### Dipendenze (`requirements.txt`)
+
+Tutti i pacchetti sono elencati in **`requirements.txt`**. Esempi:
+
+| Uso | Pacchetti |
+|-----|-----------|
+| Framework | `Django` 5.2.x |
+| Immagini | `Pillow` |
+| Contenuti lezioni | `markdown`, `django-markdownx` |
+| Configurazione | `python-dotenv` |
+| API REST | `djangorestframework` |
+| Assistente AI sulla lezione | `groq` |
+| Pagamenti | `stripe` |
+| Certificati PDF | `reportlab` |
+| Media cloud (opzionale) | `django-cloudinary-storage` |
+| Produzione (Render ecc.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
+
+Installazione: **`pip install -r requirements.txt`** (con ambiente virtuale attivo).
+
+### Stack
+
+- Python **3.12+**
+- Django **5.2**
+- SQLite (locale) / PostgreSQL tramite `DATABASE_URL` (es. su Render)
+
+### Avvio rapido
+
+1. Clona il repository e entra nella cartella:
+   ```bash
+   git clone https://github.com/Mikulskaya96/django_project1.git
+   cd django_project1
+   ```
+
+2. Ambiente virtuale:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate
+   ```
+   Linux/macOS: `source .venv/bin/activate`
+
+3. Installa le dipendenze (**obbligatorio**):
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Variabili d’ambiente:
+   ```bash
+   copy .env.example .env
+   ```
+   (Linux/macOS: `cp .env.example .env`)  
+   Modifica `.env` se serve. In produzione: `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`.  
+   Per l’AI sulla lezione: **`GROQ_API_KEY`**. Stripe e Cloudinary: vedi `.env.example`.
+
+5. Migrazioni e (opzionale) dati di esempio:
+   ```bash
+   python manage.py migrate
+   python manage.py populate_db
+   ```
+
+6. Superuser (admin `/admin/`):
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+7. Avvio server di sviluppo:
+   ```bash
+   python manage.py runserver
+   ```
+   Sito: http://127.0.0.1:8000/ — admin: http://127.0.0.1:8000/admin/
+
+### Test
+
+```bash
+python manage.py test
+```
+
+### Licenza / License
+
+MIT (o indicare la propria).

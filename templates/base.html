@@ -9,88 +9,75 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <nav>
-        <div class="nav-left">
-            <a href="{% url 'index' %}" class="btn-nav">{% trans "Главная" %}</a>
-    
-            {% if user.is_authenticated %}
-                <a href="{% url 'courses:student_list' %}" class="btn-nav">{% trans "Студенты" %}</a>
-            {% endif %}
-    
-            <a href="{% url 'courses:course_list' %}" class="btn-nav">{% trans "Курсы" %}</a>
-    
-            {% if user.is_authenticated %}
-                {% if profile_avatar_url %}
-                    <img src="{{ profile_avatar_url }}" alt="" class="nav-avatar">
+    <header class="header-bar">
+    <nav class="nav-main" aria-label="{% trans 'Основное меню' %}">
+        <button type="button" class="nav-burger" id="nav-burger" aria-label="{% trans 'Меню' %}" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <a href="{% url 'index' %}" class="nav-brand">DevLearn</a>
+
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-links">
+                {% if user.is_authenticated and user.is_superuser %}
+                    <a href="{% url 'courses:student_list' %}" class="nav-link">{% trans "Студенты" %}</a>
                 {% endif %}
-    
-                <span class="nav-hello">
-                    {% trans "Привет," %} <strong>{{ user.username }}</strong>
-                </span>
-    
-                <a href="{% url 'users:profile_edit' %}" class="btn-nav">{% trans "Мой профиль" %}</a>
-                <a href="{% url 'courses:my_courses' %}" class="btn-nav">{% trans "Мои курсы" %}</a>
-    
-                {% if is_teacher %}
-                    <a href="{% url 'courses:course_create' %}" class="btn-nav">{% trans "Создать курс" %}</a>
+                <a href="{% url 'courses:course_list' %}" class="nav-link">{% trans "Курсы" %}</a>
+                {% if user.is_authenticated %}
+                    <div class="nav-user">
+                        {% if profile_avatar_url %}
+                            <img src="{{ profile_avatar_url }}" alt="" class="nav-avatar">
+                        {% endif %}
+                        <span class="nav-hello">{% trans "Привет," %} <strong>{{ user.username }}</strong></span>
+                    </div>
+                    <a href="{% url 'users:profile_edit' %}" class="nav-link">{% trans "Мой профиль" %}</a>
+                    <a href="{% url 'courses:my_courses' %}" class="nav-link nav-link--accent">{% trans "Мои курсы" %}</a>
+                    <a href="{% url 'about' %}" class="nav-link">{% trans "О нас" %}</a>
+                    {% if is_teacher %}
+                        <a href="{% url 'courses:course_create' %}" class="nav-link">{% trans "Создать курс" %}</a>
+                    {% endif %}
+                    <form method="post" action="{% url 'users:logout' %}" class="form-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link nav-link--quiet">{% trans "Выйти" %}</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'users:login' %}" class="nav-link nav-link--accent">{% trans "Войти" %}</a>
+                    <a href="{% url 'users:register' %}" class="nav-link nav-link--outline">{% trans "Регистрация" %}</a>
                 {% endif %}
-    
-                <form method="post" action="{% url 'users:logout' %}" class="form-inline">
+            </div>
+            <div class="nav-utils">
+                <span id="current-time" class="nav-time"></span>
+                <form method="post" action="{% url 'set_language' %}" class="lang-switcher">
                     {% csrf_token %}
-                    <button type="submit" class="btn-nav btn-logout">{% trans "Выйти" %}</button>
+                    <input type="hidden" name="next" id="lang-next" value="{{ request.get_full_path }}">
+                    {% get_current_language as current_lang %}
+                    <select name="language" onchange="submitLanguageForm(this.form)">
+                        <option value="ru" {% if current_lang|slice:':2' == 'ru' %}selected{% endif %}>RU</option>
+                        <option value="en" {% if current_lang|slice:':2' == 'en' %}selected{% endif %}>EN</option>
+                        <option value="it" {% if current_lang|slice:':2' == 'it' %}selected{% endif %}>IT</option>
+                    </select>
                 </form>
-            {% else %}
-                <a href="{% url 'users:login' %}" class="btn-nav">{% trans "Войти" %}</a>
-                <a href="{% url 'users:register' %}" class="btn-nav">{% trans "Регистрация" %}</a>
-            {% endif %}
-        </div>
-    
-        <div class="nav-right">
-            <span id="current-time" class="nav-time"></span>
-    
-            <form method="post" action="{% url 'set_language' %}" class="lang-switcher">
-                {% csrf_token %}
-                <input type="hidden" name="next" id="lang-next" value="{{ request.get_full_path }}">
-                {% get_current_language as current_lang %}
-                <select name="language" onchange="submitLanguageForm(this.form)">
-                    <option value="ru" {% if current_lang|slice:':2' == 'ru' %}selected{% endif %}>RU</option>
-                    <option value="en" {% if current_lang|slice:':2' == 'en' %}selected{% endif %}>EN</option>
-                    <option value="it" {% if current_lang|slice:':2' == 'it' %}selected{% endif %}>IT</option>
-                </select>
-            </form>
-    
-            <button
-                type="button"
-                class="theme-toggle"
-                id="theme-toggle"
-                aria-label="{% trans 'Переключить тему' %}"
-            >
-                <span class="theme-toggle__thumb">
-                    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 4.5V2m0 20v-2.5M4.22 4.22 5.64 5.64M18.36 18.36 19.78 19.78M4.5 12H2m20 0h-2.5M4.22 19.78 5.64 18.36M18.36 5.64 19.78 4.22M12 8.25A3.75 3.75 0 1 1 8.25 12 3.75 3.75 0 0 1 12 8.25Z"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round" />
-                    </svg>
-                    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M21 12.79A8.25 8.25 0 0 1 11.21 3 6.75 6.75 0 1 0 21 12.79Z"
-                              fill="currentColor" />
-                    </svg>
-                </span>
-            </button>
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="{% trans 'Переключить тему' %}">
+                    <span class="theme-toggle__thumb">
+                        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 4.5V2m0 20v-2.5M4.22 4.22 5.64 5.64M18.36 18.36 19.78 19.78M4.5 12H2m20 0h-2.5M4.22 19.78 5.64 18.36M18.36 5.64 19.78 4.22M12 8.25A3.75 3.75 0 1 1 8.25 12 3.75 3.75 0 0 1 12 8.25Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 12.79A8.25 8.25 0 0 1 11.21 3 6.75 6.75 0 1 0 21 12.79Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
         </div>
     </nav>
-    
-    
+    </header>
 
     {# Блок для всплывающих уведомлений (например, "Вы успешно вошли") #}
     {% if messages %}
@@ -101,7 +88,7 @@
         </div>
     {% endif %}
 
-    <main>
+    <main class="page-content">
         {% if request.resolver_match.url_name != 'index' %}
         <p class="back-row">
             <button type="button" class="btn-nav btn-back" onclick="history.back()" aria-label="{% trans 'Назад' %}">← {% trans "Назад" %}</button>
@@ -111,15 +98,18 @@
     </main>
 
     <footer>
-        <hr>
-        <p class="footer-links">
-            <a href="{% url 'public_offer' %}">{% trans "Публичная оферта" %}</a>
-            <span>•</span>
-            <a href="{% url 'privacy_policy' %}">{% trans "Политика конфиденциальности" %}</a>
-            <span>•</span>
-            <a href="{% url 'contacts' %}">{% trans "Контакты" %}</a>
-        </p>
-        <p class="footer-copy">&copy; 2026 DevLearn</p>
+        <div class="footer-inner">
+            <p class="footer-links">
+                <a href="{% url 'about' %}">{% trans "О нас" %}</a>
+                <span>•</span>
+                <a href="{% url 'public_offer' %}">{% trans "Публичная оферта" %}</a>
+                <span>•</span>
+                <a href="{% url 'privacy_policy' %}">{% trans "Политика конфиденциальности" %}</a>
+                <span>•</span>
+                <a href="{% url 'contacts' %}">{% trans "Контакты" %}</a>
+            </p>
+            <p class="footer-copy">&copy; 2026 DevLearn</p>
+        </div>
     </footer>
 
     {% block extra_js %}{% endblock %}
@@ -187,6 +177,24 @@
             }
             form.submit();
         }
+
+        (function() {
+            var burger = document.getElementById('nav-burger');
+            var menu = document.getElementById('nav-menu');
+            if (burger && menu) {
+                burger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var open = menu.classList.toggle('nav-menu--open');
+                    burger.setAttribute('aria-expanded', open);
+                });
+                document.addEventListener('click', function(e) {
+                    if (!menu.contains(e.target) && !burger.contains(e.target)) {
+                        menu.classList.remove('nav-menu--open');
+                        burger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        })();
     </script>
 </body>
 </html>

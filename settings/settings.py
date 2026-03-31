@@ -124,6 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
+# По умолчанию — русский; гость с «/» попадает на /ru/, дальше язык выбирает переключатель.
 LANGUAGE_CODE = "ru"
 
 LANGUAGES = [
@@ -178,6 +179,12 @@ STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 # CSRF для домена Render (https://твой-сервис.onrender.com)
 if os.environ.get("RENDER_EXTERNAL_HOSTNAME"):
     CSRF_TRUSTED_ORIGINS = [f"https://{os.environ['RENDER_EXTERNAL_HOSTNAME']}"]
+
+# PDF-сертификат: PNG с росписью преподавателя (лучше с прозрачным фоном), ~300×80 px
+_cert_sig = os.environ.get("CERTIFICATE_INSTRUCTOR_SIGNATURE", "").strip()
+CERTIFICATE_INSTRUCTOR_SIGNATURE = (
+    Path(_cert_sig) if _cert_sig else (BASE_DIR / "static" / "images" / "certificate_instructor_signature.png")
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

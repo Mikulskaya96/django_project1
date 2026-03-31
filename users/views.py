@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 from .forms import RegisterForm, ProfileEditForm
 from .models import Profile
@@ -17,7 +18,7 @@ def profile_edit(request):
         form = ProfileEditForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, "Профиль обновлён.")
+            messages.success(request, _("Профиль обновлён."))
             return redirect("users:profile_edit")
     else:
         form = ProfileEditForm(instance=profile)

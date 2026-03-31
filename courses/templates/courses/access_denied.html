@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n course_extras %}
 
-{% block title %}{% trans "Нет доступа" %} — {{ course.title }}{% endblock %}
+{% block title %}{% trans "Нет доступа" %} — {{ course.title|translate_db_text }}{% endblock %}
 
 {% block content %}
 <h1>{% trans "Доступ ограничен" %}</h1>

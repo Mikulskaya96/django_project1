@@ -7,8 +7,8 @@ from .models import (
     Lesson,
     Enrollment,
     LessonProgress,
-    Grade,
     CourseCertificate,
+    CourseReview,
 )
 
 
@@ -30,6 +30,19 @@ class BookInline(admin.TabularInline):
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ("title", "category", "author", "price", "created_at")
+    readonly_fields = ("created_at",)
+    fields = (
+        "title",
+        "description",
+        "level",
+        "category",
+        "author",
+        "cover_image",
+        "author_image",
+        "price",
+        "is_active",
+        "created_at",
+    )
     inlines = [LessonInline, BookInline]
 
 
@@ -44,12 +57,6 @@ class LessonProgressAdmin(admin.ModelAdmin):
     list_display = ("user", "lesson", "completed_at")
 
 
-@admin.register(Grade)
-class GradeAdmin(admin.ModelAdmin):
-    list_display = ("student", "course", "grade", "date")
-    list_filter = ("course", "grade")
-    search_fields = ("student__username",)
-    
 @admin.register(Lesson)
 class LessonAdmin(MarkdownxModelAdmin):
     list_display = ("title", "course", "order")
@@ -60,3 +67,9 @@ class CourseCertificateAdmin(admin.ModelAdmin):
     list_display = ("certificate_id", "user", "course", "issued_at")
     list_filter = ("course", "issued_at")
     search_fields = ("user__username", "course__title", "certificate_id")
+
+
+@admin.register(CourseReview)
+class CourseReviewAdmin(admin.ModelAdmin):
+    list_display = ("user", "course", "rating", "created_at")
+    list_filter = ("course", "rating")

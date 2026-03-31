@@ -1,7 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: DevLearn\n"
-"POT-Creation-Date: 2026-03-19 00:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-30 13:12+0200\n"
 "PO-Revision-Date: 2026-03-19 00:00+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -9,26 +11,2786 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Главная"
-msgstr "Home"
+msgid "Основное меню"
+msgstr "Menu principale"
 
-msgid "Студенты"
-msgstr "Studenti"
+msgid "Студент"
+msgstr "Studente"
+
+msgid "Rating"
+msgstr "Valutazione"
+
+msgid "Review text"
+msgstr "Testo della recensione"
+
+msgid "Leave an optional review about the course..."
+msgstr "Lascia una recensione opzionale sul corso..."
+
+msgid "Python для начинающих"
+msgstr "Python per principianti"
+
+msgid "Python для профессионалов"
+msgstr "Python per professionisti"
+
+# Названия и описания курсов (из БД)
+msgid ""
+"База Python с нуля: синтаксис, условия, циклы, функции, коллекции и мини-"
+"проекты."
+msgstr ""
+"Base Python da zero: sintassi, condizioni, cicli, funzioni, collezioni e "
+"mini-progetti."
+
+msgid ""
+"Продвинутый Python: архитектура, Flask, Django, API, тесты и деплой. После "
+"курса заложите примерно 20–40 часов самостоятельной практики на свой проект "
+"— так навыки закрепятся надолго."
+msgstr ""
+"Python avanzato: architettura, Flask, Django, API, test e deploy. Dopo il "
+"corso, prevedi circa 20–40 ore di pratica autonoma sul tuo progetto — così "
+"le competenze si consolidano nel tempo."
+
+# Категории
+msgid "Python"
+msgstr "Python"
+
+# Заголовки модулей Junior (список уроков)
+msgid "Модуль 1"
+msgstr "Modulo 1"
+
+msgid "Модуль 2. Повторение и данные"
+msgstr "Modulo 2. Ripasso e dati"
+
+msgid "Модуль 3. Функции и простой проект"
+msgstr "Modulo 3. Funzioni e progetto semplice"
+
+# === МОДУЛЬ 1 (новый контент) ===
+msgid "Установка и первый запуск"
+msgstr "Installazione e primo avvio"
+
+msgid "Переменные и типы"
+msgstr "Variabili e tipi"
+
+msgid "Ввод и вывод"
+msgstr "Input e output"
+
+msgid "Условия if и else"
+msgstr "Condizioni if e else"
+
+msgid "Debug Zone: найди ошибку"
+msgstr "Debug Zone: trova l'errore"
+
+msgid "Циклы for и while"
+msgstr "Cicli for e while"
+
+# === МОДУЛЬ 2 ===
+msgid "Списки"
+msgstr "Liste"
+
+msgid "Словари"
+msgstr "Dizionari"
+
+msgid "Циклы и списки: range и enumerate"
+msgstr "Cicli e liste: range e enumerate"
+
+msgid "Debug Zone: циклы и списки"
+msgstr "Debug Zone: cicli e liste"
+
+# === МОДУЛЬ 3 ===
+msgid "Функции"
+msgstr "Funzioni"
+
+msgid "Параметры и области видимости"
+msgstr "Parametri e scope"
+
+msgid "Работа с файлами"
+msgstr "Lavorare con i file"
+
+msgid "Мини-проект: счёт в кафе"
+msgstr "Mini-progetto: conto al bar"
+
+msgid "Debug Zone: функции и файлы"
+msgstr "Debug Zone: funzioni e file"
+
+msgid "Модуль 1. Архитектура и чистый Python"
+msgstr "Modulo 1. Architettura e Python puro"
+
+msgid "Модуль 1. Flask API: CRUD и валидация"
+msgstr "Modulo 1. Flask API: CRUD e validazione"
+
+msgid "Модуль 2. Django: модели, ORM, админка"
+msgstr "Modulo 2. Django: modelli, ORM, pannello admin"
+
+msgid "Модуль 2. Django REST + авторизация"
+msgstr "Modulo 2. Django REST e autenticazione"
+
+msgid "Модуль 3. Тесты, CI и деплой на Render"
+msgstr "Modulo 3. Test, CI e deployment su Render"
+
+msgid "Финал: куда дальше, мини-проект и слово автора"
+msgstr "Finale: dove andare avanti, mini-progetto e parola dell'autrice"
+
+msgid "---"
+msgstr "---"
+
+msgid "## Шаги"
+msgstr "## Passi"
+
+msgid "Пример:"
+msgstr "Esempio:"
+
+msgid "## Задача"
+msgstr "## Compito"
+
+msgid "## Запись"
+msgstr "## Scrittura"
+
+msgid "## Чтение"
+msgstr "## Lettura"
+
+msgid "## Админка"
+msgstr "## Admin"
+
+msgid "## Домашка"
+msgstr "## Compiti"
+
+msgid "## Перебор"
+msgstr "## Iterazione"
+
+msgid "## Решение"
+msgstr "## Soluzione"
+
+msgid "### Запуск"
+msgstr "### Avvio"
+
+msgid "## Цикл for"
+msgstr "## Ciclo for"
+
+msgid "### PyCharm"
+msgstr "### PyCharm"
+
+msgid "### VS Code"
+msgstr "### Codice VS"
+
+msgid "## От автора"
+msgstr "## Dall'autore"
+
+msgid "## Подсказка"
+msgstr "## Suggerimento"
+
+msgid "## Подсказки"
+msgstr "## Suggerimenti"
+
+msgid "## Синтаксис"
+msgstr "## Sintassi"
+
+msgid "# Финал курса"
+msgstr "# Finale del corso"
+
+msgid "## Цикл while"
+msgstr "## Ciclo while"
+
+msgid "## Типы данных"
+msgstr "## Tipi di dati"
+
+msgid "### Сохранение"
+msgstr "### Salvataggio"
+
+msgid "## Зачем файлы?"
+msgstr "## Perché i file?"
+
+msgid "## Найди ошибки"
+msgstr "## Trova gli errori"
+
+msgid "## Слово автора"
+msgstr "## Parola dell'autrice"
+
+msgid "Фрагмент теста:"
+msgstr "Frammento di test:"
+
+msgid "## Пример модели"
+msgstr "## Esempio di modello"
+
+msgid "## Частая ошибка"
+msgstr "## Errore frequente"
+
+msgid "### Срез с шагом"
+msgstr "### Fetta con passo"
+
+msgid "## Зачем эта тема"
+msgstr "## Perché questo argomento"
+
+msgid "## Код с ошибками"
+msgstr "## Codice con errori"
+
+msgid "## Разбор домашки"
+msgstr "## Commento ai compiti"
+
+msgid "## Как в ресторане"
+msgstr "## Come in un ristorante"
+
+msgid "## Как это работает"
+msgstr "## Come funziona"
+
+msgid "## Простыми словами"
+msgstr "## In parole semplici"
+
+msgid "### Базовые примеры"
+msgstr "### Esempi di base"
+
+msgid "### Срезы для строк"
+msgstr "### Fette di riga"
+
+msgid "# Тесты, CI и деплой"
+msgstr "# Test, CI e deploy"
+
+msgid "## Зачем нам Python?"
+msgstr "## Perché ci serve Python?"
+
+msgid "## Скачивание Python"
+msgstr "## Download di Python"
+
+msgid "## Создание и доступ"
+msgstr "## Creazione e accesso"
+
+msgid "## Что такое список?"
+msgstr "## Cos'è una lista?"
+
+msgid "### Как создать файл"
+msgstr "### Come creare un file"
+
+msgid "### Что такое .venv?"
+msgstr "### Cos'è .venv?"
+
+msgid "<!-- SPOILER_END -->"
+msgstr "<!-- SPOILER_END -->"
+
+msgid "## Зачем нужны циклы?"
+msgstr "## Perché servono i cicli?"
+
+msgid "## Параметры и return"
+msgstr "## Parametri e return"
+
+msgid "## Создаём переменные"
+msgstr "## Creiamo variabili"
+
+msgid "## Что такое словарь?"
+msgstr "## Cos'è un dizionario?"
+
+msgid "### Аналогия с кухней"
+msgstr "### Analogia con la cucina"
+
+msgid "**Пример правильно:**"
+msgstr "**Esempio corretto:**"
+
+#, fuzzy
+#| msgid "<!-- SPOILER_START -->"
+msgid "<!-- AUTHOR_PHOTO -->"
+msgstr "<!-- SPOILER_START -->"
+
+msgid "## Базовые классы прав"
+msgstr "## Classi di permesso di base"
+
+msgid "## Синтаксис if / else"
+msgstr "## Sintassi if / else"
+
+msgid "## Установка (Windows)"
+msgstr "## Installazione (Windows)"
+
+msgid "<!-- SPOILER_START -->"
+msgstr "<!-- SPOILER_START -->"
+
+msgid "## Единый формат ошибок"
+msgstr "## Formato uniforme per gli errori"
+
+msgid "## Зачем нужен input()?"
+msgstr "## A cosa serve input()?"
+
+msgid "## Зачем нужны функции?"
+msgstr "## Perché servono le funzioni?"
+
+msgid "## Когда нужны условия?"
+msgstr "## Quando servono le condizioni?"
+
+msgid "## Мини-пример маршрута"
+msgstr "## Mini-esempio di route"
+
+msgid "## Несколько параметров"
+msgstr "## Più parametri"
+
+msgid "## Форматирование строк"
+msgstr "## Formattazione stringhe"
+
+msgid "**Пример неправильно:**"
+msgstr "**Esempio errato:**"
+
+msgid "## Виртуальное окружение"
+msgstr "## Ambiente virtuale"
+
+msgid "## Добавление и удаление"
+msgstr "## Aggiunta e rimozione"
+
+msgid "## Значение по умолчанию"
+msgstr "## Valore di default"
+
+msgid "## Что такое переменная?"
+msgstr "## Cos'è una variabile?"
+
+msgid "### Что такое синтаксис?"
+msgstr "### Cos'è la sintassi?"
+
+msgid "## Добавление и изменение"
+msgstr "## Aggiunta e modifica"
+
+msgid "### Что такое .gitignore?"
+msgstr "### Cos'è .gitignore?"
+
+msgid "## ORM без лишних запросов"
+msgstr "## ORM senza richieste inutili"
+
+msgid "## Когда что использовать?"
+msgstr "## Quando usare quale?"
+
+msgid "## Учимся на чужих ошибках"
+msgstr "## Impariamo dagli errori altrui"
+
+msgid "### Динамическая типизация"
+msgstr "### Tipizzazione dinamica"
+
+msgid "## Debug Zone: найди ошибку"
+msgstr "## Debug Zone: trova l'errore"
+
+msgid "## Первый запуск (терминал)"
+msgstr "## Primo avvio (terminale)"
+
+msgid "Напиши в файле одну строку:"
+msgstr "Scrivi nel file una sola riga:"
+
+msgid "## Домашнее задание (лёгкое)"
+msgstr "## Compiti a casa (facile)"
+
+msgid "## Мини-пример (идея pytest)"
+msgstr "## Mini-esempio (idea pytest)"
+
+msgid "## Поиск максимума без max()"
+msgstr "## Trovare il massimo senza max()"
+
+msgid "## elif — несколько вариантов"
+msgstr "## elif — più opzioni"
+
+msgid "## Дополнительно (по желанию)"
+msgstr "## Extra (facoltativo)"
+
+msgid "## Разбор домашки — ориентиры"
+msgstr "## Analisi dei compiti - linee guida"
+
+msgid "## Срезы (slicing) — подробно"
+msgstr "## Affettare - dettagli"
+
+msgid "## Пример структуры (ориентир)"
+msgstr "## Esempio di struttura (linea guida)"
+
+msgid "# Django: модели, ORM и админка"
+msgstr "# Django: modelli, ORM e pannello admin"
+
+msgid "## Подготовка к деплою (чеклист)"
+msgstr "## Preparazione al deploy"
+
+msgid "## Разбор домашки — эталон мысли"
+msgstr "## Analisi dei compiti - standard di pensiero"
+
+msgid "## enumerate() — индекс и элемент"
+msgstr "## enumerate() — indice ed elemento"
+
+msgid "## От автора: как я это осваивала"
+msgstr "## Dall'autore: come l'ho imparato"
+
+msgid "2. Создай переменную `total = 0`."
+msgstr "2. Crea la variabile `total = 0`."
+
+msgid "## print() — как увидеть результат"
+msgstr "## print() — come vedere il risultato"
+
+msgid "## Оператор break — выход из цикла"
+msgstr "## L'istruzione `break` — uscire dal ciclo"
+
+msgid "## Что такое IDE и зачем она нужна"
+msgstr "## Cos'è un IDE e a cosa serve"
+
+msgid "## Локальные и глобальные переменные"
+msgstr "## Variabili locali e globali"
+
+msgid "## Создание файла и первая программа"
+msgstr "## Creazione del file e primo programma"
+
+msgid "# Django REST Framework и авторизация"
+msgstr "# Django REST Framework e autenticazione"
+
+msgid "## range() — последовательность чисел"
+msgstr "## range() — sequenza di numeri"
+
+msgid "## Валидация — не паранойя, а гигиена"
+msgstr "## La validazione non è paranoia, ma igiene"
+
+msgid "## Домашнее задание (часть А — текст)"
+msgstr "## Compiti (parte A — testo)"
+
+msgid "## Логирование и переменные окружения"
+msgstr "## Logging e variabili d'ambiente"
+
+msgid "## Разбор домашки — почему так делают"
+msgstr "## Analisi dei compiti: perché lo fanno"
+
+msgid "## Отступы в Python — простыми словами"
+msgstr "## Rientro in Python - in parole semplici"
+
+msgid "## Домашнее задание (обязательно в коде)"
+msgstr "## Compiti (obbligatorio in codice)"
+
+msgid "3. Выполни `makemigrations` и `migrate`."
+msgstr "3. Esegui \"makemigrations\" e \"migrate\"."
+
+msgid "# Flask API: REST, CRUD и валидация входа"
+msgstr "# Flask API: REST, CRUD e validazione dell'input"
+
+msgid "## Обязательный чеклист: запусти локально"
+msgstr "## Lista di controllo richiesta: esegui localmente"
+
+msgid "### Стили имён в Python (переменные и код)"
+msgstr "### Stili di nomi in Python (variabili e codice)"
+
+msgid "## Куда идти дальше — официальные материалы"
+msgstr "## Dove andare dopo: materiali ufficiali"
+
+msgid "## Разбор домашки — что считаем «правильно»"
+msgstr "## Analisi dei compiti: cosa consideriamo “corretto”"
+
+msgid "Ошибка 1: `age` — строка, нужно `int(age)`."
+msgstr "Errore 1: `age` è stringa, serve `int(age)`."
+
+msgid "## Решение (не подсматривай раньше времени!)"
+msgstr "## Soluzione (non sbirciare troppo presto!)"
+
+msgid "1. В определении функции чего-то не хватает."
+msgstr "1. Nella definizione della funzione manca qualcosa."
+
+msgid "2. В вызове `print` — скобки сбалансированы?"
+msgstr "2. Nella chiamata `print` — le parentesi sono bilanciate?"
+
+msgid "## Виртуальное окружение (.venv) и .gitignore"
+msgstr "## Ambiente virtuale (.venv) e .gitignore"
+
+msgid "## Второй мини-проект (если первый уже готов)"
+msgstr "## Secondo miniprogetto (se il primo è già pronto)"
+
+msgid "Ошибка 2: после `if` и `else` нужны двоеточия."
+msgstr "Errore 2: dopo `if` e `else` servono i due punti."
+
+msgid "Длина списка: `len(orders)` — сколько элементов."
+msgstr "Lunghezza dell'elenco: `len(ordini)` - quanti elementi."
+
+msgid "## Финальный мини-проект на выбор (рекомендуется)"
+msgstr "## Mini-progetto finale (scegline uno) — consigliato"
+
+msgid "- Логи в **stdout** — платформа их собирает сама."
+msgstr "- Accedi **stdout**: la piattaforma li raccoglie autonomamente."
+
+msgid "- Статика для Django: `collectstatic` при сборке."
+msgstr "- Statica per Django: `collectstatic` su build."
+
+msgid "Срезы работают и для строк — получаешь подстроку."
+msgstr "Le sezioni funzionano anche per le stringhe: ottieni una sottostringa."
+
+msgid "## Домашнее задание (три шага — обязательный трек)"
+msgstr "## Compiti (tre passaggi — percorso obbligatorio)"
+
+msgid "## Домашнее задание (часть Б — обязательно в коде)"
+msgstr "## Compiti (parte B — obbligatorio in codice)"
+
+msgid "- `IsAuthenticated` — запрос без учётки → **401**."
+msgstr "- `IsAuthenticated`: richiesta senza account → **401**."
+
+msgid "3. Проверь отступы у `print` — должны ли они быть?"
+msgstr "3. Controlla l'indentazione di `print` — deve esserci?"
+
+msgid "4. Если `total >= 10`, умножь на 0.9 (скидка 10%)."
+msgstr "4. Se \"totale >= 10\", moltiplicare per 0,9 (sconto del 10%)."
+
+msgid "**Пример скелета (идея, не единственный вариант):**"
+msgstr "**Esempio di scheletro (idea, non l'unica opzione):**"
+
+msgid "# Архитектура проекта и «чистый» Python в продакшене"
+msgstr "# Architettura del progetto e Python «pulito» in produzione"
+
+msgid "## Идея разбора (не обязательно совпадать построчно)"
+msgstr "## Come rivedere il lavoro (non serve uguale riga per riga)"
+
+msgid "3. В `open` — два аргумента через запятую. Верно ли?"
+msgstr "3. In `open` — due argomenti separati da virgola. Corretto?"
+
+msgid "**Минимальный набросок моделей (если решишь кодом):**"
+msgstr "**Schizzo minimo dei modelli (se decidi con il codice):**"
+
+msgid "- `POST /tasks` с телом `{\"title\": \"\"}` → код **400**."
+msgstr "- `POST /tasks` con corpo `{\"titolo\": \"\"}` → codice **400**."
+
+msgid "Напиши **текстом на 5–8 предложений** (можно списком):"
+msgstr "Scrivi **in un testo di 5-8 frasi** (puoi utilizzare un elenco):"
+
+msgid "## Практический трек: pytest к твоему Flask (обязательно)"
+msgstr "## Percorso pratico: pytest per il tuo Flask (richiesto)"
+
+msgid "- **pytest:** [docs.pytest.org](https://docs.pytest.org/)"
+msgstr "- **pytest:** [docs.pytest.org](https://docs.pytest.org/)"
+
+msgid "Ошибка 1: после `def calc_total(prices)` нужно двоеточие."
+msgstr "Errore 1: dopo `def calc_total(prices)` serve il due punti."
+
+msgid "## Изменяемые и неизменяемые объекты (mutable и immutable)"
+msgstr "## Oggetti mutabili e immutabili"
+
+msgid "Ошибка 3: строки внутри `if` и `else` должны иметь отступ."
+msgstr "Errore 3: le righe in `if` e `else` devono essere indentate."
+
+msgid "Подставь свой URL и поля — смысл тот же: статус + содержимое."
+msgstr ""
+"Sostituisci il tuo URL e i campi: il significato è lo stesso: stato + "
+"contenuto."
+
+msgid "2. Посмотри на синтаксис `if` — чего не хватает после условия?"
+msgstr "2. Guarda la sintassi di `if` — cosa manca dopo la condizione?"
+
+msgid "Цель — **почувствовать разделение**, а не идеальный продакшен."
+msgstr "L'obiettivo è **sentire la separazione**, non la produzione perfetta."
+
+msgid "2. Проверь отступы: какие строки должны выполняться внутри цикла?"
+msgstr ""
+"2. Controlla l'indentazione: quali righe devono essere dentro il ciclo?"
+
+msgid "- `DATABASE_URL`, `SECRET_KEY` — из переменных окружения хостинга."
+msgstr ""
+"- `DATABASE_URL`, `SECRET_KEY` - dalle variabili dell'ambiente di hosting."
+
+msgid "Цель — **сформулировать мысль**, как на собеседовании или в ревью."
+msgstr ""
+"L'obiettivo è **formulare un pensiero**, come in un colloquio o in una code "
+"review."
+
+msgid "Новый ключ — новое значение. Существующий ключ — изменяем значение."
+msgstr "Nuova chiave - nuovo valore. Chiave esistente: modifica il valore."
+
+msgid "Сделай **минимальный** Flask-проект (можно в одном файле `app.py`):"
+msgstr "Crea un progetto Flask **minimo** (può trovarsi in un file `app.py`):"
+
+msgid "- **Python (язык):** [docs.python.org/3](https://docs.python.org/3/)"
+msgstr ""
+"- **Python (linguaggio):** [docs.python.org/3](https://docs.python.org/3/)"
+
+msgid "Пример минимальной реализации `get_logger` (можно сравнить со своей):"
+msgstr ""
+"Un esempio di un'implementazione minima di `get_logger` (può essere "
+"confrontata con la tua):"
+
+msgid ""
+"1. `GET /health` — возвращает JSON `{\"status\": \"ok\"}` с кодом **200**."
+msgstr ""
+"1. `GET /health` - restituisce JSON `{\"status\": \"ok\"}` con il codice "
+"**200**."
+
+msgid "Если pytest ещё не ставил: `pip install pytest` в активированном venv."
+msgstr ""
+"Se pytest non è stato ancora installato: `pip install pytest` nel file venv."
+
+msgid "Если твой текст отражает эти три пункта — задание выполнено по смыслу."
+msgstr "Se il tuo testo riflette questi tre punti, l'attività è completa."
+
+msgid "Ошибка 2: `print(calc_total(prices))` — не хватает закрывающей скобки."
+msgstr "Errore 2: `print(calc_total(prices))` — manca la parentesi chiusa."
+
+msgid ""
+"Ошибка 3: в `open(\"data.txt\", \"r\")` — нужна запятая между аргументами."
+msgstr ""
+"Errore 3: in `open(\"data.txt\", \"r\")` — serve la virgola tra gli "
+"argomenti."
+
+msgid "Строки `print` — внутри блока `if`, поэтому обе сдвинуты на 4 пробела."
+msgstr ""
+"Le righe `print` sono dentro il blocco `if`, quindi entrambe sono indentate "
+"di 4 spazi."
+
+msgid "- **Django:** [docs.djangoproject.com](https://docs.djangoproject.com/)"
+msgstr ""
+"- **Django:** [docs.djangoproject.com](https://docs.djangoproject.com/)"
+
+msgid "- Миграции: `python manage.py migrate` на старте или в release-команде."
+msgstr ""
+"- Migrazioni: \"python Manage.py Migrate\" all'avvio o nel comando di "
+"rilascio."
+
+msgid ""
+"- В корне есть `.gitignore` со строками `.env` и `.venv/` (или `venv/`)."
+msgstr ""
+"- Alla radice c'è `.gitignore` con le righe `.env` e `.venv/` (o `venv/`)."
+
+msgid ""
+"- **Ветки** `main` / feature-ветки — привычка до первого конфликта в Git."
+msgstr ""
+"- **Rami** I rami `main`/feature sono un'abitudine prima del primo conflitto "
+"in Git."
+
+msgid ""
+"1. После `for` и условием цикла должно быть двоеточие. Где его не хватает?"
+msgstr ""
+"1. Dopo \"for\" e la condizione del ciclo devono essere presenti i due "
+"punti. Dove manca?"
+
+msgid ""
+"Сравни с тем, что написала ты: совпадает смысл связей и индекса — отлично."
+msgstr ""
+"Confronta con quanto hai scritto: il significato dei collegamenti e "
+"dell'indice coincide - ottimo."
+
+msgid ""
+"- `GET /health` → код **200**, в JSON есть ключ `status` со значением `ok`."
+msgstr ""
+"- `GET /health` → codice **200**, in JSON c'è una chiave `status` con il "
+"valore `ok`."
+
+msgid ""
+"- Создано виртуальное окружение: `python -m venv .venv` и оно активировано."
+msgstr ""
+"- Viene creato l'ambiente virtuale: `python -m venv .venv` e viene attivato."
+
+msgid ""
+"- **Flask:** [flask.palletsprojects.com](https://flask.palletsprojects.com/)"
+msgstr ""
+"- **Boccetta:** [flask.palletsprojects.com](https://"
+"flask.palletsprojects.com/)"
+
+msgid ""
+"1. Чем отличается **401 Unauthorized** от **403 Forbidden** в контексте API?"
+msgstr ""
+"1. Qual è la differenza tra **401 Unauthorized** e **403 Forbidden** nel "
+"contesto dell'API?"
+
+msgid ""
+"5. Выведи итог: `round(total, 2)` — округление до двух знаков после запятой."
+msgstr ""
+"5. Stampa il totale: `round(total, 2)` - arrotondamento a due cifre decimali."
+
+msgid ""
+"Для POST с JSON проверяй и **код**, и **тело** — так ловят ошибки контракта."
+msgstr ""
+"Per POST con JSON, controlla sia il **codice** che il **corpo**: ecco come "
+"vengono rilevati gli errori del contratto."
+
+msgid ""
+"Ошибка 1: двоеточие после `for i in numbers:` и после `for num in numbers:`."
+msgstr ""
+"Errore 1: due punti dopo `for i in numbers:` e dopo `for num in numbers:`."
+
+msgid ""
+"- **pytest** — удобный раннер тестов: функции `test_*`, утверждения `assert`."
+msgstr ""
+"- **pytest** - comodo test runner: funzioni `test_*`, istruzioni `assert`."
+
+msgid ""
+"Файл должен существовать в той же папке, что и скрипт (или укажи полный "
+"путь)."
+msgstr ""
+"Il file deve esistere nella stessa cartella dello script (o specificare il "
+"percorso completo)."
+
+msgid ""
+"Ошибка 2: отступ у `print(i * 2)` и у `total = total + num` — они внутри "
+"цикла."
+msgstr ""
+"Errore 2: indentazione di `print(i * 2)` e di `total = total + num` — sono "
+"dentro il ciclo."
+
+msgid ""
+"2. Зачем DRF отделяет **authentication** (кто ты) и **permissions** (что "
+"можно)?"
+msgstr ""
+"2. Perché DRF separa l'**autenticazione** (chi sei) e le **autorizzazioni** "
+"(cosa è possibile)?"
+
+msgid ""
+"Это страховка, чтобы следующий модуль не начинался с «у меня не ставится "
+"пакет»."
+msgstr ""
+"Questa è un'assicurazione affinché il modulo successivo non inizi con \"Non "
+"ho il pacchetto installato\"."
+
+msgid ""
+"Здесь `i` — индекс (с 0), `dish` — сам элемент. `i+1` — чтобы нумерация была "
+"с 1."
+msgstr ""
+"Qui \"i\" è l'indice (inizia con 0), \"dish\" è l'elemento stesso. `i+1` - "
+"in modo che la numerazione inizi da 1."
+
+msgid ""
+"Минимум: один рабочий `GET` возвращает JSON; `POST` без пользователя "
+"отклоняется."
+msgstr ""
+"Minimo: un lavoratore \"GET\" restituisce JSON; \"POST\" senza utente viene "
+"rifiutato."
+
+msgid ""
+"Скриншот не нужен — важно, что страница админки открывается и записи "
+"сохраняются."
+msgstr ""
+"Non è necessario uno screenshot: è importante che la pagina di "
+"amministrazione si apra e le voci vengano salvate."
+
+msgid ""
+"Если проект из блока выше **уже сделан** — сделай **второй**, на **другом "
+"стеке**:"
+msgstr ""
+"Se il progetto del blocco sopra è **già completato**, creane un **secondo**, "
+"su uno **stack diverso**:"
+
+msgid ""
+"- Список `GET /api/lessons/` (можно `ReadOnlyModelViewSet` + router или "
+"`APIView`)."
+msgstr ""
+"- Elenco `GET /api/lessons/` (puoi `ReadOnlyModelViewSet` + router o "
+"`APIView`)."
+
+msgid ""
+"Закладки в браузере + один учебный репозиторий с README — уже привычка "
+"разработчика."
+msgstr ""
+"I segnalibri nel browser + un repository educativo con un README sono già "
+"un'abitudine dello sviluppatore."
+
+msgid ""
+"- **Тест API** — вызываешь клиент Django/Flask, смотришь `status_code` и "
+"тело ответа."
+msgstr ""
+"- **Test API**: chiama il client Django/Flask, osserva `status_code` e il "
+"corpo della risposta."
+
+msgid ""
+"Цель — не идеал, а **доказательство себе**: «я могу довести идею до "
+"запускаемого кода»."
+msgstr ""
+"L'obiettivo non è un ideale, ma **una prova per me stesso**: \"Posso portare "
+"un'idea in un codice eseguibile\"."
+
+msgid ""
+"- В `README.md` — какая версия Python и как активировать venv на Windows и "
+"на Mac/Linux."
+msgstr ""
+"- In `README.md` - quale versione di Python è e come attivare venv su "
+"Windows e Mac/Linux."
+
+msgid ""
+"Не обязательно делать PUT/DELETE в этом задании — цель — **маршруты, "
+"статусы, валидация**."
+msgstr ""
+"Non è necessario eseguire PUT/DELETE in questa attività: l'obiettivo è "
+"**percorsi, stati, convalida**."
+
+msgid ""
+"1. Создай словарь `menu` с парами «название — цена» (ключи на английском, "
+"как в меню выше)."
+msgstr "1. Crea il dizionario `menu` con coppie «nome — prezzo»."
+
+msgid ""
+"3. `print(\"Sum:\", total)` — он должен выполниться один раз в конце или при "
+"каждой итерации?"
+msgstr ""
+"3. `print(\"Sum:\", total)` - dovrebbe essere eseguito una volta alla fine o "
+"ad ogni iterazione?"
+
+msgid ""
+"Если ключа нет — будет ошибка. Безопаснее: `menu.get(\"tea\", 0)` — вернёт "
+"0, если ключа нет."
+msgstr ""
+"Se non è presente alcuna chiave, si verificherà un errore. Più sicuro: "
+"`menu.get(\"tea\", 0)` - restituirà 0 se non è presente alcuna chiave."
+
+msgid ""
+"Используй `pytest` и `app.test_client()` из Flask. Запуск: `pytest -q` — оба "
+"теста зелёные."
+msgstr ""
+"Utilizza `pytest` e `app.test_client()` da Flask. Esegui: `pytest -q` - "
+"entrambi i test sono verdi."
+
+msgid ""
+"Ошибка 3: `print(\"Sum:\", total)` должен быть БЕЗ отступа — снаружи цикла, "
+"один раз в конце."
+msgstr ""
+"Errore 3: `print(\"Sum:\", total)` deve essere SENZA rientro - fuori dal "
+"ciclo, una volta alla fine."
+
+msgid ""
+"Третий параметр — шаг. `nums[::2]` — каждый второй элемент. `nums[::-1]` — "
+"разворот списка."
+msgstr ""
+"Il terzo parametro è il passo. `nums[::2]` — ogni secondo elemento. "
+"`nums[::-1]` — rotazione dell'elenco."
+
+msgid ""
+"- `Lesson.objects.filter(course_id=1).order_by(\"order\")` — один запрос с "
+"`WHERE` и `ORDER BY`."
+msgstr ""
+"- `Lesson.objects.filter(course_id=1).order_by(\"order\")` - una query con "
+"`WHERE` e `ORDER BY`."
+
+msgid ""
+"- Был Flask — добавь **короткий** Django + DRF: модель на 3 поля, список в "
+"API, **один** тест."
+msgstr ""
+"- C'era Flask - aggiungi **breve** Django + DRF: modello per 3 campi, elenco "
+"in API, **un** test."
+
+msgid ""
+"1. `django-admin startproject` и `python manage.py startapp` (например, "
+"приложение `lessons`)."
+msgstr ""
+"1. \"django-admin startproject\" e \"python Manage.py startapp\" (ad "
+"esempio, l'applicazione \"lessons\")."
+
+msgid ""
+"- Не гонись за 100% покрытием тестами сначала — лучше **узкий, но живой** "
+"набор, чем пустой CI."
+msgstr ""
+"- All'inizio non inseguire una copertura del test del 100%: un set "
+"**ristretto ma attivo** è migliore di un CI vuoto."
+
+msgid ""
+"- **Django REST Framework:** [django-rest-framework.org](https://www.django-"
+"rest-framework.org/)"
+msgstr ""
+"- **Django REST Framework:** [django-rest-framework.org](https://www.django-"
+"rest-framework.org/)"
+
+msgid ""
+"- Установлены зависимости из `requirements.txt` или хотя бы `pip install "
+"flask` для модуля с API."
+msgstr ""
+"- Dipendenze installate da \"requirements.txt\" o almeno da \"pip install "
+"flask\" per il modulo con l'API."
+
+msgid ""
+"1. `input()` всегда возвращает строку. Можно ли сравнивать строку с числом "
+"18? Что нужно сделать?"
+msgstr ""
+"1. `input()` restituisce sempre una stringa. Si può confrontare una stringa "
+"con il numero 18? Cosa serve fare?"
+
+msgid ""
+"Сделай в **отдельной папке** учебный проект Django (не в репозитории "
+"платформы — свой локальный):"
+msgstr ""
+"Crea un progetto di formazione Django in una **cartella separata** (non nel "
+"repository della piattaforma, il tuo locale):"
+
+msgid ""
+"Позже ты добавишь список в памяти или базу — сначала важно, что **маршрут "
+"живой и отвечает JSON**."
+msgstr ""
+"Successivamente aggiungerai un elenco in memoria o un database: innanzitutto "
+"è importante che **il percorso sia attivo e risponda con JSON**."
+
+msgid ""
+"Собери **один** небольшой проект в своём темпе — не на оценку, а чтобы "
+"почувствовать цельный цикл:"
+msgstr ""
+"Metti insieme **un** piccolo progetto secondo i tuoi ritmi, non per la "
+"valutazione, ma per sentire l'intero ciclo:"
+
+msgid ""
+"Это не единственно верная схема, но она часто встречается и хорошо "
+"объясняется новичкам в команде."
+msgstr ""
+"Questo non è l'unico schema corretto, ma è comune e ben spiegato ai nuovi "
+"arrivati ​​nel team."
+
+msgid ""
+"- **Render** — подключаешь репозиторий, задаёшь команду старта, секреты "
+"кладёшь в панель, не в Git."
+msgstr ""
+"- **Render**: collega il repository, imposta il comando di avvio, inserisci "
+"i segreti nel pannello, non in Git."
+
+msgid ""
+"- Был Django — сделай **мини-Flask**: два маршрута (`/health` и один "
+"ресурс), **два** pytest-теста."
+msgstr ""
+"- C'era Django - esegui un **mini-Flask**: due percorsi (`/health` e una "
+"risorsa), **due** test pytest."
+
+msgid ""
+"Если у тебя похожая логика и статусы совпадают — задание выполнено с точки "
+"зрения **договора API**."
+msgstr ""
+"Se la logica è simile e gli stati corrispondono, l'attività viene completata "
+"dal punto di vista del **contratto API**."
+
+msgid ""
+"Цель — **закрепить** второй тип проекта, а не удвоить объём. Один README на "
+"репозиторий достаточно."
+msgstr ""
+"L'obiettivo è **consolidare** il secondo tipo di progetto, non raddoppiarne "
+"la portata. È sufficiente un README per repository."
+
+msgid ""
+"**Индекс** по `(course, order)` ускоряет выборку «уроки курса по порядку» — "
+"типичный запрос для LMS."
+msgstr ""
+"**Indice** su \"(corso, ordine)\" accelera la selezione delle \"lezioni del "
+"corso in ordine\" - una query tipica per un LMS."
+
+msgid ""
+"- **GET** — «дай данные». **POST** — «создай новое». **PUT/PATCH** — "
+"«обнови». **DELETE** — «удали»."
+msgstr ""
+"- **GET** - \"fornisci dati\". **POST** - \"crea qualcosa di nuovo\". "
+"**METTI/PATCH** - “aggiorna”. **ELIMINA** - “elimina”."
+
+msgid ""
+"Реальный выклад на Render в этом задании **не обязателен** — сделаешь, когда "
+"проект стабилизируется."
+msgstr ""
+"Un deploy reale su Render per questo compito **non è obbligatorio** — fallo "
+"quando il progetto sarà stabile."
+
+msgid ""
+"Срезы не изменяют оригинал — создают новую копию части. Удобно для "
+"копирования: `copy = my_list[:]`."
+msgstr ""
+"Le fette non modificano l'originale; creano una nuova copia della parte. "
+"Comodo per la copia: `copy = my_list[:]`."
+
+msgid ""
+"- **REST** — стиль, где ресурсы (задачи, заказы, пользователи) имеют адреса "
+"и стандартные HTTP-методы."
+msgstr ""
+"- **REST** è uno stile in cui le risorse (attività, ordini, utenti) hanno "
+"indirizzi e metodi HTTP standard."
+
+msgid ""
+"- **Сериализатор** — «переводчик» между моделью/словарём и JSON: валидация "
+"полей, вложенные структуры."
+msgstr ""
+"- **Serializzatore** - \"traduttore\" tra il modello/dizionario e JSON: "
+"convalida dei campi, strutture nidificate."
+
+msgid ""
+"`menu.items()` даёт пары (ключ, значение). В цикле можно распаковать: `for "
+"dish, price in menu.items():`"
+msgstr ""
+"`menu.items()` fornisce coppie (chiave, valore). In un ciclo puoi "
+"decomprimere: `for piatto, prezzo in menu.items():`"
+
+msgid ""
+"`count += 1` — то же, что `count = count + 1`. Счётчик увеличивается, и "
+"когда станет 3, цикл остановится."
+msgstr ""
+"`count += 1` è uguale a `count = count + 1`. Il contatore aumenta e quando "
+"raggiunge 3 il ciclo si interromperà."
+
+msgid ""
+"**Сначала** отметь чеклист выше. Затем сделай **на бумаге или в новой "
+"папке** макет проекта `coffee_app/`:"
+msgstr ""
+"**Prima** spunta la checklist sopra. Poi crea **su carta o in una nuova "
+"cartella** il layout del progetto `coffee_app/`:"
+
+msgid ""
+"- **GitHub Actions** — YAML-файл в `.github/workflows/`: шаги «установить "
+"зависимости», «запустить тесты»."
+msgstr ""
+"- **GitHub Actions** — file YAML in `.github/workflows/`: passaggi «installa "
+"le dipendenze», «esegui i test»."
+
+msgid ""
+"Если у тебя похожая логика — ты на правильном пути; главное — **один стиль** "
+"и отсутствие секретов в коде."
+msgstr ""
+"Se hai una logica simile, sei sulla strada giusta; la cosa principale è "
+"**uno stile** e nessun segreto nel codice."
+
+msgid ""
+"Перед первым серьёзным коммитом пройди шаги **на своей машине** (отметь "
+"галочками в README или в заметке):"
+msgstr ""
+"Prima del tuo primo commit importante, segui i passaggi **sulla tua "
+"macchina** (seleziona le caselle nel README o in una nota):"
+
+msgid ""
+"- **Логи** пишут в файл или в stdout — на хостинге (например, Render) удобно "
+"смотреть поток логов в панели."
+msgstr ""
+"- I **log** vengono scritti su un file o su stdout - sull'hosting (ad "
+"esempio Render) è conveniente visualizzare il flusso di log nel pannello."
+
+msgid ""
+"- `ModelSerializer` для `Lesson` (поля `id`, `title`, `order` и связь с "
+"курсом — как минимум `course` по id)."
+msgstr ""
+"- `ModelSerializer` per `Lesson` (campi `id`, `title`, `order` e connessione "
+"con il corso - almeno `course` tramite id)."
+
+msgid ""
+"Python подставит значения вместо `{name}` и `{age}`. Можно и выражения: "
+"`f\"Next year you will be {age + 1}\"`."
+msgstr ""
+"Python sostituirà i valori per `{name}` e `{age}`. Puoi anche usare "
+"espressioni come: `f\"Next year you will be {age + 1}\"`."
+
+msgid ""
+"Функция может принимать много параметров. `sum(list)` — встроенная функция, "
+"возвращает сумму элементов списка."
+msgstr ""
+"Una funzione può assumere molti parametri. `sum(list)` è una funzione "
+"integrata che restituisce la somma degli elementi di una lista."
+
+msgid ""
+"Что смущает? Для создания ресурса часто ждут **201**, не 200. И отдельно "
+"стоит тест: пустой `title` → **400**."
+msgstr ""
+"Cosa c'è di confuso? Per creare una risorsa, spesso aspettano **201**, non "
+"200. Ed esiste un test separato: `titolo` vuoto → **400**."
+
+msgid ""
+"- **PascalCase** — каждое слово с большой буквы без подчёркиваний: "
+"`CoffeeOrder`. Так чаще называют **классы**."
+msgstr ""
+"- **PascalCase**: ogni parola è in maiuscolo senza trattini bassi: "
+"`CoffeeOrder`. Questo è ciò che spesso vengono chiamate le **classi**."
+
+msgid ""
+"- **HTTP-статус** — короткий ответ «как прошло»: 200 (OK), 201 (создали), "
+"400 (ошибка в запросе), 404 (не нашли)."
+msgstr ""
+"- **Stato HTTP** — risposta breve su «come è andata»: 200 (OK), 201 "
+"(creato), 400 (richiesta errata), 404 (non trovato)."
+
+msgid ""
+"- Команда `python -c \"print('venv ok')\"` выполняется без ошибки — "
+"проверка, что используешь нужный интерпретатор."
+msgstr ""
+"- Il comando `python -c \"print('venv ok')\" viene eseguito senza errori, "
+"verificando che si stia utilizzando l'interprete corretto."
+
+msgid ""
+"**Дополнительно (по желанию):** в 4–6 предложениях опиши, зачем CI на каждый "
+"push и что считаешь успешным деплоем."
+msgstr ""
+"**Facoltativo:** in 4–6 frasi spiega perché eseguire CI a ogni push e cosa "
+"consideri un deploy riuscito."
+
+msgid ""
+"Зачем это нужно: единый стиль ускоряет чтение и работу в команде — по виду "
+"имени быстрее понятно, что перед тобой."
+msgstr ""
+"Perché è necessario: uno stile unitario velocizza la lettura e il lavoro di "
+"squadra: guardando il nome è più facile capire cosa hai davanti."
+
+msgid ""
+"Можно найти максимум вручную: положи в переменную первый элемент и проходи "
+"по списку. Если нашёл больше — обновляй."
+msgstr ""
+"Puoi trovare il massimo manualmente: inserisci il primo elemento nella "
+"variabile e scorri l'elenco. Se ne trovi di più, aggiorna."
+
+msgid ""
+"Здесь `while True` снаружи выглядит как «бесконечный» цикл, но **`break`** "
+"завершает его, как только введено `exit`."
+msgstr ""
+"Qui ` while True` sembra un ciclo \"infinito\" dall'esterno, ma **`break`** "
+"lo termina non appena viene inserito `exit`."
+
+msgid ""
+"**Деплой** зависит от хостинга — начни с документации выбранной платформы, "
+"например [Render](https://render.com/docs)."
+msgstr ""
+"**La distribuzione** dipende dall'hosting: inizia con la documentazione "
+"della piattaforma scelta, ad esempio [Render](https://render.com/docs)."
+
+msgid ""
+"- **ViewSet** — набор действий над ресурсом: список, один объект, создание, "
+"обновление, удаление. Роутер сам строит URL."
+msgstr ""
+"- **ViewSet**: una serie di azioni su una risorsa: elenco, un oggetto, "
+"creazione, aggiornamento, eliminazione. Il router crea l'URL stesso."
+
+msgid ""
+"4. Зарегистрируй модели в `admin.py`, создай суперпользователя, открой `/"
+"admin/` и создай **один** курс и **один** урок."
+msgstr ""
+"4. Registra i modelli in `admin.py`, crea un superutente, apri `/admin/` e "
+"crea **un** corso e **una** lezione."
+
+msgid ""
+"- Один **README** в репозитории: как запустить локально, какие переменные "
+"нужны — экономит часы людям и тебе через месяц."
+msgstr ""
+"- Un **README** nel repository: come eseguire localmente, quali variabili "
+"sono necessarie - fa risparmiare ore alle persone e a te in un mese."
+
+msgid ""
+"Когда в цикле `for` нужен и элемент списка, и его индекс — используй "
+"`enumerate()`. Он возвращает пары (индекс, элемент)."
+msgstr ""
+"Quando hai bisogno sia di un elemento della lista che del suo indice in un "
+"ciclo \"for\", usa \"enumerate()\". Restituisce coppie (indice, elemento)."
+
+msgid ""
+"Впереди — ещё больше практики и системные шаги каждый день. Благодарю за "
+"доверие и желаю успехов в ваших будущих проектах!"
+msgstr ""
+"Ancora avanti: più pratica e passi sistematici ogni giorno. Grazie per la "
+"vostra fiducia — e auguro ogni successo ai vostri progetti futuri!"
+
+msgid ""
+"Положить `.env` в Git «на минутку». Потом репозиторий публичный — и ключ "
+"утёк. Добавь `.env` в `.gitignore` с первого дня."
+msgstr ""
+"Inserisci `.env` in Git \"per un minuto\". Poi il repository è diventato "
+"pubblico e la chiave è trapelata. Aggiungi `.env` a `.gitignore` dal primo "
+"giorno."
+
+msgid ""
+"**Индекс (course, order).** Запрос «все уроки курса по порядку» выполняется "
+"часто; индекс уменьшает полный перебор таблицы."
+msgstr ""
+"**Indice (corso, ordine).** La query “tutte le lezioni del corso in ordine” "
+"viene eseguita frequentemente; l'indice riduce la ricerca esaustiva della "
+"tabella."
+
+msgid ""
+"1. Создай три папки: `services/`, `config/`, `api/` (пустые файлы "
+"`__init__.py` можно добавить, если хочешь Python-пакеты)."
+msgstr ""
+"1. Crea tre cartelle: `services/`, `config/`, `api/` (è possibile aggiungere "
+"file `__init__.py` vuoti se si desiderano pacchetti Python)."
+
+msgid ""
+"2. `GET /tasks` — возвращает `{\"tasks\": [...]}` — список задач в "
+"**памяти** (глобальный список словарей достаточно для учебы)."
+msgstr ""
+"2. `GET /tasks` - restituisce `{\"tasks\": [...]}` - un elenco di attività "
+"in **memoria** (l'elenco globale dei dizionari è sufficiente per lo studio)."
+
+msgid ""
+"2. В `models.py` опиши модели `Course` и `Lesson` как в уроке (`slug` у "
+"`Course`, связь, `order`, индекс по `(course, order)`)."
+msgstr ""
+"2. In `models.py` descrivi i modelli `Course` e ​​`Lesson` come nella lezione "
+"(`slug` of `Course`, connessione, `order`, indice per `(course, order)`)."
+
+msgid ""
+"`append(значение)` — добавляет элемент в конец списка. `remove(значение)` — "
+"удаляет первый найденный элемент с таким значением."
+msgstr ""
+"`append(value)` - aggiunge un elemento alla fine dell'elenco. "
+"`remove(value)` - rimuove il primo elemento trovato con questo valore."
+
+msgid ""
+"Цикл `for` проходит по элементам коллекции (списка, строки и т.д.). "
+"Переменная после `for` по очереди принимает каждый элемент."
+msgstr ""
+"Il ciclo \"for\" scorre gli elementi di una raccolta (lista, stringa, ecc.). "
+"La variabile dopo \"for\" prende a turno ogni elemento."
+
+msgid ""
+"**Вариант B (Django + DRF):** модели, пара endpoint’ов, `IsAuthenticated` на "
+"запись, один тест API, **README** с шагами запуска."
+msgstr ""
+"**Opzione B (Django + DRF):** modelli, una coppia di endpoint, "
+"\"IsAuthenticated\" per voce, un test API, **README** con passaggi di avvio."
+
+msgid ""
+"**Шаг 3 — README.** Одна строка: что в репозитории гоняется CI на каждый "
+"push (или вставь бейдж GitHub Actions, если получится)."
+msgstr ""
+"**Passaggio 3 - README.** Una riga: che il repository esegua CI per ogni "
+"push (o inserisci il badge GitHub Actions, se possibile)."
+
+msgid ""
+"Выведется три строки — по одной на каждый элемент. Отступ у `print` "
+"обязателен: он показывает, что эта строка принадлежит циклу."
+msgstr ""
+"Verranno visualizzate tre righe, una per ciascun elemento. Il rientro di "
+"`print` è obbligatorio: mostra che questa riga appartiene al ciclo."
+
+msgid ""
+"В **том же учебном Django-проекте**, где есть модели из прошлого модуля (или "
+"в новом), подключи **djangorestframework** и сделай:"
+msgstr ""
+"Nello **stesso progetto tutorial Django** dove sono presenti modelli del "
+"modulo precedente (o in quello nuovo), collega **djangorestframework** ed "
+"esegui:"
+
+msgid ""
+"**Шаг 1 — pytest.** Один тест для учебного `GET /health/` (или аналога): код "
+"**200** и ключ `status` в JSON (как у тебя в ответе)."
+msgstr ""
+"**Passaggio 1 — pytest.** Un test per l’endpoint di esercitazione `GET /"
+"health/` (o equivalente): codice **200** e chiave `status` nel JSON (come "
+"nella tua risposta)."
+
+msgid ""
+"- **snake_case** — слова через нижнее подчёркивание: `user_name`, "
+"`total_price`. Так обычно называют **переменные** и **функции**."
+msgstr ""
+"- **snake_case** — parole separate da trattini bassi: `nome_utente`, "
+"`prezzo_totale`. Questo è il modo in cui vengono solitamente chiamate le "
+"**variabili** e le **funzioni**."
+
+msgid ""
+"Для выхода из цикла можно использовать `break` — он сразу прерывает цикл. "
+"Проверяй: если пользователь ввёл пустую строку — `break`."
+msgstr ""
+"Per uscire dal ciclo, puoi usare `break`: interrompe immediatamente il "
+"ciclo. Controlla: se l'utente ha inserito una riga vuota - `break`."
+
+msgid ""
+"Если **нет** аккаунта GitHub — приложи содержимое `ci.yml` и **вывод** "
+"`pytest` из терминала (последние строки) как доказательство."
+msgstr ""
+"Se **non** hai un account GitHub, allega il contenuto di `ci.yml` e "
+"**output** di `pytest` dal terminale (ultime righe) come prova."
+
+msgid ""
+"Функция `print()` выводит значение на экран. Без неё программа посчитает или "
+"сохранит что-то в переменную, но ты ничего не увидишь."
+msgstr ""
+"La funzione `print()` stampa il valore sullo schermo. Senza di esso, il "
+"programma calcolerà o salverà qualcosa in una variabile, ma non vedrai nulla."
+
+msgid ""
+"Дальше главное — **читать документацию и делать свой проект**. Ниже короткий "
+"список опорных ссылок (на английском, как в профессии):"
+msgstr ""
+"Quindi la cosa principale è **leggere la documentazione e creare il proprio "
+"progetto**. Di seguito un breve elenco di link di riferimento (in inglese, "
+"come nella professione):"
+
+msgid ""
+"Если твой ответ отражает **автоматическую проверку** и **наблюдаемость** "
+"после выката — ты на правильном уровне абстракции для «про»."
+msgstr ""
+"Se la tua risposta riflette la **verifica automatica** e l'**osservabilità** "
+"dopo l'implementazione, sei al giusto livello di astrazione per \"pro\"."
+
+msgid ""
+"Синтаксис простой: `variable_name = value`. Знак `=` — это присваивание "
+"(положить в переменную), а не «равно» в математическом смысле."
+msgstr ""
+"La sintassi è semplice: `nome_variabile = valore`. Il segno `=` è "
+"un'assegnazione (inserita in una variabile) e non \"uguale\" in senso "
+"matematico."
+
+msgid ""
+"**Шаг 1 (pytest).** Минимальный тест проверяет **контракт**: сервер жив и "
+"отвечает ожидаемой формой. Пример для DRF/Django `APIClient`:"
+msgstr ""
+"**Passaggio 1 (pytest).** Il test minimo verifica il **contratto**: il "
+"server è attivo e risponde nella forma attesa. Esempio per DRF/Django "
+"`APIClient`:"
+
+msgid ""
+"**Зачем так:** Python «видит» границы блока по отступам. Если отступ "
+"неправильный — программа не запустится и выдаст `IndentationError`."
+msgstr ""
+"**Perché questo:** Python “vede” i confini dei blocchi in base al rientro. "
+"Se il rientro non è corretto, il programma non si avvierà e genererà un "
+"`IndentationError`."
+
+msgid ""
+"В Python принято писать так, чтобы код было легко читать. Для имён есть "
+"устоявшиеся соглашения (описаны в **PEP 8** — «этикет» для кода):"
+msgstr ""
+"In Python è normale scrivere in modo tale che il codice sia facile da "
+"leggere. Esistono convenzioni stabilite per i nomi (descritte in **PEP 8** - "
+"“etichetta” per il codice):"
+
+msgid ""
+"**`get_logger`.** Единая точка настройки логирования: потом можно сменить "
+"формат или уровень для всего проекта, не переписывая каждый файл."
+msgstr ""
+"**`get_logger`.** Punto singolo di configurazione della registrazione: è "
+"quindi possibile modificare il formato o il livello per l'intero progetto "
+"senza riscrivere ogni file."
+
+msgid ""
+"Когда маршруты `/health` и `/tasks` работают, добавь файл `tests/"
+"test_app.py` (или `test_app.py` в корне учебной папки) с **двумя** тестами:"
+msgstr ""
+"Quando i percorsi `/health` e `/tasks` funzionano, aggiungi un file `tests/"
+"test_app.py` (o `test_app.py` nella radice della cartella training) con "
+"**due** test:"
+
+msgid ""
+"«Только текстом» эту часть **не заменяй** — нужен хотя бы один файл с "
+"классами сериализатора и представления, даже если запускал только тестами."
+msgstr ""
+"\"Solo testo\" **non sostituire questa parte**: è necessario almeno un file "
+"con le classi serializzatore e presentazione, anche se lo hai eseguito solo "
+"come test."
+
+msgid ""
+"Режим `\"w\"` — запись. Внимание: он перезаписывает файл! `f.write(текст)` — "
+"записать строку. Перенос строки добавляй сам: `f.write(\"строка\\\\n\")`."
+msgstr ""
+"Modalità `\"w\"` — scrittura. Attenzione: sovrascrive il file! "
+"`f.write(testo)` — scrive una stringa. Per andare a capo aggiungi tu `\\n`, "
+"ad esempio: `f.write(\"riga\\n\")`."
+
+msgid ""
+"Создай цикл `for`, который выводит числа от 1 до 5 (можно через `range(1, "
+"6)`). Или выведи три любых приветствия, используя список из трёх имён."
+msgstr ""
+"Crea un ciclo `for` che stampi i numeri da 1 a 5 (puoi usare `range(1, 6)`). "
+"Oppure stampa tre saluti qualsiasi utilizzando un elenco di tre nomi."
+
+msgid ""
+"**Сколько пробелов:** в учебных примерах и в большинстве проектов — **4 "
+"пробела** на один уровень. Не смешивай пробелы и табуляцию в одном файле."
+msgstr ""
+"**Quanti spazi:** nei tutorial e nella maggior parte dei progetti - **4 "
+"spazi** per livello. Non mischiare spazi e tabulazioni nello stesso file."
+
+msgid ""
+"2. В `config/` создай файл-пример `settings.example.env` с двумя строками-"
+"заготовками: `LOG_LEVEL=INFO` и `DATABASE_URL=` (без реального пароля)."
+msgstr ""
+"2. In `config/` crea un file di esempio `settings.example.env` con due righe "
+"vuote: `LOG_LEVEL=INFO` e `DATABASE_URL=` (senza la vera password)."
+
+msgid ""
+"**Правило:** всё, что должно выполняться «внутри» `if`, `for`, `while`, "
+"`def` — пишется с одним и тем же отступом относительно начала этой строки."
+msgstr ""
+"**Regola:** tutto ciò che deve essere eseguito “dentro” `if`, `for`, ` "
+"while`, `def` viene scritto con la stessa indentazione rispetto all'inizio "
+"di questa riga."
+
+msgid ""
+"`admin.site.register(Lesson)` даёт быстрый UI. Добавь `list_display`, "
+"`search_fields`, `list_filter` — жизнь редакторов контента становится проще."
+msgstr ""
+"\"admin.site.register(Lesson)\" fornisce un'interfaccia utente veloce. "
+"Aggiungi `list_display`, `search_fields`, `list_filter`: la vita degli "
+"editor di contenuti diventa più semplice."
+
+msgid ""
+"Создай словарь с тремя парами: день недели — план (например, «Понедельник»: "
+"«учёба»). Выведи план на один из дней. Добавь четвёртую пару и выведи её."
+msgstr ""
+"Crea un dizionario con tre coppie: giorno della settimana — piano (es. "
+"«Lunedì»: «studio»). Stampa il piano per un giorno. Aggiungi una quarta "
+"coppia e stampala."
+
+msgid ""
+"Удобно, когда клиент всегда может прочитать: `{\"error\": \"человекочитаемое "
+"сообщение\"}`. Тогда не нужно угадывать, пришла ли ошибка в HTML или в JSON."
+msgstr ""
+"È conveniente quando il client può sempre leggere: `{\"error\": \"messaggio "
+"leggibile dall'uomo\"}`. Quindi non devi indovinare se l'errore è arrivato "
+"in HTML o JSON."
+
+msgid ""
+"Цикл `while` выполняется, пока условие истинно. Важно менять переменную "
+"внутри цикла, иначе условие никогда не станет ложным и цикл будет "
+"бесконечным."
+msgstr ""
+"Il ciclo `while` viene eseguito finché la condizione è vera. È importante "
+"cambiare la variabile nel ciclo, altrimenti la condizione non diventa mai "
+"falsa e il ciclo è infinito."
+
+msgid ""
+"Разберём типичные ошибки в циклах. Ниже фрагмент кода — попробуй найти все "
+"ошибки до запуска. Цель: вывести удвоенные числа и в конце сумму всего "
+"списка."
+msgstr ""
+"Diamo un'occhiata agli errori tipici nei cicli. Di seguito è riportato uno "
+"snippet di codice: prova a trovare tutti gli errori prima del lancio. "
+"Obiettivo: produrre numeri doppi e alla fine la somma dell'intera lista."
+
+msgid ""
+"Если ты выполнил домашку — поздравляю! Это отличное начало, старт положен. "
+"Впереди будет ещё интереснее: переменные, циклы, функции и свои проекты. "
+"Удачи!"
+msgstr ""
+"Se hai completato i compiti, congratulazioni! Questo è un ottimo inizio, "
+"l'inizio è stato fatto. Ci saranno cose ancora più interessanti in vista: "
+"variabili, loop, funzioni e i tuoi progetti. Buona fortuna!"
+
+msgid ""
+"**Виртуальное окружение (`.venv`)** — отдельный «набор библиотек» под "
+"проект. Без этого на одной машине легко сломать версии пакетов между разными "
+"задачами."
+msgstr ""
+"**L'ambiente virtuale (`.venv`)** è un \"insieme di librerie\" separato per "
+"un progetto. Senza questo, sulla stessa macchina è facile suddividere le "
+"versioni del pacchetto tra attività diverse."
+
+msgid ""
+"**Если сейчас нельзя установить Django** — временно опиши те же пункты "
+"**словами или псевдокодом** (как в разборе ниже), но вернись к коду в "
+"течение недели."
+msgstr ""
+"**Se non puoi installare Django adesso**, descrivi temporaneamente gli "
+"stessi punti in **parole o pseudocodice** (come nell'analisi di seguito), ma "
+"torna al codice entro una settimana."
+
+msgid ""
+"**Почему 400 при плохом теле.** 400 Bad Request — «ты прислал то, что не "
+"можем принять по правилам». Не путай с 401 (не авторизован) и 404 (нет "
+"такого URL)."
+msgstr ""
+"**Perché 400 con un brutto corpo.** 400 Bad Request - \"hai inviato qualcosa "
+"che non possiamo accettare secondo le regole.\" Da non confondere con 401 "
+"(non autorizzato) e 404 (nessun URL del genere)."
+
+msgid ""
+"**`settings.example.env`.** В репозитории показывают **имена** переменных "
+"без секретов. Новый разработчик копирует файл в `.env` и заполняет у себя "
+"локально."
+msgstr ""
+"**`settings.example.env`.** Il repository mostra i **nomi** delle variabili "
+"senza segreti. Il nuovo sviluppatore copia il file in \".env\" e lo compila "
+"localmente."
+
+msgid ""
+"Список — упорядоченная коллекция элементов. Как список заказов на кухне: "
+"первое блюдо, второе, третье. Элементы хранятся по порядку и имеют индекс "
+"(позицию)."
+msgstr ""
+"Una lista è una raccolta ordinata di elementi. Come un elenco di ordini in "
+"cucina: primo piatto, secondo, terzo. Gli elementi sono in ordine e hanno un "
+"indice (posizione)."
+
+msgid ""
+"3. Придумай правило для «платного урока»: какие два условия ты проверишь на "
+"бэкенде (без полного кода), чтобы не полагаться только на скрытие кнопки на "
+"фронте?"
+msgstr ""
+"3. Stabilisci una regola per la \"lezione pagata\": quali due condizioni "
+"controllerai sul backend (senza il codice completo) per non fare affidamento "
+"solo sul nascondere il pulsante sul davanti?"
+
+msgid ""
+"**CASCADE.** Удалили курс — уроки без «сиротства» тоже удаляются. Если бы "
+"уроки должны пережить курс — выбирали бы другую политику (`PROTECT` или "
+"переназначение)."
+msgstr ""
+"**CASCADE.** Il corso è stato cancellato - vengono cancellate anche le "
+"lezioni senza “orfane”. Se le lezioni dovessero sopravvivere al corso, "
+"sceglierebbero una politica diversa (\"PROTEGGI\" o riassegnazione)."
+
+msgid ""
+"- **Permission** — слой «можно ли этому пользователю». Например, "
+"`IsAuthenticated` — только вошедшим; свои классы — когда правила сложнее "
+"роли «админ / не админ»."
+msgstr ""
+"- **Autorizzazione** - livello \"questo utente è autorizzato\". Ad esempio, "
+"\"IsAuthenticated\" - solo per gli utenti che hanno effettuato l'accesso; le "
+"tue classi - quando le regole sono più complesse del ruolo di "
+"\"amministratore / non amministratore\"."
+
+msgid ""
+"Срез — это способ получить часть списка или строки. Синтаксис: "
+"`object[start:end:step]`. Начало включено, конец — нет. Индексы могут быть "
+"отрицательными (с конца)."
+msgstr ""
+"Una sezione è un modo per ottenere parte di un elenco o di una stringa. "
+"Sintassi: `oggetto[inizio:fine:passaggio]`. L'inizio è incluso, la fine no. "
+"Gli indici possono essere negativi (dalla fine)."
+
+msgid ""
+"Параметр может иметь значение по умолчанию. Тогда при вызове его можно не "
+"указывать — подставится default. Параметры со значением по умолчанию обычно "
+"пишут в конце."
+msgstr ""
+"Il parametro può avere un valore predefinito. Quindi, quando lo chiami, non "
+"è necessario specificarlo: verrà sostituito il valore predefinito. I "
+"parametri con valori predefiniti vengono solitamente scritti alla fine."
+
+msgid ""
+"Соединять текст и переменные можно по-разному. Через запятую: `print(\"Hello,"
+"\", name)`. Удобнее — f-строки: буква `f` перед кавычками, переменные в "
+"фигурных скобках."
+msgstr ""
+"Puoi combinare testo e variabili in diversi modi. Separati da virgole: "
+"`print(\"Ciao,\", nome)`. Più convenienti sono le stringhe f: la lettera `f` "
+"prima delle virgolette, variabili tra parentesi graffe."
+
+msgid ""
+"Функция может принимать несколько параметров и возвращать одно значение (или "
+"несколько — через кортеж). Всё, что после `return`, не выполнится — функция "
+"завершится."
+msgstr ""
+"Una funzione può accettare diversi parametri e restituire un valore (o più, "
+"tramite una tupla). Tutto ciò che segue \"return\" non verrà eseguito: la "
+"funzione terminerà."
+
+msgid ""
+"- **Изменяемые (mutable):** объект можно менять на месте. Главный пример в "
+"этом курсе — **список** `list`: `append`, замена по индексу меняют тот же "
+"объект в памяти."
+msgstr ""
+"- **Mutabile:** l'oggetto può essere modificato sul posto. L'esempio "
+"principale in questo corso è **list** `list`: `append`, sostituisci con "
+"indice modifica lo stesso oggetto in memoria."
+
+msgid ""
+"`for` — когда заранее известно, по чему идём (список, диапазон). `while` — "
+"когда повторять нужно до какого-то события (например, пока пользователь не "
+"введёт `exit`)."
+msgstr ""
+"`for` — quando sai in anticipo su cosa iterare (lista, range). `while` — "
+"quando serve ripetere fino a un evento (es. finché l'utente non inserisce "
+"«esci»)."
+
+msgid ""
+"Тогда при `git add` эти файлы будут игнорироваться. Проект остаётся чистым, "
+"а коллеги клонируют репозиторий и создают своё окружение командой `python -m "
+"venv .venv`."
+msgstr ""
+"Quindi quando `git add` questi file verranno ignorati. Il progetto rimane "
+"pulito e i colleghi clonano il repository e creano il proprio ambiente con "
+"il comando `python -m venv .venv`."
+
+msgid ""
+"**Почему 201 при создании.** Код 201 Created явно говорит: «ресурс "
+"появился». 200 тоже «успех», но для API «создали» принято 201 — так клиенту "
+"проще отличать сценарии."
+msgstr ""
+"**Perché 201 al momento della creazione.** Il codice 201 Created dice "
+"chiaramente: “la risorsa è apparsa”. Anche 200 è \"successo\", ma per l'API "
+"\"creata\" è accettato 201: ciò rende più facile per il cliente distinguere "
+"tra gli scenari."
+
+msgid ""
+"Ключевое слово `def`, имя функции, скобки с параметрами, двоеточие. Тело "
+"функции — с отступом. `return` — что вернуть наружу. Если `return` нет, "
+"функция вернёт `None`."
+msgstr ""
+"Parola chiave \"def\", nome della funzione, parentesi con parametri, due "
+"punti. Il corpo della funzione è rientrato. \"ritorno\" - cosa restituire "
+"fuori. Se non c'è alcun \"return\", la funzione restituirà \"None\"."
+
+msgid ""
+"Создай три переменные: своё имя, возраст и любимый город. Выведи их по "
+"очереди через `print()`. Попробуй также сложить два числа (например, 10 и "
+"20) и вывести результат."
+msgstr ""
+"Crea tre variabili: il tuo nome, età e città preferita. Stampale in sequenza "
+"con `print()`. Prova anche a sommare due numeri (es. 10 e 20) e stampa il "
+"risultato."
+
+msgid ""
+"**Модель** — это класс Python, который Django переводит в таблицу: колонки, "
+"типы, связи. **Миграции** — история изменений схемы: ты не правишь SQL "
+"руками при каждом шаге."
+msgstr ""
+"**Model** è una classe Python che Django traduce in una tabella: colonne, "
+"tipi, relazioni. **Migrazioni**: cronologia delle modifiche allo schema: non "
+"modifichi SQL manualmente ad ogni passaggio."
+
+msgid ""
+"- На создание урока (`POST`) повесь `permission_classes = "
+"[IsAuthenticated]`: без логина — **401** или **403**, с "
+"`APIClient.force_authenticate(user=...)` в тесте — **201**."
+msgstr ""
+"- Quando crei una lezione (`POST`), aggiungi `permission_classes = "
+"[IsAuthenticated]`: senza login - **401** o **403**, con "
+"`APIClient.force_authenticate(user=...)` nel test - **201**."
+
+msgid ""
+"Это важно при передаче данных в функции и при копировании: со списком проще "
+"случайно изменить один и тот же объект в нескольких местах (вернёмся к этому "
+"в уроке про списки)."
+msgstr ""
+"Questo è importante quando si passano dati alle funzioni e quando si copia: "
+"con una lista è più facile modificare accidentalmente lo stesso oggetto in "
+"più punti (torneremo su questo nella lezione sulle liste)."
+
+msgid ""
+"**`.env` и логи** — про безопасность и наблюдаемость. Секреты не кладут в "
+"репозиторий; логи помогают понять, что случилось на сервере, когда "
+"пользователь уже ушёл со страницы."
+msgstr ""
+"**`.env` e log**: informazioni su sicurezza e osservabilità. I segreti non "
+"vengono inseriti nel repository; i log aiutano a capire cosa è successo sul "
+"server quando l'utente ha già lasciato la pagina."
+
+msgid ""
+"Создай файл `hello.py`, выведи своё имя и город. Запусти программу и "
+"убедись, что всё работает. Если используешь IDE — попробуй запустить "
+"программу кнопкой Run или через меню."
+msgstr ""
+"Crea il file `hello.py`, stampa nome e città. Esegui il programma e verifica "
+"che funzioni. Se usi un IDE — prova Esegui o dal menu."
+
+msgid ""
+"Если нужно проверить не два, а несколько случаев — используй `elif` "
+"(сокращение от «else if»). Python проверяет условия по порядку и выполняет "
+"первый блок, где условие истинно."
+msgstr ""
+"Se devi controllare non due, ma diversi casi, usa `elif` (abbreviazione di "
+"\"else if\"). Python controlla le condizioni in ordine ed esegue il primo "
+"blocco in cui la condizione è vera."
+
+msgid ""
+"Данные из сети **нельзя** считать честными. Пустой `title`, слишком длинная "
+"строка, не тот тип — всё это обычные сценарии. Проверяй до того, как "
+"трогаешь базу или бизнес-логику."
+msgstr ""
+"I dati provenienti dalla rete **non** possono essere considerati onesti. Un "
+"`titolo` vuoto, una riga troppo lunga, il tipo sbagliato: questi sono tutti "
+"scenari comuni. Controlla prima di toccare il database o la logica aziendale."
+
+msgid ""
+"**Проверка вручную.** Пустой `title` после `strip()` — тоже пустой. Длину "
+"считай по строке Python, не по «видимым символам» в другом редакторе — для "
+"учебы достаточно `len(title)`."
+msgstr ""
+"**Controllo manuale.** Anche un `title` vuoto dopo `strip()` è vuoto. "
+"Calcola la lunghezza tramite la stringa Python, non tramite i \"caratteri "
+"visibili\" in un altro editor: `len(titolo)` è sufficiente per imparare."
+
+msgid ""
+"- Свой permission: наследуешь `BasePermission`, описываешь "
+"`has_object_permission` / `has_permission` под бизнес-правила (например, "
+"«видит платный урок только с доступом к курсу»)."
+msgstr ""
+"- Il tuo permesso: erediti `BasePermission`, descrivi "
+"`has_object_permission` / `has_permission` secondo le regole aziendali (ad "
+"esempio, \"vedi una lezione pagata solo con accesso al corso\")."
+
+msgid ""
+"Важно: `input()` всегда возвращает строку. Если спросишь возраст — получишь "
+"`\"25\"` (строка), а не 25 (число). Для вычислений нужно преобразовать: "
+"`int(input(\"How old are you? \"))`."
+msgstr ""
+"Importante: `input()` restituisce sempre una stringa. Se chiedi l'età, "
+"otterrai \"25\" (stringa), non 25 (numero). Per i calcoli è necessario "
+"convertire: `int(input(\"Quanti anni hai? \"))`."
+
+msgid ""
+"Создай список из нескольких чисел (например, 3–5 штук). Выведи их с "
+"нумерацией через `enumerate` (1. ..., 2. ..., 3. ...). Или посчитай сумму "
+"всех чисел в цикле и выведи результат."
+msgstr ""
+"Crea una lista di numeri (es. 3–5). Stampali con numerazione tramite "
+"`enumerate` (1. ..., 2. ..., 3. ...). Oppure somma tutti i numeri in un "
+"ciclo e stampa il risultato."
+
+msgid ""
+"Список создаётся в квадратных скобках, элементы через запятую. Доступ по "
+"индексу: `my_list[0]` — первый, `my_list[1]` — второй. Индекс `-1` — "
+"последний элемент, `-2` — предпоследний."
+msgstr ""
+"L'elenco è creato tra parentesi quadre, elementi separati da virgole. "
+"Accesso tramite indice: `my_list[0]` è il primo, `my_list[1]` è il secondo. "
+"L'indice \"-1\" è l'ultimo elemento, \"-2\" è il penultimo elemento."
+
+msgid ""
+"**Course + Lesson.** Один курс — много уроков: значит у `Lesson` будет "
+"`ForeignKey` на `Course`. `slug` обычно уникален, чтобы ссылка была "
+"человекочитаемой: `/courses/python-basics/`."
+msgstr ""
+"**Corso + Lezione.** Un corso - molte lezioni: ciò significa che \"Lezione\" "
+"avrà una \"ForeignKey\" su \"Corso\". Lo `slug` è solitamente univoco per "
+"rendere il collegamento leggibile: `/courses/python-basics/`."
+
+msgid ""
+"**Authentication и permissions.** Первое отвечает на вопрос «удостоверение "
+"личности», второе — «разрешено ли действие». Так проще тестировать и менять "
+"правила без переписывания логина."
+msgstr ""
+"**Autenticazione e permessi.** Il primo risponde alla domanda “identità”, il "
+"secondo risponde alla domanda “l'azione è consentita”. Ciò semplifica il "
+"test e la modifica delle regole senza riscrivere il login."
+
+msgid ""
+"Тесты я начинала писать «когда уже больно» — после регрессий. Раньше бы я "
+"добавила хотя бы **один** тест на критичный сценарий и один запуск в CI: это "
+"уже меньше страха при `git push`."
+msgstr ""
+"Ho iniziato a scrivere i test \"quando già fa male\" - dopo le regressioni. "
+"In precedenza avrei aggiunto almeno **un** test per uno scenario critico e "
+"un lancio in CI: questo è già meno un timore con `git push`."
+
+msgid ""
+"Операторы сравнения: `==` (равно), `!=` (не равно), `>` (больше), `<` "
+"(меньше), `>=` (больше или равно), `<=` (меньше или равно). Один знак `=` — "
+"это присваивание, два `==` — сравнение."
+msgstr ""
+"Operatori di confronto: `==` (uguale), `!=` (non uguale), `>` (maggiore di), "
+"`<` (minore), `>=` (maggiore o uguale), `<=` (minore o uguale). Un segno `=` "
+"è un'assegnazione, due `==` sono un confronto."
+
+msgid ""
+"3. В цикле спрашивай через `input()` (например: `What would you like?` или "
+"`Enter dish name, or blank to finish`). Если пусто — выйди из цикла. Иначе "
+"найди цену в меню и добавь к `total`."
+msgstr ""
+"3. Chiedi in sequenza: \"Cosa stai ordinando?\" (o \"Inserisci il nome del "
+"piatto o lascia vuoto per completare\"). Se vuoto, esce dal ciclo. "
+"Altrimenti, trova il prezzo nel menu e aggiungilo al \"totale\"."
+
+msgid ""
+"Официальный сайт для скачивания Python: [python.org/downloads](https://"
+"www.python.org/downloads/). С главной [python.org](https://www.python.org/) "
+"туда же ведёт раздел **Downloads** в меню."
+msgstr ""
+"Sito ufficiale di download di Python: [python.org/downloads](https://"
+"www.python.org/downloads/). Dalla pagina principale [python.org](https://"
+"www.python.org/) anche la sezione **Download** nel menu conduce lì."
+
+msgid ""
+"После `if` идёт условие, затем двоеточие. Строки кода, которые выполняются, "
+"если условие истинно, пишутся с отступом (обычно 4 пробела). Блок `else` — "
+"то, что выполнится, если условие ложно."
+msgstr ""
+"Dopo \"se\" c'è una condizione, poi i due punti. Le righe di codice che "
+"vengono eseguite se la condizione è vera sono rientrate (solitamente 4 "
+"spazi). Il blocco \"else\" è ciò che verrà eseguito se la condizione è falsa."
+
+msgid ""
+"Сделай базовую версию: меню из 3 блюд, ввод одного блюда (или упрости — "
+"захардкодь заказ из 2 позиций), посчитай сумму и выведи. Если хочется "
+"сложнее — добавь возможность указать количество."
+msgstr ""
+"Crea una versione base: un menu di 3 piatti, inserisci un piatto (o "
+"semplificalo - codifica un ordine di 2 piatti), calcola l'importo e ritira. "
+"Se vuoi qualcosa di più complicato, aggiungi la possibilità di specificare "
+"la quantità."
+
+msgid ""
+"Сохрани файл (Ctrl+S). В терминале перейди в папку с файлом: `cd "
+"путь_к_папке`. Выполни: `python hello.py` (или `python3 hello.py` на Mac/"
+"Linux). Поздравляю — твоя первая программа работает."
+msgstr ""
+"Salva il file (Ctrl+S). Nel terminale vai alla cartella del file: `cd "
+"percorso_cartella`. Esegui: `python hello.py` (o `python3 hello.py` su Mac/"
+"Linux). Congratulazioni — il tuo primo programma funziona."
+
+msgid ""
+"Имя переменной должно начинаться с буквы или подчёркивания, может содержать "
+"буквы, цифры и подчёркивания. Нельзя использовать пробелы. Хорошая практика "
+"— понятные имена: `user_name`, а не `x`."
+msgstr ""
+"Il nome della variabile deve iniziare con una lettera o un carattere di "
+"sottolineatura e può contenere lettere, numeri e trattini di sottolineatura. "
+"Gli spazi non possono essere utilizzati. È buona norma avere nomi "
+"significativi: \"nome_utente\", non \"x\"."
+
+msgid ""
+"Когда API отдаёт не HTML, а **данные**, нужны три вещи: **кто ты** "
+"(аутентификация), **что тебе можно** (права), **в каком формате ответ** "
+"(сериализация). DRF связывает это в привычные классы."
+msgstr ""
+"Quando l'API restituisce non HTML, ma **dati**, sono necessarie tre cose: "
+"**chi sei** (autenticazione), **cosa puoi** (autorizzazioni), **in quale "
+"formato è la risposta** (serializzazione). DRF lo raggruppa in classi "
+"familiari."
+
+msgid ""
+"**ORM** — способ доставать и сохранять данные через объекты: "
+"`Course.objects.filter(...)`. Это не «вместо SQL навсегда», а удобный слой, "
+"который при необходимости можно отладить и оптимизировать."
+msgstr ""
+"**ORM** è un modo per recuperare e salvare dati tramite oggetti: "
+"`Course.objects.filter(...)`. Questo non è \"al posto di SQL per sempre\", "
+"ma un livello conveniente di cui è possibile eseguire il debug e ottimizzare "
+"se necessario."
+
+msgid ""
+"- **Секреты** (ключи API, пароль БД) — в `.env` локально; в репозиторий "
+"кладут только `.env.example` с пустыми именами полей. В коде читают через "
+"`os.environ` или библиотеку вроде `python-dotenv`."
+msgstr ""
+"- **Segreti** (chiavi API, password del database) - in `.env` localmente; "
+"Nel repository vengono inseriti solo `.env.example` con nomi di campo vuoti. "
+"Il codice viene letto tramite `os.environ` o una libreria come `python-"
+"dotenv`."
+
+msgid ""
+"- Если в цикле для каждого урока трогаешь `lesson.course.title`, без "
+"оптимизации получишь **N+1** запросов. `select_related(\"course\")` "
+"подтягивает связанный курс **одним JOIN** там, где это уместно."
+msgstr ""
+"- Se tocchi `lesson.course.title` in loop per ogni lezione, senza "
+"ottimizzazione riceverai **N+1** richieste. `select_parent(\"course\")` "
+"richiama un corso correlato con **un JOIN** dove appropriato."
+
+msgid ""
+"Django берёт на себя рутину: описал модель — получил таблицу, формы, админку "
+"почти бесплатно. Для «про»-уровня важно понимать **что именно** создаётся в "
+"БД и **как не размножать запросы** без нужды."
+msgstr ""
+"Django assume il controllo della routine: ha descritto il modello - ha "
+"ricevuto una tabella, moduli, pannello di amministrazione quasi "
+"gratuitamente. Per il livello “pro”, è importante capire **cosa** viene "
+"creato esattamente nel database e **come non moltiplicare le query** "
+"inutilmente."
+
+msgid ""
+"Когда я впервые увидела таблицу методов и статусов, она казалась сухой. Но "
+"на практике это экономит часы: фронтенд и бэкенд спорят реже, если оба знают "
+"**один формат ошибки** и **один набор кодов**."
+msgstr ""
+"Quando ho visto per la prima volta la tabella dei metodi e degli stati, mi è "
+"sembrata arida. Ma in pratica, questo fa risparmiare ore: frontend e backend "
+"discutono meno spesso se entrambi conoscono **lo stesso formato di errore** "
+"e **lo stesso insieme di codici**."
+
+msgid ""
+"На кухне зоны: холодный цех, гриль, десерты. В коде похоже: **данные**, "
+"**правила**, **входы-выходы (API)**. Смешивать всё в одном месте можно в "
+"прототипе; для учебного «про» лучше привыкать разделять."
+msgstr ""
+"In cucina ci sono le zone: cella frigorifera, griglia, dolci. Nel codice "
+"appare così: **data**, **rules**, **inputs-outputs (API)**. Puoi mescolare "
+"tutto in un unico posto in un prototipo; Per i “pro” educativi è meglio "
+"abituarsi alla separazione."
+
+msgid ""
+"Напиши программу: задай переменную `summa` (например, 30). Если `summa` "
+"больше 50 — выведи сообщение «Скидка 10%» и посчитай сумму со скидкой "
+"(умножь на 0.9). Иначе — выведи «Без скидки» и ту же сумму."
+msgstr ""
+"Scrivi un programma: imposta la variabile `summa` (ad esempio, 30). Se "
+"`summa` è superiore a 50, visualizza il messaggio \"Sconto 10%\" e calcola "
+"l'importo con lo sconto (moltiplicare per 0,9). Altrimenti stampa “Nessuno "
+"sconto” e lo stesso importo."
+
+msgid ""
+"Синтаксис — это правила «грамматики» языка: как писать команды, куда ставить "
+"скобки и двоеточия. Python славится читаемым синтаксисом: код выглядит почти "
+"как обычный текст. Многое понимается интуитивно."
+msgstr ""
+"La sintassi è le regole della “grammatica” di una lingua: come scrivere i "
+"comandi, dove mettere parentesi e due punti. Python è famoso per la sua "
+"sintassi leggibile: il codice sembra quasi testo semplice. Molto è compreso "
+"intuitivamente."
+
+msgid ""
+"Иногда нужно **выйти из цикла раньше**, чем основное условие `while` станет "
+"ложным. Для этого есть **`break`**: он прерывает **текущий** цикл `while` "
+"или `for`, и выполнение переходит к коду **после** цикла."
+msgstr ""
+"A volte è necessario **uscire dal ciclo prima** che la condizione principale "
+"` while` diventi falsa. C'è un **`break`** per questo: interrompe il "
+"**corrente** ciclo ` while` o ` for` e l'esecuzione salta al codice ** dopo "
+"** il ciclo."
+
+msgid ""
+"- **SCREAMING_SNAKE_CASE** — всё заглавными, слова через `_`: `MAX_SIZE`, "
+"`DEFAULT_PORT`. Обычно для **констант** (значения, которые по смыслу "
+"программы не должны меняться; сам язык переприсвоить не запрещает)."
+msgstr ""
+"- **SCREAMING_SNAKE_CASE** - tutto in maiuscolo, parole separate da `_`: "
+"`MAX_SIZE`, `DEFAULT_PORT`. Solitamente per **costanti** (valori che, "
+"secondo il significato del programma, non dovrebbero cambiare; il linguaggio "
+"stesso non vieta la riassegnazione)."
+
+msgid ""
+"В других языках блоки кода часто оборачивают в фигурные скобки `{ }`. В "
+"Python вместо этого используют **отступы** — пробелы в начале строки. Как "
+"абзац в книге: внутри блока строки сдвинуты правее, чем снаружи."
+msgstr ""
+"In altri linguaggi, i blocchi di codice sono spesso racchiusi tra parentesi "
+"graffe `{ }`. In Python vengono invece utilizzati i **rientri**: spazi "
+"all'inizio di una riga. Come un paragrafo di un libro: all'interno del "
+"blocco le righe sono spostate più a destra che all'esterno."
+
+msgid ""
+"Напиши функцию `say_hello(name)`, которая возвращает строку «Привет, "
+"[имя]!». Вызови её с твоим именем и выведи результат через `print`. Если "
+"получится — сделай функцию `double(x)`, возвращающую удвоенное число."
+msgstr ""
+"Scrivi una funzione `say_hello(name)` che restituisca la stringa \"Ciao, "
+"[nome]!\" Chiamalo con il tuo nome e stampa il risultato tramite `print`. Se "
+"funziona, crea una funzione \"double(x)\" che restituisca il doppio del "
+"numero."
+
+msgid ""
+"Собери в одну программу всё изученное: словари, циклы, условия, input и "
+"print. Мини-проект: калькулятор счёта для кафе. Меню: cappuccino 2.50 €, "
+"croissant 1.50 €, juice 2.00 €. Скидка 10% для заказов от 10 евро."
+msgstr ""
+"Metti in un solo programma tutto ciò che hai imparato: dizionari, cicli, "
+"condizioni, input e print. Mini-progetto: calcolatore del conto per un bar. "
+"Menu: cappuccino 2,50 €, cornetto 1,50 €, succo 2,00 €. Sconto 10% per "
+"ordini da 10 euro."
+
+msgid ""
+"Создай список из трёх городов. Выведи первый элемент (индекс 0) и последний "
+"(индекс -1). Добавь четвёртый город через `append` и выведи весь список. "
+"Попробуй срез: выведи первые два элемента через `my_list[:2]`."
+msgstr ""
+"Crea un elenco di tre città. Stampa il primo elemento (indice 0) e l'ultimo "
+"(indice -1). Aggiungi una quarta città utilizzando \"append\" e visualizza "
+"l'intero elenco. Prova uno slice: stampa i primi due elementi con "
+"`my_list[:2]`."
+
+msgid ""
+"**Зачем это нужно:** когда удобнее проверять условие **внутри** тела цикла "
+"(несколько разных причин для остановки, ввод пользователя, поиск элемента) — "
+"вместо того чтобы перегружать одну длинную строку в `while`."
+msgstr ""
+"**Perché è necessario:** quando è più conveniente controllare la condizione "
+"**all'interno** del corpo del ciclo (diversi motivi diversi per l'arresto, "
+"input dell'utente, ricerca di un elemento) - invece di sovraccaricare una "
+"lunga riga in ` while`."
+
+msgid ""
+"3. В `services/logger_setup.py` напиши функцию `get_logger(name: str)`, "
+"которая настраивает и возвращает стандартный `logging.Logger` с уровнем INFO "
+"(без обязательного вывода в файл — достаточно базовой настройки)."
+msgstr ""
+"3. In `services/logger_setup.py` scrivi la funzione `get_logger(name: str)`, "
+"che configura e restituisce lo standard `logging.Logger` con il livello INFO "
+"(senza output obbligatorio in un file - sono sufficienti le impostazioni di "
+"base)."
+
+msgid ""
+"**Структура папок** — это не магия и не экзамен. Это договорённость: «вот "
+"здесь мы говорим с базой, вот здесь — с внешним API, вот здесь — правила "
+"предметной области». Так проще искать баги и подключать новых людей."
+msgstr ""
+"**Struttura delle cartelle** non è magia o un esame. Questo è un accordo: "
+"“qui parliamo con la base, qui parliamo con le API esterne, qui parliamo con "
+"le regole del dominio”. Ciò rende più facile trovare bug e connettere nuove "
+"persone."
+
+msgid ""
+"Здесь `input(\"What is your name? \")` — текст в скобках показывается как "
+"приглашение. Пользователь вводит имя, нажимает Enter — и это значение "
+"сохраняется в переменную `name`. Потом мы выводим приветствие с этим именем."
+msgstr ""
+"Qui `input(\"Come ti chiami?\")` - il testo tra parentesi viene mostrato "
+"come un invito. L'utente inserisce un nome, preme Invio e questo valore "
+"viene memorizzato nella variabile `name`. Quindi visualizziamo un saluto con "
+"quel nome."
+
+msgid ""
+"Проверь по чеклисту: получается ли у нового человека **запустить проект по "
+"README**; есть ли `.env.example`; отдаёт ли API предсказуемые коды; падает "
+"ли тест, если сломать контракт. Этого достаточно для «финала в одиночку»."
+msgstr ""
+"Controlla la checklist: un nuovo arrivato **riesce ad avviare il progetto "
+"seguendo il README**; c'è `.env.example`; l'API restituisce codici di stato "
+"prevedibili; il test fallisce se rompi il contratto? Basta così per un "
+"«finale in solitaria»."
+
+msgid ""
+"Программа часто должна принимать решения: если одно — делаем так, иначе — по-"
+"другому. В ресторане: если гость заказал пиццу — повар готовит пиццу, иначе "
+"— паста. Условия позволяют выполнять разный код в зависимости от ситуации."
+msgstr ""
+"Il programma spesso deve prendere delle decisioni: se facciamo una cosa, la "
+"facciamo così, altrimenti la facciamo diversamente. Al ristorante: se un "
+"cliente ordina la pizza, lo chef prepara la pizza, altrimenti la pasta. Le "
+"condizioni consentono di eseguire codice diverso a seconda della situazione."
+
+msgid ""
+"Напиши программу: спроси имя пользователя и выведи фразу «Привет, [имя]!». "
+"Если сможешь — добавь вопрос про возраст и выведи «Тебе [возраст] лет.» "
+"(преобразуй возраст в число через `int()`, если будешь его использовать в "
+"тексте)."
+msgstr ""
+"Scrivi un programma che chieda il nome di un utente e stampi la frase "
+"\"Ciao, [nome]!\" Se puoi, aggiungi una domanda sull'età e stampa \"Hai "
+"[età] anni\". (converti età in un numero usando `int()` se lo usi nel testo)."
+
+msgid ""
+"Функция `range(n)` создаёт последовательность от 0 до n-1. Удобно, когда "
+"нужны числа подряд — например, индекс или номер итерации. `range(5)` даёт 0, "
+"1, 2, 3, 4. `range(2, 6)` — от 2 до 5. `range(0, 10, 2)` — 0, 2, 4, 6, 8 "
+"(шаг 2)."
+msgstr ""
+"La funzione \"range(n)\" crea una sequenza da 0 a n-1. Utile quando hai "
+"bisogno di numeri in fila, ad esempio un indice o un numero di iterazione. "
+"`range(5)` restituisce 0, 1, 2, 3, 4. `range(2, 6)` - da 2 a 5. `range(0, "
+"10, 2)` - 0, 2, 4, 6, 8 (passaggio 2)."
+
+msgid ""
+"Когда ты выходишь за рамки учебных скриптов, появляется сразу много "
+"вопросов: куда положить настройки, где бизнес-логика, как не светить пароли "
+"в Git. Этот урок задаёт **каркас мышления**: не «один большой файл», а зоны "
+"ответственности."
+msgstr ""
+"Quando si va oltre gli script di formazione, sorgono molte domande "
+"contemporaneamente: dove inserire le impostazioni, dov'è la logica "
+"aziendale, come non rivelare le password in Git. Questa lezione definisce il "
+"**quadro di pensiero**: non “un grande dossier”, ma aree di responsabilità."
+
+msgid ""
+"**Папки.** `services` — место для правил («как считаем скидку»), `api` — "
+"тонкий слой «приняли HTTP → вызвали сервис → вернули JSON», `config` — как "
+"читаем мир снаружи. Так меньше дублирования: если правило изменилось, ты "
+"идёшь в одно место."
+msgstr ""
+"**Cartelle.** `services` - un luogo per le regole (\"come calcoliamo lo "
+"sconto\"), `api` - uno strato sottile \"HTTP ricevuto → chiamato un servizio "
+"→ JSON restituito\", `config` - come leggiamo il mondo esterno. In questo "
+"modo ci sono meno duplicazioni: se la regola cambia, vai in un unico posto."
+
+msgid ""
+"`python -m venv .venv` создаёт папку окружения рядом с проектом. Активация: "
+"на Windows — `.venv/Scripts/activate`, на Mac/Linux — `source .venv/bin/"
+"activate`. Дальше `pip install` ставит пакеты **внутрь** этого окружения, а "
+"не «куда попало»."
+msgstr ""
+"`python -m venv .venv` crea una cartella di ambiente accanto al progetto. "
+"Attivazione: su Windows - `.venv/Scripts/activate`, su Mac/Linux - "
+"`source .venv/bin/activate`. Quindi `pip install` installa i pacchetti "
+"**all'interno** di questo ambiente e non \"semplicemente ovunque\"."
+
+msgid ""
+"**Про `range`:** как устроены аргументы (от, до, шаг) и какие числа попадают "
+"в последовательность, мы подробно разберём в **уроке 9** — «Циклы и списки: "
+"range и enumerate». Если хочешь понять раньше — открой тот урок, потом "
+"вернись к домашке."
+msgstr ""
+"**A proposito di `intervallo`:** come sono disposti gli argomenti (da, a, "
+"passo) e quali numeri rientrano nella sequenza, esamineremo in dettaglio "
+"nella **lezione 9** - “Cicli e liste: intervallo ed enumerazione”. Se vuoi "
+"capire prima, apri quella lezione, poi torna ai tuoi compiti."
+
+msgid ""
+"Python сам определяет тип по значению. Текст в кавычках — строка (`str`). "
+"Число без кавычек — целое (`int`) или с точкой — дробное (`float`). `True` и "
+"`False` — логический тип (`bool`). Строки в кавычках: `\"hello\"` или "
+"`'hello'` — без разницы."
+msgstr ""
+"Python stesso determina il tipo in base al valore. Il testo tra virgolette è "
+"una stringa (`str`). Un numero senza virgolette è un intero (`int`) o con il "
+"punto un decimale (`float`). `True` e `False` sono di tipo booleano "
+"(`bool`). Stringhe tra virgolette: `\"hello\"` o `'hello'` — è indifferente."
+
+msgid ""
+"Напиши функцию `is_adult(age)`, которая возвращает `True`, если возраст >= "
+"18, иначе `False`. Вызови её для возрастов 17 и 20 и выведи результаты. "
+"Можно и с `input()`: спроси возраст и выведи `Adult` или `Minor` в "
+"зависимости от ответа функции."
+msgstr ""
+"Scrivi una funzione `is_adult(age)` che restituisca `True` se età >= 18, "
+"altrimenti `False`. Chiamalo per le età 17 e 20 e visualizza i risultati. "
+"Puoi anche usare `input()`: chiedi l'età e stampa `Adult` o `Minor` a "
+"seconda del risultato della funzione."
+
+msgid ""
+"**Шаг 2 — CI.** Файл `.github/workflows/ci.yml` в **корне учебного "
+"репозитория**: job `test` на `push`, Python 3.11+, `pip install -r "
+"requirements.txt`, затем `pytest`. Можно взять шаблон из документации GitHub "
+"Actions и подставить свои команды."
+msgstr ""
+"**Passaggio 2 — CI.** File `.github/workflows/ci.yml` nella **radice del "
+"repository di esercitazione**: job `test` su `push`, Python 3.11+, `pip "
+"install -r requirements.txt`, poi `pytest`. Puoi partire dal modello nella "
+"documentazione di GitHub Actions e adattare i comandi."
+
+msgid ""
+"IDE (Integrated Development Environment) — среда разработки. Это программа, "
+"в которой ты пишешь код, запускаешь его, видишь ошибки и подсказки. Без IDE "
+"можно писать в «Блокноте», но так сложнее: нет подсветки синтаксиса, "
+"автодополнения, отладки."
+msgstr ""
+"IDE (ambiente di sviluppo integrato) - ambiente di sviluppo. This is a "
+"program in which you write code, run it, see errors and hints. Senza un IDE, "
+"puoi scrivere nel Blocco note, ma è più difficile: non c'è evidenziazione "
+"della sintassi, completamento automatico o debug."
+
+msgid ""
+"Открой терминал: в Windows — «Командная строка» или PowerShell, в Mac/Linux "
+"— Terminal. Введи `python` или `python3`. Увидишь приглашение `>>>` — "
+"значит, Python готов к работе. Можно вводить команды прямо в терминале. "
+"Чтобы выйти, напиши `exit()`."
+msgstr ""
+"Apri il terminale: su Windows — Prompt dei comandi o PowerShell, su Mac/"
+"Linux — Terminale. Digita `python` o `python3`. Vedrai `>>>` — Python è "
+"pronto. Puoi digitare comandi nel terminale. Per uscire, scrivi `exit()`."
+
+msgid ""
+"- **Неизменяемые (immutable):** «внутри» значения после создания не меняют "
+"на месте — при операции получаешь новое значение. Примеры: **числа**, "
+"**строки**, **кортежи** `tuple`. Строка `s` не меняется от вызова "
+"`s.upper()` — возвращается **новая** строка."
+msgstr ""
+"- **Immutabile:** i valori “interni” dopo la creazione non vengono "
+"modificati sul posto - durante l'operazione si ottiene un nuovo valore. "
+"Esempi: **numeri**, **stringhe**, **tuple** `tuple`. La stringa `s` non "
+"cambia dalla chiamata a `s.upper()` - viene restituita una **nuova** stringa."
+
+msgid ""
+"Когда ты строишь бэкенд для сайта или приложения, клиенту нужен **понятный "
+"контракт**: какой URL, какой метод, что в теле запроса, что придёт в ответе. "
+"REST — это не «ещё одна абстракция ради абстракции», а соглашение, которое "
+"повторяют миллионы проектов."
+msgstr ""
+"Quando crei un backend per un sito web o un'applicazione, il cliente ha "
+"bisogno di un **contratto chiaro**: quale URL, quale metodo, cosa c'è nel "
+"corpo della richiesta, cosa arriverà nella risposta. REST non è “un’altra "
+"astrazione fine a se stessa”, ma una convenzione ripetuta da milioni di "
+"progetti."
+
+msgid ""
+"В **VS Code**: Файл → Новый файл (или Ctrl+N). Сохрани как `hello.py` — Файл "
+"→ Сохранить как (Ctrl+Shift+S). Выбери папку, введи имя `hello.py`, "
+"расширение `.py` обязательно. В **PyCharm**: правый клик по папке проекта → "
+"Создать → Python файл → введи `hello`."
+msgstr ""
+"In **VS Code**: File → Nuovo file (o Ctrl+N). Salva come `hello.py` — File → "
+"Salva con nome (Ctrl+Shift+S). Seleziona una cartella, inserisci il nome "
+"`hello.py`, l'estensione `.py` è obbligatoria. In **PyCharm**: clic destro "
+"sulla cartella del progetto → Nuovo → File Python → inserisci `hello`."
+
+msgid ""
+"3. `POST /tasks` — принимает JSON `{ \"title\": \"...\" }`. Если `title` "
+"пустой или строка длиннее **200** символов — верни **400** и JSON "
+"`{\"error\": \"описание\"}`. Если всё ок — добавь задачу с полем `id` "
+"(например, счётчиком) и верни **201** с созданным объектом."
+msgstr ""
+"3. `POST /tasks`: accetta JSON `{ \"title\": \"...\" }`. Se `title` è vuoto "
+"o la riga è più lunga di **200** caratteri, restituisci **400** e JSON "
+"`{\"error\": \"description\"}`. Se tutto è ok, aggiungi un'attività con un "
+"campo `id` (ad esempio, un contatore) e restituisci **201** con l'oggetto "
+"creato."
+
+msgid ""
+"Программа работает с данными в памяти — после закрытия всё исчезает. Файл — "
+"способ сохранить данные на диск. Как чек: записали заказ, положили в папку — "
+"потом можно прочитать. Файлы нужны для логов, настроек, данных, которые "
+"должны пережить перезапуск программы."
+msgstr ""
+"Il programma funziona con i dati in memoria: dopo la chiusura tutto "
+"scompare. Un file è un modo per salvare i dati su disco. Come una ricevuta: "
+"scrivi l'ordine, lo metti in una cartella e poi puoi leggerlo. I file sono "
+"necessari per registri, impostazioni, dati che dovrebbero sopravvivere al "
+"riavvio del programma."
+
+msgid ""
+"Ошибки — часть обучения. В этом блоке мы разбираем типичные промахи, чтобы "
+"ты узнавал их и не повторял. Ниже фрагмент кода с несколькими ошибками. "
+"Попробуй найти их, не запуская программу. Подумай: что может пойти не так? "
+"Если застрянешь — воспользуйся подсказками."
+msgstr ""
+"Gli errori fanno parte dell'apprendimento. In questo blocco analizziamo gli "
+"errori tipici in modo che tu possa riconoscerli e non ripeterli. Di seguito "
+"è riportato uno snippet di codice con diversi errori. Prova a trovarli senza "
+"avviare il programma. Pensateci: cosa potrebbe andare storto? Se rimani "
+"bloccato, usa i suggerimenti."
+
+msgid ""
+"**401 vs 403.** Частая договорённость: **401** — «мы не знаем, кто ты» (нет "
+"или битый токен / не авторизован). **403** — «мы знаем, кто ты, но этот "
+"ресурс тебе не положен». На практике границы иногда размывают, но в ответах "
+"API лучше держать логику последовательной."
+msgstr ""
+"**401 vs 403.** Convenzione comune: **401** — «non sappiamo chi sei» (nessun "
+"token o token non valido / non autenticato). **403** — «sappiamo chi sei, ma "
+"non puoi accedere a questa risorsa». In pratica la linea può sfumare, ma "
+"nelle risposte API conviene restare coerenti."
+
+msgid ""
+"JWT и сессии я путала долго. Коротко: **сессия** — сервер помнит тебя по "
+"cookie; **JWT** — сервер проверяет подписанный токен и часто **не хранит** "
+"сессию в памяти. Для SPA и мобильных JWT часто удобнее; для классического "
+"сайта на Django с формами — привычны сессии."
+msgstr ""
+"Ho confuso JWT e sessioni per molto tempo. In breve: **session** - il server "
+"ti ricorda tramite cookie; **JWT**: il server verifica il token firmato e "
+"spesso **non archivia** la sessione in memoria. Per SPA e mobili i JWT sono "
+"spesso più convenienti; Per un classico sito Django con moduli, le sessioni "
+"sono comuni."
+
+msgid ""
+"Цикл — это повторение одних и тех же действий много раз. Без цикла пришлось "
+"бы копировать код. С циклом — пишешь один раз, и он выполняется для каждого "
+"элемента списка или пока выполняется условие. Как официант обходит столики: "
+"одно и то же действие, разные столики."
+msgstr ""
+"Un ciclo è la ripetizione delle stesse azioni più e più volte. Senza un "
+"ciclo, dovresti copiare il codice. Con un ciclo: lo scrivi una volta e viene "
+"eseguito per ciascun elemento dell'elenco o finché la condizione è "
+"soddisfatta. Come gira il cameriere tra i tavoli: stessa azione, tavoli "
+"diversi."
+
+msgid ""
+"Словарь хранит пары «ключ — значение». Как меню: название блюда — ключ, цена "
+"— значение. По ключу быстро находишь значение. Ключи уникальны: два "
+"одинаковых ключа быть не может. Словарь создаётся в фигурных скобках, пары "
+"через запятую, ключ и значение через двоеточие."
+msgstr ""
+"Un dizionario memorizza coppie chiave-valore. Come un menu: il nome del "
+"piatto è la chiave, il prezzo il significato. Puoi trovare rapidamente il "
+"valore utilizzando la chiave. Le chiavi sono uniche: non possono essere due "
+"chiavi uguali. Il dizionario è creato tra parentesi graffe, coppie separate "
+"da virgole, chiave e valore separati da due punti."
+
+msgid ""
+"До сих пор данные были зашиты в коде. Но программа может спрашивать "
+"пользователя и работать с его ответами. Функция `input()` показывает вопрос "
+"на экране, останавливается и ждёт, пока пользователь введёт текст и нажмёт "
+"Enter. Всё, что введено, возвращается как строка."
+msgstr ""
+"Fino ad ora, i dati erano codificati. Ma il programma può chiedere "
+"all'utente e lavorare con le sue risposte. La funzione `input()` visualizza "
+"la domanda sullo schermo, si ferma e attende che l'utente inserisca il testo "
+"e prema Invio. Tutto ciò che viene inserito viene restituito come una "
+"stringa."
+
+msgid ""
+"Функция — это именованный блок кода, который выполняет определённую задачу. "
+"Как рецепт блюда: ты передаёшь ингредиенты (аргументы), функция делает "
+"работу и возвращает результат. Один раз написал — вызываешь многократно из "
+"разных мест. Код становится понятнее и короче."
+msgstr ""
+"Una funzione è un blocco di codice denominato che esegue un'attività "
+"specifica. Come una ricetta: si passano gli ingredienti (argomenti), la "
+"funzione fa il lavoro e restituisce il risultato. Una volta che scrivi, "
+"chiami ripetutamente da posti diversi. Il codice diventa più chiaro e più "
+"breve."
+
+msgid ""
+"**Список — изменяемый (mutable):** методы вроде `append` и `remove` меняют "
+"**тот же** объект в памяти. Строка, наоборот, **неизменяема** (immutable) — "
+"операции со строкой создают новую строку. Это связано с темой **изменяемых и "
+"неизменяемых объектов** во **2-м уроке**."
+msgstr ""
+"**L'elenco è modificabile:** metodi come `append` e `remove` modificano lo "
+"**stesso** oggetto in memoria. Una stringa, al contrario, è **immutabile** "
+"(immutabile): le operazioni su una stringa creano una nuova stringa. Questo "
+"si collega all'argomento degli **oggetti mutabili e immutabili** nella "
+"**lezione 2**."
+
+msgid ""
+"Связи `ForeignKey` я поначалу путала с «просто полем». Помогла формула: "
+"**много к одному** — много уроков ссылаются на один курс. "
+"`on_delete=models.CASCADE` означает: удалили курс — связанные строки тоже "
+"уберутся (для учебных схем часто так; в жизни иногда нужен `PROTECT`)."
+msgstr ""
+"Inizialmente ho confuso le connessioni \"ForeignKey\" con \"solo un campo\". "
+"La formula ha aiutato: **molti a uno** - molte lezioni sono collegate a un "
+"corso. `on_delete=models.CASCADE` significa: il corso è stato cancellato - "
+"verranno rimosse anche le righe associate (per gli schemi didattici questo è "
+"spesso il caso; nella vita a volte è necessario `PROTECT`)."
+
+msgid ""
+"Благодарю вас за время, уделенное этому курсу. Как человек, прошедший путь "
+"трансформации из повара в разработчика, я знаю, что время — наш самый ценный "
+"ресурс, а смена профессии — это серьёзный вызов. Этот курс для меня — не "
+"просто учебный материал, а инвестиция в наш общий рост."
+msgstr ""
+"Grazie per il tempo che avete dedicato a questo corso. Come persona che ha "
+"fatto il percorso da chef a sviluppatore, so che il tempo è la risorsa più "
+"preziosa — e cambiare professione è una sfida seria. Per me questo corso non "
+"è solo materiale di studio: è un investimento nella nostra crescita comune."
+
+msgid ""
+"**Шаг 2–3 (CI + README).** CI ловит поломки **до** того, как код уедет к "
+"команде или на сервер. Успешный деплой — не только «сайт открылся», но и "
+"«миграции применились, приложение не падает при старте, критичные переменные "
+"заданы». На Render это видно в логах первых минут после релиза."
+msgstr ""
+"**Passaggi 2–3 (CI + README).** La CI intercetta i guasti **prima** che il "
+"codice arrivi al team o al server. Un deploy riuscito non è solo “il sito si "
+"apre”, ma anche “migrazioni applicate, l’app non va in crash all’avvio, le "
+"variabili critiche sono impostate”. Su Render si vede nei log dei primi "
+"minuti dopo il rilascio."
+
+msgid ""
+"Функция `open(имя_файла, режим)` открывает файл. Режим `\"r\"` — чтение. "
+"`encoding=\"utf-8\"` — чтобы корректно читать текст, в том числе не-ASCII "
+"символы. Конструкция `with ... as` автоматически закроет файл после блока, "
+"даже если произойдёт ошибка. `f.read()` — прочитать весь файл в строку."
+msgstr ""
+"La funzione \"open(filename, mode)\" apre un file. Modalità `\"r\"` - "
+"lettura. `encoding=\"utf-8\"` — per leggere correttamente testo e caratteri "
+"non ASCII. Il costrutto `with... as` chiuderà automaticamente il file dopo "
+"il blocco, anche se si verifica un errore. `f.read()` - legge l'intero file "
+"in una riga."
+
+msgid ""
+"**Платный урок (идея проверки).** Пользователь **аутентифицирован** и у него "
+"есть **запись о покупке / подписке** на этот курс (или урок в списке "
+"купленного). Фронт может скрывать ссылку, но **бэкенд обязан** отказать, "
+"если доступа нет — иначе любой вызов API напрямую обойдёт «красивую кнопку»."
+msgstr ""
+"**Lezione a pagamento (Idea di verifica).** L'utente è **autenticato** e ha "
+"un **record di acquisto/abbonamento** per questo corso (o lezione "
+"nell'elenco degli acquisti). Il front-end può nascondere il collegamento, ma "
+"il **backend deve** rifiutare se non c'è accesso, altrimenti qualsiasi "
+"chiamata API ignorerà direttamente il \"bellissimo pulsante\"."
+
+msgid ""
+"Я на личном опыте знаю, как непросто начинать с нуля: осваивать новый "
+"синтаксис, привыкать к другому ритму и справляться с первыми ошибками. "
+"Однако упорство и чёткая цель делают этот путь реальным для каждого. То, что "
+"вы дошли до финального этапа, уже подтверждает вашу готовность к большим "
+"переменам."
+msgstr ""
+"Per esperienza personale so quanto non sia facile ricominciare da zero: "
+"imparare una nuova sintassi, abituarsi a un altro ritmo e gestire i primi "
+"errori. Però perseveranza e obiettivo chiaro rendono questo percorso reale "
+"per ciascuno. Essere arrivati alla fase finale conferma già la vostra "
+"disponibilità al cambiamento."
+
+msgid ""
+"Код без проверок живёт недолго: одна правка ломает соседнюю фичу. **Тест** — "
+"зафиксированное ожидание: «если я делаю X, должно быть Y». **CI** "
+"(Continuous Integration) — «при каждом пуше гоняем проверки автоматически». "
+"**Деплой** — доставка рабочей версии на сервер (здесь в качестве примера — "
+"Render)."
+msgstr ""
+"Il codice senza controlli non dura a lungo: una modifica interrompe la "
+"funzionalità successiva. **Test** è un'aspettativa fissa: \"se faccio X, "
+"dovrebbe esserci Y\". **CI** (Continuous Integration) - \"eseguiamo i "
+"controlli automaticamente ad ogni push.\" **Deploy** - consegna della "
+"versione funzionante al server (qui Render è usato come esempio)."
+
+msgid ""
+"Создай файл `cities.txt` с тремя городами — по одному городу на строку "
+"(вручную в блокноте или через Python с `open(..., \"w\")`). Напиши "
+"программу, которая читает файл и выводит вторую строку (второй город). "
+"Подсказка: `content.splitlines()` даёт список строк; элемент с индексом `1` "
+"— это вторая строка."
+msgstr ""
+"Crea un file `cities.txt` con tre città, una città per riga (a mano nel "
+"Blocco note o con Python usando `open(..., \"w\")`). Scrivi un programma che "
+"legge il file e stampa la seconda riga (la seconda città). Suggerimento: "
+"`content.splitlines()` restituisce una lista di righe; l'elemento con indice "
+"`1` è la seconda riga."
+
+msgid ""
+"Динамическая типизация — когда программа сама определяет тип данных во время "
+"работы, а не при написании кода. Пример: пишешь `x = 5` — Python понимает, "
+"что это число. Потом `x = \"hello\"` — теперь это строка. Не нужно заранее "
+"объявлять тип переменной, как в некоторых других языках. Это делает код "
+"короче и гибче."
+msgstr ""
+"La digitazione dinamica avviene quando il programma stesso determina il tipo "
+"di dati durante l'esecuzione e non durante la scrittura del codice. Esempio: "
+"scrivi `x = 5` — Python capisce che è un numero. Poi `x = \"hello\"` — ora è "
+"una stringa. Non serve dichiarare in anticipo il tipo di variabile, come in "
+"altri linguaggi. Ciò rende il codice più breve e più flessibile."
+
+msgid ""
+"Переменная, созданная внутри функции, видна только внутри неё — это "
+"локальная переменная. Переменная на верхнем уровне файла — глобальная, её "
+"видно везде. Локальные переменные «изолированы»: они не затирают глобальные "
+"с тем же именем и исчезают после выхода из функции. Это помогает избежать "
+"случайных изменений."
+msgstr ""
+"Una variabile creata all'interno di una funzione è visibile solo al suo "
+"interno: è una variabile locale. La variabile al livello più alto del file è "
+"globale, è visibile ovunque. Le variabili locali sono “isolate”: non "
+"sovrascrivono quelle globali con lo stesso nome e scompaiono all'uscita "
+"dalla funzione. Ciò aiuta a evitare modifiche accidentali."
+
+msgid ""
+"Переменная — это именованное место в памяти компьютера, где хранится "
+"значение. Как полка на кухне: у каждой полки есть название (мука, масло, "
+"соль), и на ней лежит то, что нужно. В Python ты создаёшь переменную, даёшь "
+"ей имя и присваиваешь значение. Потом можешь использовать это значение в "
+"любом месте программы."
+msgstr ""
+"Una variabile è una posizione denominata nella memoria del computer in cui è "
+"archiviato un valore. Come uno scaffale in cucina: ogni scaffale ha un nome "
+"(farina, burro, sale), e sopra c'è quello che ti serve. In Python crei una "
+"variabile, le dai un nome e le assegni un valore. Quindi puoi utilizzare "
+"questo valore ovunque nel programma."
+
+msgid ""
+"Честно: сначала я складывала почти всё в один-два файла — «и так работает». "
+"Потом проект рос, и я тратила время не на фичи, а на поиск «где тут вообще "
+"считается скидка». Когда я разнесла слои (хотя бы условно: конфиг, сервис, "
+"работа с данными), стало спокойнее. Не нужно идеально с первого дня — нужно "
+"**направление**."
+msgstr ""
+"Onestamente: all'inizio ho messo quasi tutto in uno o due file - \"ed è così "
+"che funziona\". Poi il progetto è cresciuto e ho dedicato del tempo non alle "
+"funzionalità, ma alla ricerca di \"dove conta anche lo sconto\". Quando ho "
+"separato i livelli (almeno condizionatamente: configurazione, servizio, "
+"lavoro con i dati), è diventato più tranquillo. Non è necessario essere "
+"perfetti fin dal primo giorno: hai bisogno di una **direzione**."
+
+msgid ""
+"**Вариант A (Flask или FastAPI по желанию):** простой CRUD для одной "
+"сущности (например, задачи или заметки), доступ к изменению только после "
+"**аутентификации** (хотя бы заглушка или базовая схема), минимум **один "
+"автотест** на успешный сценарий и файл **README**: как установить, какие "
+"переменные нужны, как запустить."
+msgstr ""
+"**Opzione A (Flask o FastAPI opzionale):** CRUD semplice per un'entità (ad "
+"esempio, un'attività o una nota), accesso alla modifica solo dopo "
+"**autenticazione** (almeno uno stub o uno schema di base), almeno **un "
+"autotest** per uno script riuscito e un file **README**: come impostare "
+"quali variabili sono necessarie, come eseguire."
+
+msgid ""
+"`.gitignore` — файл в корне проекта для Git. В нём перечисляются файлы и "
+"папки, которые Git не должен отслеживать. Зачем? Папка `.venv` занимает "
+"много места и содержит локальные настройки — её не нужно заливать в "
+"репозиторий. Файлы с паролями (`.env`), кэш, логи — тоже. В `.gitignore` "
+"пишешь по одной строке на шаблон:"
+msgstr ""
+"`.gitignore` è un file nella root del progetto per Git. Elenca i file e le "
+"cartelle di cui Git non dovrebbe tenere traccia. Per quello? La cartella "
+"\".venv\" occupa molto spazio e contiene impostazioni locali: non è "
+"necessario caricarla nel repository. Anche file con password (`.env`), "
+"cache, log. In `.gitignore` scrivi una riga per modello:"
+
+msgid ""
+"PyCharm — мощная IDE от JetBrains. Я сама начинала с неё: всё под рукой — "
+"отладка, рефакторинг, работа с проектами. Удобные фишки: умное "
+"автодополнение кода, встроенный отладчик с точками останова, виртуальные "
+"окружения из коробки. Минус — тяжёлая: занимает много оперативной памяти. "
+"Если компьютер слабый, может тормозить."
+msgstr ""
+"PyCharm è un potente IDE di JetBrains. Ho iniziato da solo: tutto è a "
+"portata di mano: debug, refactoring, lavoro con i progetti. Funzionalità "
+"utili: completamento intelligente del codice, debugger integrato con punti "
+"di interruzione, ambienti virtuali pronti all'uso. Lo svantaggio è che è "
+"pesante: occupa molta RAM. Se il computer è debole, potrebbe rallentare."
+
+msgid ""
+"Сохранять можно вручную (Ctrl+S). В VS Code и PyCharm есть автосохранение: "
+"включи в настройках «Auto Save» (VS Code) или «Save files automatically» "
+"(PyCharm), и файл будет сохраняться при потере фокуса или через несколько "
+"секунд. Для новичков лучше сначала привыкнуть к ручному Ctrl+S, чтобы "
+"контролировать, когда изменения попадут на диск."
+msgstr ""
+"Puoi salvare manualmente (Ctrl+S). VS Code e PyCharm dispongono del "
+"salvataggio automatico: attiva \"Salvataggio automatico\" (VS Code) o "
+"\"Salva file automaticamente\" (PyCharm) nelle impostazioni e il file verrà "
+"salvato quando perdi il focus o dopo alcuni secondi. Per i principianti, è "
+"meglio abituarsi prima alla combinazione manuale Ctrl+S per controllare "
+"quando le modifiche vengono trasferite sul disco."
+
+msgid ""
+"Python входит в тройку самых популярных языков программирования в мире. Его "
+"отличительные черты — читаемый синтаксис и динамическая типизация. Python "
+"используют в веб-разработке (Instagram, YouTube), в анализе данных и "
+"машинном обучении, в автоматизации скриптов, в играх и многом другом. Если "
+"выучишь Python — откроется огромное поле возможностей."
+msgstr ""
+"Python è uno dei tre linguaggi di programmazione più popolari al mondo. Le "
+"sue caratteristiche distintive sono la sintassi leggibile e la digitazione "
+"dinamica. Python viene utilizzato nello sviluppo web (Instagram, YouTube), "
+"nell'analisi dei dati e nell'apprendimento automatico, nell'automazione "
+"degli script, nei giochi e molto altro. Se impari Python, si aprirà un "
+"enorme campo di possibilità."
+
+msgid ""
+"Для **Windows** лучше стабильная версия 3.12 или 3.11 — скачай установщик "
+"(Windows installer, 64-bit). Для **Mac** — выбери macOS 64-bit universal2 "
+"installer, подойдёт для чипов Intel и Apple Silicon. Для **Linux** — чаще "
+"всего Python уже есть; если нет, используй пакетный менеджер: `sudo apt "
+"install python3` (Ubuntu/Debian) или `sudo dnf install python3` (Fedora)."
+msgstr ""
+"Per **Windows** è migliore la versione stabile 3.12 o 3.11: scarica il "
+"programma di installazione (programma di installazione di Windows, 64 bit). "
+"Per **Mac**: seleziona il programma di installazione universale2 per macOS "
+"64 bit, adatto per chip Intel e Apple Silicon. Per **Linux**: molto spesso "
+"Python è già disponibile; in caso contrario, utilizzare un gestore di "
+"pacchetti: `sudo apt install python3` (Ubuntu/Debian) o `sudo dnf install "
+"python3` (Fedora)."
+
+msgid ""
+"Представь: ты приходишь на кухню ресторана. Нужен нож, сковорода, плита — "
+"без инструментов не приготовишь блюдо. Python — это твой «набор "
+"инструментов» для создания программ. Читаемый синтаксис — как удобная "
+"эргономика ножа: меньше лишних движений. Динамическая типизация — как "
+"универсальная сковорода: подходит для разных блюд без смены посуды. Сначала "
+"установим Python и настроим рабочее место."
+msgstr ""
+"Immagina: entri nella cucina di un ristorante. Hai bisogno di un coltello, "
+"una padella, un fornello: non puoi cucinare un piatto senza strumenti. "
+"Python è la tua “cassetta degli attrezzi” per creare programmi. La sintassi "
+"leggibile è come la comoda ergonomia di un coltello: meno movimenti inutili. "
+"La digitazione dinamica è come una padella universale: adatta a piatti "
+"diversi senza cambiare pietanza. Per prima cosa installiamo Python e "
+"configuriamo il workbench."
+
+msgid ""
+"Запусти установщик. Внизу экрана есть важная галочка: **«Add Python to "
+"PATH»**. Обязательно отметь её. PATH — это список папок, в которых система "
+"ищет программы. Без этой галочки, когда ты откроешь терминал и введёшь "
+"`python`, система ответит «команда не найдена» — она просто не знает, где "
+"лежит Python. С галочкой Python станет доступен из любой папки. Нажми "
+"«Install Now» и дождись окончания установки."
+msgstr ""
+"Avvia il programma di installazione. Nella parte inferiore dello schermo c'è "
+"un'importante casella di controllo: **\"Aggiungi Python al PERCORSO\"**. "
+"Assicurati di contrassegnarlo. PERCORSO è un elenco di cartelle in cui il "
+"sistema cerca i programmi. Senza questa casella di controllo, quando apri un "
+"terminale e inserisci `python`, il sistema risponderà \"comando non "
+"trovato\" - semplicemente non sa dove si trova Python. Con un segno di "
+"spunta, Python diventerà accessibile da qualsiasi cartella. Fare clic su "
+"\"Installa ora\" e attendere il completamento dell'installazione."
+
+msgid ""
+"**Почему отсчёт с нуля и зачем индекс `-1`:** в Python индекс — это "
+"**смещение** от начала списка: у первого элемента смещение 0, поэтому он "
+"записывается как `items[0]`. У списка из `n` элементов последний элемент "
+"имеет индекс `n - 1`. **Отрицательные индексы** считают от **конца**: `-1` — "
+"всегда последний элемент, `-2` — предпоследний. Так не нужно каждый раз "
+"писать `len(items) - 1`, когда длина заранее неизвестна."
+msgstr ""
+"**Perché contare da zero e perché l'indice `-1`:** In Python, un indice è un "
+"**offset** dall'inizio dell'elenco: il primo elemento ha un offset 0, quindi "
+"è scritto come `items[0]`. Per un elenco di elementi \"n\", l'ultimo "
+"elemento ha indice \"n - 1\". Gli **indici negativi** vengono contati dalla "
+"**fine**: `-1` è sempre l'ultimo elemento, `-2` è il penultimo elemento. In "
+"questo modo non è necessario scrivere `len(items) - 1` ogni volta che la "
+"lunghezza è sconosciuta in anticipo."
+
+msgid ""
+"Из‑за нехватки памяти я перешла на VS Code. Это лёгкий редактор от "
+"Microsoft. Сначала пришлось привыкнуть, но со временем освоила расширения: "
+"Python, Pylance, отладчик, терминал внутри редактора. VS Code гибкий: можно "
+"подстроить под себя. Многие функции, о которых только слышала в PyCharm, "
+"смогла применить на практике здесь. Рекомендую новичкам попробовать оба: "
+"PyCharm — если хочется «всё сразу», VS Code — если важна скорость и гибкость."
+msgstr ""
+"A causa della mancanza di memoria, sono passato a VS Code. Questo è un "
+"editor leggero di Microsoft. All'inizio ho dovuto abituarmi, ma col tempo ho "
+"imparato le estensioni: Python, Pylance, debugger, terminale all'interno "
+"dell'editor. VS Code è flessibile: puoi personalizzarlo secondo le tue "
+"esigenze. Qui ho potuto mettere in pratica molte funzioni di cui avevo solo "
+"sentito parlare in PyCharm. Consiglio ai principianti di provarli entrambi: "
+"PyCharm - se vuoi \"tutto in una volta\", VS Code - se velocità e "
+"flessibilità sono importanti."
+
+msgid ""
+"`.venv` — папка виртуального окружения Python. В ней лежит отдельная копия "
+"интерпретатора и все библиотеки проекта. Зачем? На компьютере может быть "
+"несколько проектов с разными версиями одних и тех же пакетов. Без изоляции "
+"они конфликтуют. `python -m venv .venv` создаёт папку `.venv` в текущей "
+"директории. После этого активируй окружение: в Windows — `.venv/Scripts/"
+"activate`, в Mac/Linux — `source .venv/bin/activate`. В активированном "
+"окружении команда `pip install` ставит пакеты только туда. Так каждый проект "
+"живёт со своими зависимостями."
+msgstr ""
+"`.venv` è la cartella dell'ambiente virtuale Python. Contiene una copia "
+"separata dell'interprete e di tutte le librerie del progetto. Perché? Su un "
+"computer potrebbero essere presenti più progetti con versioni diverse degli "
+"stessi pacchetti. Senza isolamento entrano in conflitto. `python -m "
+"venv .venv` crea una cartella `.venv` nella directory corrente. Poi attiva "
+"l'ambiente: su Windows — `.venv/Scripts/activate`, su Mac/Linux — "
+"`source .venv/bin/activate`. Con l'ambiente attivo, `pip install` installa i "
+"pacchetti solo lì. Così ogni progetto ha le proprie dipendenze."
+
+msgid "Название"
+msgstr "Titolo"
+
+msgid "Категория"
+msgstr "Categoria"
+
+msgid "Категории"
+msgstr "Categorie"
+
+msgid "Описание"
+msgstr "Descrizione"
+
+msgid "Уровень"
+msgstr "Livello"
+
+msgid "Автор"
+msgstr "Autore"
+
+msgid "Обложка курса"
+msgstr "Copertina del corso"
+
+msgid "Фото автора (блок «Слово автора»)"
+msgstr "Foto dell'autore (sezione «Parola dell'autore»)"
+
+msgid ""
+"Показывается в финальном уроке Pro под заголовком «Слово автора», если "
+"загружено."
+msgstr ""
+"Mostrato nella lezione finale Pro sotto il titolo \"Parole dell'autore\" se "
+"caricato."
+
+msgid "Цена"
+msgstr "Prezzo"
+
+msgid "Опубликован"
+msgstr "Pubblicato"
+
+msgid "Курс"
+msgstr "Corso"
 
 msgid "Курсы"
 msgstr "Corsi"
 
-msgid "Привет,"
-msgstr "Ciao,"
+msgid "Ссылка"
+msgstr "Collegamento"
 
-msgid "Мой профиль"
-msgstr "Il mio profilo"
+msgid "Порядок"
+msgstr "Ordine"
 
-msgid "Мои курсы"
-msgstr "I miei corsi"
+msgid "Книга"
+msgstr "Libro"
 
-msgid "Создать курс"
-msgstr "Crea corso"
+msgid "Книги"
+msgstr "Libri"
+
+msgid "Содержание"
+msgstr "Contenuto"
+
+msgid "Картинка урока"
+msgstr "Immagine della lezione"
+
+msgid "Ссылка на видео"
+msgstr "Collegamento video"
+
+msgid "Урок"
+msgstr "Lezione"
+
+msgid "Уроки"
+msgstr "Lezioni"
+
+msgid "Запись на курс"
+msgstr "Iscrizione al corso"
+
+msgid "Записи на курсы"
+msgstr "Iscrizioni ai corsi"
+
+# Автор (teacher)
+msgid "Пользователь"
+msgstr "Utente"
+
+msgid "Дата прохождения"
+msgstr "Data di completamento"
+
+msgid "Прогресс урока"
+msgstr "Avanzamento lezione"
+
+msgid "Прогресс уроков"
+msgstr "Avanzamenti lezioni"
+
+msgid "Вопрос"
+msgstr "Domanda"
+
+msgid "Ответ"
+msgstr "Risposta"
+
+msgid "Время"
+msgstr "Tempo"
+
+msgid "Сообщение ИИ по уроку"
+msgstr "Messaggio IA sulla lezione"
+
+msgid "Сообщения ИИ по урокам"
+msgstr "Messaggi IA sulle lezioni"
+
+msgid "Идентификатор сертификата"
+msgstr "ID certificato"
+
+msgid "Дата выдачи"
+msgstr "Data di emissione"
+
+msgid "Сертификат курса"
+msgstr "Certificato del corso"
+
+msgid "Сертификаты курсов"
+msgstr "Certificati dei corsi"
+
+msgid "Оценка"
+msgstr "Valutazione"
+
+msgid "Текст отзыва"
+msgstr "Testo della recensione"
+
+msgid "Дата"
+msgstr "Data"
+
+msgid "Отзыв о курсе"
+msgstr "Recensione del corso"
+
+msgid "Отзывы о курсах"
+msgstr "Recensioni dei corsi"
+
+msgid "Нет доступа"
+msgstr "Nessun accesso"
+
+msgid "Доступ ограничен"
+msgstr "Accesso limitato"
+
+msgid "Урок доступен только после оплаты полного доступа к курсу."
+msgstr ""
+"Questa lezione è disponibile solo dopo aver acquistato l'accesso completo al "
+"corso."
+
+msgid "Купить доступ за 4 $"
+msgstr "Acquista accesso per 4 $"
+
+msgid "Вернуться к курсу"
+msgstr "Torna al corso"
+
+msgid "Оплата доступа к курсам"
+msgstr "Pagamento accesso ai corsi"
+
+msgid "Оплата доступа к Python-курсам"
+msgstr "Pagamento accesso ai corsi Python"
+
+msgid "У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!"
+msgstr ""
+"Hai già l'accesso completo ai contenuti a pagamento. Grazie per il supporto!"
+
+msgid "Перейти к курсам"
+msgstr "Vai ai corsi"
+
+msgid "Вы приобретаете полный доступ ко всем платным урокам курсов:"
+msgstr ""
+"Stai acquistando l'accesso completo a tutte le lezioni a pagamento dei corsi:"
+
+msgid "Стоимость:"
+msgstr "Costo:"
+
+msgid "примерная цена чашки кофе"
+msgstr "circa il prezzo di un caffè"
+
+msgid "Оплатить картой (Stripe Checkout)"
+msgstr "Paga con carta (Stripe Checkout)"
+
+msgid "Оплата ещё не настроена. Скоро здесь появится форма безопасной оплаты."
+msgstr ""
+"Il pagamento non è ancora configurato. Presto apparirà qui un modulo di "
+"pagamento sicuro."
+
+msgid "Вернуться к курсам"
+msgstr "Torna ai corsi"
+
+msgid "Автор:"
+msgstr "Autore:"
+
+msgid "уроков"
+msgstr "lezioni"
+
+msgid "Цена:"
+msgstr "Prezzo:"
+
+msgid "Пройдено"
+msgstr "Completati"
+
+msgid "из"
+msgstr "di"
+
+msgid ""
+"В этом курсе первые 3 урока открыты бесплатно, остальные доступны после "
+"оплаты."
+msgstr ""
+"In questo corso, le prime 3 lezioni sono gratuite. Le altre sono disponibili "
+"dopo il pagamento."
+
+msgid "Записаться на курс"
+msgstr "Iscriviti al corso"
 
 msgid "Войти"
 msgstr "Accedi"
@@ -36,20 +2798,445 @@ msgstr "Accedi"
 msgid "Регистрация"
 msgstr "Registrazione"
 
-msgid "Выйти"
-msgstr "Esci"
+msgid "Записать студента на курс"
+msgstr "Iscrivi uno studente al corso"
 
-msgid "Переключить тему"
-msgstr "Cambia tema"
+msgid "Чему научитесь"
+msgstr "Cosa imparerai"
+
+msgid "Синтаксис и основы Python"
+msgstr "Sintassi e basi di Python"
+
+msgid "Переменные, типы данных, циклы"
+msgstr "Variabili, tipi di dati, cicli"
+
+msgid "Функции и модули"
+msgstr "Funzioni e moduli"
+
+msgid "Практические задания"
+msgstr "Esercizi pratici"
+
+msgid "Web-фреймворки Flask и Django"
+msgstr "Framework web Flask e Django"
+
+msgid "Базы данных и ORM"
+msgstr "Database e ORM"
+
+msgid "Деплой приложений"
+msgstr "Deployment delle applicazioni"
+
+msgid "Лучшие практики"
+msgstr "Best practice"
+
+msgid "доступно после оплаты"
+msgstr "disponibile dopo il pagamento"
+
+msgid "Бесплатно"
+msgstr "Gratis"
+
+msgid "Уроков пока нет."
+msgstr "Nessuna lezione disponibile."
+
+msgid "Отзывы"
+msgstr "Recensioni"
+
+msgid "Оставить отзыв"
+msgstr "Lascia recensione"
+
+msgid "Пока нет отзывов."
+msgstr "Nessuna recensione."
+
+msgid "Создать курс — DevLearn"
+msgstr "Crea corso — DevLearn"
+
+msgid "Создать курс"
+msgstr "Crea corso"
+
+msgid "Создать"
+msgstr "Crea"
+
+msgid "Курсы — DevLearn"
+msgstr "Corsi — DevLearn"
+
+msgid "Направление:"
+msgstr "Categoria:"
+
+msgid "Все"
+msgstr "Tutti"
+
+msgid "Уровень:"
+msgstr "Livello:"
+
+msgid "Все уровни"
+msgstr "Tutti i livelli"
+
+msgid "Курсов пока нет."
+msgstr "Nessun corso disponibile."
+
+msgid "Записать студента"
+msgstr "Iscrivi studente"
+
+msgid "Записать студента на курс:"
+msgstr "Iscrivi studente al corso:"
+
+msgid "Записать"
+msgstr "Iscrivi"
+
+msgid "Отмена"
+msgstr "Annulla"
+
+msgid "Смотреть видео"
+msgstr "Guarda video"
+
+msgid "Отметить как пройденный"
+msgstr "Segna come completato"
+
+msgid "Урок пройден"
+msgstr "Lezione completata"
+
+msgid "Спросить ИИ по уроку"
+msgstr "Chiedi all'IA sulla lezione"
+
+msgid "Вопрос по уроку"
+msgstr "Domanda sulla lezione"
+
+msgid "Задайте вопрос по теме урока..."
+msgstr "Fai una domanda sull'argomento della lezione..."
+
+msgid "Enter — отправить; Shift+Enter — новая строка."
+msgstr "Invio — invia; Maiusc+Invio — nuova riga."
+
+msgid "Отправить"
+msgstr "Invia"
+
+msgid "ИИ думает..."
+msgstr "L'IA sta pensando..."
+
+msgid "Ответ:"
+msgstr "Risposta:"
+
+msgid "Ошибка запроса."
+msgstr "Errore della richiesta."
+
+msgid "Ваши недавние вопросы"
+msgstr "Le tue domande recenti"
+
+msgid "Вы:"
+msgstr "Tu:"
+
+msgid "ИИ:"
+msgstr "IA:"
+
+msgid "Предыдущий урок"
+msgstr "Lezione precedente"
+
+msgid "Следующий урок"
+msgstr "Lezione successiva"
+
+msgid "К курсу"
+msgstr "Torna al corso"
+
+msgid "Мои курсы — DevLearn"
+msgstr "I miei corsi — DevLearn"
+
+msgid "Мои курсы"
+msgstr "I miei corsi"
+
+msgid "Скачать сертификат"
+msgstr "Scarica certificato"
+
+msgid "Вы пока не записаны ни на один курс."
+msgstr "Non sei ancora iscritto ad alcun corso."
+
+msgid "Логин:"
+msgstr "Login:"
+
+msgid "Роль:"
+msgstr "Ruolo:"
+
+msgid "Аватар:"
+msgstr "Avatar:"
+
+msgid "Аватар"
+msgstr "Avatar"
+
+msgid "Дата присоединения:"
+msgstr "Data di iscrizione:"
+
+msgid "Курсы студента"
+msgstr "Corsi dello studente"
+
+msgid "Дата записи:"
+msgstr "Data di iscrizione al corso:"
+
+msgid "Студент ещё не записан ни на один курс."
+msgstr "Lo studente non è ancora iscritto ad alcun corso."
+
+msgid "Студенты — DevLearn"
+msgstr "Studenti — DevLearn"
+
+msgid "Студенты"
+msgstr "Studenti"
+
+msgid "Подробнее →"
+msgstr "Dettagli →"
+
+msgid "Первая"
+msgstr "Prima"
 
 msgid "Назад"
 msgstr "Indietro"
+
+msgid "Страница"
+msgstr "Pagina"
+
+msgid "Дальше →"
+msgstr "Avanti →"
+
+msgid "Последняя"
+msgstr "Ultima"
+
+msgid "Студентов ещё нет."
+msgstr "Non ci sono ancora studenti."
+
+# Автор (teacher)
+msgid "Преподаватель"
+msgstr "Docente"
+
+msgid "Фото автора курса"
+msgstr "Foto dell'autore del corso"
+
+msgid "Показать решение"
+msgstr "Mostra soluzione"
+
+msgid "Метод не разрешён"
+msgstr "Metodo non consentito"
+
+msgid "Нет доступа к этому уроку"
+msgstr "Non hai accesso a questa lezione"
+
+msgid "Введите вопрос"
+msgstr "Inserisci una domanda"
+
+msgid ""
+"Лимит бесплатных вопросов на сегодня исчерпан. Попробуйте завтра или "
+"оформите полный доступ."
+msgstr ""
+"Hai raggiunto il limite di domande gratuite per oggi. Riprova domani o "
+"attiva l'accesso completo."
+
+msgid "AI не настроен. Добавьте GROQ_API_KEY в .env."
+msgstr "L'IA non è configurata. Aggiungi GROQ_API_KEY nel file .env."
+
+msgid "Модель вернула пустой ответ. Попробуйте переформулировать вопрос."
+msgstr ""
+"Il modello ha restituito una risposta vuota. Prova a riformulare la domanda."
+
+#, python-format
+msgid "Ошибка AI: %(err)s"
+msgstr "Errore IA: %(err)s"
+
+#, python-format
+msgid "Вы записаны на курс «%(title)s»"
+msgstr "Sei iscritto al corso «%(title)s»"
+
+msgid "Только записанные на курс могут оставлять отзывы."
+msgstr "Solo gli studenti iscritti possono lasciare recensioni."
+
+msgid "Отзыв сохранён."
+msgstr "Recensione salvata."
+
+msgid "Курс создан"
+msgstr "Corso creato"
+
+msgid "Урок отмечен как пройденный"
+msgstr "Lezione segnata come completata"
+
+msgid "Только преподаватель может записывать студентов на курс."
+msgstr "Solo i docenti possono iscrivere studenti al corso."
+
+#, python-format
+msgid "Студент %(username)s записан на курс «%(title)s»"
+msgstr "Studente %(username)s iscritto al corso «%(title)s»"
+
+msgid "Оплата ещё не настроена. Попробуйте позже."
+msgstr "Il pagamento non è ancora configurato. Riprova più tardi."
+
+#, python-format
+msgid "Ошибка при создании платежа: %(err)s"
+msgstr "Errore durante la creazione del pagamento: %(err)s"
+
+msgid "Платёж обрабатывается. Обновите страницу через несколько секунд."
+msgstr "Pagamento in elaborazione. Aggiorna la pagina tra qualche secondo."
+
+msgid ""
+"Платёж принят, но автоматическая проверка не настроена. Обратитесь в "
+"поддержку."
+msgstr ""
+"Pagamento ricevuto, ma la verifica automatica non è configurata. Contatta il "
+"supporto."
+
+msgid ""
+"Платёж в обработке. Если доступ не откроется в течение минуты, обновите "
+"страницу."
+msgstr ""
+"Pagamento in elaborazione. Se l'accesso non si attiva entro un minuto, "
+"aggiorna la pagina."
+
+msgid "Оплата подтверждена. Доступ к курсам открыт."
+msgstr "Pagamento confermato. Accesso ai corsi sbloccato."
+
+msgid ""
+"Платёж ещё не подтверждён. Доступ откроется автоматически после "
+"подтверждения Stripe."
+msgstr ""
+"Pagamento non ancora confermato. L'accesso si sbloccherà automaticamente "
+"dopo la conferma di Stripe."
+
+msgid "Оплата была отменена."
+msgstr "Pagamento annullato."
+
+msgid "Вы не записаны на этот курс."
+msgstr "Non sei iscritto a questo corso."
+
+msgid "Сертификат доступен после завершения всех уроков курса."
+msgstr ""
+"Il certificato è disponibile dopo aver completato tutte le lezioni del corso."
+
+msgid "О нас — DevLearn"
+msgstr "Chi siamo — DevLearn"
+
+msgid "О нас"
+msgstr "Chi siamo"
+
+msgid ""
+"DevLearn — платформа для изучения Python с нуля до профессионального уровня. "
+"Мы помогаем осваивать программирование через структурированные курсы, "
+"практические задания и поддержку AI-ассистента."
+msgstr ""
+"DevLearn è una piattaforma per imparare Python da zero fino al livello "
+"professionale. Ti aiutiamo a padroneggiare la programmazione attraverso "
+"corsi strutturati, esercizi pratici e supporto dell'assistente AI."
+
+msgid "Для кого мы"
+msgstr "Per chi siamo"
+
+msgid "Новички, которые хотят начать с основ Python"
+msgstr "Principianti che vogliono iniziare con le basi di Python"
+
+msgid "Разработчики, желающие углубить знания (Flask, Django, деплой)"
+msgstr "Sviluppatori che vogliono approfondire (Flask, Django, deployment)"
+
+msgid "Все, кто ценит практику и понятные объяснения"
+msgstr "Chiunque apprezzi la pratica e spiegazioni chiare"
+
+msgid "Что мы предлагаем"
+msgstr "Cosa offriamo"
+
+msgid "Курсы с чёткой структурой: теория, практика, домашние задания"
+msgstr "Corsi con struttura chiara: teoria, pratica, compiti"
+
+msgid "AI-помощник по урокам — ответы на вопросы в контексте материала"
+msgstr "Assistente AI per le lezioni — risposte nel contesto del materiale"
+
+msgid "Сертификат после завершения курса"
+msgstr "Certificato al termine del corso"
+
+msgid "Доступная цена и прозрачные условия оплаты"
+msgstr "Prezzi accessibili e condizioni di pagamento trasparenti"
+
+msgid "Поддержка нескольких языков: русский, английский, итальянский"
+msgstr "Supporto per più lingue: russo, inglese, italiano"
+
+msgid "Наш подход"
+msgstr "Il nostro approccio"
+
+msgid ""
+"Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
+"основ к реальным проектам. Доступ к платным урокам открывается после оплаты, "
+"первые уроки каждого курса доступны бесплатно — чтобы вы могли оценить "
+"формат перед покупкой."
+msgstr ""
+"Puntiamo sulla pratica: ogni lezione include esercizi e i corsi ti portano "
+"dalle basi a progetti reali. L'accesso alle lezioni a pagamento si apre dopo "
+"il pagamento; le prime lezioni di ogni corso sono gratuite per provare il "
+"formato prima di acquistare."
+
+msgid "Посмотреть курсы"
+msgstr "Vedi corsi"
+
+msgid "Связаться с нами"
+msgstr "Contattaci"
+
+msgid "Контакты и поддержка — DevLearn"
+msgstr "Contatti e supporto — DevLearn"
+
+msgid "Контакты и поддержка"
+msgstr "Contatti e supporto"
+
+msgid ""
+"Если у вас возникли вопросы по курсам, оплате или доступу, свяжитесь с нами:"
+msgstr "Se hai domande su corsi, pagamento o accesso, contattaci:"
+
+msgid "Время ответа: обычно в течение 24 часов."
+msgstr "Tempo di risposta: di solito entro 24 ore."
+
+msgid "Чему вы научитесь, пройдя оба курса"
+msgstr "Cosa imparerai completando entrambi i corsi"
+
+msgid ""
+"Программа выстроена от первых шагов в Python до веб-приложений, API, тестов "
+"и деплоя — так, как это задано в уроках на платформе."
+msgstr ""
+"Il percorso va dai primi passi in Python a web app, API, test e deployment — "
+"esattamente come definito nelle lezioni sulla piattaforma."
+
+msgid "Установка Python, терминал, IDE, первый запуск и стиль кода (PEP 8)"
+msgstr ""
+"Installazione di Python, terminale, IDE, primo avvio e stile del codice (PEP "
+"8)"
+
+msgid "Переменные, типы данных, ввод и вывод"
+msgstr "Variabili, tipi di dati, input e output"
+
+msgid "Условия if/else и разбор типичных ошибок (Debug Zone)"
+msgstr "Condizioni if/else e analisi degli errori tipici (Debug Zone)"
+
+msgid "Списки и словари, range, enumerate, вложенные циклы"
+msgstr "Liste e dizionari, range, enumerate, cicli annidati"
+
+msgid "Функции, параметры, области видимости, работа с файлами"
+msgstr "Funzioni, parametri, scope, lavoro con i file"
+
+msgid "Мини-проект «счёт в кафе» и задачи в формате Debug Zone"
+msgstr "Mini-progetto «conto al bar» ed esercizi in stile Debug Zone"
+
+msgid "Архитектура проекта, venv, логирование, .env и безопасность секретов"
+msgstr "Architettura del progetto, venv, logging, .env e sicurezza dei segreti"
+
+msgid "Flask API: CRUD, JSON, валидация, pytest и контракты HTTP"
+msgstr "Flask API: CRUD, JSON, validazione, pytest e contratti HTTP"
+
+msgid "Django: модели, ORM, миграции и админка"
+msgstr "Django: modelli, ORM, migrazioni e pannello admin"
+
+msgid "Django REST Framework и авторизация"
+msgstr "Django REST Framework e autenticazione"
+
+msgid "Тесты с pytest, CI (GitHub Actions) и деплой на Render"
+msgstr "Test con pytest, CI (GitHub Actions) e deployment su Render"
+
+msgid "Финал: дорожная карта развития, мини-проект и итоги курса"
+msgstr "Finale: roadmap di crescita, mini-progetto e conclusione del corso"
 
 msgid "DevLearn — Обучение программированию"
 msgstr "DevLearn — Piattaforma di apprendimento della programmazione"
 
 msgid "Добро пожаловать на платформу"
 msgstr "Benvenuto sulla piattaforma"
+
+msgid "Привет,"
+msgstr "Ciao,"
 
 msgid "Выбери, что ты хочешь делать:"
 msgstr "Scegli cosa vuoi fare:"
@@ -71,15 +3258,6 @@ msgstr "Visualizza l'elenco di tutti gli studenti sulla piattaforma"
 
 msgid "Список студентов →"
 msgstr "Elenco studenti →"
-
-msgid "📊 Журнал оценок"
-msgstr "📊 Registro voti"
-
-msgid "Просмотри оценки студентов по датам и курсам"
-msgstr "Consulta i voti degli studenti per data e corso"
-
-msgid "Открыть журнал →"
-msgstr "Apri registro →"
 
 msgid "📖 Мои курсы"
 msgstr "📖 I miei corsi"
@@ -105,242 +3283,129 @@ msgstr "🚀 Inizia a studiare"
 msgid "Зарегистрируйся и присоединись к тысячам студентов"
 msgstr "Registrati e unisciti a migliaia di studenti"
 
-msgid "Курсы — DevLearn"
-msgstr "Corsi — DevLearn"
+msgid "Регистрация →"
+msgstr "Registrazione →"
 
-msgid "Направление:"
-msgstr "Categoria:"
+msgid "Почему DevLearn"
+msgstr "Perché DevLearn"
 
-msgid "Все"
-msgstr "Tutti"
+msgid "Структурированные курсы"
+msgstr "Corsi strutturati"
 
-msgid "Уровень:"
-msgstr "Livello:"
+msgid "Теория, практика и домашние задания в каждом уроке"
+msgstr "Teoria, pratica e compiti in ogni lezione"
 
-msgid "Python для начинающих"
-msgstr "Python per principianti"
+msgid "AI-помощник"
+msgstr "Assistente AI"
 
-msgid "Python для профессионалов"
-msgstr "Python per professionisti"
+msgid "Задавай вопросы по материалу прямо в уроке"
+msgstr "Fai domande sul materiale direttamente nella lezione"
 
-msgid "Все уровни"
-msgstr "Tutti i livelli"
+msgid "Сертификат"
+msgstr "Certificato"
 
-msgid "Курсов пока нет."
-msgstr "Nessun corso disponibile."
+msgid "Получи сертификат после завершения курса"
+msgstr "Ottieni un certificato al termine del corso"
 
-msgid "Автор:"
-msgstr "Autore:"
-
-msgid "Цена:"
-msgstr "Prezzo:"
-
-msgid "В этом курсе первые 3 урока открыты бесплатно, остальные доступны после оплаты."
-msgstr "In questo corso, le prime 3 lezioni sono gratuite. Le altre sono disponibili dopo il pagamento."
-
-msgid "Записаться на курс"
-msgstr "Iscriviti al corso"
-
-msgid "Записать студента на курс"
-msgstr "Iscrivi uno studente al corso"
-
-msgid "Уроки"
-msgstr "Lezioni"
-
-msgid "доступно после оплаты"
-msgstr "disponibile dopo il pagamento"
-
-msgid "Купить доступ за 4 $"
-msgstr "Acquista accesso per 4 $"
-
-msgid "Бесплатно"
-msgstr "Gratis"
-
-msgid "Уроков пока нет."
-msgstr "Nessuna lezione disponibile."
-
-msgid "Книги"
-msgstr "Libri"
-
-msgid "Оплата доступа к курсам"
-msgstr "Pagamento accesso ai corsi"
-
-msgid "Оплата доступа к Python-курсам"
-msgstr "Pagamento accesso ai corsi Python"
-
-msgid "У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!"
-msgstr "Hai già l'accesso completo ai contenuti a pagamento. Grazie per il supporto!"
-
-msgid "Перейти к курсам"
-msgstr "Vai ai corsi"
-
-msgid "Вы приобретаете полный доступ ко всем платным урокам курсов:"
-msgstr "Stai acquistando l'accesso completo a tutte le lezioni a pagamento dei corsi:"
-
-msgid "Стоимость:"
-msgstr "Costo:"
-
-msgid "примерная цена чашки кофе"
-msgstr "circa il prezzo di un caffè"
-
-msgid "Оплатить картой (Stripe Checkout)"
-msgstr "Paga con carta (Stripe Checkout)"
-
-msgid "Оплата ещё не настроена. Скоро здесь появится форма безопасной оплаты."
-msgstr "Il pagamento non è ancora configurato. Presto apparirà qui un modulo di pagamento sicuro."
-
-msgid "Вернуться к курсам"
-msgstr "Torna ai corsi"
-
-msgid "Нет доступа"
-msgstr "Nessun accesso"
-
-msgid "Доступ ограничен"
-msgstr "Accesso limitato"
-
-msgid "Урок доступен только после оплаты полного доступа к курсу."
-msgstr "Questa lezione è disponibile solo dopo aver acquistato l'accesso completo al corso."
-
-msgid "Студенты — DevLearn"
-msgstr "Studenti — DevLearn"
-
-msgid "Логин:"
-msgstr "Login:"
-
-msgid "Роль:"
-msgstr "Ruolo:"
-
-msgid "Подробнее →"
-msgstr "Dettagli →"
-
-msgid "Первая"
-msgstr "Prima"
-
-msgid "Страница"
-msgstr "Pagina"
-
-msgid "из"
-msgstr "di"
-
-msgid "Дальше →"
-msgstr "Avanti →"
-
-msgid "Последняя"
-msgstr "Ultima"
-
-msgid "Студентов ещё нет."
-msgstr "Non ci sono ancora studenti."
-
-msgid "Аватар:"
-msgstr "Avatar:"
-
-msgid "Дата присоединения:"
-msgstr "Data di iscrizione:"
-
-msgid "Курсы студента"
-msgstr "Corsi dello studente"
-
-msgid "Дата записи:"
-msgstr "Data di iscrizione al corso:"
-
-msgid "Студент ещё не записан ни на один курс."
-msgstr "Lo studente non è ancora iscritto ad alcun corso."
-
-msgid "Оценки"
-msgstr "Voti"
-
-msgid "Поставить оценку"
-msgstr "Assegna voto"
-
-msgid "Сохранить оценку"
-msgstr "Salva voto"
-
-msgid "Курс"
-msgstr "Corso"
-
-msgid "Оценка"
-msgstr "Voto"
-
-msgid "Дата"
-msgstr "Data"
-
-msgid "У студента ещё нет оценок."
-msgstr "Lo studente non ha ancora voti."
-
-msgid "Журнал оценок — DevLearn"
-msgstr "Registro voti — DevLearn"
-
-msgid "Журнал оценок"
-msgstr "Registro voti"
-
-msgid "Фильтр по курсу:"
-msgstr "Filtro per corso:"
+msgid "Популярные курсы"
+msgstr "Corsi popolari"
 
 msgid "Все курсы"
 msgstr "Tutti i corsi"
 
-msgid "Фильтровать"
-msgstr "Filtra"
+msgid "Политика конфиденциальности — DevLearn"
+msgstr "Informativa sulla privacy — DevLearn"
 
-msgid "Сбросить"
-msgstr "Reimposta"
+msgid "Политика конфиденциальности"
+msgstr "Informativa sulla privacy"
 
-msgid "Студент"
-msgstr "Studente"
+msgid ""
+"Мы обрабатываем только данные, необходимые для работы платформы: логин, "
+"email, историю обучения и технические данные сессии."
+msgstr ""
+"Trattiamo solo i dati necessari al funzionamento della piattaforma: login, "
+"email, cronologia di apprendimento e dati tecnici di sessione."
 
-msgid "Дата оценки"
-msgstr "Data del voto"
+msgid ""
+"Персональные данные не передаются третьим лицам, за исключением сервисов, "
+"необходимых для функционирования платформы (например, платёжных провайдеров)."
+msgstr ""
+"I dati personali non vengono condivisi con terze parti, salvo i servizi "
+"necessari al funzionamento della piattaforma (ad esempio i fornitori di "
+"pagamento)."
 
-msgid "Действие"
-msgstr "Azione"
+msgid ""
+"Вы можете запросить обновление или удаление данных, обратившись в поддержку "
+"через страницу Контакты."
+msgstr ""
+"Puoi richiedere l'aggiornamento o la cancellazione dei dati contattando il "
+"supporto tramite la pagina Contatti."
+
+msgid "Публичная оферта — DevLearn"
+msgstr "Offerta pubblica — DevLearn"
+
+msgid "Публичная оферта"
+msgstr "Offerta pubblica"
+
+msgid ""
+"Настоящий документ является публичной офертой на предоставление доступа к "
+"обучающим материалам платформы DevLearn."
+msgstr ""
+"Il presente documento costituisce un'offerta pubblica per fornire accesso ai "
+"materiali didattici della piattaforma DevLearn."
+
+msgid ""
+"Оплачивая доступ, пользователь подтверждает согласие с условиями оферты и "
+"получает доступ к платному контенту в соответствии с выбранным тарифом."
+msgstr ""
+"Pagando l'accesso, l'utente conferma l'accettazione delle condizioni "
+"dell'offerta e ottiene accesso ai contenuti a pagamento secondo il piano "
+"scelto."
+
+msgid ""
+"Стоимость доступа отображается на странице оплаты и может изменяться до "
+"момента оплаты."
+msgstr ""
+"Il costo dell'accesso viene mostrato nella pagina di pagamento e puo "
+"cambiare fino al momento del pagamento."
+
+msgid "По вопросам доступа, оплаты и возвратов обращайтесь в раздел Контакты."
+msgstr ""
+"Per domande su accesso, pagamenti e rimborsi, consulta la sezione Contatti."
+
+msgid "Меню"
+msgstr "Menu"
+
+msgid "Главная"
+msgstr "Home"
+
+msgid "Мой профиль"
+msgstr "Il mio profilo"
+
+msgid "Выйти"
+msgstr "Esci"
+
+msgid "Переключить тему"
+msgstr "Cambia tema"
+
+msgid "Контакты"
+msgstr "Contatti"
+
+msgid "Роль"
+msgstr "Ruolo"
+
+#, fuzzy
+#| msgid ""
+#| "У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!"
+msgid "Есть доступ к платному контенту"
+msgstr ""
+"Hai già l'accesso completo ai contenuti a pagamento. Grazie per il supporto!"
 
 msgid "Профиль"
 msgstr "Profilo"
 
-msgid "Оценок в журнале нет."
-msgstr "Nessun voto nel registro."
-
-msgid "Мои курсы — DevLearn"
-msgstr "I miei corsi — DevLearn"
-
-msgid "уроков"
-msgstr "lezioni"
-
-msgid "Вы пока не записаны ни на один курс."
-msgstr "Non sei ancora iscritto ad alcun corso."
-
-msgid "Смотреть видео"
-msgstr "Guarda video"
-
-msgid "Отметить как пройденный"
-msgstr "Segna come completato"
-
-msgid "Урок пройден"
-msgstr "Lezione completata"
-
-msgid "Спросить ИИ по уроку"
-msgstr "Chiedi all'IA sulla lezione"
-
-msgid "Задайте вопрос по теме урока..."
-msgstr "Fai una domanda sull'argomento della lezione..."
-
-msgid "Отправить"
-msgstr "Invia"
-
-msgid "ИИ думает..."
-msgstr "L'IA sta pensando..."
-
-msgid "Ваши недавние вопросы"
-msgstr "Le tue domande recenti"
-
-msgid "Вы:"
-msgstr "Tu:"
-
-msgid "Ответ:"
-msgstr "Risposta:"
-
-msgid "Ошибка запроса."
-msgstr "Errore della richiesta."
+msgid "Профили"
+msgstr "Profili"
 
 msgid "Вход — DevLearn"
 msgstr "Accesso — DevLearn"
@@ -351,6 +3416,25 @@ msgstr "Accedi"
 msgid "Нет аккаунта?"
 msgstr "Non hai un account?"
 
+msgid "Мой профиль — DevLearn"
+msgstr "Il mio profilo — DevLearn"
+
+msgid "Аватар не загружен."
+msgstr "Avatar non caricato."
+
+msgid "Сохранить"
+msgstr "Salva"
+
+msgid ""
+"Загрузка аватара доступна только при локальном запуске проекта (учебный "
+"проект)."
+msgstr ""
+"Il caricamento dell'avatar è disponibile solo in esecuzione locale del "
+"progetto (progetto didattico)."
+
+msgid "На главную"
+msgstr "Alla home"
+
 msgid "Регистрация — DevLearn"
 msgstr "Registrazione — DevLearn"
 
@@ -360,86 +3444,992 @@ msgstr "Registrati"
 msgid "Уже есть аккаунт?"
 msgstr "Hai già un account?"
 
-msgid "Мой профиль — DevLearn"
-msgstr "Il mio profilo — DevLearn"
+#, fuzzy
+#| msgid "Профиль"
+msgid "Профиль обновлён."
+msgstr "Profilo aggiornato."
 
-msgid "Аватар"
-msgstr "Avatar"
+#~ msgid "Сделай **одно** из двух (на выбор):"
+#~ msgstr "Esegui **uno** dei due (a tua scelta):"
 
-msgid "Аватар не загружен."
-msgstr "Avatar non caricato."
+#~ msgid ""
+#~ "В отдельном файле или в комментариях к уроку опиши **словами или "
+#~ "псевдокодом**:"
+#~ msgstr ""
+#~ "In un file separato o nei commenti alla lezione, descrivi in ​​**parole o "
+#~ "pseudocodice**:"
 
-msgid "Сохранить"
-msgstr "Salva"
+#~ msgid ""
+#~ "2. Модель `Lesson`: `title`, связь с `Course`, поле `order` (номер урока "
+#~ "в курсе)."
+#~ msgstr ""
+#~ "2. Modello `Lezione`: `titolo`, collegamento con `Corso`, campo `ordine` "
+#~ "(numero della lezione nel corso)."
 
-msgid "Загрузка аватара доступна только при локальном запуске проекта (учебный проект)."
-msgstr "Il caricamento dell'avatar è disponibile solo in esecuzione locale del progetto (progetto didattico)."
+#~ msgid ""
+#~ "1. Модель `Course`: поля `title`, `slug` (уникальный короткий "
+#~ "идентификатор в URL)."
+#~ msgstr ""
+#~ "1. Modello \"Corso\": campi \"titolo\", \"slug\" (identificatore breve "
+#~ "univoco nell'URL)."
 
-msgid "На главную"
-msgstr "Alla home"
+#~ msgid ""
+#~ "3. Зачем индекс по полям `(course, order)` и что произойдёт при "
+#~ "`on_delete=CASCADE`, если удалили курс."
+#~ msgstr ""
+#~ "3. Perché un indice sui campi `(corso, ordine)` e cosa succede quando "
+#~ "`on_delete=CASCADE` se il corso viene eliminato."
 
-msgid "Записать студента"
-msgstr "Iscrivi studente"
+#~ msgid ""
+#~ "Не обязательно запускать миграции, если нет времени — важно "
+#~ "**осознанное** описание. Если можешь — создай приложение в тестовом "
+#~ "проекте и зарегистрируй модели в `admin`."
+#~ msgstr ""
+#~ "Non è necessario eseguire le migrazioni se non c'è tempo: è importante "
+#~ "una descrizione **consapevole**. Se puoi, crea un'applicazione in un "
+#~ "progetto di prova e registra i modelli in \"admin\"."
 
-msgid "Записать студента на курс:"
-msgstr "Iscrivi studente al corso:"
+#~ msgid "Продвинутый Python: архитектура, Flask, Django, API, тесты и деплой."
+#~ msgstr ""
+#~ "Python avanzato: architettura, Flask, Django, API, test e distribuzione."
 
-msgid "Записать"
-msgstr "Iscrivi"
+#~ msgid ""
+#~ "Если вы дошли до этого урока — вы уже сделали больше, чем думаете. Дальше "
+#~ "— практика, терпение и маленькие шаги каждый день. Удачи вам и спасибо за "
+#~ "доверие."
+#~ msgstr ""
+#~ "Se sei arrivato fin qui, hai già fatto più di quanto pensi. Poi c’è la "
+#~ "pratica, la pazienza e i piccoli passi ogni giorno. Buona fortuna e "
+#~ "grazie per la tua fiducia."
 
-msgid "Отмена"
-msgstr "Annulla"
+#~ msgid ""
+#~ "Спасибо, что вы отдали время этому курсу. Для меня, как для человека, "
+#~ "который только набирает обороты в преподавании и в разработке, это важно: "
+#~ "я знаю, что время — самый дорогой ресурс."
+#~ msgstr ""
+#~ "Grazie per il tuo tempo per questo corso. Per me, come persona che sta "
+#~ "appena guadagnando slancio nell'insegnamento e nello sviluppo, questo è "
+#~ "importante: so che il tempo è la risorsa più preziosa."
 
-msgid "Создать курс — DevLearn"
-msgstr "Crea corso — DevLearn"
+#~ msgid ""
+#~ "Я не воспринимаю это как «ещё одну пустую трату времени». Это **вклад в "
+#~ "себя** и **новое начало** — и для вас, и для меня как для автора. По "
+#~ "опыту работы поваром я хорошо помню, как нелегко **сменить профессию** и "
+#~ "**учиться заново** с нуля: новые слова, новый ритм, новые ошибки. Но при "
+#~ "**упорстве**, **желании изменить жизнь к лучшему** и **вере в себя** у "
+#~ "каждого есть путь: не всегда прямой, но реальный."
+#~ msgstr ""
+#~ "Non lo vedo come «un altro tempo buttato via». È un **investimento in te "
+#~ "stesso** e un **nuovo inizio** — per voi e per me come autrice. Da cuoca "
+#~ "so quanto sia duro **cambiare mestiere** e **rimettersi a studiare** da "
+#~ "zero: nuove parole, un ritmo nuovo, nuovi errori. Ma con **costanza**, "
+#~ "**voler migliorare la vita** e **fiducia in te stesso** c’è una strada "
+#~ "per tutti — non sempre dritta, ma vera."
 
-msgid "Создать"
-msgstr "Crea"
+#~ msgid ""
+#~ "Официальный сайт для скачивания: python.org, раздел Downloads (или введи "
+#~ "в браузере адрес python.org/downloads)."
+#~ msgstr ""
+#~ "Sito ufficiale di download: python.org, sezione Download (oppure "
+#~ "inserisci l'indirizzo python.org/downloads nel tuo browser)."
 
-msgid "Публичная оферта"
-msgstr "Offerta pubblica"
+#~ msgid "my_project/"
+#~ msgstr "my_project/"
 
-msgid "Политика конфиденциальности"
-msgstr "Informativa sulla privacy"
+#~ msgid "  services/       # business logic: what we compute and how"
+#~ msgstr "  services/       # logica di business: cosa calcoliamo e come"
 
-msgid "Контакты"
-msgstr "Contatti"
+#~ msgid "  repositories/   # how we fetch and persist data"
+#~ msgstr "  repositories/   # come recuperiamo e persistiamo i dati"
 
-msgid "Публичная оферта — DevLearn"
-msgstr "Offerta pubblica — DevLearn"
+#~ msgid "  api/            # HTTP routes, request schemas"
+#~ msgstr "  api/            # route HTTP, schemi delle richieste"
 
-msgid "Настоящий документ является публичной офертой на предоставление доступа к обучающим материалам платформы DevLearn."
-msgstr "Il presente documento costituisce un'offerta pubblica per fornire accesso ai materiali didattici della piattaforma DevLearn."
+#~ msgid "  config/         # settings, env loading"
+#~ msgstr "  config/         # impostazioni, caricamento dell'ambiente"
 
-msgid "Оплачивая доступ, пользователь подтверждает согласие с условиями оферты и получает доступ к платному контенту в соответствии с выбранным тарифом."
-msgstr "Pagando l'accesso, l'utente conferma l'accettazione delle condizioni dell'offerta e ottiene accesso ai contenuti a pagamento secondo il piano scelto."
+#~ msgid "nums[::2]    # [1, 3, 5] — every 2nd element, starting at index 0"
+#~ msgstr ""
+#~ "nums[::2]    # [1, 3, 5] — ogni secondo elemento, partendo dall'indice 0"
 
-msgid "Стоимость доступа отображается на странице оплаты и может изменяться до момента оплаты."
-msgstr "Il costo dell'accesso viene mostrato nella pagina di pagamento e puo cambiare fino al momento del pagamento."
+#~ msgid "nums[1::2]   # [2, 4] — every 2nd element, starting at index 1"
+#~ msgstr ""
+#~ "nums[1::2]   # [2, 4] — ogni secondo elemento, partendo dall'indice 1"
 
-msgid "По вопросам доступа, оплаты и возвратов обращайтесь в раздел Контакты."
-msgstr "Per domande su accesso, pagamenti e rimborsi, consulta la sezione Contatti."
+#~ msgid "📊 Журнал оценок"
+#~ msgstr "📊 Registro voti"
 
-msgid "Политика конфиденциальности — DevLearn"
-msgstr "Informativa sulla privacy — DevLearn"
+#~ msgid "Просмотри оценки студентов по датам и курсам"
+#~ msgstr "Consulta i voti degli studenti per data e corso"
 
-msgid "Мы обрабатываем только данные, необходимые для работы платформы: логин, email, историю обучения и технические данные сессии."
-msgstr "Trattiamo solo i dati necessari al funzionamento della piattaforma: login, email, cronologia di apprendimento e dati tecnici di sessione."
+#~ msgid "Открыть журнал →"
+#~ msgstr "Apri registro →"
 
-msgid "Персональные данные не передаются третьим лицам, за исключением сервисов, необходимых для функционирования платформы (например, платёжных провайдеров)."
-msgstr "I dati personali non vengono condivisi con terze parti, salvo i servizi necessari al funzionamento della piattaforma (ad esempio i fornitori di pagamento)."
+#~ msgid "Оценки"
+#~ msgstr "Voti"
 
-msgid "Вы можете запросить обновление или удаление данных, обратившись в поддержку через страницу Контакты."
-msgstr "Puoi richiedere l'aggiornamento o la cancellazione dei dati contattando il supporto tramite la pagina Contatti."
+#~ msgid "Поставить оценку"
+#~ msgstr "Assegna voto"
 
-msgid "Контакты и поддержка — DevLearn"
-msgstr "Contatti e supporto — DevLearn"
+#~ msgid "Сохранить оценку"
+#~ msgstr "Salva voto"
 
-msgid "Контакты и поддержка"
-msgstr "Contatti e supporto"
+#~ msgid "У студента ещё нет оценок."
+#~ msgstr "Lo studente non ha ancora voti."
 
-msgid "Если у вас возникли вопросы по курсам, оплате или доступу, свяжитесь с нами:"
-msgstr "Se hai domande su corsi, pagamento o accesso, contattaci:"
+#~ msgid "Журнал оценок — DevLearn"
+#~ msgstr "Registro voti — DevLearn"
 
-msgid "Время ответа: обычно в течение 24 часов."
-msgstr "Tempo di risposta: di solito entro 24 ore."
+#~ msgid "Журнал оценок"
+#~ msgstr "Registro voti"
+
+#~ msgid "Фильтр по курсу:"
+#~ msgstr "Filtro per corso:"
+
+#~ msgid "Фильтровать"
+#~ msgstr "Filtra"
+
+#~ msgid "Сбросить"
+#~ msgstr "Reimposta"
+
+#~ msgid "Действие"
+#~ msgstr "Azione"
+
+#~ msgid "Оценок в журнале нет."
+#~ msgstr "Nessun voto nel registro."
+
+#~ msgid "Поиск по названию..."
+#~ msgstr "Cerca per titolo..."
+
+#~ msgid "Найти"
+#~ msgstr "Cerca"
+
+#~ msgid "Базы данных"
+#~ msgstr "Basi di dati"
+
+# Названия уроков (из БД)
+#~ msgid "Модуль 1. Старт: установка, переменные, типы"
+#~ msgstr "Modulo 1. Inizio: installazione, variabili, tipi"
+
+#~ msgid "Модуль 1. Условия и ветвления"
+#~ msgstr "Modulo 1. Condizioni e ramificazioni"
+
+#~ msgid "Модуль 2. Циклы и списки"
+#~ msgstr "Modulo 2. Cicli e liste"
+
+#~ msgid "Модуль 2. Функции и декомпозиция"
+#~ msgstr "Modulo 2. Funzioni e scomposizione"
+
+#~ msgid "Модуль 3. Словари, файлы и мини-проект"
+#~ msgstr "Modulo 3. Dizionari, file e mini-progetto"
+
+# Старые названия уроков (из БД)
+#~ msgid "1. Введение в Python"
+#~ msgstr "1. Introduzione a Python"
+
+#~ msgid "1.Введение в Python"
+#~ msgstr "1. Introduzione a Python"
+
+#~ msgid "2.Переменные и типы данных"
+#~ msgstr "2. Variabili e tipi di dati"
+
+#~ msgid "3.Условия if-else"
+#~ msgstr "3. Condizioni if-else"
+
+#~ msgid "4.Циклы for и while"
+#~ msgstr "4. Cicli for e while"
+
+#~ msgid "5.Функции"
+#~ msgstr "5. Funzioni"
+
+#~ msgid "6.Списки и словари"
+#~ msgstr "6. Liste e dizionari"
+
+#~ msgid "Введение в Python"
+#~ msgstr "Introduzione a Python"
+
+#~ msgid "2. Переменные и типы данных"
+#~ msgstr "2. Variabili e tipi di dati"
+
+#~ msgid "Переменные и типы данных"
+#~ msgstr "Variabili e tipi di dati"
+
+#~ msgid "3. Условия if-else"
+#~ msgstr "3. Condizioni if-else"
+
+#~ msgid "Условия if-else"
+#~ msgstr "Condizioni if-else"
+
+#~ msgid "4. Циклы for и while"
+#~ msgstr "4. Cicli for e while"
+
+#~ msgid "5. Функции"
+#~ msgstr "5. Funzioni"
+
+#~ msgid "6. Списки и словари"
+#~ msgstr "6. Liste e dizionari"
+
+# Книги (из БД)
+#~ msgid "Укус Питона (A Byte of Python)"
+#~ msgstr "Un byte di Python (A Byte of Python)"
+
+#~ msgid "Официальная документация Python"
+#~ msgstr "Documentazione ufficiale Python"
+
+#~ msgid "Automate the Boring Stuff with Python"
+#~ msgstr "Automate the Boring Stuff with Python"
+
+#~ msgid "Python Crash Course"
+#~ msgstr "Python Crash Course"
+
+# Контент уроков (абзацы)
+#~ msgid "Python — язык программирования с простым синтаксисом."
+#~ msgstr "Python è un linguaggio di programmazione con una sintassi semplice."
+
+#~ msgid "Первый код: print(\"Hello, World!\")"
+#~ msgstr "Primo codice: print(\"Hello, World!\")"
+
+#~ msgid "Первый код:"
+#~ msgstr "Primo codice:"
+
+#~ msgid "Сохрани в файл .py и запусти."
+#~ msgstr "Salva in un file .py ed esegui."
+
+#~ msgid "# Модуль 1: Старт в Python"
+#~ msgstr "# Modulo 1: Inizio con Python"
+
+#~ msgid "## Практика"
+#~ msgstr "## Pratica"
+
+#~ msgid "- `print()`, переменные, числа, строки, `bool`"
+#~ msgstr "- `print()`, variabili, numeri, stringhe, `bool`"
+
+#~ msgid "- Базовый стиль кода (PEP8)"
+#~ msgstr "- Stile base del codice (PEP8)"
+
+#~ msgid "1. Создай файл `hello.py`"
+#~ msgstr "1. Crea il file `hello.py`"
+
+#~ msgid "2. Выведи имя, возраст и город"
+#~ msgstr "2. Stampa nome, età e città"
+
+#~ msgid "3. Посчитай сумму и среднее двух чисел"
+#~ msgstr "3. Calcola la somma e la media di due numeri"
+
+#~ msgid "- Сделай мини-визитку в консоли (5-7 строк вывода)"
+#~ msgstr "- Crea un mini biglietto da visita in console (5-7 righe di output)"
+
+#~ msgid "- Добавь комментарии к каждой важной строке"
+#~ msgstr "- Aggiungi commenti a ogni riga importante"
+
+# Junior: Модуль 1 Условия
+#~ msgid "# Модуль 1: Условия"
+#~ msgstr "# Modulo 1: Condizioni"
+
+#~ msgid "- Операторы сравнения"
+#~ msgstr "- Operatori di confronto"
+
+#~ msgid "- `if / elif / else`"
+#~ msgstr "- `if / elif / else`"
+
+#~ msgid "- Логические операторы `and`, `or`, `not`"
+#~ msgstr "- Operatori logici `and`, `or`, `not`"
+
+#~ msgid "1. Проверка совершеннолетия"
+#~ msgstr "1. Verifica della maggiore età"
+
+#~ msgid "2. Калькулятор скидки по сумме заказа"
+#~ msgstr "2. Calcolatore sconti per importo ordine"
+
+#~ msgid "3. Проверка пароля по длине"
+#~ msgstr "3. Verifica lunghezza password"
+
+#~ msgid "- Напиши программу «Оценка по баллам»"
+#~ msgstr "- Scrivi il programma «Valutazione per punteggi»"
+
+#~ msgid "- Добавь обработку неверного ввода"
+#~ msgstr "- Aggiungi gestione input non validi"
+
+# Junior: Модуль 2 Циклы и списки
+#~ msgid "# Модуль 2: Циклы и списки"
+#~ msgstr "# Modulo 2: Cicli e liste"
+
+#~ msgid "- `for` и `while`"
+#~ msgstr "- `for` e `while`"
+
+#~ msgid "- Списки: добавление, удаление, срезы"
+#~ msgstr "- Liste: aggiunta, rimozione, slice"
+
+#~ msgid "- `range()`, `enumerate()`"
+#~ msgstr "- `range()`, `enumerate()`"
+
+#~ msgid "1. Вывести таблицу умножения на 7"
+#~ msgstr "1. Stampa tabellina del 7"
+
+#~ msgid "2. Найти максимум в списке без `max()`"
+#~ msgstr "2. Trova massimo in lista senza `max()`"
+
+#~ msgid "3. Посчитать средний балл группы"
+#~ msgstr "3. Calcola media voti del gruppo"
+
+#~ msgid "- Игра «Угадай число»"
+#~ msgstr "- Gioco «Indovina il numero»"
+
+#~ msgid "- Сохрани историю попыток в списке и выведи после победы"
+#~ msgstr "- Salva tentativi in lista e mostra dopo vittoria"
+
+# Junior: Модуль 2 Функции
+#~ msgid "# Модуль 2: Функции"
+#~ msgstr "# Modulo 2: Funzioni"
+
+#~ msgid "- Зачем нужны функции"
+#~ msgstr "- A cosa servono le funzioni"
+
+#~ msgid "- Параметры, `return`"
+#~ msgstr "- Parametri, `return`"
+
+#~ msgid "- Области видимости"
+#~ msgstr "- Scope delle variabili"
+
+#~ msgid "1. Функция подсчёта НДС"
+#~ msgstr "1. Funzione calcolo IVA"
+
+#~ msgid "2. Функция проверки палиндрома"
+#~ msgstr "2. Funzione verifica palindromo"
+
+#~ msgid "3. Разделение большого скрипта на 3 функции"
+#~ msgstr "3. Suddividere script in 3 funzioni"
+
+#~ msgid "- Вынеси ввод, расчёты и отчёт в отдельные функции"
+#~ msgstr "- Estrai input, calcoli e report in funzioni separate"
+
+# Junior: Модуль 3 Словари и файлы
+#~ msgid "# Модуль 3: Словари и файлы"
+#~ msgstr "# Modulo 3: Dizionari e file"
+
+#~ msgid "- Словари: ключи и значения"
+#~ msgstr "- Dizionari: chiavi e valori"
+
+#~ msgid "- Чтение/запись файлов"
+#~ msgstr "- Lettura/scrittura file"
+
+#~ msgid "- Структура небольшого проекта"
+#~ msgstr "- Struttura di un piccolo progetto"
+
+#~ msgid "1. Телефонная книга на словаре"
+#~ msgstr "1. Rubrica telefonica con dizionario"
+
+#~ msgid "2. Сохранение данных в `.txt`"
+#~ msgstr "2. Salvataggio dati in `.txt`"
+
+#~ msgid "3. Загрузка данных при старте"
+#~ msgstr "3. Caricamento dati all'avvio"
+
+#~ msgid "- Финальный проект Junior: «Менеджер задач в консоли»"
+#~ msgstr "- Progetto finale Junior: «Task manager in console»"
+
+#~ msgid ""
+#~ "- Требования: добавить, удалить, отметить выполненным, сохранить в файл"
+#~ msgstr ""
+#~ "- Requisiti: aggiungere, eliminare, segnare completato, salvare in file"
+
+# Pro: Модуль 1 Архитектура
+#~ msgid "# Модуль 1: Архитектура"
+#~ msgstr "# Modulo 1: Architettura"
+
+#~ msgid "- Структура production-проекта"
+#~ msgstr "- Struttura del progetto production"
+
+#~ msgid "- Виртуальные окружения, зависимости"
+#~ msgstr "- Ambienti virtuali, dipendenze"
+
+#~ msgid "- Логирование и конфиги"
+#~ msgstr "- Logging e configurazione"
+
+#~ msgid "1. Разбей проект на `services`, `repositories`, `api`"
+#~ msgstr "1. Suddividi il progetto in `services`, `repositories`, `api`"
+
+#~ msgid "2. Добавь `logging` с ротацией"
+#~ msgstr "2. Aggiungi `logging` con rotazione"
+
+#~ msgid "3. Настрой `.env` и валидацию переменных"
+#~ msgstr "3. Configura `.env` e validazione delle variabili"
+
+#~ msgid "- Рефакторинг существующего скрипта в модульную структуру"
+#~ msgstr "- Refactoring di uno script esistente in struttura modulare"
+
+# Pro: Модуль 1 Flask API
+#~ msgid "# Модуль 1: Flask API"
+#~ msgstr "# Modulo 1: Flask API"
+
+#~ msgid "- REST, маршруты, статусы ответов"
+#~ msgstr "- REST, rotte, codici di stato delle risposte"
+
+#~ msgid "- Валидация входных данных"
+#~ msgstr "- Validazione dei dati di input"
+
+#~ msgid "- Обработка ошибок"
+#~ msgstr "- Gestione degli errori"
+
+#~ msgid "1. CRUD для сущности `Task`"
+#~ msgstr "1. CRUD per l'entità `Task`"
+
+#~ msgid "2. Проверка полей запроса"
+#~ msgstr "2. Verifica dei campi della richiesta"
+
+#~ msgid "3. Единый формат JSON-ошибок"
+#~ msgstr "3. Formato JSON unificato per gli errori"
+
+#~ msgid "- Добавить пагинацию и фильтрацию по статусу"
+#~ msgstr "- Aggiungere paginazione e filtri per stato"
+
+# Pro: Модуль 2 Django
+#~ msgid "# Модуль 2: Django Core"
+#~ msgstr "# Modulo 2: Django Core"
+
+#~ msgid "- Модели и миграции"
+#~ msgstr "- Modelli e migrazioni"
+
+#~ msgid "- Связи `FK/M2M/OneToOne`"
+#~ msgstr "- Relazioni `FK/M2M/OneToOne`"
+
+#~ msgid "- Кастомизация админки"
+#~ msgstr "- Personalizzazione del pannello admin"
+
+#~ msgid "1. Модели для учебной платформы"
+#~ msgstr "1. Modelli per piattaforma didattica"
+
+#~ msgid "2. Нормальные индексы и `select_related`"
+#~ msgstr "2. Indici appropriati e `select_related`"
+
+#~ msgid "3. Админка для контент-менеджера"
+#~ msgstr "3. Pannello admin per content manager"
+
+#~ msgid "- Спроектировать ER-диаграмму и реализовать миграции"
+#~ msgstr "- Progettare diagramma ER e implementare migrazioni"
+
+# Pro: Модуль 2 DRF
+#~ msgid "# Модуль 2: DRF и Auth"
+#~ msgstr "# Modulo 2: DRF e Auth"
+
+#~ msgid "- Сериализаторы и ViewSet"
+#~ msgstr "- Serializzatori e ViewSet"
+
+#~ msgid "- Permissions"
+#~ msgstr "Permissions"
+
+#~ msgid "- JWT/session авторизация"
+#~ msgstr "- Autenticazione JWT/session"
+
+#~ msgid "1. Endpoint списка уроков"
+#~ msgstr "1. Endpoint lista lezioni"
+
+#~ msgid "2. Закрытие платных endpoint по роли/доступу"
+#~ msgstr "2. Protezione endpoint a pagamento per ruolo/accesso"
+
+#~ msgid "3. Тесты на авторизацию"
+#~ msgstr "3. Test per l'autenticazione"
+
+#~ msgid "- Добавить endpoint прогресса по урокам"
+#~ msgstr "- Aggiungere endpoint per il progresso delle lezioni"
+
+# Pro: Модуль 3 Продакшен
+#~ msgid "# Модуль 3: Продакшен"
+#~ msgstr "# Modulo 3: Production"
+
+#~ msgid "- Unit/integration тесты"
+#~ msgstr "- Test unitari e di integrazione"
+
+#~ msgid "- Подготовка проекта к контейнерному деплою"
+#~ msgstr "- Preparazione del progetto al deploy in container"
+
+#~ msgid "1. Тесты на ключевые сценарии оплаты и доступа"
+#~ msgstr "1. Test per scenari chiave di pagamento e accesso"
+
+#~ msgid "2. Подключение Postgres через `DATABASE_URL`"
+#~ msgstr "2. Connessione Postgres tramite `DATABASE_URL`"
+
+#~ msgid "3. Настройка статики и миграций на старте"
+#~ msgstr "3. Configurazione static e migrazioni all'avvio"
+
+#~ msgid "- Итоговый мини-проект: задеплоить API и дать публичный URL"
+#~ msgstr "- Mini-progetto finale: deploy dell'API e URL pubblico"
+
+#~ msgid "# Установка и первый запуск"
+#~ msgstr "# Installazione e primo avvio"
+
+#~ msgid ""
+#~ "Представь: ты приходишь на кухню ресторана. Нужен нож, сковорода, плита — "
+#~ "без них не приготовишь блюдо. Python — это твой «инструмент» для "
+#~ "программ. Сначала установим его."
+#~ msgstr ""
+#~ "Immagina: arrivi in cucina al ristorante. Servono coltello, padella, "
+#~ "fornelli — senza non cucini. Python è il tuo «strumento» per i programmi. "
+#~ "Prima lo installiamo."
+
+#~ msgid ""
+#~ "Скачай Python с официального сайта python.org. Выбери последнюю версию. "
+#~ "При установке отметь галочку «Add Python to PATH» — это важно."
+#~ msgstr ""
+#~ "Scarica Python da python.org. Scegli l'ultima versione. All'installazione "
+#~ "spunta «Add Python to PATH» — è importante."
+
+#~ msgid "# Переменные и типы"
+#~ msgstr "# Variabili e tipi"
+
+#~ msgid ""
+#~ "На кухне у повара есть полки: мука, масло, соль. Каждая полка хранит что-"
+#~ "то своё. Переменная в Python — это «полка» с названием, где лежит "
+#~ "значение."
+#~ msgstr ""
+#~ "In cucina lo chef ha scaffali: farina, olio, sale. Ogni scaffale tiene "
+#~ "qualcosa. La variabile in Python è uno «scaffale» con un nome dove sta un "
+#~ "valore."
+
+#~ msgid "Переменная = имя, значение сохраняется в памяти."
+#~ msgstr "Variabile = nome, il valore va in memoria."
+
+#~ msgid ""
+#~ "Python сам понимает тип: числа — `int` и `float`, текст — `str`, да/нет — "
+#~ "`bool`. Тип зависит от того, что ты записал в кавычках или без."
+#~ msgstr ""
+#~ "Python capisce il tipo: numeri — `int` e `float`, testo — `str`, sì/no — "
+#~ "`bool`. Il tipo dipende da ciò che scrivi, tra virgolette o meno."
+
+#~ msgid "Чтобы увидеть результат, используй `print()`:"
+#~ msgstr "Per vedere il risultato usa `print()`:"
+
+#~ msgid "# Ввод и вывод"
+#~ msgstr "# Input e output"
+
+#~ msgid ""
+#~ "Программа может не только показывать текст, но и спрашивать пользователя. "
+#~ "Как официант спрашивает: «Что будете заказывать?» — `input()` задаёт "
+#~ "вопрос и ждёт ответ."
+#~ msgstr ""
+#~ "Il programma può mostrare testo e chiedere all'utente. Come il cameriere "
+#~ "chiede: «Cosa desidera?» — `input()` fa una domanda e aspetta la risposta."
+
+#~ msgid "Введённый текст сохранится в переменную `name`."
+#~ msgstr "Il testo inserito va nella variabile `name`."
+
+#~ msgid "Вместо запятых удобнее использовать f-строки:"
+#~ msgstr "Invece delle virgole usa le f-string:"
+
+#~ msgid "В фигурных скобках — переменные, они подставятся автоматически."
+#~ msgstr "Tra parentesi graffe — variabili, si sostituiscono da sole."
+
+#~ msgid ""
+#~ "Напиши программу: спроси имя и возраст, затем выведи приветствие. "
+#~ "«Привет, [имя]! Вам [возраст] лет.»"
+#~ msgstr ""
+#~ "Scrivi un programma: chiedi nome e età, poi stampa un saluto. «Ciao, "
+#~ "[nome]! Hai [età] anni.»"
+
+#~ msgid "# Условия if и else"
+#~ msgstr "# Condizioni if e else"
+
+#~ msgid ""
+#~ "В ресторане: если гость заказал пиццу — повар готовит пиццу. Иначе — "
+#~ "паста. Программа тоже делает выбор по условию: если что-то истинно — "
+#~ "выполняем один код, иначе — другой."
+#~ msgstr ""
+#~ "Al ristorante: se il cliente ordina pizza — lo chef fa la pizza. "
+#~ "Altrimenti — pasta. Il programma sceglie: se una cosa è vera — un codice, "
+#~ "altrimenti — un altro."
+
+#~ msgid ""
+#~ "Напиши калькулятор скидки: если сумма заказа больше 50 евро — скидка 10%. "
+#~ "Иначе — без скидки. Выведи итоговую сумму."
+#~ msgstr ""
+#~ "Scrivi un calcolatore sconti: se l'ordine supera 50 euro — sconto 10%. "
+#~ "Altrimenti — nessuno. Stampa il totale."
+
+#~ msgid "# Debug Zone — найди ошибку"
+#~ msgstr "# Debug Zone — trova l'errore"
+
+#~ msgid ""
+#~ "Ниже фрагмент кода с несколькими ошибками. Твоя задача — найти их, не "
+#~ "запуская программу. Подумай: что может пойти не так?"
+#~ msgstr ""
+#~ "Sotto c'è un frammento con errori. Trovali senza eseguire. Pensa: cosa "
+#~ "può andare storto?"
+
+#~ msgid "# Циклы for и while"
+#~ msgstr "# Cicli for e while"
+
+#~ msgid ""
+#~ "В ресторане официант обходит столики по очереди — повторяет одно и то же "
+#~ "действие. Цикл в Python делает то же: выполняет код несколько раз без "
+#~ "копипаста."
+#~ msgstr ""
+#~ "Al ristorante il cameriere fa il giro dei tavoli — ripete la stessa "
+#~ "azione. Il ciclo in Python fa lo stesso: esegue il codice più volte senza "
+#~ "copia-incolla."
+
+#~ msgid "Переменная `dish` по очереди принимает каждый элемент списка."
+#~ msgstr "La variabile `dish` prende in sequenza ogni elemento della lista."
+
+#~ msgid "Выведи таблицу умножения на 7: от 7×1 до 7×10. Используй цикл for."
+#~ msgstr "Stampa la tabellina del 7: da 7×1 a 7×10. Usa il ciclo for."
+
+#~ msgid "# Списки"
+#~ msgstr "# Liste"
+
+#~ msgid ""
+#~ "Список заказов на кухне: первое блюдо, второе, третье. В Python список — "
+#~ "упорядоченная коллекция. Элементы нумеруются с нуля."
+#~ msgstr ""
+#~ "Lista ordini in cucina: primo, secondo, terzo. In Python la lista è una "
+#~ "collezione ordinata. Gli elementi partono da zero."
+
+#~ msgid "`append` — добавить в конец. `remove` — убрать по значению."
+#~ msgstr "`append` — aggiunge in fondo. `remove` — rimuove per valore."
+
+#~ msgid ""
+#~ "Создай список из 5 городов. Выведи первый и последний. Добавь шестой "
+#~ "город. Удали второй по счёту."
+#~ msgstr ""
+#~ "Crea una lista di 5 città. Stampa la prima e l'ultima. Aggiungi una "
+#~ "sesta. Rimuovi la seconda."
+
+#~ msgid ""
+#~ "Меню в кафе: название блюда — цена. Словарь в Python: ключ — значение. "
+#~ "Ключ уникален, по нему находим значение."
+#~ msgstr ""
+#~ "Menù del bar: nome piatto — prezzo. Dizionario in Python: chiave — "
+#~ "valore. La chiave è unica, tramite essa trovi il valore."
+
+#~ msgid "# Циклы и списки: range и enumerate"
+#~ msgstr "# Cicli e liste: range e enumerate"
+
+#~ msgid "Выведет 0, 1, 2, 3, 4. Удобно, когда нужен индекс, а не значение."
+#~ msgstr "Stampa 0, 1, 2, 3, 4. Utile quando serve l'indice, non il valore."
+
+#~ msgid "Получаешь и номер, и сам элемент. Не нужно вручную считать."
+#~ msgstr "Ottieni sia il numero che l'elemento. Nessun conteggio manuale."
+
+#~ msgid ""
+#~ "Дан список оценок. Посчитай средний балл. Выведи все оценки выше среднего."
+#~ msgstr ""
+#~ "Dati una lista di voti. Calcola la media. Stampa i voti sopra la media."
+
+#~ msgid "# Debug Zone — циклы и списки"
+#~ msgstr "# Debug Zone — cicli e liste"
+
+#~ msgid "1. После `for` нужно двоеточие."
+#~ msgstr "1. Dopo `for` serve il due punti."
+
+#~ msgid "3. Переменная `total` — она накапливает сумму верно?"
+#~ msgstr "3. La variabile `total` — accumula la somma correttamente?"
+
+#~ msgid ""
+#~ "Ошибка 2: `total = total + num` — должно быть `total += num` (или так "
+#~ "можно, но логика верна)."
+#~ msgstr "Errore 2: `total = total + num` — va bene anche `total += num`."
+
+#~ msgid "# Функции"
+#~ msgstr "# Funzioni"
+
+#~ msgid ""
+#~ "Функция — как рецепт блюда. Ты даёшь ингредиенты (аргументы), повар "
+#~ "делает действия (код), на выходе — готовое блюдо (return). Один раз "
+#~ "написал — вызываешь сколько угодно."
+#~ msgstr ""
+#~ "La funzione è come una ricetta. Dai gli ingredienti (argomenti), lo chef "
+#~ "esegue (codice), in uscita — piatto pronto (return). Scrivi una volta — "
+#~ "chiami quanto vuoi."
+
+#~ msgid ""
+#~ "Напиши функцию `discount(price, percent)`. Возвращает цену со скидкой. "
+#~ "Вызови для 100 евро и 15%."
+#~ msgstr ""
+#~ "Scrivi la funzione `discount(price, percent)`. Restituisce il prezzo "
+#~ "scontato. Chiamala con 100 euro e 15%."
+
+#~ msgid ""
+#~ "Переменная внутри функции — локальная. Снаружи — глобальная. Локальная "
+#~ "«не видна» снаружи. Это защищает от случайных изменений."
+#~ msgstr ""
+#~ "La variabile nella funzione è locale. Fuori — globale. La locale non è "
+#~ "visibile fuori. Protegge da modifiche accidentali."
+
+#~ msgid ""
+#~ "Функция `is_adult(age)`. Возвращает True, если age >= 18, иначе False. "
+#~ "Протестируй для 17 и 20."
+#~ msgstr ""
+#~ "Funzione `is_adult(age)`. Restituisce True se age >= 18, altrimenti "
+#~ "False. Prova con 17 e 20."
+
+#~ msgid ""
+#~ "Чтобы данные сохранялись после закрытия программы. Как чек в кассе — "
+#~ "записали заказ, положили в папку. Файл — долговременное хранилище."
+#~ msgstr ""
+#~ "Per conservare i dati dopo la chiusura. Come lo scontrino in cassa — "
+#~ "registri l'ordine, lo metti in cartella. Il file è memoria persistente."
+
+#~ msgid "`with` автоматически закроет файл."
+#~ msgstr "`with` chiude il file automaticamente."
+
+#~ msgid ""
+#~ "Создай файл `cities.txt` с тремя городами (каждый с новой строки). "
+#~ "Прочитай и выведи второй город."
+#~ msgstr ""
+#~ "Crea il file `cities.txt` con tre città (una per riga). Leggi e stampa la "
+#~ "seconda città."
+
+#~ msgid "# Мини-проект: счёт в кафе"
+#~ msgstr "# Mini-progetto: conto al bar"
+
+#~ msgid "2. Спроси, что хочет гость (можно несколько позиций)."
+#~ msgstr "2. Chiedi cosa vuole il cliente (più voci possibili)."
+
+#~ msgid "3. Посчитай сумму."
+#~ msgstr "3. Calcola il totale."
+
+#~ msgid "4. Если сумма >= 10 — примени скидку."
+#~ msgstr "4. Se totale >= 10 — applica lo sconto."
+
+#~ msgid "5. Выведи итог."
+#~ msgstr "5. Stampa il totale."
+
+#~ msgid ""
+#~ "Используй цикл для ввода. Считай сумму по словарю. Округли до двух "
+#~ "знаков: `round(x, 2)`."
+#~ msgstr ""
+#~ "Usa un ciclo per l'input. Calcola la somma dal dizionario. Arrotonda a 2 "
+#~ "decimali: `round(x, 2)`."
+
+#~ msgid ""
+#~ "Добавь возможность указать количество каждой позиции. «2 капучино, 1 "
+#~ "корнетто»."
+#~ msgstr ""
+#~ "Aggiungi la possibilità di indicare la quantità. «2 cappuccini, 1 "
+#~ "cornetto»."
+
+#~ msgid "# Debug Zone — функции и файлы"
+#~ msgstr "# Debug Zone — funzioni e file"
+
+# === PRO COURSE ===
+#~ msgid "# Архитектура production-проекта"
+#~ msgstr "# Architettura di un progetto production"
+
+#~ msgid "## Зачем нужна структура?"
+#~ msgstr "## Perché serve la struttura?"
+
+#~ msgid ""
+#~ "В ресторане кухня разделена: холодный цех, гриль, десерты. Каждый знает "
+#~ "свою зону. В коде тоже: логика, данные, API — отдельные «цеха». Так "
+#~ "проект проще поддерживать и масштабировать."
+#~ msgstr ""
+#~ "In un ristorante la cucina è divisa: freddo, grill, dolci. Ognuno conosce "
+#~ "la propria zona. Nel codice idem: logica, dati, API — «reparti» separati. "
+#~ "Così il progetto è più facile da mantenere e scalare."
+
+#~ msgid "## Папки проекта"
+#~ msgstr "## Cartelle del progetto"
+
+#~ msgid "Каждый модуль отвечает за своё. Не смешивай всё в одном файле."
+#~ msgstr ""
+#~ "Ogni modulo risponde del proprio. Non mescolare tutto in un solo file."
+
+#~ msgid ""
+#~ "Логи помогают понять, что пошло не так в продакшене. Не хардкодь пароли — "
+#~ "храни в `.env`. Используй `python-dotenv` для загрузки переменных."
+#~ msgstr ""
+#~ "I log aiutano a capire cosa è andato storto in produzione. Non hardcodare "
+#~ "le password — conservale in `.env`. Usa `python-dotenv` per caricare le "
+#~ "variabili."
+
+#~ msgid ""
+#~ "Разбей существующий скрипт на папки services, repositories. Добавь "
+#~ "логирование и чтение конфига из .env."
+#~ msgstr ""
+#~ "Suddividi uno script esistente in cartelle services, repositories. "
+#~ "Aggiungi logging e lettura del config da .env."
+
+#~ msgid "# Flask API: REST и CRUD"
+#~ msgstr "# Flask API: REST e CRUD"
+
+#~ msgid ""
+#~ "API — как меню в ресторане. Клиент делает «заказ» (запрос), сервер "
+#~ "возвращает «блюдо» (ответ). REST — правила: GET — получить, POST — "
+#~ "создать, PUT — обновить, DELETE — удалить."
+#~ msgstr ""
+#~ "L'API è come il menù al ristorante. Il cliente fa un «ordine» "
+#~ "(richiesta), il server restituisce un «piatto» (risposta). REST — regole: "
+#~ "GET — leggi, POST — crea, PUT — aggiorna, DELETE — elimina."
+
+#~ msgid "## Валидация"
+#~ msgstr "## Validazione"
+
+#~ msgid ""
+#~ "Не доверяй данным извне. Проверяй тип, длину, обязательные поля. Иначе — "
+#~ "сбой или уязвимость."
+#~ msgstr ""
+#~ "Non fidarti dei dati esterni. Verifica tipo, lunghezza, campi "
+#~ "obbligatori. Altrimenti — guasto o vulnerabilità."
+
+#~ msgid ""
+#~ "Всегда возвращай JSON в одном виде: `{\"error\": \"описание\"}`. Клиенту "
+#~ "проще обрабатывать."
+#~ msgstr ""
+#~ "Restituisci sempre JSON in un solo formato: `{\"error\": \"descrizione\"}"
+#~ "`. Più facile per il client."
+
+#~ msgid ""
+#~ "Сделай CRUD для сущности Task. Добавь валидацию title (не пустой, не "
+#~ "длиннее 200). Верни 400 с `{\"error\": \"...\"}` при неверных данных."
+#~ msgstr ""
+#~ "Implementa CRUD per l'entità Task. Aggiungi validazione del title (non "
+#~ "vuoto, max 200). Restituisci 400 con `{\"error\": \"...\"}` per dati non "
+#~ "validi."
+
+#~ msgid "# Django: модели и ORM"
+#~ msgstr "# Django: modelli e ORM"
+
+#~ msgid "## Модель — таблица в БД"
+#~ msgstr "## Modello — tabella nel DB"
+
+#~ msgid ""
+#~ "Как меню в кафе: блюдо — название, цена, категория. В Django модель "
+#~ "описывает структуру: поля, типы, связи. Миграции создают таблицы в БД."
+#~ msgstr ""
+#~ "Come il menù al bar: piatto — nome, prezzo, categoria. In Django il "
+#~ "modello descrive la struttura: campi, tipi, relazioni. Le migrazioni "
+#~ "creano le tabelle nel DB."
+
+#~ msgid ""
+#~ "ForeignKey — связь «много уроков — один курс». CASCADE — при удалении "
+#~ "курса удалятся уроки."
+#~ msgstr ""
+#~ "ForeignKey — relazione «molte lezioni — un corso». CASCADE — se cancelli "
+#~ "il corso, si cancellano le lezioni."
+
+#~ msgid "## ORM: не пиши SQL вручную"
+#~ msgstr "## ORM: non scrivere SQL a mano"
+
+#~ msgid ""
+#~ "`select_related(\"course\")` — подтянет связанный курс одним запросом, "
+#~ "без N+1."
+#~ msgstr ""
+#~ "`select_related(\"course\")` — carica il corso collegato con una query, "
+#~ "senza N+1."
+
+#~ msgid ""
+#~ "`admin.site.register(Lesson)` — получишь готовый интерфейс. Кастомизируй: "
+#~ "`list_display`, `search_fields`, `list_filter`."
+#~ msgstr ""
+#~ "`admin.site.register(Lesson)` — ottieni un'interfaccia pronta. "
+#~ "Personalizza: `list_display`, `search_fields`, `list_filter`."
+
+#~ msgid ""
+#~ "Создай модели Course и Lesson. Добавь индекс на course + order. Настрой "
+#~ "админку для удобного редактирования."
+#~ msgstr ""
+#~ "Crea i modelli Course e Lesson. Aggiungi indice su course + order. "
+#~ "Configura l'admin per un editing comodo."
+
+#~ msgid "## Сериализаторы и ViewSet"
+#~ msgstr "## Serializer e ViewSet"
+
+#~ msgid ""
+#~ "Сериализатор превращает модель в JSON и обратно. ViewSet — готовый CRUD: "
+#~ "list, create, retrieve, update, destroy. Подключи к Router — маршруты "
+#~ "появятся сами."
+#~ msgstr ""
+#~ "Il serializer converte il modello in JSON e viceversa. ViewSet — CRUD "
+#~ "pronto: list, create, retrieve, update, destroy. Collega al Router — le "
+#~ "route compaiono da sole."
+
+#~ msgid "## Permissions"
+#~ msgstr "## Permissions"
+
+#~ msgid ""
+#~ "Кто может видеть платные уроки? Только оплатившие. `IsAuthenticated`, "
+#~ "`IsAdminUser` — встроенные классы. Свои — наследуй `BasePermission` и "
+#~ "переопредели `has_permission`."
+#~ msgstr ""
+#~ "Chi può vedere le lezioni a pagamento? Solo chi ha pagato. "
+#~ "`IsAuthenticated`, `IsAdminUser` — classi built-in. Le tue — eredita "
+#~ "`BasePermission` e ridefinisci `has_permission`."
+
+#~ msgid "## JWT и сессии"
+#~ msgstr "## JWT e sessioni"
+
+#~ msgid ""
+#~ "JWT — токен в заголовке Authorization. Сервер проверяет подпись, не "
+#~ "хранит сессию. Для мобильных и SPA удобнее, чем cookies."
+#~ msgstr ""
+#~ "JWT — token nell'header Authorization. Il server verifica la firma, non "
+#~ "conserva la sessione. Per mobile e SPA più comodo dei cookie."
+
+#~ msgid ""
+#~ "Endpoint списка уроков. Бесплатные — всем. Платные — только "
+#~ "аутентифицированным с доступом к курсу. Тесты: без токена 401, с токеном "
+#~ "— 200."
+#~ msgstr ""
+#~ "Endpoint lista lezioni. Gratuite — per tutti. A pagamento — solo "
+#~ "autenticati con accesso al corso. Test: senza token 401, con token — 200."
+
+#~ msgid ""
+#~ "Добавь endpoint прогресса: какой урок пройден, какой следующий. Защити "
+#~ "permission по курсу."
+#~ msgstr ""
+#~ "Aggiungi endpoint progresso: quale lezione completata, quale prossima. "
+#~ "Proteggi con permission per corso."
+
+#~ msgid "## Зачем тесты?"
+#~ msgstr "## Perché i test?"
+
+#~ msgid ""
+#~ "Сломал что-то при правке — тест поймает. Пишешь код — сразу проверяешь. "
+#~ "pytest: `def test_something(): assert 1 + 1 == 2`. Для API — "
+#~ "`client.get(\"/api/tasks\")`, проверь status_code и json."
+#~ msgstr ""
+#~ "Hai rotto qualcosa con una modifica — il test lo intercetta. Scrivi "
+#~ "codice — lo verifichi subito. pytest: `def test_something(): assert 1 + 1 "
+#~ "== 2`. Per API — `client.get(\"/api/tasks\")`, verifica status_code e "
+#~ "json."
+
+#~ msgid ""
+#~ "GitHub Actions: при каждом push запускаются тесты. Код не сольётся, пока "
+#~ "всё зелёное. Конфиг в `.github/workflows/test.yml`."
+#~ msgstr ""
+#~ "GitHub Actions: a ogni push si eseguono i test. Il codice non viene "
+#~ "mergeato finché non è tutto verde. Config in `.github/workflows/test.yml`."
+
+#~ msgid "## Деплой на Render"
+#~ msgstr "## Deploy su Render"
+
+#~ msgid ""
+#~ "Render — хостинг для приложений. Подключи репозиторий, укажи команду "
+#~ "запуска. Postgres — отдельный сервис. Переменные — в настройках, не в "
+#~ "коде."
+#~ msgstr ""
+#~ "Render — hosting per applicazioni. Collega il repo, indica il comando di "
+#~ "avvio. Postgres — servizio separato. Variabili — nelle impostazioni, non "
+#~ "nel codice."
+
+#~ msgid ""
+#~ "Миграции при старте: `python manage.py migrate`. Статика: "
+#~ "`collectstatic`. DATABASE_URL из окружения. Логи — в stdout, Render их "
+#~ "покажет."
+#~ msgstr ""
+#~ "Migrazioni all'avvio: `python manage.py migrate`. Static: "
+#~ "`collectstatic`. DATABASE_URL da ambiente. Log — su stdout, Render li "
+#~ "mostrerà."
+
+#~ msgid ""
+#~ "Подсказка: при создании ресурса обычно возвращают 201, не 200. И что если "
+#~ "title пустой — должен быть 400?"
+#~ msgstr ""
+#~ "Suggerimento: per la creazione di risorse di solito si restituisce 201, "
+#~ "non 200. E se title è vuoto — dovrebbe essere 400?"
+
+#~ msgid ""
+#~ "Напиши тесты на оплату и доступ к платным урокам. Задеплой API на Render, "
+#~ "дай публичный URL."
+#~ msgstr ""
+#~ "Scrivi test per pagamento e accesso alle lezioni a pagamento. Fai deploy "
+#~ "dell'API su Render, fornisci un URL pubblico."

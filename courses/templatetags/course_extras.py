@@ -3,8 +3,50 @@
 import markdown
 from django import template
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext
 
 register = template.Library()
+
+
+@register.filter
+def translate_author(username):
+    """Переводит 'teacher' как 'Преподаватель', остальные возвращает как есть."""
+    if username == "teacher":
+        return gettext("Преподаватель")
+    return username
+
+
+@register.filter
+def translate_db_text(text):
+    """Переводит текст из БД (названия курсов, уроков и т.д.)."""
+    if not text:
+        return ""
+    return gettext(text)
+
+
+@register.filter
+def translate_category(name):
+    """Переводит название категории."""
+    if not name:
+        return ""
+    return gettext(name)
+
+
+@register.filter
+def translate_content(text):
+    """Переводит контент урока построчно."""
+    if not text:
+        return ""
+    lines = text.split("\n")
+    out = []
+    for line in lines:
+        # Убираем \r (CRLF в БД/Windows), иначе gettext не находит msgid в каталоге
+        key = line.rstrip("\r")
+        if key.strip():
+            out.append(gettext(key))
+        else:
+            out.append(line)
+    return "\n".join(out)
 
 
 @register.filter
@@ -14,3 +56,104 @@ def markdown_to_html(text):
         return ""
     md = markdown.Markdown(extensions=["extra", "fenced_code"])
     return mark_safe(md.convert(text))
+
+
+@register.filter
+def inject_author_photo(html, lesson):
+    """Подставляет фото автора курса вместо маркера <!-- AUTHOR_PHOTO --> (финальный урок Pro)."""
+    if not html or not lesson:
+        return html
+    course = getattr(lesson, "course", None)
+    if not course:
+        return html
+    from django.utils.html import escape
+    from django.utils.translation import gettext as _
+
+    marker = "<!-- AUTHOR_PHOTO -->"
+    img_html = ""
+    image = getattr(course, "author_image", None)
+    if image and getattr(image, "name", ""):
+        try:
+            url = image.url
+        except ValueError:
+            url = ""
+        if url:
+            alt = _("Фото автора курса")
+            img_html = (
+                '<figure class="lesson-author-photo">'
+                f'<img src="{escape(url)}" alt="{escape(alt)}" loading="lazy" />'
+                "</figure>"
+            )
+    text = str(html)
+    for fragment in (
+        marker,
+        "<p><!-- AUTHOR_PHOTO --></p>",
+        "<p>\n<!-- AUTHOR_PHOTO -->\n</p>",
+    ):
+        text = text.replace(fragment, img_html)
+    return mark_safe(text)
+
+
+@register.filter
+def wrap_author_word_section(html):
+    """
+    Оформляет блок «Слово автора»: заголовок h2 + фото + текст в карточке с сеткой.
+    Текст урока не меняется — только обёртка HTML.
+    """
+    if not html:
+        return html
+    text = str(html)
+    fig_open = '<figure class="lesson-author-photo">'
+    pos = text.find(fig_open)
+    if pos == -1:
+        return html
+    before_fig = text[:pos]
+    h2_open = before_fig.rfind("<h2")
+    if h2_open == -1:
+        return html
+    fig_close = text.find("</figure>", pos)
+    if fig_close == -1:
+        return html
+    fig_end = fig_close + len("</figure>")
+    head = text[:h2_open]
+    h2_block = text[h2_open:pos]
+    figure_block = text[pos:fig_end]
+    rest = text[fig_end:]
+    next_h2 = rest.find("<h2")
+    if next_h2 != -1:
+        message_block = rest[:next_h2]
+        tail = rest[next_h2:]
+    else:
+        message_block = rest
+        tail = ""
+    wrapped = (
+        f'{head}<div class="lesson-author-word">{h2_block}'
+        f'<div class="lesson-author-word__card">'
+        f'<div class="lesson-author-word__grid">'
+        f'<div class="lesson-author-word__photo">{figure_block}</div>'
+        f'<div class="lesson-author-word__message">{message_block}</div>'
+        f"</div></div></div>{tail}"
+    )
+    return mark_safe(wrapped)
+
+
+@register.filter
+def wrap_solution_spoiler(html, course_level):
+    """Прячет секцию «Решение» в кнопку-спойлер (Junior и Pro — разбор домашки)."""
+    if not html or course_level not in ("junior", "pro"):
+        return html
+    start_marker = "<!-- SPOILER_START -->"
+    end_marker = "<!-- SPOILER_END -->"
+    if start_marker not in html or end_marker not in html:
+        return html
+    try:
+        start = html.index(start_marker)
+        end = html.index(end_marker) + len(end_marker)
+        before = html[:start]
+        spoiler_content = html[start:end].replace(start_marker, "").replace(end_marker, "").strip()
+        after = html[end:]
+        summary = gettext("Показать решение")
+        wrapped = f'<details class="lesson-spoiler"><summary>{summary}</summary><div class="lesson-spoiler__content">{spoiler_content}</div></details>'
+        return mark_safe(before + wrapped + after)
+    except (ValueError, TypeError):
+        return html

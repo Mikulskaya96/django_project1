@@ -5,7 +5,7 @@
 
 {% block content %}
 <h1>{% trans "Регистрация" %}</h1>
-<form method="post">
+<form method="post" class="form-styled">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn-primary">{% trans "Зарегистрироваться" %}</button>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n course_extras %}
 
 {% block title %}{% trans "Мои курсы — DevLearn" %}{% endblock %}
 
@@ -8,7 +8,7 @@
 <ul class="course-list">
     {% for item in progress_list %}
     <li class="course-item">
-        <a href="{% url 'courses:course_detail' item.enrollment.course.pk %}" class="btn-course">{{ item.enrollment.course.title }}</a>
+        <a href="{% url 'courses:course_detail' item.enrollment.course.pk %}" class="btn-course">{{ item.enrollment.course.title|translate_db_text }}</a>
         <span class="course-meta">— {{ item.completed }}/{{ item.total }} {% trans "уроков" %}
         {% if item.total > 0 %}({% widthratio item.completed item.total 100 %}%){% endif %}</span>
         {% if item.is_completed %}

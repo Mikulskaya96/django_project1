@@ -2,31 +2,37 @@
 {% load course_extras %}
 {% load i18n %}
 
-{% block title %}{{ lesson.title }} — DevLearn{% endblock %}
-
-{% block extra_css %}
-<style>
-.lesson-content pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; }
-.lesson-content code { font-family: monospace; }
-</style>
-{% endblock %}
+{% block title %}{{ lesson.title|translate_db_text }} — DevLearn{% endblock %}
 
 {% block content %}
-<nav>
-    <a href="{% url 'courses:course_detail' lesson.course.pk %}">← {{ lesson.course.title }}</a>
-</nav>
-
-<h1>{{ lesson.title }}</h1>
+<div class="lesson-layout">
+    <aside class="lesson-sidebar">
+        <a href="{% url 'courses:course_detail' lesson.course.pk %}" class="lesson-sidebar__back">← {{ lesson.course.title|translate_db_text }}</a>
+        <h3 class="lesson-sidebar__title">{% trans "Уроки" %}</h3>
+        <ul class="lesson-sidebar__list">
+            {% for l in lesson_list %}
+            <li>
+                {% if l.pk == lesson.pk %}
+                <span class="lesson-sidebar__current">{{ forloop.counter }}. {{ l.title|translate_db_text }}</span>
+                {% else %}
+                <a href="{% url 'courses:lesson_detail' l.pk %}">{{ forloop.counter }}. {{ l.title|translate_db_text }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+    <div class="lesson-main">
+<h1>{{ lesson.title|translate_db_text }}</h1>
 
 {% if lesson.image %}
 <p>
-    <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}" style="max-width: 260px; border-radius: 12px; box-shadow: var(--card-shadow);">
+    <img src="{{ lesson.image.url }}" alt="{{ lesson.title|translate_db_text }}" class="content-image">
 </p>
 {% endif %}
 
 {% if lesson.content %}
 <div class="lesson-content">
-    {{ lesson.content|markdown_to_html }}
+    {{ lesson.content|translate_content|markdown_to_html|inject_author_photo:lesson|wrap_author_word_section|wrap_solution_spoiler:lesson.course.level }}
 </div>
 {% endif %}
 
@@ -44,56 +50,134 @@
 {% endif %}
 
 {% if gemini_available %}
-<section class="ask-ai" style="margin-top: 2rem; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
-    <h2>{% trans "Спросить ИИ по уроку" %}</h2>
-    <form id="ask-ai-form">
+<section class="ask-ai-card" aria-labelledby="ask-ai-heading">
+    <h2 id="ask-ai-heading" class="ask-ai-card__title">{% trans "Спросить ИИ по уроку" %}</h2>
+    <form id="ask-ai-form" class="ask-ai-card__form">
         {% csrf_token %}
-        <textarea name="question" rows="3" placeholder="{% trans 'Задайте вопрос по теме урока...' %}" style="width: 100%; max-width: 500px; display: block; margin-bottom: 0.5rem;"></textarea>
-        <button type="submit" class="btn-primary">{% trans "Отправить" %}</button>
+        <label for="ask-ai-question" class="visually-hidden">{% trans "Вопрос по уроку" %}</label>
+        <textarea id="ask-ai-question" name="question" rows="3" placeholder="{% trans 'Задайте вопрос по теме урока...' %}" class="ask-ai-card__textarea"></textarea>
+        <p class="ask-ai-card__kbd-hint">{% trans "Enter — отправить; Shift+Enter — новая строка." %}</p>
+        <div class="ask-ai-card__actions">
+            <button type="submit" class="btn-primary ask-ai-card__submit">{% trans "Отправить" %}</button>
+        </div>
     </form>
-    <div id="ai-answer" style="margin-top: 1rem; display: none;"></div>
-    <div id="ai-loading" style="margin-top: 1rem; display: none;">{% trans "ИИ думает..." %}</div>
+    <div id="ai-loading" class="ai-status ai-status--loading" hidden>
+        <span class="ai-status__label">{% trans "ИИ думает..." %}</span>
+        <span class="ai-status__dots" aria-hidden="true"><span class="ai-status__dot"></span><span class="ai-status__dot"></span><span class="ai-status__dot"></span></span>
+    </div>
+    <div id="ai-answer" class="ai-answer-panel" role="region" aria-live="polite" hidden></div>
 </section>
+<span id="ai-i18n-answer-label" class="visually-hidden">{% trans "Ответ:" %}</span>
+<span id="ai-i18n-request-error" class="visually-hidden">{% trans "Ошибка запроса." %}</span>
 {% if ai_messages %}
-<section style="margin-top: 1.5rem;">
-    <h3>{% trans "Ваши недавние вопросы" %}</h3>
-    <ul>
+<section class="ai-messages ai-messages--card">
+    <h3 class="ai-messages__title">{% trans "Ваши недавние вопросы" %}</h3>
+    <ul class="ai-messages__list">
         {% for msg in ai_messages %}
-        <li style="margin-bottom: 0.5rem;">
-            <strong>{% trans "Вы:" %}</strong> {{ msg.question }}<br>
-            <strong>ИИ:</strong> {{ msg.answer|linebreaksbr }}
+        <li class="ai-messages__item">
+            <p class="ai-messages__q"><span class="ai-messages__role">{% trans "Вы:" %}</span> {{ msg.question }}</p>
+            <p class="ai-messages__a"><span class="ai-messages__role">{% trans "ИИ:" %}</span> {{ msg.answer|linebreaksbr }}</p>
         </li>
         {% endfor %}
     </ul>
 </section>
 {% endif %}
 <script>
-document.getElementById("ask-ai-form").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    var form = e.target;
+(function() {
+    var form = document.getElementById("ask-ai-form");
+    if (!form) return;
     var answerEl = document.getElementById("ai-answer");
     var loadingEl = document.getElementById("ai-loading");
-    answerEl.style.display = "none";
-    answerEl.innerHTML = "";
-    loadingEl.style.display = "block";
-    try {
-        var fd = new FormData(form);
-        var r = await fetch("{% url 'courses:ask_lesson_ai' lesson.pk %}", { method: "POST", body: fd, headers: { "X-Requested-With": "XMLHttpRequest" } });
-        var data = await r.json();
-        loadingEl.style.display = "none";
-        if (data.answer) {
-            answerEl.innerHTML = "<strong>{% trans 'Ответ:' %}</strong><br>" + data.answer.replace(/\n/g, "<br>");
-            answerEl.style.display = "block";
-        } else if (data.error) {
-            answerEl.innerHTML = "<span style='color: #c00'>" + data.error + "</span>";
-            answerEl.style.display = "block";
-        }
-    } catch (err) {
-        loadingEl.style.display = "none";
-        answerEl.innerHTML = "<span style='color: #c00'>{% trans 'Ошибка запроса.' %}</span>";
-        answerEl.style.display = "block";
+    var answerLabel = document.getElementById("ai-i18n-answer-label");
+    var requestErr = document.getElementById("ai-i18n-request-error");
+    var labelText = answerLabel ? answerLabel.textContent : "Ответ:";
+    var errText = requestErr ? requestErr.textContent : "";
+
+    function clearAnswer() {
+        answerEl.hidden = true;
+        answerEl.innerHTML = "";
+        answerEl.className = "ai-answer-panel";
     }
-});
+
+    function showBotAnswer(text) {
+        clearAnswer();
+        var bubble = document.createElement("div");
+        bubble.className = "ai-bubble";
+        var lab = document.createElement("div");
+        lab.className = "ai-bubble__label";
+        lab.textContent = labelText;
+        var body = document.createElement("div");
+        body.className = "ai-bubble__text";
+        body.textContent = text;
+        bubble.appendChild(lab);
+        bubble.appendChild(body);
+        answerEl.appendChild(bubble);
+        answerEl.hidden = false;
+    }
+
+    function showError(msg) {
+        clearAnswer();
+        answerEl.classList.add("ai-answer-panel--error");
+        var bubble = document.createElement("div");
+        bubble.className = "ai-bubble ai-bubble--error";
+        var body = document.createElement("div");
+        body.className = "ai-bubble__text";
+        body.textContent = msg;
+        bubble.appendChild(body);
+        answerEl.appendChild(bubble);
+        answerEl.hidden = false;
+    }
+
+    var ta = document.getElementById("ask-ai-question");
+    if (ta) {
+        ta.addEventListener("keydown", function(e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                if (typeof form.requestSubmit === "function") {
+                    form.requestSubmit();
+                } else {
+                    var sub = form.querySelector('button[type="submit"]');
+                    if (sub) sub.click();
+                }
+            }
+        });
+    }
+
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        clearAnswer();
+        loadingEl.hidden = false;
+        try {
+            var fd = new FormData(form);
+            var r = await fetch("{% url 'courses:ask_lesson_ai' lesson.pk %}", { method: "POST", body: fd, headers: { "X-Requested-With": "XMLHttpRequest" } });
+            var data = await r.json();
+            loadingEl.hidden = true;
+            if (data.answer) {
+                showBotAnswer(data.answer);
+            } else if (data.error) {
+                showError(data.error);
+            }
+        } catch (err) {
+            loadingEl.hidden = true;
+            showError(errText);
+        }
+    });
+})();
 </script>
 {% endif %}
+
+<div class="lesson-nav">
+    {% if prev_lesson %}
+    <a href="{% url 'courses:lesson_detail' prev_lesson.pk %}" class="btn">← {% trans "Предыдущий урок" %}</a>
+    {% else %}
+    <span></span>
+    {% endif %}
+    {% if next_lesson %}
+    <a href="{% url 'courses:lesson_detail' next_lesson.pk %}" class="btn-primary">{% trans "Следующий урок" %} →</a>
+    {% else %}
+    <a href="{% url 'courses:course_detail' lesson.course.pk %}" class="btn">{% trans "К курсу" %}</a>
+    {% endif %}
+</div>
+</div>
+</div>
 {% endblock %}

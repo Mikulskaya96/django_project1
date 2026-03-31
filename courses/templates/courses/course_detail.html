@@ -1,47 +1,111 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n course_extras %}
 
-{% block title %}{{ course.title }} — DevLearn{% endblock %}
+{% block title %}{{ course.title|translate_db_text }} — DevLearn{% endblock %}
 
 {% block content %}
-<h1>{{ course.title }}</h1>
-{% if course.cover_image %}
-<p>
-    <img src="{{ course.cover_image.url }}" alt="{{ course.title }}" style="max-width: 260px; border-radius: 12px; box-shadow: var(--card-shadow);">
-</p>
-{% endif %}
-<p>{{ course.description }}</p>
-<p>{% trans "Уровень:" %} {{ course.get_level_display }}</p>
-<p>{% trans "Автор:" %} {{ course.author.username }} | {% trans "Цена:" %} {{ course.price }} $</p>
-<p class="course-meta">
-    {% trans "В этом курсе первые 3 урока открыты бесплатно, остальные доступны после оплаты." %}
-</p>
+<div class="course-hero">
+    <div class="course-hero__media">
+        {% if course.cover_image %}
+        <img src="{{ course.cover_image.url }}" alt="{{ course.title|translate_db_text }}" class="course-hero__cover">
+        {% else %}
+        <div class="course-hero__placeholder">📚</div>
+        {% endif %}
+    </div>
+    <div class="course-hero__content">
+        <h1 class="course-hero__title">{{ course.title|translate_db_text }}</h1>
+        <div class="course-hero__meta">
+            <span class="course-hero__badge">{{ course.get_level_display }}</span>
+            <span>{% trans "Автор:" %} {{ course.author.username|translate_author }}</span>
+            {% if lesson_count %}
+            <span>{{ lesson_count }} {% trans "уроков" %}</span>
+            {% endif %}
+            <span>{% trans "Цена:" %} {{ course.price }} $</span>
+        </div>
+        <p class="course-hero__desc">{{ course.description|translate_db_text }}</p>
+        {% if is_enrolled and lesson_count %}
+        <div class="course-progress">
+            <div class="course-progress__bar" style="width: {% widthratio completed_count lesson_count 100 %}%"></div>
+            <span class="course-progress__label">{% trans "Пройдено" %} {{ completed_count }} {% trans "из" %} {{ lesson_count }} {% trans "уроков" %}</span>
+        </div>
+        {% endif %}
+        <p class="course-hero__note">
+            {% trans "В этом курсе первые 3 урока открыты бесплатно, остальные доступны после оплаты." %}
+        </p>
+        <div class="course-hero__actions">
+            {% if not is_enrolled and user.is_authenticated %}
+            <form method="post" action="{% url 'courses:enroll' course.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-primary">{% trans "Записаться на курс" %}</button>
+            </form>
+            {% elif not user.is_authenticated %}
+            <a href="{% url 'users:login' %}?next={{ request.path }}" class="btn-primary">{% trans "Войти" %}</a>
+            <a href="{% url 'users:register' %}" class="btn">{% trans "Регистрация" %}</a>
+            {% endif %}
+            {% if user.is_authenticated and is_teacher %}
+            <a href="{% url 'courses:enroll_student' course.pk %}" class="btn-nav">{% trans "Записать студента на курс" %}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
-{% if not is_enrolled and user.is_authenticated %}
-<form method="post" action="{% url 'courses:enroll' course.pk %}">
-    {% csrf_token %}
-    <button type="submit" class="btn-primary">{% trans "Записаться на курс" %}</button>
-</form>
-{% endif %}
-
-{% if user.is_authenticated and is_teacher %}
-    <p>
-        <a href="{% url 'courses:enroll_student' course.pk %}" class="btn-nav">{% trans "Записать студента на курс" %}</a>
-    </p>
+{% if course.level == "junior" %}
+<section class="course-learn">
+    <h2>{% trans "Чему научитесь" %}</h2>
+    <ul>
+        <li>{% trans "Синтаксис и основы Python" %}</li>
+        <li>{% trans "Переменные, типы данных, циклы" %}</li>
+        <li>{% trans "Функции и модули" %}</li>
+        <li>{% trans "Работа с файлами" %}</li>
+        <li>{% trans "Практические задания" %}</li>
+    </ul>
+</section>
+{% elif course.level == "pro" %}
+<section class="course-learn">
+    <h2>{% trans "Чему научитесь" %}</h2>
+    <ul>
+        <li>{% trans "Web-фреймворки Flask и Django" %}</li>
+        <li>{% trans "Базы данных и ORM" %}</li>
+        <li>{% trans "Деплой приложений" %}</li>
+        <li>{% trans "Лучшие практики" %}</li>
+    </ul>
+</section>
 {% endif %}
 
 <h2>{% trans "Уроки" %}</h2>
+{% if lesson_modules %}
+    {% for module in lesson_modules %}
+    <h3 class="course-module-title">{{ module.title|translate_db_text }}</h3>
+    <ul class="lesson-list">
+        {% for lesson in module.lessons %}
+        <li class="lesson-item">
+            {% if lesson.is_locked %}
+                <span class="lesson-locked">{{ lesson.title|translate_db_text }}</span>
+                <em class="course-meta">({% trans "доступно после оплаты" %})</em>
+                <a href="{% url 'courses:checkout' %}" class="btn-course">{% trans "Купить доступ за 4 $" %}</a>
+            {% else %}
+                <a href="{% url 'courses:lesson_detail' lesson.pk %}" class="btn-lesson">
+                    {{ lesson.display_order }}. {{ lesson.title|translate_db_text }}
+                    {% if lesson.is_free and not has_access %}
+                        <span class="badge-free">{% trans "Бесплатно" %}</span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+{% else %}
 <ul class="lesson-list">
     {% for lesson in lessons %}
     <li class="lesson-item">
         {% if lesson.is_locked %}
-            <span class="lesson-locked">{{ lesson.title }}</span>
+            <span class="lesson-locked">{{ lesson.title|translate_db_text }}</span>
             <em class="course-meta">({% trans "доступно после оплаты" %})</em>
             <a href="{% url 'courses:checkout' %}" class="btn-course">{% trans "Купить доступ за 4 $" %}</a>
         {% else %}
             <a href="{% url 'courses:lesson_detail' lesson.pk %}" class="btn-lesson">
-                {{ forloop.counter }}.
-                {{ lesson.title }}
+                {{ lesson.display_order }}. {{ lesson.title|translate_db_text }}
                 {% if lesson.is_free and not has_access %}
                     <span class="badge-free">{% trans "Бесплатно" %}</span>
                 {% endif %}
@@ -52,13 +116,39 @@
     <li class="lesson-item">{% trans "Уроков пока нет." %}</li>
     {% endfor %}
 </ul>
+{% endif %}
 
 {% if course.books.all %}
 <h2>{% trans "Книги" %}</h2>
 <ul class="book-list">
     {% for book in course.books.all %}
-    <li class="book-item"><a href="{% url 'courses:book_redirect' book.pk %}" class="btn-book" target="_blank" rel="noopener">{{ book.title }}</a></li>
+    <li class="book-item"><a href="{% url 'courses:book_redirect' book.pk %}" class="btn-book" target="_blank" rel="noopener">{{ book.title|translate_db_text }}</a></li>
     {% endfor %}
 </ul>
 {% endif %}
+
+<section class="course-reviews">
+    <h2>{% trans "Отзывы" %} ({{ reviews|length }})</h2>
+    {% if review_form %}
+    <form method="post" action="{% url 'courses:add_review' course.pk %}" class="form-styled review-form">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button type="submit" class="btn-primary">{% trans "Оставить отзыв" %}</button>
+    </form>
+    {% endif %}
+    {% for r in reviews %}
+    <div class="review-item">
+        <div class="review-item__meta">
+            <strong>{{ r.user.username }}</strong>
+            <span class="review-item__rating">★ {{ r.rating }}/5</span>
+            <span class="review-item__date">{{ r.created_at|date:"d.m.Y" }}</span>
+        </div>
+        {% if r.text %}
+        <p class="review-item__text">{{ r.text }}</p>
+        {% endif %}
+    </div>
+    {% empty %}
+    <p class="course-meta">{% trans "Пока нет отзывов." %}</p>
+    {% endfor %}
+</section>
 {% endblock %}
