@@ -15,6 +15,10 @@ class MainViewsTest(TestCase):
 
     def test_root_redirects_to_default_language(self):
         response = self.client.get("/", follow=False)
-        self.assertEqual(response.status_code, 302)
-        # полный URL вида http://testserver/ru/ — надёжнее response.url, чем заголовок Location
-        self.assertIn(f"/{settings.LANGUAGE_CODE}/", response.url)
+        self.assertRedirects(
+            response,
+            f"/{settings.LANGUAGE_CODE}/",
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=False,
+        )
