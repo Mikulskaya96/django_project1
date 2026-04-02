@@ -150,7 +150,6 @@ LOCALE_PATHS = [
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [Path(BASE_DIR, "static/")]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Медиа-файлы (аватары, картинки уроков).
 MEDIA_URL = "/media/"
@@ -158,18 +157,23 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # Cloudinary на проде (Render): без CLOUDINARY_URL запись в media/ на эфемерном диске часто даёт 500.
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "").strip()
-# Django 5.2: STORAGES вместо устаревшего DEFAULT_FILE_STORAGE
+# Django 5.2: при задании STORAGES обязательны и default, и staticfiles (иначе collectstatic падает на Render).
+_WHITENOISE_STATICFILES = {
+    "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+}
 if CLOUDINARY_URL:
     STORAGES = {
         "default": {
             "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
         },
+        "staticfiles": _WHITENOISE_STATICFILES,
     }
 else:
     STORAGES = {
         "default": {
             "BACKEND": "django.core.files.storage.FileSystemStorage",
         },
+        "staticfiles": _WHITENOISE_STATICFILES,
     }
 
 # Куда перенаправлять после входа/выхода
