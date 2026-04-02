@@ -156,10 +156,21 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# Если задан CLOUDINARY_URL — используем Cloudinary для хранения медиа
-CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "")
+# Cloudinary на проде (Render): без CLOUDINARY_URL запись в media/ на эфемерном диске часто даёт 500.
+CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "").strip()
+# Django 5.2: STORAGES вместо устаревшего DEFAULT_FILE_STORAGE
 if CLOUDINARY_URL:
-    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+    STORAGES = {
+        "default": {
+            "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+        },
+    }
+else:
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+    }
 
 # Куда перенаправлять после входа/выхода
 LOGIN_REDIRECT_URL = "index"

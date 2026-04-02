@@ -1,3 +1,5 @@
+import logging
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -9,6 +11,8 @@ from django.utils.translation import gettext as _
 from .forms import RegisterForm, ProfileEditForm
 from .models import Profile
 
+logger = logging.getLogger(__name__)
+
 
 @login_required
 def profile_edit(request):
@@ -17,9 +21,19 @@ def profile_edit(request):
     if request.method == "POST":
         form = ProfileEditForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
-            form.save()
-            messages.success(request, _("Профиль обновлён."))
-            return redirect("users:profile_edit")
+            try:
+                form.save()
+            except Exception:
+                logger.exception("Profile avatar save failed")
+                messages.error(
+                    request,
+                    _(
+                        "Не удалось сохранить файл. Проверьте CLOUDINARY_URL на сервере и размер изображения."
+                    ),
+                )
+            else:
+                messages.success(request, _("Профиль обновлён."))
+                return redirect("users:profile_edit")
     else:
         form = ProfileEditForm(instance=profile)
     return render(request, "users/profile_edit.html", {"form": form, "profile": profile})
