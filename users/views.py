@@ -1,5 +1,6 @@
 import logging
 
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -32,8 +33,12 @@ def profile_edit(request):
                     ),
                 )
             else:
-                messages.success(request, _("Профиль обновлён."))
-                return redirect("users:profile_edit")
+                messages.success(request, str(_("Профиль обновлён.")))
+                profile.refresh_from_db()
+                # 303 + тот же path: надёжный PRG при i18n-префиксе; 302 иногда даёт повторный POST.
+                response = HttpResponseRedirect(request.path)
+                response.status_code = 303
+                return response
     else:
         form = ProfileEditForm(instance=profile)
     return render(request, "users/profile_edit.html", {"form": form, "profile": profile})

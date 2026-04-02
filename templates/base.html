@@ -89,7 +89,7 @@
     {% endif %}
 
     <main class="page-content">
-        {% if request.resolver_match.url_name != 'index' %}
+        {% if request.resolver_match and request.resolver_match.url_name != 'index' %}
         <p class="back-row">
             <button type="button" class="btn-nav btn-back" onclick="history.back()" aria-label="{% trans 'Назад' %}">← {% trans "Назад" %}</button>
         </p>
