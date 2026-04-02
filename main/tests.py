@@ -1,15 +1,7 @@
 from django.conf import settings
-from django.test import Client, TestCase, override_settings
+from django.test import Client, TestCase
 
 
-# В CI без collectstatic WhiteNoise CompressedManifestStaticFilesStorage ломает {% static %} в шаблонах.
-# Для этих тестов достаточно обычного StaticFilesStorage (без manifest).
-@override_settings(
-    STORAGES={
-        "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
-        "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
-    }
-)
 class MainViewsTest(TestCase):
     """Проверка главной страницы."""
 
