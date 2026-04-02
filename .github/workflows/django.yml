@@ -32,6 +32,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # WhiteNoise CompressedManifestStaticFilesStorage — без manifest {% static %} даёт 500 при рендере шаблонов
+      - name: Collect static files
+        env:
+          DJANGO_SECRET_KEY: "ci-secret-key-for-testing"
+          DJANGO_DEBUG: "True"
+        run: python manage.py collectstatic --noinput
+
       - name: Run tests
         env:
           DJANGO_SECRET_KEY: "ci-secret-key-for-testing"
