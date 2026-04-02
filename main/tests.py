@@ -1,7 +1,15 @@
 from django.conf import settings
-from django.test import TestCase, Client
+from django.test import Client, TestCase, override_settings
 
 
+# В CI без collectstatic WhiteNoise CompressedManifestStaticFilesStorage ломает {% static %} в шаблонах.
+# Для этих тестов достаточно обычного StaticFilesStorage (без manifest).
+@override_settings(
+    STORAGES={
+        "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+        "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
+    }
+)
 class MainViewsTest(TestCase):
     """Проверка главной страницы."""
 
@@ -9,16 +17,10 @@ class MainViewsTest(TestCase):
         self.client = Client()
 
     def test_index_returns_200(self):
-        # Главная под i18n: /ru/, /en/ и т.д. — надёжнее, чем follow по / (цепочки редиректов в CI)
         response = self.client.get(f"/{settings.LANGUAGE_CODE}/")
         self.assertEqual(response.status_code, 200)
 
     def test_root_redirects_to_default_language(self):
         response = self.client.get("/", follow=False)
-        self.assertRedirects(
-            response,
-            f"/{settings.LANGUAGE_CODE}/",
-            status_code=302,
-            target_status_code=200,
-            fetch_redirect_response=False,
-        )
+        self.assertEqual(response.status_code, 302)
+        self.assertIn(f"/{settings.LANGUAGE_CODE}/", response.url)

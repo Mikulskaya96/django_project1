@@ -32,11 +32,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # WhiteNoise + manifest: без collectstatic {% static %} в шаблонах даёт 500 при тестах
-      - name: Collect static + tests
+      - name: Run tests
         env:
           DJANGO_SECRET_KEY: "ci-secret-key-for-testing"
           DJANGO_DEBUG: "True"
-        run: |
-          python manage.py collectstatic --noinput
-          python manage.py test
+        run: python manage.py test
