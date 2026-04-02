@@ -14,6 +14,6 @@ def user_role(request):
                 profile_avatar_url = profile.avatar.url
         except Exception:
             pass
-    # Загрузка аватара только при DEBUG (локально); на Render (DEBUG=False) — скрыта
-    can_upload_avatar = settings.DEBUG
+    # Локально: DEBUG=True → файлы в media/. На проде: только если задан CLOUDINARY_URL (облако), иначе диск эфемерный.
+    can_upload_avatar = bool(settings.DEBUG) or bool(getattr(settings, "CLOUDINARY_URL", ""))
     return {"is_teacher": is_teacher, "profile_avatar_url": profile_avatar_url, "can_upload_avatar": can_upload_avatar}

@@ -1,11 +1,13 @@
 # Render Blueprint: один файл для деплоя веб-сервиса и БД.
 # Документация: https://render.com/docs/blueprint-spec
 
+# Платная БД (не trial free). Планы: https://render.com/pricing#postgresql
+# Минимальный платный обычно basic-256mb; при существующей free-BД сначала смени план в Dashboard → данные сохранятся.
 databases:
   - name: devlearn-db
     databaseName: devlearn
     user: devlearn
-    plan: free
+    plan: basic-256mb
 
 services:
   - type: web
