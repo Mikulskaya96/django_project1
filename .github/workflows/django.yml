@@ -44,9 +44,3 @@ jobs:
           DJANGO_SECRET_KEY: "ci-secret-key-for-testing"
           DJANGO_DEBUG: "True"
         run: python manage.py test
-
-              - name: Run tests
-        env:
-          DJANGO_SECRET_KEY: "ci-secret-key-for-testing"
-          DJANGO_DEBUG: "True"
-        run: python manage.py test
