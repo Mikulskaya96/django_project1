@@ -8,5 +8,6 @@ class MainViewsTest(TestCase):
         self.client = Client()
 
     def test_index_returns_200(self):
-        response = self.client.get("/")
+        # Корень «/» редиректит на /ru/ (или LANGUAGE_CODE) — см. settings.urls
+        response = self.client.get("/", follow=True)
         self.assertEqual(response.status_code, 200)
