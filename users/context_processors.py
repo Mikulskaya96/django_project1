@@ -10,8 +10,7 @@ def user_role(request):
         try:
             profile = request.user.profile
             is_teacher = profile.role == "teacher"
-            if profile.avatar:
-                profile_avatar_url = profile.avatar.url
+            profile_avatar_url = profile.avatar_url or None
         except Exception:
             pass
     # Локально: DEBUG=True → файлы в media/. На проде: только если задан CLOUDINARY_URL (облако), иначе диск эфемерный.

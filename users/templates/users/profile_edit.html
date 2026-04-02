@@ -6,8 +6,8 @@
 {% block content %}
 <h1>{% trans "Мой профиль" %}</h1>
 
-{% if profile.avatar %}
-    <p><img src="{{ profile.avatar.url }}" alt="{% trans 'Аватар' %}" style="max-width: 150px; height: auto; border-radius: 50%; object-fit: cover;"></p>
+{% if profile.avatar_url %}
+    <p><img src="{{ profile.avatar_url }}" alt="{% trans 'Аватар' %}" style="max-width: 150px; height: auto; border-radius: 50%; object-fit: cover;"></p>
 {% else %}
     <p>{% trans "Аватар не загружен." %}</p>
 {% endif %}

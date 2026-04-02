@@ -38,5 +38,15 @@ class Profile(models.Model):
         verbose_name = _("Профиль")
         verbose_name_plural = _("Профили")
 
+    @property
+    def avatar_url(self) -> str:
+        """URL аватара для шаблонов; без исключений (Cloudinary может кидать при .url сразу после загрузки)."""
+        if not self.avatar:
+            return ""
+        try:
+            return self.avatar.url
+        except Exception:
+            return ""
+
     def __str__(self):
         return f"{self.user.username} ({self.get_role_display()})"

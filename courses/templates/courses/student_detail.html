@@ -12,9 +12,9 @@
         <p><strong>Email:</strong> {{ student.email }}</p>
         {% if student.profile %}
             <p><strong>{% trans "Роль:" %}</strong> {{ student.profile.get_role_display }}</p>
-            {% if student.profile.avatar %}
+            {% if student.profile.avatar_url %}
                 <p><strong>{% trans "Аватар:" %}</strong><br>
-                    <img src="{{ student.profile.avatar.url }}" alt="{% trans 'Аватар' %}" style="max-width: 200px; border-radius: 10px;">
+                    <img src="{{ student.profile.avatar_url }}" alt="{% trans 'Аватар' %}" style="max-width: 200px; border-radius: 10px;">
                 </p>
             {% endif %}
         {% endif %}
