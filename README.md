@@ -1,12 +1,103 @@
 # DevLearn
-
+A platform for learning programming (Python, courses, lessons, certificates).
 Платформа для изучения программирования (Python, курсы, уроки, сертификаты).  
 Piattaforma per l’apprendimento della programmazione (Python, corsi, lezioni, certificati).
 
 ---
 
-## Русский
+## English
 
+### Dependencies (`requirements.txt`)
+
+All packages are listed in **`requirements.txt`**. Main ones:
+
+| Purpose | Packages |
+|---------|----------|
+| Framework | `Django` 5.2.x |
+| Media, images | `Pillow` |
+| Lesson content | `markdown`, `django-markdownx` |
+| Configuration | `python-dotenv` |
+| API | `djangorestframework` |
+| AI on the lesson page | `groq` |
+| Payments | `stripe` |
+| PDF certificates | `reportlab` |
+| Cloud media (optional) | `django-cloudinary-storage` |
+| Production (Render, etc.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
+
+Install: **`pip install -r requirements.txt`** (with your virtual environment activated).
+
+### Stack
+
+- Python **3.12+**
+- Django **5.2**
+- SQLite (local) / PostgreSQL via `DATABASE_URL` (e.g. on Render)
+
+### Quick start
+
+1. Clone the repository and enter the project directory:
+   ```bash
+   git clone https://github.com/Mikulskaya96/django_project1.git
+   cd django_project1
+   ```
+
+2. Virtual environment and activation:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate
+   ```
+   Linux/macOS: `source .venv/bin/activate`
+
+3. Install dependencies (**required**):
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Environment variables:
+   ```bash
+   copy .env.example .env
+   ```
+   (Linux/macOS: `cp .env.example .env`)  
+   Edit `.env` as needed. For production, set `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`.  
+   For the AI block on lessons: **`GROQ_API_KEY`** (and optionally `GEMINI_API_KEY` — see `settings.py`).  
+   For Stripe and Cloudinary, see the comments in `.env.example`.
+
+5. Migrations and (optional) sample data:
+   ```bash
+   python manage.py migrate
+   python manage.py populate_db
+   ```
+
+6. Superuser (access to `/admin/`):
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+7. Run the dev server:
+   ```bash
+   python manage.py runserver
+   ```
+   Site: http://127.0.0.1:8000/ — admin: http://127.0.0.1:8000/admin/
+
+### Tests
+
+```bash
+python manage.py test
+```
+
+Pushes to **`main`** / **`master`** trigger **GitHub Actions** (see `.github/workflows/`).
+
+### Deploy on Render (short)
+
+GitHub repo → service on [render.com](https://render.com), environment variables (`DJANGO_SECRET_KEY`, `DATABASE_URL`, optionally `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, superuser for build, etc.). Details: your service settings and `render.yaml` if you use it.
+
+### Project layout
+
+- `main` — home, static pages (about, contacts, legal)
+- `users` — sign up, login, profiles (student / teacher roles)
+- `courses` — courses, lessons, enrollments, API `/api/`, PDF certificates
+- `settings` — Django configuration
+
+## Русский
 ### Зависимости (`requirements.txt`)
 
 Все пакеты перечислены в **`requirements.txt`**. Основные:
