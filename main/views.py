@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from courses.models import Course
 
@@ -25,4 +26,10 @@ def contacts(request):
 
 def about(request):
     """О нас — миссия, команда, подход к обучению."""
-    return render(request, "main/about.html")
+    return render(
+        request,
+        "main/about.html",
+        {
+            "free_public_access": getattr(settings, "FREE_PUBLIC_ACCESS", True),
+        },
+    )

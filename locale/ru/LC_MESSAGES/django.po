@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DevLearn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 01:29+0200\n"
+"POT-Creation-Date: 2026-04-03 14:12+0200\n"
 "PO-Revision-Date: 2026-03-26 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
@@ -3050,7 +3050,13 @@ msgstr ""
 msgid "Наш подход"
 msgstr ""
 
-#: .\main\templates\main\about.html:33
+#: .\main\templates\main\about.html:34
+msgid ""
+"Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
+"основ к реальным проектам."
+msgstr ""
+
+#: .\main\templates\main\about.html:36
 msgid ""
 "Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
 "основ к реальным проектам. Бесплатно можно пройти первые 2 урока курса для "
@@ -3058,11 +3064,11 @@ msgid ""
 "обоих курсов открывается после единой оплаты."
 msgstr ""
 
-#: .\main\templates\main\about.html:37
+#: .\main\templates\main\about.html:41
 msgid "Посмотреть курсы"
 msgstr ""
 
-#: .\main\templates\main\about.html:38
+#: .\main\templates\main\about.html:42
 msgid "Связаться с нами"
 msgstr ""
 
@@ -3075,8 +3081,7 @@ msgid "Контакты и поддержка"
 msgstr ""
 
 #: .\main\templates\main\contacts.html:9
-msgid ""
-"Если у вас возникли вопросы по курсам или доступу, свяжитесь с нами:"
+msgid "Если у вас возникли вопросы по курсам или доступу, свяжитесь с нами:"
 msgstr ""
 
 #: .\main\templates\main\contacts.html:12

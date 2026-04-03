@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DevLearn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 01:29+0200\n"
+"POT-Creation-Date: 2026-04-03 14:12+0200\n"
 "PO-Revision-Date: 2026-03-19 00:00+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -3813,13 +3813,15 @@ msgstr "Supporto per più lingue: russo, inglese, italiano"
 msgid "Наш подход"
 msgstr "Il nostro approccio"
 
-#: .\main\templates\main\about.html:33
-#, fuzzy
-#| msgid ""
-#| "Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут "
-#| "от основ к реальным проектам. Доступ к платным урокам открывается после "
-#| "оплаты, первые уроки каждого курса доступны бесплатно — чтобы вы могли "
-#| "оценить формат перед покупкой."
+#: .\main\templates\main\about.html:34
+msgid ""
+"Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
+"основ к реальным проектам."
+msgstr ""
+"Puntiamo sulla pratica: ogni lezione include esercizi e i corsi ti portano "
+"dalle basi ai progetti reali."
+
+#: .\main\templates\main\about.html:36
 msgid ""
 "Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
 "основ к реальным проектам. Бесплатно можно пройти первые 2 урока курса для "
@@ -3827,15 +3829,16 @@ msgid ""
 "обоих курсов открывается после единой оплаты."
 msgstr ""
 "Puntiamo sulla pratica: ogni lezione include esercizi e i corsi ti portano "
-"dalle basi a progetti reali. L'accesso alle lezioni a pagamento si apre dopo "
-"il pagamento; le prime lezioni di ogni corso sono gratuite per provare il "
-"formato prima di acquistare."
+"dalle basi ai progetti reali. Gratuitamente puoi seguire le prime 2 lezioni "
+"del corso per principianti e la prima lezione del corso professionale; "
+"l'accesso completo alle lezioni a pagamento di entrambi i corsi si sblocca "
+"dopo un unico pagamento."
 
-#: .\main\templates\main\about.html:37
+#: .\main\templates\main\about.html:41
 msgid "Посмотреть курсы"
 msgstr "Vedi corsi"
 
-#: .\main\templates\main\about.html:38
+#: .\main\templates\main\about.html:42
 msgid "Связаться с нами"
 msgstr "Contattaci"
 
@@ -3848,8 +3851,7 @@ msgid "Контакты и поддержка"
 msgstr "Contatti e supporto"
 
 #: .\main\templates\main\contacts.html:9
-msgid ""
-"Если у вас возникли вопросы по курсам или доступу, свяжитесь с нами:"
+msgid "Если у вас возникли вопросы по курсам или доступу, свяжитесь с нами:"
 msgstr "Per domande sui corsi o sull'accesso, contattaci:"
 
 #: .\main\templates\main\contacts.html:12
