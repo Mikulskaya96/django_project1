@@ -200,6 +200,7 @@ STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 BUNDLE_PRICE_USD = int(os.environ.get("BUNDLE_PRICE_USD", "4"))
 
 # True — все залогиненные пользователи видят весь контент без оплаты (публичный портфолио-сайт).
+# На Render для бесплатного сайта задайте FREE_PUBLIC_ACCESS=True (или не задавайте — по умолчанию True).
 # False — платный режим (Stripe). Для демо оплаты локально: FREE_PUBLIC_ACCESS=False + тестовые ключи Stripe.
 FREE_PUBLIC_ACCESS = os.environ.get("FREE_PUBLIC_ACCESS", "True").lower() in (
     "true",

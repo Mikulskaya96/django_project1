@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DevLearn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 14:22+0200\n"
+"POT-Creation-Date: 2026-04-03 16:27+0200\n"
 "PO-Revision-Date: 2026-03-19 00:00+0000\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -3014,7 +3014,7 @@ msgid "Курс"
 msgstr "Course"
 
 #: .\courses\models.py:79 .\courses\templates\courses\course_list.html:7
-#: .\templates\base.html:32
+#: .\templates\base.html:42
 msgid "Курсы"
 msgstr "Courses"
 
@@ -3215,7 +3215,7 @@ msgstr "Author:"
 
 #: .\courses\templates\courses\course_detail.html:21
 #: .\courses\templates\courses\course_detail.html:33
-#: .\courses\templates\courses\course_list.html:44
+#: .\courses\templates\courses\course_list.html:46
 #: .\courses\templates\courses\my_courses.html:12
 msgid "уроков"
 msgstr "lessons"
@@ -3280,13 +3280,13 @@ msgstr ""
 msgid "Записаться на курс"
 msgstr "Enroll in course"
 
-#: .\courses\templates\courses\course_detail.html:52 .\templates\base.html:51
+#: .\courses\templates\courses\course_detail.html:52 .\templates\base.html:61
 #: .\users\templates\users\login.html:11
 #: .\users\templates\users\register.html:13
 msgid "Войти"
 msgstr "Sign in"
 
-#: .\courses\templates\courses\course_detail.html:53 .\templates\base.html:52
+#: .\courses\templates\courses\course_detail.html:53 .\templates\base.html:62
 #: .\users\templates\users\login.html:13
 #: .\users\templates\users\register.html:7
 msgid "Регистрация"
@@ -3340,7 +3340,8 @@ msgstr "available after payment"
 
 #: .\courses\templates\courses\course_detail.html:100
 #: .\courses\templates\courses\course_detail.html:120
-#: .\courses\templates\courses\course_list.html:52
+#: .\courses\templates\courses\course_list.html:33
+#: .\courses\templates\courses\course_list.html:54
 msgid "Бесплатно"
 msgstr "Free"
 
@@ -3364,7 +3365,7 @@ msgstr "No reviews yet."
 msgid "Создать курс — DevLearn"
 msgstr "Create course — DevLearn"
 
-#: .\courses\templates\courses\course_form.html:7 .\templates\base.html:44
+#: .\courses\templates\courses\course_form.html:7 .\templates\base.html:54
 msgid "Создать курс"
 msgstr "Create course"
 
@@ -3384,27 +3385,27 @@ msgstr "Category:"
 msgid "Уровень:"
 msgstr "Level:"
 
-#: .\courses\templates\courses\course_list.html:33
+#: .\courses\templates\courses\course_list.html:35
 msgid "1 урок бесплатно"
 msgstr "1 lesson free"
 
-#: .\courses\templates\courses\course_list.html:35
+#: .\courses\templates\courses\course_list.html:37
 msgid "2 урока бесплатно"
 msgstr "2 lessons free"
 
-#: .\courses\templates\courses\course_list.html:52
+#: .\courses\templates\courses\course_list.html:54
 #, fuzzy
 #| msgid "доступно после оплаты"
 msgid "все уроки после входа"
 msgstr "available after payment"
 
-#: .\courses\templates\courses\course_list.html:54
+#: .\courses\templates\courses\course_list.html:56
 #, fuzzy
 #| msgid "Оплата доступа к курсам"
 msgid "Полный доступ к обоим курсам"
 msgstr "Course access payment"
 
-#: .\courses\templates\courses\course_list.html:60
+#: .\courses\templates\courses\course_list.html:62
 msgid "Курсов пока нет."
 msgstr "No courses yet."
 
@@ -3496,7 +3497,7 @@ msgstr "Back to course"
 msgid "Мои курсы — DevLearn"
 msgstr "My courses — DevLearn"
 
-#: .\courses\templates\courses\my_courses.html:7 .\templates\base.html:41
+#: .\courses\templates\courses\my_courses.html:7 .\templates\base.html:51
 msgid "Мои курсы"
 msgstr "My courses"
 
@@ -3544,7 +3545,7 @@ msgid "Студенты — DevLearn"
 msgstr "Students — DevLearn"
 
 #: .\courses\templates\courses\student_list.html:7
-#: .\main\templates\main\index.html:30 .\templates\base.html:30
+#: .\main\templates\main\index.html:30 .\templates\base.html:40
 msgid "Студенты"
 msgstr "Students"
 
@@ -3556,7 +3557,7 @@ msgstr "Details →"
 msgid "Первая"
 msgstr "First"
 
-#: .\courses\templates\courses\student_list.html:33 .\templates\base.html:94
+#: .\courses\templates\courses\student_list.html:33 .\templates\base.html:104
 msgid "Назад"
 msgstr "Back"
 
@@ -3701,8 +3702,8 @@ msgstr "Payment was cancelled."
 msgid "О нас — DevLearn"
 msgstr "About us — DevLearn"
 
-#: .\main\templates\main\about.html:7 .\templates\base.html:42
-#: .\templates\base.html:103
+#: .\main\templates\main\about.html:7 .\templates\base.html:52
+#: .\templates\base.html:113
 msgid "О нас"
 msgstr "About us"
 
@@ -3748,19 +3749,23 @@ msgstr "AI assistant for lessons — answers in the context of the material"
 msgid "Учёт прогресса по урокам в личном кабинете"
 msgstr "Track lesson progress in your account"
 
-#: .\main\templates\main\about.html:27
+#: .\main\templates\main\about.html:28
+msgid "Бесплатный доступ к урокам после входа"
+msgstr "Free access to lessons after sign-in"
+
+#: .\main\templates\main\about.html:30
 msgid "Доступная цена и прозрачные условия оплаты"
 msgstr "Affordable pricing and transparent payment terms"
 
-#: .\main\templates\main\about.html:28
+#: .\main\templates\main\about.html:32
 msgid "Поддержка нескольких языков: русский, английский, итальянский"
 msgstr "Support for multiple languages: Russian, English, Italian"
 
-#: .\main\templates\main\about.html:31
+#: .\main\templates\main\about.html:35
 msgid "Наш подход"
 msgstr "Our approach"
 
-#: .\main\templates\main\about.html:34
+#: .\main\templates\main\about.html:38
 msgid ""
 "Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
 "основ к реальным проектам."
@@ -3768,7 +3773,7 @@ msgstr ""
 "We focus on practice: every lesson includes exercises, and courses take you "
 "from basics to real projects."
 
-#: .\main\templates\main\about.html:36
+#: .\main\templates\main\about.html:40
 msgid ""
 "Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
 "основ к реальным проектам. Бесплатно можно пройти первые 2 урока курса для "
@@ -3781,11 +3786,11 @@ msgstr ""
 "full access to the paid lessons of both courses unlocks after a single "
 "payment."
 
-#: .\main\templates\main\about.html:41
+#: .\main\templates\main\about.html:45
 msgid "Посмотреть курсы"
 msgstr "View courses"
 
-#: .\main\templates\main\about.html:42
+#: .\main\templates\main\about.html:46
 msgid "Связаться с нами"
 msgstr "Contact us"
 
@@ -3873,7 +3878,7 @@ msgstr "DevLearn — Programming learning platform"
 msgid "Добро пожаловать на платформу"
 msgstr "Welcome to the platform"
 
-#: .\main\templates\main\index.html:14 .\templates\base.html:38
+#: .\main\templates\main\index.html:14 .\templates\base.html:48
 msgid "Привет,"
 msgstr "Hi,"
 
@@ -3981,7 +3986,7 @@ msgstr "All courses"
 msgid "Политика конфиденциальности — DevLearn"
 msgstr "Privacy policy — DevLearn"
 
-#: .\main\templates\main\privacy_policy.html:7 .\templates\base.html:107
+#: .\main\templates\main\privacy_policy.html:7 .\templates\base.html:117
 msgid "Политика конфиденциальности"
 msgstr "Privacy policy"
 
@@ -4013,7 +4018,7 @@ msgstr ""
 msgid "Публичная оферта — DevLearn"
 msgstr "Public offer — DevLearn"
 
-#: .\main\templates\main\public_offer.html:7 .\templates\base.html:105
+#: .\main\templates\main\public_offer.html:7 .\templates\base.html:115
 msgid "Публичная оферта"
 msgstr "Public offer"
 
@@ -4046,27 +4051,35 @@ msgstr ""
 "For questions about access, payments, and refunds, please use the Contacts "
 "section."
 
-#: .\templates\base.html:20
+#: .\templates\admin\base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: .\templates\admin\base_site.html:6
+msgid "Django administration"
+msgstr ""
+
+#: .\templates\base.html:30
 msgid "Основное меню"
 msgstr "Main navigation"
 
-#: .\templates\base.html:21
+#: .\templates\base.html:31
 msgid "Меню"
 msgstr "Menu"
 
-#: .\templates\base.html:40 .\users\templates\users\profile_edit.html:9
+#: .\templates\base.html:50 .\users\templates\users\profile_edit.html:9
 msgid "Мой профиль"
 msgstr "My profile"
 
-#: .\templates\base.html:48
+#: .\templates\base.html:58
 msgid "Выйти"
 msgstr "Sign out"
 
-#: .\templates\base.html:67
+#: .\templates\base.html:77
 msgid "Переключить тему"
 msgstr "Toggle theme"
 
-#: .\templates\base.html:109
+#: .\templates\base.html:119
 msgid "Контакты"
 msgstr "Contacts"
 
@@ -4120,8 +4133,7 @@ msgstr "Manage your profile photo and view account details."
 
 #: .\users\templates\users\profile_edit.html:12
 msgid "В публичном режиме материалы курсов доступны после входа."
-msgstr ""
-"In public mode, course materials are available after you sign in."
+msgstr "In public mode, course materials are available after you sign in."
 
 #: .\users\templates\users\profile_edit.html:14
 msgid ""
@@ -4176,10 +4188,6 @@ msgstr ""
 "Avatar upload is available only when running the project locally (training "
 "project)."
 
-#: .\users\templates\users\profile_edit.html:79
-msgid "На главную"
-msgstr "To home"
-
 #: .\users\templates\users\register.html:4
 msgid "Регистрация — DevLearn"
 msgstr "Sign up — DevLearn"
@@ -4209,6 +4217,9 @@ msgid ""
 "Не удалось обработать загрузку. Попробуйте изображение JPEG или PNG размером "
 "до 5 МБ."
 msgstr "Could not process the upload. Try a JPEG or PNG image up to 5 MB."
+
+#~ msgid "На главную"
+#~ msgstr "To home"
 
 #~ msgid "Аватар не загружен."
 #~ msgstr "Avatar is not uploaded."

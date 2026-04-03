@@ -29,7 +29,9 @@
                 <span class="course-card__placeholder">📚</span>
             {% endif %}
             <span class="course-card__badge badge-preview">
-                {% if course.level == "pro" %}
+                {% if free_public_access %}
+                    {% trans "Бесплатно" %}
+                {% elif course.level == "pro" %}
                     {% trans "1 урок бесплатно" %}
                 {% else %}
                     {% trans "2 урока бесплатно" %}
