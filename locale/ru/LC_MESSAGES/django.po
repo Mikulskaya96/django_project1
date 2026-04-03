@@ -3076,7 +3076,7 @@ msgstr ""
 
 #: .\main\templates\main\contacts.html:9
 msgid ""
-"Если у вас возникли вопросы по курсам, оплате или доступу, свяжитесь с нами:"
+"Если у вас возникли вопросы по курсам или доступу, свяжитесь с нами:"
 msgstr ""
 
 #: .\main\templates\main\contacts.html:12

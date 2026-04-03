@@ -3849,8 +3849,8 @@ msgstr "Contatti e supporto"
 
 #: .\main\templates\main\contacts.html:9
 msgid ""
-"Если у вас возникли вопросы по курсам, оплате или доступу, свяжитесь с нами:"
-msgstr "Se hai domande su corsi, pagamento o accesso, contattaci:"
+"Если у вас возникли вопросы по курсам или доступу, свяжитесь с нами:"
+msgstr "Per domande sui corsi o sull'accesso, contattaci:"
 
 #: .\main\templates\main\contacts.html:12
 msgid "Время ответа: обычно в течение 24 часов."
