@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></div>
+{% if user.is_anonymous %}
+  {% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  /* Длинные формы + markdownx: страница должна прокручиваться до submit-row */
+  html {
+    height: auto !important;
+    min-height: 100%;
+    overflow-y: scroll !important;
+  }
+  body {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+  }
+  #container {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+  }
+  #main {
+    overflow: visible !important;
+  }
+  .main > .content {
+    overflow: visible !important;
+  }
+</style>
+{% endblock %}

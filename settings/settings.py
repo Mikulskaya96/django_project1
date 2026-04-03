@@ -211,17 +211,32 @@ FREE_PUBLIC_ACCESS = os.environ.get("FREE_PUBLIC_ACCESS", "True").lower() in (
 # Пусто — gtag не подключается (удобно для локальной разработки).
 GA4_MEASUREMENT_ID = os.environ.get("GA4_MEASUREMENT_ID", "").strip()
 
-# Render за прокси: без этого request.is_secure() может быть False → CSRF даёт 403 на POST
-# (например django-markdownx «markdownify» в админке при сохранении урока).
+# Продакшен за HTTPS-прокси (Render и т.п.): иначе request.is_secure() часто False → CSRF 403 на POST
+# (в т.ч. django-markdownx «markdownify» в админке).
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    USE_X_FORWARDED_HOST = True
+
+_csrf_origins = []
 _render_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME", "").strip()
 if _render_host:
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-    CSRF_TRUSTED_ORIGINS = [f"https://{_render_host}"]
-    _extra_csrf = os.environ.get("CSRF_TRUSTED_ORIGINS", "").strip()
-    if _extra_csrf:
-        CSRF_TRUSTED_ORIGINS.extend(
-            o.strip() for o in _extra_csrf.split(",") if o.strip()
-        )
+    _csrf_origins.append(f"https://{_render_host}")
+if not DEBUG:
+    _local_hosts = {"localhost", "127.0.0.1", "[::1]"}
+    for _h in ALLOWED_HOSTS:
+        _hn = (_h or "").strip()
+        if _hn and _hn not in _local_hosts:
+            _csrf_origins.append(f"https://{_hn}")
+_csrf_origins = list(dict.fromkeys(_csrf_origins))
+_extra_csrf = os.environ.get("CSRF_TRUSTED_ORIGINS", "").strip()
+if _extra_csrf:
+    for _o in _extra_csrf.split(","):
+        _o = _o.strip()
+        if _o:
+            _csrf_origins.append(_o)
+    _csrf_origins = list(dict.fromkeys(_csrf_origins))
+if _csrf_origins:
+    CSRF_TRUSTED_ORIGINS = _csrf_origins
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
