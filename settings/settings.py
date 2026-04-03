@@ -80,6 +80,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "users.context_processors.user_role",
+                "main.context_processors.ga4",
             ],
         },
     },
@@ -205,6 +206,10 @@ FREE_PUBLIC_ACCESS = os.environ.get("FREE_PUBLIC_ACCESS", "True").lower() in (
     "1",
     "yes",
 )
+
+# Google Analytics 4: идентификатор потока вида G-XXXXXXXXXX (Admin → Data streams → Web).
+# Пусто — gtag не подключается (удобно для локальной разработки).
+GA4_MEASUREMENT_ID = os.environ.get("GA4_MEASUREMENT_ID", "").strip()
 
 # Render за прокси: без этого request.is_secure() может быть False → CSRF даёт 403 на POST
 # (например django-markdownx «markdownify» в админке при сохранении урока).

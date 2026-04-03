@@ -28,7 +28,12 @@ class ProfileEditForm(forms.ModelForm):
         model = Profile
         fields = ("avatar",)
         widgets = {
-            "avatar": forms.FileInput(attrs={"accept": "image/*"}),
+            "avatar": forms.FileInput(
+                attrs={
+                    "accept": "image/*",
+                    "class": "profile-upload__input",
+                }
+            ),
         }
 
     def clean_avatar(self):

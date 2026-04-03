@@ -1,5 +1,6 @@
 import logging
 
+from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
@@ -53,7 +54,15 @@ def profile_edit(request):
             form = ProfileEditForm(instance=profile)
     else:
         form = ProfileEditForm(instance=profile)
-    return render(request, "users/profile_edit.html", {"form": form, "profile": profile})
+    return render(
+        request,
+        "users/profile_edit.html",
+        {
+            "form": form,
+            "profile": profile,
+            "free_public_access": getattr(settings, "FREE_PUBLIC_ACCESS", True),
+        },
+    )
 
 
 class RegisterView(CreateView):

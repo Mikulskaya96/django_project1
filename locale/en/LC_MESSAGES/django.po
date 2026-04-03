@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DevLearn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 14:12+0200\n"
+"POT-Creation-Date: 2026-04-03 14:22+0200\n"
 "PO-Revision-Date: 2026-03-19 00:00+0000\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -3385,16 +3385,12 @@ msgid "Уровень:"
 msgstr "Level:"
 
 #: .\courses\templates\courses\course_list.html:33
-#, fuzzy
-#| msgid "Бесплатно"
 msgid "1 урок бесплатно"
-msgstr "Free"
+msgstr "1 lesson free"
 
 #: .\courses\templates\courses\course_list.html:35
-#, fuzzy
-#| msgid "Бесплатно"
 msgid "2 урока бесплатно"
-msgstr "Free"
+msgstr "2 lessons free"
 
 #: .\courses\templates\courses\course_list.html:52
 #, fuzzy
@@ -3523,8 +3519,7 @@ msgid "Аватар:"
 msgstr "Avatar:"
 
 #: .\courses\templates\courses\student_detail.html:17 .\users\models.py:24
-#: .\users\templates\users\profile_edit.html:10
-#: .\users\templates\users\profile_edit.html:22
+#: .\users\templates\users\profile_edit.html:41
 msgid "Аватар"
 msgstr "Avatar"
 
@@ -4059,7 +4054,7 @@ msgstr "Main navigation"
 msgid "Меню"
 msgstr "Menu"
 
-#: .\templates\base.html:40 .\users\templates\users\profile_edit.html:7
+#: .\templates\base.html:40 .\users\templates\users\profile_edit.html:9
 msgid "Мой профиль"
 msgstr "My profile"
 
@@ -4075,15 +4070,15 @@ msgstr "Toggle theme"
 msgid "Контакты"
 msgstr "Contacts"
 
-#: .\users\forms.py:39
+#: .\users\forms.py:44
 msgid "Файл больше 5 МБ."
 msgstr "File is larger than 5 MB."
 
-#: .\users\forms.py:45
+#: .\users\forms.py:50
 msgid "Не удалось прочитать изображение. Используйте JPEG или PNG."
 msgstr "Could not read the image. Use JPEG or PNG."
 
-#: .\users\models.py:27
+#: .\users\models.py:27 .\users\templates\users\profile_edit.html:31
 msgid "Роль"
 msgstr "Role"
 
@@ -4119,15 +4114,61 @@ msgstr "No account?"
 msgid "Мой профиль — DevLearn"
 msgstr "My profile — DevLearn"
 
-#: .\users\templates\users\profile_edit.html:12
-msgid "Аватар не загружен."
-msgstr "Avatar is not uploaded."
+#: .\users\templates\users\profile_edit.html:10
+msgid "Управление фото профиля и просмотр данных аккаунта."
+msgstr "Manage your profile photo and view account details."
 
-#: .\users\templates\users\profile_edit.html:28
+#: .\users\templates\users\profile_edit.html:12
+msgid "В публичном режиме материалы курсов доступны после входа."
+msgstr ""
+"In public mode, course materials are available after you sign in."
+
+#: .\users\templates\users\profile_edit.html:14
+msgid ""
+"Бесплатный превью: первые 2 урока курса для начинающих и 1 урок "
+"профессионального курса; полный доступ — после оплаты."
+msgstr ""
+"Free preview: the first 2 lessons of the beginner course and the first "
+"lesson of the professional course; full access after payment."
+
+#: .\users\templates\users\profile_edit.html:20
+msgid "Аккаунт"
+msgstr "Account"
+
+# Author (teacher)
+#: .\users\templates\users\profile_edit.html:23
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\users\templates\users\profile_edit.html:27
+msgid "Email"
+msgstr "Email"
+
+#: .\users\templates\users\profile_edit.html:38
+msgid "Фото профиля"
+msgstr "Profile photo"
+
+#: .\users\templates\users\profile_edit.html:46
+msgid "Нет фото"
+msgstr "No photo"
+
+#: .\users\templates\users\profile_edit.html:59
+msgid "Выбрать изображение"
+msgstr "Choose image"
+
+#: .\users\templates\users\profile_edit.html:60
+msgid "Файл не выбран"
+msgstr "No file selected"
+
+#: .\users\templates\users\profile_edit.html:66
+msgid "Форматы: JPEG, PNG или WebP. До 5 МБ."
+msgstr "Formats: JPEG, PNG, or WebP. Up to 5 MB."
+
+#: .\users\templates\users\profile_edit.html:69
 msgid "Сохранить"
 msgstr "Save"
 
-#: .\users\templates\users\profile_edit.html:31
+#: .\users\templates\users\profile_edit.html:73
 msgid ""
 "Загрузка аватара доступна только при локальном запуске проекта (учебный "
 "проект)."
@@ -4135,7 +4176,7 @@ msgstr ""
 "Avatar upload is available only when running the project locally (training "
 "project)."
 
-#: .\users\templates\users\profile_edit.html:34
+#: .\users\templates\users\profile_edit.html:79
 msgid "На главную"
 msgstr "To home"
 
@@ -4151,7 +4192,7 @@ msgstr "Sign up"
 msgid "Уже есть аккаунт?"
 msgstr "Already have an account?"
 
-#: .\users\views.py:35
+#: .\users\views.py:36
 msgid ""
 "Не удалось сохранить файл. Проверьте CLOUDINARY_URL на сервере и размер "
 "изображения."
@@ -4159,15 +4200,18 @@ msgstr ""
 "Could not save the file. Check CLOUDINARY_URL on the server and the image "
 "size."
 
-#: .\users\views.py:39
+#: .\users\views.py:40
 msgid "Профиль обновлён."
 msgstr "Profile updated."
 
-#: .\users\views.py:50
+#: .\users\views.py:51
 msgid ""
 "Не удалось обработать загрузку. Попробуйте изображение JPEG или PNG размером "
 "до 5 МБ."
 msgstr "Could not process the upload. Try a JPEG or PNG image up to 5 MB."
+
+#~ msgid "Аватар не загружен."
+#~ msgstr "Avatar is not uploaded."
 
 #~ msgid "Идентификатор сертификата"
 #~ msgstr "Certificate ID"

@@ -4,32 +4,89 @@
 {% block title %}{% trans "Мой профиль — DevLearn" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Мой профиль" %}</h1>
-
-{% if profile.avatar_url %}
-    <p><img src="{{ profile.avatar_url }}" alt="{% trans 'Аватар' %}" style="max-width: 150px; height: auto; border-radius: 50%; object-fit: cover;"></p>
-{% else %}
-    <p>{% trans "Аватар не загружен." %}</p>
-{% endif %}
-
-{% if can_upload_avatar %}
-<form method="post" enctype="multipart/form-data" class="form-styled">
-    {% csrf_token %}
-    {% if form.non_field_errors %}
-        <div class="msg error">{{ form.non_field_errors }}</div>
-    {% endif %}
-    <p>
-        <label for="{{ form.avatar.id_for_label }}">{% trans "Аватар" %}:</label>
-        {{ form.avatar }}
-        {% if form.avatar.errors %}
-            <span class="msg error">{{ form.avatar.errors }}</span>
+<div class="profile-page">
+    <header class="profile-page__intro">
+        <h1 class="profile-page__title">{% trans "Мой профиль" %}</h1>
+        <p class="profile-page__lead">{% trans "Управление фото профиля и просмотр данных аккаунта." %}</p>
+        {% if free_public_access %}
+            <p class="profile-page__note muted">{% trans "В публичном режиме материалы курсов доступны после входа." %}</p>
+        {% else %}
+            <p class="profile-page__note muted">{% trans "Бесплатный превью: первые 2 урока курса для начинающих и 1 урок профессионального курса; полный доступ — после оплаты." %}</p>
         {% endif %}
-    </p>
-    <button type="submit" class="btn-primary">{% trans "Сохранить" %}</button>
-</form>
-{% else %}
-<p class="muted">{% trans "Загрузка аватара доступна только при локальном запуске проекта (учебный проект)." %}</p>
-{% endif %}
+    </header>
 
-<p><a href="{% url 'index' %}">← {% trans "На главную" %}</a></p>
+    <div class="profile-layout">
+        <section class="profile-card" aria-labelledby="profile-account-heading">
+            <h2 id="profile-account-heading" class="profile-card__title">{% trans "Аккаунт" %}</h2>
+            <dl class="profile-dl">
+                <div class="profile-dl__row">
+                    <dt>{% trans "Имя пользователя" %}</dt>
+                    <dd>{{ user.username }}</dd>
+                </div>
+                <div class="profile-dl__row">
+                    <dt>{% trans "Email" %}</dt>
+                    <dd>{% if user.email %}<a href="mailto:{{ user.email }}">{{ user.email }}</a>{% else %}—{% endif %}</dd>
+                </div>
+                <div class="profile-dl__row">
+                    <dt>{% trans "Роль" %}</dt>
+                    <dd>{{ profile.get_role_display }}</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="profile-card profile-card--photo" aria-labelledby="profile-photo-heading">
+            <h2 id="profile-photo-heading" class="profile-card__title">{% trans "Фото профиля" %}</h2>
+
+            {% if profile.avatar_url %}
+                <div class="profile-avatar-ring" role="img" aria-label="{% trans 'Аватар' %}">
+                    <img src="{{ profile.avatar_url }}" alt="" class="profile-avatar-ring__img" width="160" height="160">
+                </div>
+            {% else %}
+                <div class="profile-avatar-placeholder" aria-hidden="true">
+                    <span class="profile-avatar-placeholder__icon">{% trans "Нет фото" %}</span>
+                </div>
+            {% endif %}
+
+            {% if can_upload_avatar %}
+                <form method="post" enctype="multipart/form-data" class="profile-form form-styled">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="msg error">{{ form.non_field_errors }}</div>
+                    {% endif %}
+
+                    <div class="profile-upload">
+                        {{ form.avatar }}
+                        <label for="{{ form.avatar.id_for_label }}" class="profile-upload__btn">{% trans "Выбрать изображение" %}</label>
+                        <p class="profile-upload__filename" id="avatar-filename" data-placeholder="{% trans 'Файл не выбран' %}">{% trans "Файл не выбран" %}</p>
+                    </div>
+                    {% if form.avatar.errors %}
+                        <div class="msg error">{{ form.avatar.errors }}</div>
+                    {% endif %}
+
+                    <p class="profile-page__hint muted">{% trans "Форматы: JPEG, PNG или WebP. До 5 МБ." %}</p>
+
+                    <div class="profile-form__actions">
+                        <button type="submit" class="btn-primary">{% trans "Сохранить" %}</button>
+                    </div>
+                </form>
+            {% else %}
+                <p class="muted profile-page__muted-block">{% trans "Загрузка аватара доступна только при локальном запуске проекта (учебный проект)." %}</p>
+            {% endif %}
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+    var input = document.getElementById("{{ form.avatar.id_for_label }}");
+    var out = document.getElementById("avatar-filename");
+    if (!input || !out) return;
+    var ph = out.getAttribute("data-placeholder") || "";
+    input.addEventListener("change", function () {
+        out.textContent = (input.files && input.files[0]) ? input.files[0].name : ph;
+    });
+})();
+</script>
 {% endblock %}
