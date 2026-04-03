@@ -18,27 +18,39 @@ logger = logging.getLogger(__name__)
 @login_required
 def profile_edit(request):
     """Редактирование своего профиля: загрузка аватара."""
-    profile, _ = Profile.objects.get_or_create(user=request.user, defaults={"role": "student"})
+    profile, _created = Profile.objects.get_or_create(
+        user=request.user, defaults={"role": "student"}
+    )
     if request.method == "POST":
-        form = ProfileEditForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            try:
-                form.save()
-            except Exception:
-                logger.exception("Profile avatar save failed")
-                messages.error(
-                    request,
-                    _(
-                        "Не удалось сохранить файл. Проверьте CLOUDINARY_URL на сервере и размер изображения."
-                    ),
-                )
-            else:
-                messages.success(request, str(_("Профиль обновлён.")))
-                profile.refresh_from_db()
-                # 303 + тот же path: надёжный PRG при i18n-префиксе; 302 иногда даёт повторный POST.
-                response = HttpResponseRedirect(request.path)
-                response.status_code = 303
-                return response
+        try:
+            form = ProfileEditForm(request.POST, request.FILES, instance=profile)
+            if form.is_valid():
+                try:
+                    form.save()
+                except Exception:
+                    logger.exception("Profile avatar save failed")
+                    messages.error(
+                        request,
+                        _(
+                            "Не удалось сохранить файл. Проверьте CLOUDINARY_URL на сервере и размер изображения."
+                        ),
+                    )
+                else:
+                    messages.success(request, str(_("Профиль обновлён.")))
+                    profile.refresh_from_db()
+                    # 303 + тот же path: надёжный PRG при i18n-префиксе; 302 иногда даёт повторный POST.
+                    response = HttpResponseRedirect(request.path)
+                    response.status_code = 303
+                    return response
+        except Exception:
+            logger.exception("Profile edit POST failed")
+            messages.error(
+                request,
+                _(
+                    "Не удалось обработать загрузку. Попробуйте изображение JPEG или PNG размером до 5 МБ."
+                ),
+            )
+            form = ProfileEditForm(instance=profile)
     else:
         form = ProfileEditForm(instance=profile)
     return render(request, "users/profile_edit.html", {"form": form, "profile": profile})

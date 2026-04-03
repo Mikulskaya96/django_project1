@@ -196,7 +196,6 @@ FIXES: dict[str, tuple[str, str]] = {
         "è pronto. Puoi digitare comandi nel terminale. Per uscire, scrivi "
         "`exit()`.",
     ),
-    "Скачать сертификат": ("Download certificate", "Scarica certificato"),
     "Регистрация →": ("Sign up →", "Registrazione →"),
 }
 

@@ -1,6 +1,4 @@
 import os
-from io import BytesIO
-from pathlib import Path
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
@@ -14,11 +12,6 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe
 from users.models import Profile
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import A4
-from reportlab.lib.utils import simpleSplit
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
 from django.utils import timezone
 from django.utils.translation import gettext as _, get_language
 
@@ -29,34 +22,27 @@ from .models import (
     Enrollment,
     LessonProgress,
     LessonAiMessage,
-    CourseCertificate,
     CourseReview,
 )
 from .forms import CourseCreateForm, EnrollStudentForm, CourseReviewForm
 from .templatetags.course_extras import translate_content as translate_lesson_content
 
 
-FREE_LESSONS_PER_COURSE = 3
+def free_lessons_count_for_course(course: Course) -> int:
+    """Сколько первых уроков доступны без оплаты: junior — 2, pro — 1."""
+    if course.level == Course.LEVEL_PRO:
+        return 1
+    return 2
 
-_CERT_PDF_FONTS = None
 
-
-def _certificate_pdf_fonts():
-    """Helvetica в PDF не рисует кириллицу (квадраты) — подключаем Noto Sans из static/fonts/."""
-    global _CERT_PDF_FONTS
-    if _CERT_PDF_FONTS is not None:
-        return _CERT_PDF_FONTS
-    base = settings.BASE_DIR / "static" / "fonts"
-    regular = base / "NotoSans-Regular.ttf"
-    bold = base / "NotoSans-Bold.ttf"
-    if regular.is_file() and bold.is_file():
-        pdfmetrics.registerFont(TTFont("NotoSans", str(regular)))
-        pdfmetrics.registerFont(TTFont("NotoSans-Bold", str(bold)))
-        _CERT_PDF_FONTS = ("NotoSans", "NotoSans-Bold")
-    else:
-        _CERT_PDF_FONTS = ("Helvetica", "Helvetica-Bold")
-    return _CERT_PDF_FONTS
-
+def _effective_has_access(user) -> bool:
+    """Полный доступ к платным урокам: оплата (has_access) или режим FREE_PUBLIC_ACCESS."""
+    if not user.is_authenticated:
+        return False
+    if getattr(settings, "FREE_PUBLIC_ACCESS", False):
+        return True
+    profile = getattr(user, "profile", None)
+    return bool(profile and getattr(profile, "has_access", False))
 
 def _user_has_lesson_access(user, lesson: Lesson) -> bool:
     """Проверяет доступ пользователя к уроку с учётом бесплатных уроков и платного доступа."""
@@ -64,19 +50,19 @@ def _user_has_lesson_access(user, lesson: Lesson) -> bool:
         return False
 
     profile = getattr(user, "profile", None)
-    has_access = bool(profile and getattr(profile, "has_access", False))
     is_teacher = bool(profile and getattr(profile, "role", "") == "teacher")
 
-    if is_teacher or has_access:
+    if is_teacher or _effective_has_access(user):
         return True
 
     lessons = list(lesson.course.lessons.all().order_by("order", "id"))
     try:
         index = lessons.index(lesson) + 1
     except ValueError:
-        index = FREE_LESSONS_PER_COURSE + 1
+        index = free_lessons_count_for_course(lesson.course) + 1
 
-    is_free = index <= FREE_LESSONS_PER_COURSE
+    limit = free_lessons_count_for_course(lesson.course)
+    is_free = index <= limit
     return is_free
 
 
@@ -101,7 +87,10 @@ class CourseListView(ListView):
         return qs
 
     def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
+        context["bundle_price_usd"] = getattr(settings, "BUNDLE_PRICE_USD", 4)
+        context["free_public_access"] = getattr(settings, "FREE_PUBLIC_ACCESS", False)
+        return context
 
 
 class CourseDetailView(DetailView):
@@ -121,7 +110,7 @@ class CourseDetailView(DetailView):
         course = self.object
 
         profile = getattr(user, "profile", None) if user.is_authenticated else None
-        has_access = bool(profile and getattr(profile, "has_access", False))
+        has_access = _effective_has_access(user) if user.is_authenticated else False
         is_teacher = bool(profile and getattr(profile, "role", "") == "teacher")
 
         is_enrolled = False
@@ -137,8 +126,9 @@ class CourseDetailView(DetailView):
                 ).count()
 
         lessons = list(course.lessons.all().order_by("order", "id"))
+        free_n = free_lessons_count_for_course(course)
         for idx, lesson in enumerate(lessons, start=1):
-            is_free = idx <= FREE_LESSONS_PER_COURSE
+            is_free = idx <= free_n
             lesson.is_free = is_free
             lesson.is_locked = not (is_free or has_access or is_teacher)
             lesson.display_order = idx
@@ -164,6 +154,9 @@ class CourseDetailView(DetailView):
         context["lesson_modules"] = lesson_modules
         context["lesson_count"] = len(lessons)
         context["completed_count"] = completed_count
+        context["bundle_price_usd"] = getattr(settings, "BUNDLE_PRICE_USD", 4)
+        context["free_lessons_preview"] = free_n
+        context["free_public_access"] = getattr(settings, "FREE_PUBLIC_ACCESS", False)
 
         reviews = CourseReview.objects.filter(course=course).select_related("user").order_by("-created_at")
         context["reviews"] = reviews
@@ -198,7 +191,12 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return render(
             self.request,
             "courses/access_denied.html",
-            {"lesson": lesson, "course": lesson.course},
+            {
+                "lesson": lesson,
+                "course": lesson.course,
+                "bundle_price_usd": getattr(settings, "BUNDLE_PRICE_USD", 4),
+                "free_public_access": getattr(settings, "FREE_PUBLIC_ACCESS", False),
+            },
         )
 
     def get_context_data(self, **kwargs):
@@ -239,10 +237,8 @@ def ask_lesson_ai(request, pk):
     if not question:
         return JsonResponse({"error": _("Введите вопрос")}, status=400)
 
-    # Лимиты: бесплатным пользователям, без has_access — максимум 3 вопроса в день.
-    profile = getattr(user, "profile", None)
-    has_access = bool(profile and getattr(profile, "has_access", False))
-    if not has_access:
+    # Лимиты: без полного доступа — максимум 3 вопроса в день (см. _effective_has_access).
+    if not _effective_has_access(user):
         now = timezone.now()
         start_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
         used_today = LessonAiMessage.objects.filter(
@@ -353,20 +349,11 @@ class MyCoursesView(LoginRequiredMixin, ListView):
         for e in context["enrollments"]:
             total = len(e.course.lessons.all())
             completed = completed_by_course.get(e.course_id, 0)
-            is_completed = total > 0 and completed >= total
-            certificate = None
-            if is_completed:
-                certificate = CourseCertificate.objects.filter(
-                    user=user,
-                    course=e.course,
-                ).first()
             progress_list.append(
                 {
                     "enrollment": e,
                     "total": total,
                     "completed": completed,
-                    "is_completed": is_completed,
-                    "certificate": certificate,
                 }
             )
         context["progress_list"] = progress_list
@@ -516,16 +503,20 @@ class StudentDetailView(LoginRequiredMixin, DetailView):
 @login_required
 def checkout(request):
     """Страница оплаты: показывает информацию и кнопку оплаты."""
-    profile = getattr(request.user, "profile", None)
-    has_access = bool(profile and getattr(profile, "has_access", False))
-    stripe_enabled = bool(settings.STRIPE_SECRET_KEY and settings.STRIPE_PRICE_ID)
+    has_access = _effective_has_access(request.user)
+    stripe_enabled = bool(
+        settings.STRIPE_SECRET_KEY
+        and settings.STRIPE_PRICE_ID
+        and not getattr(settings, "FREE_PUBLIC_ACCESS", False)
+    )
     return render(
         request,
         "courses/checkout.html",
         {
             "has_access": has_access,
-            "price_usd": 4,
+            "price_usd": getattr(settings, "BUNDLE_PRICE_USD", 4),
             "stripe_enabled": stripe_enabled,
+            "free_public_access": getattr(settings, "FREE_PUBLIC_ACCESS", False),
         },
     )
 
@@ -657,94 +648,3 @@ def stripe_webhook(request):
                     pass
 
     return HttpResponse(status=200)
-
-
-@login_required
-def download_certificate(request, course_id):
-    """Генерирует и отдаёт PDF-сертификат, если курс завершён."""
-    course = get_object_or_404(Course, pk=course_id)
-    user = request.user
-
-    if not Enrollment.objects.filter(student=user, course=course).exists():
-        messages.error(request, _("Вы не записаны на этот курс."))
-        return redirect("courses:my_courses")
-
-    total_lessons = Lesson.objects.filter(course=course).count()
-    completed_lessons = LessonProgress.objects.filter(
-        user=user,
-        lesson__course=course,
-    ).count()
-
-    if total_lessons == 0 or completed_lessons < total_lessons:
-        messages.info(
-            request,
-            _("Сертификат доступен после завершения всех уроков курса."),
-        )
-        return redirect("courses:my_courses")
-
-    certificate, _ = CourseCertificate.objects.get_or_create(user=user, course=course)
-
-    buffer = BytesIO()
-    pdf = canvas.Canvas(buffer, pagesize=A4)
-    width, height = A4
-    font, font_bold = _certificate_pdf_fonts()
-
-    pdf.setTitle(f"Certificate-{certificate.certificate_id}")
-
-    y = height - 90
-    pdf.setFont(font_bold, 26)
-    pdf.drawCentredString(width / 2, y, "DevLearn Certificate")
-
-    y -= 50
-    pdf.setFont(font, 13)
-    pdf.drawCentredString(width / 2, y, "This certifies that")
-
-    y -= 35
-    full_name = user.get_full_name().strip() or user.username
-    pdf.setFont(font_bold, 20)
-    pdf.drawCentredString(width / 2, y, full_name)
-
-    y -= 40
-    pdf.setFont(font, 13)
-    pdf.drawCentredString(width / 2, y, "has successfully completed the course")
-
-    y -= 30
-    pdf.setFont(font_bold, 16)
-    for line in simpleSplit(course.title, font_bold, 16, width - 120):
-        pdf.drawCentredString(width / 2, y, line)
-        y -= 22
-
-    y -= 10
-    issued_date = timezone.localtime(certificate.issued_at).strftime("%Y-%m-%d")
-    pdf.setFont(font, 12)
-    pdf.drawCentredString(width / 2, y, f"Issued: {issued_date}")
-    y -= 20
-    pdf.drawCentredString(width / 2, y, f"Certificate ID: {certificate.certificate_id}")
-
-    y -= 70
-    y_line = y
-    sig_path = getattr(settings, "CERTIFICATE_INSTRUCTOR_SIGNATURE", None)
-    if sig_path and Path(sig_path).is_file():
-        pdf.drawImage(
-            str(sig_path),
-            92,
-            y_line + 3,
-            width=150,
-            height=36,
-            preserveAspectRatio=True,
-            mask="auto",
-        )
-    pdf.line(90, y_line, 250, y_line)
-    pdf.line(width - 250, y_line, width - 90, y_line)
-    pdf.setFont(font, 10)
-    pdf.drawString(125, y_line - 14, "Instructor")
-    pdf.drawRightString(width - 125, y_line - 14, "DevLearn")
-
-    pdf.showPage()
-    pdf.save()
-    buffer.seek(0)
-
-    filename = f"certificate-{course_id}-{user.username}.pdf"
-    response = HttpResponse(buffer.getvalue(), content_type="application/pdf")
-    response["Content-Disposition"] = f'attachment; filename="{filename}"'
-    return response

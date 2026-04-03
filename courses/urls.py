@@ -8,7 +8,6 @@ urlpatterns = [
     path("", views.CourseListView.as_view(), name="course_list"),
     path("create/", views.CourseCreateView.as_view(), name="course_create"),
     path("my/", views.MyCoursesView.as_view(), name="my_courses"),
-    path("certificate/<int:course_id>/", views.download_certificate, name="download_certificate"),
     path("checkout/", views.checkout, name="checkout"),
     path("checkout/session/", views.create_checkout_session, name="create_checkout_session"),
     path("checkout/success/", views.checkout_success, name="checkout_success"),

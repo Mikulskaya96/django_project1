@@ -11,11 +11,6 @@
         <a href="{% url 'courses:course_detail' item.enrollment.course.pk %}" class="btn-course">{{ item.enrollment.course.title|translate_db_text }}</a>
         <span class="course-meta">— {{ item.completed }}/{{ item.total }} {% trans "уроков" %}
         {% if item.total > 0 %}({% widthratio item.completed item.total 100 %}%){% endif %}</span>
-        {% if item.is_completed %}
-            <a href="{% url 'courses:download_certificate' item.enrollment.course.pk %}" class="btn-course">
-                {% trans "Скачать сертификат" %}
-            </a>
-        {% endif %}
     </li>
     {% empty %}
     <li class="course-item">{% trans "Вы пока не записаны ни на один курс." %}</li>

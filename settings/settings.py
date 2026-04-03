@@ -155,6 +155,11 @@ STATICFILES_DIRS = [Path(BASE_DIR, "static/")]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+# Загрузки: дефолт Django ~2.5 МБ в памяти; крупные multipart уходят на диск, но лимит тела запроса
+# может давать RequestDataTooBig при больших файлах без этих значений.
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
+
 # Cloudinary на проде (Render): без CLOUDINARY_URL запись в media/ на эфемерном диске часто даёт 500.
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "").strip()
 # Django 5.2: при задании STORAGES обязательны и default, и staticfiles (иначе collectstatic падает на Render).
@@ -190,16 +195,28 @@ STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
 STRIPE_PRICE_ID = os.environ.get("STRIPE_PRICE_ID", "")
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
+# Единая цена полного доступа к обоим курсам (USD). В Stripe Product/Price должна быть та же сумма.
+BUNDLE_PRICE_USD = int(os.environ.get("BUNDLE_PRICE_USD", "4"))
 
-# CSRF для домена Render (https://твой-сервис.onrender.com)
-if os.environ.get("RENDER_EXTERNAL_HOSTNAME"):
-    CSRF_TRUSTED_ORIGINS = [f"https://{os.environ['RENDER_EXTERNAL_HOSTNAME']}"]
-
-# PDF-сертификат: PNG с росписью преподавателя (лучше с прозрачным фоном), ~300×80 px
-_cert_sig = os.environ.get("CERTIFICATE_INSTRUCTOR_SIGNATURE", "").strip()
-CERTIFICATE_INSTRUCTOR_SIGNATURE = (
-    Path(_cert_sig) if _cert_sig else (BASE_DIR / "static" / "images" / "certificate_instructor_signature.png")
+# True — все залогиненные пользователи видят весь контент без оплаты (публичный портфолио-сайт).
+# False — платный режим (Stripe). Для демо оплаты локально: FREE_PUBLIC_ACCESS=False + тестовые ключи Stripe.
+FREE_PUBLIC_ACCESS = os.environ.get("FREE_PUBLIC_ACCESS", "True").lower() in (
+    "true",
+    "1",
+    "yes",
 )
+
+# Render за прокси: без этого request.is_secure() может быть False → CSRF даёт 403 на POST
+# (например django-markdownx «markdownify» в админке при сохранении урока).
+_render_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME", "").strip()
+if _render_host:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    CSRF_TRUSTED_ORIGINS = [f"https://{_render_host}"]
+    _extra_csrf = os.environ.get("CSRF_TRUSTED_ORIGINS", "").strip()
+    if _extra_csrf:
+        CSRF_TRUSTED_ORIGINS.extend(
+            o.strip() for o in _extra_csrf.split(",") if o.strip()
+        )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

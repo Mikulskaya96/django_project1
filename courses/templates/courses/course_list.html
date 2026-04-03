@@ -28,9 +28,13 @@
             {% else %}
                 <span class="course-card__placeholder">📚</span>
             {% endif %}
-            {% if course.price == 0 %}
-                <span class="course-card__badge badge-free">{% trans "Бесплатно" %}</span>
-            {% endif %}
+            <span class="course-card__badge badge-preview">
+                {% if course.level == "pro" %}
+                    {% trans "1 урок бесплатно" %}
+                {% else %}
+                    {% trans "2 урока бесплатно" %}
+                {% endif %}
+            </span>
         </div>
         <div class="course-card__body">
             <h3 class="course-card__title">{{ course.title|translate_db_text }}</h3>
@@ -44,10 +48,10 @@
             <p class="course-card__desc">{{ course.description|translate_db_text|truncatewords:15 }}</p>
             {% endif %}
             <p class="course-card__price">
-                {% if course.price == 0 %}
-                    {% trans "Бесплатно" %}
+                {% if free_public_access %}
+                    <strong>{% trans "Бесплатно" %}</strong> — {% trans "все уроки после входа" %}
                 {% else %}
-                    {{ course.price }} $
+                    {% trans "Полный доступ к обоим курсам" %} — <strong>{{ bundle_price_usd }} $</strong>
                 {% endif %}
             </p>
         </div>

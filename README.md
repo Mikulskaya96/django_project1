@@ -1,7 +1,7 @@
 # DevLearn
-A platform for learning programming (Python, courses, lessons, certificates).
-Платформа для изучения программирования (Python, курсы, уроки, сертификаты).  
-Piattaforma per l’apprendimento della programmazione (Python, corsi, lezioni, certificati).
+A platform for learning programming (Python, courses, lessons, progress tracking).
+Платформа для изучения программирования (Python, курсы, уроки, прогресс).  
+Piattaforma per l’apprendimento della programmazione (Python, corsi, lezioni, progressi).
 
 ---
 
@@ -20,7 +20,6 @@ All packages are listed in **`requirements.txt`**. Main ones:
 | API | `djangorestframework` |
 | AI on the lesson page | `groq` |
 | Payments | `stripe` |
-| PDF certificates | `reportlab` |
 | Cloud media (optional) | `django-cloudinary-storage` |
 | Production (Render, etc.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
 
@@ -90,11 +89,17 @@ Pushes to **`main`** / **`master`** trigger **GitHub Actions** (see `.github/wor
 
 GitHub repo → service on [render.com](https://render.com), environment variables (`DJANGO_SECRET_KEY`, `DATABASE_URL`, optionally `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, superuser for build, etc.). Details: your service settings and `render.yaml` if you use it.
 
+### Public access & Stripe (demo)
+
+The public production site uses **free access after sign-in** (`FREE_PUBLIC_ACCESS=True` by default). No payment is required for visitors.
+
+To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` in `.env`, add test **`STRIPE_SECRET_KEY`** and **`STRIPE_PRICE_ID`** from [Stripe Dashboard](https://dashboard.stripe.com) (Test mode), run `python manage.py runserver`, open the checkout page, and pay with test card **4242 4242 4242 4242**. See `.env.example`.
+
 ### Project layout
 
 - `main` — home, static pages (about, contacts, legal)
 - `users` — sign up, login, profiles (student / teacher roles)
-- `courses` — courses, lessons, enrollments, API `/api/`, PDF certificates
+- `courses` — courses, lessons, enrollments, API `/api/`
 - `settings` — Django configuration
 
 ## Русский
@@ -111,7 +116,6 @@ GitHub repo → service on [render.com](https://render.com), environment variabl
 | API | `djangorestframework` |
 | AI на уроке | `groq` |
 | Оплата | `stripe` |
-| PDF-сертификаты | `reportlab` |
 | Облако для медиа (опционально) | `django-cloudinary-storage` |
 | Продакшен (Render и т.п.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
 
@@ -181,11 +185,17 @@ python manage.py test
 
 Репозиторий на GitHub → сервис на [render.com](https://render.com), переменные окружения (`DJANGO_SECRET_KEY`, `DATABASE_URL`, при необходимости `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, суперпользователь для сборки и т.д.). Подробности — в настройках вашего сервиса и в `render.yaml`, если используется.
 
+### Публичный доступ и демо Stripe
+
+**Публичный деплой** — бесплатный доступ к урокам после входа (`FREE_PUBLIC_ACCESS=True` по умолчанию); оплата на сайте не требуется.
+
+**Демо оплаты Stripe локально** (для портфолио): в `.env` задайте `FREE_PUBLIC_ACCESS=False`, тестовые `STRIPE_SECRET_KEY` и `STRIPE_PRICE_ID` из [Stripe Dashboard](https://dashboard.stripe.com) (режим Test), запустите `python manage.py runserver`, откройте оплату, карта **4242 4242 4242 4242**. Подробности — в `.env.example`.
+
 ### Структура проекта
 
 - `main` — главная, статические страницы (о нас, контакты, оферта)
 - `users` — регистрация, вход, профили (роли студент / преподаватель)
-- `courses` — курсы, уроки, записи, API `/api/`, сертификаты PDF
+- `courses` — курсы, уроки, записи, API `/api/`
 - `settings` — конфигурация Django
 
 ---
@@ -205,7 +215,6 @@ Tutti i pacchetti sono elencati in **`requirements.txt`**. Esempi:
 | API REST | `djangorestframework` |
 | Assistente AI sulla lezione | `groq` |
 | Pagamenti | `stripe` |
-| Certificati PDF | `reportlab` |
 | Media cloud (opzionale) | `django-cloudinary-storage` |
 | Produzione (Render ecc.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
 
@@ -267,6 +276,10 @@ Installazione: **`pip install -r requirements.txt`** (con ambiente virtuale atti
 ```bash
 python manage.py test
 ```
+
+### Accesso pubblico e demo Stripe
+
+Il deploy pubblico offre **accesso gratuito dopo il login** (`FREE_PUBLIC_ACCESS=True` di default). Per **testare Stripe in locale**: `FREE_PUBLIC_ACCESS=False` nel `.env`, chiavi test da Stripe (modalità Test), `python manage.py runserver`, carta **4242 4242 4242 4242**. Vedi `.env.example`.
 
 ### Licenza / License
 

@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from markdownx.models import MarkdownxField
-import uuid
 
 
 class Category(models.Model):
@@ -206,39 +205,6 @@ class LessonAiMessage(models.Model):
         ordering = ["-created_at"]
         verbose_name = _("Сообщение ИИ по уроку")
         verbose_name_plural = _("Сообщения ИИ по урокам")
-
-
-class CourseCertificate(models.Model):
-    """Сертификат о завершении курса."""
-
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name="course_certificates",
-        verbose_name=_("Пользователь"),
-    )
-    course = models.ForeignKey(
-        Course,
-        on_delete=models.CASCADE,
-        related_name="certificates",
-        verbose_name=_("Курс"),
-    )
-    certificate_id = models.UUIDField(
-        _("Идентификатор сертификата"),
-        default=uuid.uuid4,
-        editable=False,
-        unique=True,
-    )
-    issued_at = models.DateTimeField(_("Дата выдачи"), auto_now_add=True)
-
-    class Meta:
-        unique_together = ["user", "course"]
-        ordering = ["-issued_at"]
-        verbose_name = _("Сертификат курса")
-        verbose_name_plural = _("Сертификаты курсов")
-
-    def __str__(self):
-        return f"Certificate {self.certificate_id} — {self.user.username}/{self.course.title}"
 
 
 class CourseReview(models.Model):

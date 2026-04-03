@@ -7,7 +7,6 @@ from .models import (
     Lesson,
     Enrollment,
     LessonProgress,
-    CourseCertificate,
     CourseReview,
 )
 
@@ -60,13 +59,6 @@ class LessonProgressAdmin(admin.ModelAdmin):
 @admin.register(Lesson)
 class LessonAdmin(MarkdownxModelAdmin):
     list_display = ("title", "course", "order")
-
-
-@admin.register(CourseCertificate)
-class CourseCertificateAdmin(admin.ModelAdmin):
-    list_display = ("certificate_id", "user", "course", "issued_at")
-    list_filter = ("course", "issued_at")
-    search_fields = ("user__username", "course__title", "certificate_id")
 
 
 @admin.register(CourseReview)

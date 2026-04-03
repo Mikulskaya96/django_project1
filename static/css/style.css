@@ -698,6 +698,19 @@ a:hover {
     vertical-align: middle;
 }
 
+.course-card__badge.badge-preview {
+    display: inline-block;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #1f2937;
+    background: var(--color-accent);
+    max-width: calc(100% - 1rem);
+    text-align: center;
+    line-height: 1.2;
+}
+
 .lesson-locked {
     color: var(--text-muted);
 }

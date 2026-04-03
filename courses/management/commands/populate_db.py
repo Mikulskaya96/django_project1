@@ -113,7 +113,7 @@ class Command(BaseCommand):
                 ),
                 "category": "Python",
                 "level": "pro",
-                "price": 4,
+                "price": 0,
             },
         ]
         courses = {}

@@ -5,10 +5,16 @@
 
 {% block content %}
 <h1>{% trans "Доступ ограничен" %}</h1>
+{% if free_public_access %}
+<p>{% trans "Сообщите об этой ошибке: публичный режим не должен блокировать уроки." %}</p>
+{% else %}
 <p>{% trans "Урок доступен только после оплаты полного доступа к курсу." %}</p>
+{% endif %}
 
 <p>
-    <a href="{% url 'courses:checkout' %}" class="btn-primary">{% trans "Купить доступ за 4 $" %}</a>
+    {% if not free_public_access %}
+    <a href="{% url 'courses:checkout' %}" class="btn-primary">{% trans "Купить полный доступ за" %} {{ bundle_price_usd }} $</a>
+    {% endif %}
     <a href="{% url 'courses:course_detail' course.pk %}" class="btn-secondary">{% trans "Вернуться к курсу" %}</a>
 </p>
 {% endblock %}
