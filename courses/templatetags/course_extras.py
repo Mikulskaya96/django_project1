@@ -60,7 +60,11 @@ def markdown_to_html(text):
 
 @register.filter
 def inject_author_photo(html, lesson):
-    """Подставляет фото автора курса вместо маркера <!-- AUTHOR_PHOTO --> (финальный урок Pro)."""
+    """Подставляет фото вместо маркера <!-- AUTHOR_PHOTO --> (финальный урок Pro).
+
+    Приоритет: «Фото автора» у курса; если не задано — «Картинка урока» (удобно при лимите
+    размера POST в админке: фото грузят в уроке отдельно от тяжёлого текста курса).
+    """
     if not html or not lesson:
         return html
     course = getattr(lesson, "course", None)
@@ -71,19 +75,27 @@ def inject_author_photo(html, lesson):
 
     marker = "<!-- AUTHOR_PHOTO -->"
     img_html = ""
-    image = getattr(course, "author_image", None)
-    if image and getattr(image, "name", ""):
+    url = ""
+    course_img = getattr(course, "author_image", None)
+    if course_img and getattr(course_img, "name", ""):
         try:
-            url = image.url
+            url = course_img.url
         except ValueError:
             url = ""
-        if url:
-            alt = _("Фото автора курса")
-            img_html = (
-                '<figure class="lesson-author-photo">'
-                f'<img src="{escape(url)}" alt="{escape(alt)}" loading="lazy" />'
-                "</figure>"
-            )
+    if not url:
+        lesson_img = getattr(lesson, "image", None)
+        if lesson_img and getattr(lesson_img, "name", ""):
+            try:
+                url = lesson_img.url
+            except ValueError:
+                url = ""
+    if url:
+        alt = _("Фото автора курса")
+        img_html = (
+            '<figure class="lesson-author-photo">'
+            f'<img src="{escape(url)}" alt="{escape(alt)}" loading="lazy" />'
+            "</figure>"
+        )
     text = str(html)
     for fragment in (
         marker,

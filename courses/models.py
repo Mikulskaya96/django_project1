@@ -61,7 +61,8 @@ class Course(models.Model):
         blank=True,
         null=True,
         help_text=_(
-            "Показывается в финальном уроке Pro под заголовком «Слово автора», если загружено."
+            "Показывается в финальном уроке Pro у маркера <!-- AUTHOR_PHOTO -->. "
+            "Если не задано — можно использовать «Картинку урока» в том же уроке."
         ),
     )
     price = models.DecimalField(
@@ -120,6 +121,11 @@ class Lesson(models.Model):
         upload_to="courses/lessons/",
         blank=True,
         null=True,
+        help_text=_(
+            "Обычно — иллюстрация сверху урока. В финальном уроке Pro, если в курсе "
+            "не задано «Фото автора», эта картинка подставляется в «Слово автора» "
+            "(маркер <!-- AUTHOR_PHOTO -->), без дубля сверху страницы."
+        ),
     )
     video_url = models.URLField(_("Ссылка на видео"), blank=True)
     order = models.PositiveIntegerField(_("Порядок"), default=0)
