@@ -27,7 +27,7 @@
 {% if lesson.image %}
     {% if "<!-- AUTHOR_PHOTO -->" not in lesson.content|default:"" %}
         {# Не дублировать: урок-источник обложки без своей обложки у курса — только в каталоге #}
-        {% if course.cover_image or not lesson|is_course_cover_source_lesson %}
+        {% if lesson.course.cover_image or not lesson|is_course_cover_source_lesson %}
         <p>
             <img src="{{ lesson.image.url }}" alt="{{ lesson.title|translate_db_text }}" class="content-image">
         </p>

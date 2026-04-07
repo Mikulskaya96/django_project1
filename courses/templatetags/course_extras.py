@@ -138,13 +138,16 @@ def inject_author_photo(html, lesson):
                 url = lesson_img.url
             except ValueError:
                 url = ""
-    if url:
-        alt = _("Фото автора курса")
-        img_html = (
-            '<figure class="lesson-author-photo">'
-            f'<img src="{escape(url)}" alt="{escape(alt)}" loading="lazy" />'
-            "</figure>"
-        )
+    if not url:
+        # Не вырезаем маркер без фото — иначе ломается wrap_author_word_section и пропадает блок.
+        return html
+
+    alt = _("Фото автора курса")
+    img_html = (
+        '<figure class="lesson-author-photo">'
+        f'<img src="{escape(url)}" alt="{escape(alt)}" loading="lazy" />'
+        "</figure>"
+    )
     text = str(html)
     for fragment in (
         marker,

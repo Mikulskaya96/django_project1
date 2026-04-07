@@ -221,6 +221,7 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         context["prev_lesson"] = lessons[idx - 1] if idx > 0 else None
         context["next_lesson"] = lessons[idx + 1] if idx >= 0 and idx < len(lessons) - 1 else None
         context["lesson_list"] = lessons
+        context["course"] = lesson.course
         return context
 
 
