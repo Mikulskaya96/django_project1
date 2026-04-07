@@ -93,8 +93,13 @@
         <li class="lesson-item">
             {% if lesson.is_locked %}
                 <span class="lesson-locked">{{ lesson.title|translate_db_text }}</span>
+                {% if free_public_access %}
+                <em class="course-meta">({% trans "доступно после входа" %})</em>
+                <a href="{% url 'users:login' %}?next={{ request.path|urlencode }}" class="btn-course">{% trans "Войти для доступа" %}</a>
+                {% else %}
                 <em class="course-meta">({% trans "доступно после оплаты" %})</em>
                 <a href="{% url 'courses:checkout' %}" class="btn-course">{% trans "Купить полный доступ за" %} {{ bundle_price_usd }} $</a>
+                {% endif %}
             {% else %}
                 <a href="{% url 'courses:lesson_detail' lesson.pk %}" class="btn-lesson">
                     {{ lesson.display_order }}. {{ lesson.title|translate_db_text }}
@@ -113,8 +118,13 @@
     <li class="lesson-item">
         {% if lesson.is_locked %}
             <span class="lesson-locked">{{ lesson.title|translate_db_text }}</span>
+            {% if free_public_access %}
+            <em class="course-meta">({% trans "доступно после входа" %})</em>
+            <a href="{% url 'users:login' %}?next={{ request.path|urlencode }}" class="btn-course">{% trans "Войти для доступа" %}</a>
+            {% else %}
             <em class="course-meta">({% trans "доступно после оплаты" %})</em>
             <a href="{% url 'courses:checkout' %}" class="btn-course">{% trans "Купить полный доступ за" %} {{ bundle_price_usd }} $</a>
+            {% endif %}
         {% else %}
             <a href="{% url 'courses:lesson_detail' lesson.pk %}" class="btn-lesson">
                 {{ lesson.display_order }}. {{ lesson.title|translate_db_text }}

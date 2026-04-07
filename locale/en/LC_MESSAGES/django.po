@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DevLearn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 16:27+0200\n"
+"POT-Creation-Date: 2026-04-07 21:15+0200\n"
 "PO-Revision-Date: 2026-03-19 00:00+0000\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -11,38 +11,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\courses\forms.py:12 .\courses\models.py:143 .\users\models.py:11
 msgid "Студент"
 msgstr "Student"
 
-#: .\courses\forms.py:36
 msgid "Rating"
 msgstr "Rating"
 
-#: .\courses\forms.py:36
 msgid "Review text"
 msgstr "Review text"
 
-#: .\courses\forms.py:42
 msgid "Leave an optional review about the course..."
 msgstr "Leave an optional review about the course..."
 
-#: .\courses\i18n_db_strings.py:13 .\courses\models.py:26
-#: .\courses\templates\courses\checkout.html:20
-#: .\courses\templates\courses\course_list.html:17
-#: .\main\templates\main\includes\course_outcomes.html:9
 msgid "Python для начинающих"
 msgstr "Python for beginners"
 
-#: .\courses\i18n_db_strings.py:14 .\courses\models.py:27
-#: .\courses\templates\courses\checkout.html:21
-#: .\courses\templates\courses\course_list.html:18
-#: .\main\templates\main\includes\course_outcomes.html:21
 msgid "Python для профессионалов"
 msgstr "Python for professionals"
 
 # Course titles and descriptions (from DB)
-#: .\courses\i18n_db_strings.py:16
 msgid ""
 "База Python с нуля: синтаксис, условия, циклы, функции, коллекции и мини-"
 "проекты."
@@ -50,7 +37,6 @@ msgstr ""
 "Python basics from scratch: syntax, conditions, loops, functions, "
 "collections and mini-projects."
 
-#: .\courses\i18n_db_strings.py:20
 msgid ""
 "Продвинутый Python: архитектура, Flask, Django, API, тесты и деплой. После "
 "курса заложите примерно 20–40 часов самостоятельной практики на свой проект "
@@ -61,843 +47,645 @@ msgstr ""
 "project — that way the skills really stick."
 
 # Categories
-#: .\courses\i18n_db_strings.py:26
 msgid "Python"
 msgstr "Python"
 
 # Junior module headers (lesson list)
-#: .\courses\i18n_db_strings.py:28
 msgid "Модуль 1"
 msgstr "Module 1"
 
-#: .\courses\i18n_db_strings.py:29
 msgid "Модуль 2. Повторение и данные"
 msgstr "Module 2. Review and data"
 
-#: .\courses\i18n_db_strings.py:30
 msgid "Модуль 3. Функции и простой проект"
 msgstr "Module 3. Functions and simple project"
 
 # === MODULE 1 (new content) ===
-#: .\courses\i18n_db_strings.py:32
 msgid "Установка и первый запуск"
 msgstr "Installation and first run"
 
-#: .\courses\i18n_db_strings.py:33
 msgid "Переменные и типы"
 msgstr "Variables and types"
 
-#: .\courses\i18n_db_strings.py:34
 msgid "Ввод и вывод"
 msgstr "Input and output"
 
-#: .\courses\i18n_db_strings.py:35
 msgid "Условия if и else"
 msgstr "Conditions if and else"
 
-#: .\courses\i18n_db_strings.py:36
 msgid "Debug Zone: найди ошибку"
 msgstr "Debug Zone: find the bug"
 
-#: .\courses\i18n_db_strings.py:37
-#: .\main\templates\main\includes\course_outcomes.html:14
 msgid "Циклы for и while"
 msgstr "for and while loops"
 
 # === MODULE 2 ===
-#: .\courses\i18n_db_strings.py:38
 msgid "Списки"
 msgstr "Lists"
 
-#: .\courses\i18n_db_strings.py:39
 msgid "Словари"
 msgstr "Dictionaries"
 
-#: .\courses\i18n_db_strings.py:40
 msgid "Циклы и списки: range и enumerate"
 msgstr "Loops and lists: range and enumerate"
 
-#: .\courses\i18n_db_strings.py:41
 msgid "Debug Zone: циклы и списки"
 msgstr "Debug Zone: loops and lists"
 
 # === MODULE 3 ===
-#: .\courses\i18n_db_strings.py:42
 msgid "Функции"
 msgstr "Functions"
 
-#: .\courses\i18n_db_strings.py:43
 msgid "Параметры и области видимости"
 msgstr "Parameters and scope"
 
-#: .\courses\i18n_db_strings.py:44
-#: .\courses\templates\courses\course_detail.html:69
 msgid "Работа с файлами"
 msgstr "Working with files"
 
-#: .\courses\i18n_db_strings.py:45
 msgid "Мини-проект: счёт в кафе"
 msgstr "Mini-project: cafe bill"
 
-#: .\courses\i18n_db_strings.py:46
 msgid "Debug Zone: функции и файлы"
 msgstr "Debug Zone: functions and files"
 
-#: .\courses\i18n_db_strings.py:48
 msgid "Модуль 1. Архитектура и чистый Python"
 msgstr "Module 1. Architecture and pure Python"
 
-#: .\courses\i18n_db_strings.py:49
 msgid "Модуль 1. Flask API: CRUD и валидация"
 msgstr "Module 1. Flask API: CRUD and validation"
 
-#: .\courses\i18n_db_strings.py:50
 msgid "Модуль 2. Django: модели, ORM, админка"
 msgstr "Module 2. Django: models, ORM, admin"
 
-#: .\courses\i18n_db_strings.py:51
 msgid "Модуль 2. Django REST + авторизация"
 msgstr "Module 2. Django REST and authentication"
 
-#: .\courses\i18n_db_strings.py:52
 msgid "Модуль 3. Тесты, CI и деплой на Render"
 msgstr "Module 3. Tests, CI and deployment on Render"
 
-#: .\courses\i18n_db_strings.py:53
 msgid "Финал: куда дальше, мини-проект и слово автора"
 msgstr "Finale: where to go next, mini-project, and a word from the author"
 
-#: .\courses\i18n_junior_lessons.py:9
 msgid "---"
 msgstr "---"
 
-#: .\courses\i18n_junior_lessons.py:10
 msgid "## Шаги"
 msgstr "## Steps"
 
-#: .\courses\i18n_junior_lessons.py:11
 msgid "Пример:"
 msgstr "Example:"
 
-#: .\courses\i18n_junior_lessons.py:12
 msgid "## Задача"
 msgstr "## Task"
 
-#: .\courses\i18n_junior_lessons.py:13
 msgid "## Запись"
 msgstr "## Writing"
 
-#: .\courses\i18n_junior_lessons.py:14
 msgid "## Чтение"
 msgstr "## Reading"
 
-#: .\courses\i18n_junior_lessons.py:15
 msgid "## Админка"
 msgstr "## Admin"
 
-#: .\courses\i18n_junior_lessons.py:16
 msgid "## Домашка"
 msgstr "## Homework"
 
-#: .\courses\i18n_junior_lessons.py:17
 msgid "## Перебор"
 msgstr "## Iteration"
 
-#: .\courses\i18n_junior_lessons.py:18
 msgid "## Решение"
 msgstr "## Solution"
 
-#: .\courses\i18n_junior_lessons.py:19
 msgid "### Запуск"
 msgstr "### Run"
 
-#: .\courses\i18n_junior_lessons.py:20
 msgid "## Цикл for"
 msgstr "## for loop"
 
-#: .\courses\i18n_junior_lessons.py:21
 msgid "### PyCharm"
 msgstr "### PyCharm"
 
-#: .\courses\i18n_junior_lessons.py:22
 msgid "### VS Code"
 msgstr "### VS Code"
 
-#: .\courses\i18n_junior_lessons.py:23
 msgid "## От автора"
 msgstr "## From the author"
 
-#: .\courses\i18n_junior_lessons.py:24
 msgid "## Подсказка"
 msgstr "## Hint"
 
-#: .\courses\i18n_junior_lessons.py:25
 msgid "## Подсказки"
 msgstr "## Hints"
 
-#: .\courses\i18n_junior_lessons.py:26
 msgid "## Синтаксис"
 msgstr "## Syntax"
 
-#: .\courses\i18n_junior_lessons.py:27
 msgid "# Финал курса"
 msgstr "# Course finale"
 
-#: .\courses\i18n_junior_lessons.py:28
 msgid "## Цикл while"
 msgstr "## while loop"
 
-#: .\courses\i18n_junior_lessons.py:29
 msgid "## Типы данных"
 msgstr "## Data types"
 
-#: .\courses\i18n_junior_lessons.py:30
 msgid "### Сохранение"
 msgstr "### Saving"
 
-#: .\courses\i18n_junior_lessons.py:31
 msgid "## Зачем файлы?"
 msgstr "## Why files?"
 
-#: .\courses\i18n_junior_lessons.py:32
 msgid "## Найди ошибки"
 msgstr "## Find the errors"
 
-#: .\courses\i18n_junior_lessons.py:33
 msgid "## Слово автора"
 msgstr "## A word from the author"
 
-#: .\courses\i18n_junior_lessons.py:34
 msgid "Фрагмент теста:"
 msgstr "Test snippet:"
 
-#: .\courses\i18n_junior_lessons.py:35
 msgid "## Пример модели"
 msgstr "## Example model"
 
-#: .\courses\i18n_junior_lessons.py:36
 msgid "## Частая ошибка"
 msgstr "## Common mistake"
 
-#: .\courses\i18n_junior_lessons.py:37
 msgid "### Срез с шагом"
 msgstr "### Slice with step"
 
-#: .\courses\i18n_junior_lessons.py:38
 msgid "## Зачем эта тема"
 msgstr "## Why this topic"
 
-#: .\courses\i18n_junior_lessons.py:39
 msgid "## Код с ошибками"
 msgstr "## Buggy code"
 
-#: .\courses\i18n_junior_lessons.py:40
 msgid "## Разбор домашки"
 msgstr "## Homework walkthrough"
 
-#: .\courses\i18n_junior_lessons.py:41
 msgid "## Как в ресторане"
 msgstr "## Like in a restaurant"
 
-#: .\courses\i18n_junior_lessons.py:42
 msgid "## Как это работает"
 msgstr "## How it works"
 
-#: .\courses\i18n_junior_lessons.py:43
 msgid "## Простыми словами"
 msgstr "## In plain words"
 
-#: .\courses\i18n_junior_lessons.py:44
 msgid "### Базовые примеры"
 msgstr "### Basic examples"
 
-#: .\courses\i18n_junior_lessons.py:45
 msgid "### Срезы для строк"
 msgstr "### Row slices"
 
-#: .\courses\i18n_junior_lessons.py:46
 msgid "# Тесты, CI и деплой"
 msgstr "# Tests, CI and deploy"
 
-#: .\courses\i18n_junior_lessons.py:47
 msgid "## Зачем нам Python?"
 msgstr "## Why do we need Python?"
 
-#: .\courses\i18n_junior_lessons.py:48
 msgid "## Скачивание Python"
 msgstr "## Downloading Python"
 
-#: .\courses\i18n_junior_lessons.py:49
 msgid "## Создание и доступ"
 msgstr "## Creation and access"
 
-#: .\courses\i18n_junior_lessons.py:50
 msgid "## Что такое список?"
 msgstr "## What is a list?"
 
-#: .\courses\i18n_junior_lessons.py:51
 msgid "### Как создать файл"
 msgstr "### How to create a file"
 
-#: .\courses\i18n_junior_lessons.py:52
 msgid "### Что такое .venv?"
 msgstr "### What is .venv?"
 
-#: .\courses\i18n_junior_lessons.py:53
 msgid "<!-- SPOILER_END -->"
 msgstr "<!-- SPOILER_END -->"
 
-#: .\courses\i18n_junior_lessons.py:54
 msgid "## Зачем нужны циклы?"
 msgstr "## Why do we need loops?"
 
-#: .\courses\i18n_junior_lessons.py:55
 msgid "## Параметры и return"
 msgstr "## Parameters and return"
 
-#: .\courses\i18n_junior_lessons.py:56
 msgid "## Создаём переменные"
 msgstr "## Creating variables"
 
-#: .\courses\i18n_junior_lessons.py:57
 msgid "## Что такое словарь?"
 msgstr "## What is a dictionary?"
 
-#: .\courses\i18n_junior_lessons.py:58
 msgid "### Аналогия с кухней"
 msgstr "### Kitchen analogy"
 
-#: .\courses\i18n_junior_lessons.py:59
 msgid "**Пример правильно:**"
 msgstr "**Correct example:**"
 
-#: .\courses\i18n_junior_lessons.py:60
 #, fuzzy
 #| msgid "<!-- SPOILER_START -->"
 msgid "<!-- AUTHOR_PHOTO -->"
 msgstr "<!-- SPOILER_START -->"
 
-#: .\courses\i18n_junior_lessons.py:61
 msgid "## Базовые классы прав"
 msgstr "## Basic permission classes"
 
-#: .\courses\i18n_junior_lessons.py:62
 msgid "## Синтаксис if / else"
 msgstr "## Syntax if / else"
 
-#: .\courses\i18n_junior_lessons.py:63
 msgid "## Установка (Windows)"
 msgstr "## Installation (Windows)"
 
-#: .\courses\i18n_junior_lessons.py:64
 msgid "<!-- SPOILER_START -->"
 msgstr "<!-- SPOILER_START -->"
 
-#: .\courses\i18n_junior_lessons.py:65
 msgid "## Единый формат ошибок"
 msgstr "## Uniform error format"
 
-#: .\courses\i18n_junior_lessons.py:66
 msgid "## Зачем нужен input()?"
 msgstr "## Why do we need input()?"
 
-#: .\courses\i18n_junior_lessons.py:67
 msgid "## Зачем нужны функции?"
 msgstr "## Why do we need functions?"
 
-#: .\courses\i18n_junior_lessons.py:68
 msgid "## Когда нужны условия?"
 msgstr "## When do we need conditions?"
 
-#: .\courses\i18n_junior_lessons.py:69
 msgid "## Мини-пример маршрута"
 msgstr "## Mini route example"
 
-#: .\courses\i18n_junior_lessons.py:70
 msgid "## Несколько параметров"
 msgstr "## Multiple parameters"
 
-#: .\courses\i18n_junior_lessons.py:71
 msgid "## Форматирование строк"
 msgstr "## String formatting"
 
-#: .\courses\i18n_junior_lessons.py:72
 msgid "**Пример неправильно:**"
 msgstr "**Example incorrect:**"
 
-#: .\courses\i18n_junior_lessons.py:73
 msgid "## Виртуальное окружение"
 msgstr "## Virtual environment"
 
-#: .\courses\i18n_junior_lessons.py:74
 msgid "## Добавление и удаление"
 msgstr "## Adding and removing"
 
-#: .\courses\i18n_junior_lessons.py:75
 msgid "## Значение по умолчанию"
 msgstr "## Default value"
 
-#: .\courses\i18n_junior_lessons.py:76
 msgid "## Что такое переменная?"
 msgstr "## What is a variable?"
 
-#: .\courses\i18n_junior_lessons.py:77
 msgid "### Что такое синтаксис?"
 msgstr "### What is syntax?"
 
-#: .\courses\i18n_junior_lessons.py:78
 msgid "## Добавление и изменение"
 msgstr "## Adding and updating"
 
-#: .\courses\i18n_junior_lessons.py:79
 msgid "### Что такое .gitignore?"
 msgstr "### What is .gitignore?"
 
-#: .\courses\i18n_junior_lessons.py:80
 msgid "## ORM без лишних запросов"
 msgstr "## ORM without unnecessary requests"
 
-#: .\courses\i18n_junior_lessons.py:81
 msgid "## Когда что использовать?"
 msgstr "## When to use which?"
 
-#: .\courses\i18n_junior_lessons.py:82
 msgid "## Учимся на чужих ошибках"
 msgstr "## Learning from others' mistakes"
 
-#: .\courses\i18n_junior_lessons.py:83
 msgid "### Динамическая типизация"
 msgstr "### Dynamic typing"
 
-#: .\courses\i18n_junior_lessons.py:84
 msgid "## Debug Zone: найди ошибку"
 msgstr "## Debug Zone: find the bug"
 
-#: .\courses\i18n_junior_lessons.py:85
 msgid "## Первый запуск (терминал)"
 msgstr "## First run (terminal)"
 
-#: .\courses\i18n_junior_lessons.py:86
 msgid "Напиши в файле одну строку:"
 msgstr "Write one line in the file:"
 
-#: .\courses\i18n_junior_lessons.py:87
 msgid "## Домашнее задание (лёгкое)"
 msgstr "## Homework (easy)"
 
-#: .\courses\i18n_junior_lessons.py:88
 msgid "## Мини-пример (идея pytest)"
 msgstr "## Mini-example (pytest idea)"
 
-#: .\courses\i18n_junior_lessons.py:89
 msgid "## Поиск максимума без max()"
 msgstr "## Finding max without max()"
 
-#: .\courses\i18n_junior_lessons.py:90
 msgid "## elif — несколько вариантов"
 msgstr "## elif — multiple options"
 
-#: .\courses\i18n_junior_lessons.py:91
 msgid "## Дополнительно (по желанию)"
 msgstr "## Optional extras"
 
-#: .\courses\i18n_junior_lessons.py:92
 msgid "## Разбор домашки — ориентиры"
 msgstr "## Homework analysis - guidelines"
 
-#: .\courses\i18n_junior_lessons.py:93
 msgid "## Срезы (slicing) — подробно"
 msgstr "## Slicing - details"
 
-#: .\courses\i18n_junior_lessons.py:94
 msgid "## Пример структуры (ориентир)"
 msgstr "## Structure example (guideline)"
 
-#: .\courses\i18n_junior_lessons.py:95
 msgid "# Django: модели, ORM и админка"
 msgstr "# Django: models, ORM, and admin"
 
-#: .\courses\i18n_junior_lessons.py:96
 msgid "## Подготовка к деплою (чеклист)"
 msgstr "## Preparing to deploy (checklist)"
 
-#: .\courses\i18n_junior_lessons.py:97
 msgid "## Разбор домашки — эталон мысли"
 msgstr "## Analysis of homework - standard of thought"
 
-#: .\courses\i18n_junior_lessons.py:98
 msgid "## enumerate() — индекс и элемент"
 msgstr "## enumerate() — index and element"
 
-#: .\courses\i18n_junior_lessons.py:99
 msgid "## От автора: как я это осваивала"
 msgstr "## From the author: how I mastered it"
 
-#: .\courses\i18n_junior_lessons.py:100
 msgid "2. Создай переменную `total = 0`."
 msgstr "2. Create a variable `total = 0`."
 
-#: .\courses\i18n_junior_lessons.py:101
 msgid "## print() — как увидеть результат"
 msgstr "## print() — seeing the result"
 
-#: .\courses\i18n_junior_lessons.py:102
 msgid "## Оператор break — выход из цикла"
 msgstr "## The `break` statement — exiting a loop"
 
-#: .\courses\i18n_junior_lessons.py:103
 msgid "## Что такое IDE и зачем она нужна"
 msgstr "## What is an IDE and why you need one"
 
-#: .\courses\i18n_junior_lessons.py:104
 msgid "## Локальные и глобальные переменные"
 msgstr "## Local and global variables"
 
-#: .\courses\i18n_junior_lessons.py:105
 msgid "## Создание файла и первая программа"
 msgstr "## Creating a file and a first program"
 
-#: .\courses\i18n_junior_lessons.py:106
 msgid "# Django REST Framework и авторизация"
 msgstr "# Django REST Framework and auth"
 
-#: .\courses\i18n_junior_lessons.py:107
 msgid "## range() — последовательность чисел"
 msgstr "## range() — number sequence"
 
-#: .\courses\i18n_junior_lessons.py:108
 msgid "## Валидация — не паранойя, а гигиена"
 msgstr "## Validation is not paranoia, but hygiene"
 
-#: .\courses\i18n_junior_lessons.py:109
 msgid "## Домашнее задание (часть А — текст)"
 msgstr "## Homework (part A — text)"
 
-#: .\courses\i18n_junior_lessons.py:110
 msgid "## Логирование и переменные окружения"
 msgstr "## Logging and environment variables"
 
-#: .\courses\i18n_junior_lessons.py:111
 msgid "## Разбор домашки — почему так делают"
 msgstr "## Homework analysis - why they do this"
 
-#: .\courses\i18n_junior_lessons.py:112
 msgid "## Отступы в Python — простыми словами"
 msgstr "## Indentation in Python - in simple words"
 
-#: .\courses\i18n_junior_lessons.py:113
 msgid "## Домашнее задание (обязательно в коде)"
 msgstr "## Homework (required — in code)"
 
-#: .\courses\i18n_junior_lessons.py:114
 msgid "3. Выполни `makemigrations` и `migrate`."
 msgstr "3. Run `makemigrations` and `migrate`."
 
-#: .\courses\i18n_junior_lessons.py:115
 msgid "# Flask API: REST, CRUD и валидация входа"
 msgstr "# Flask API: REST, CRUD, and validating input"
 
-#: .\courses\i18n_junior_lessons.py:116
 msgid "## Обязательный чеклист: запусти локально"
 msgstr "## Required checklist: run locally"
 
-#: .\courses\i18n_junior_lessons.py:117
 msgid "### Стили имён в Python (переменные и код)"
 msgstr "### Python naming styles (variables and code)"
 
-#: .\courses\i18n_junior_lessons.py:118
 msgid "## Куда идти дальше — официальные материалы"
 msgstr "## Where to go next - official materials"
 
-#: .\courses\i18n_junior_lessons.py:119
 msgid "## Разбор домашки — что считаем «правильно»"
 msgstr "## Analysis of homework - what we consider “correct”"
 
-#: .\courses\i18n_junior_lessons.py:120
 msgid "Ошибка 1: `age` — строка, нужно `int(age)`."
 msgstr "Error 1: `age` is a string, you need `int(age)`."
 
-#: .\courses\i18n_junior_lessons.py:121
 msgid "## Решение (не подсматривай раньше времени!)"
 msgstr "## Solution (don't peek too soon!)"
 
-#: .\courses\i18n_junior_lessons.py:122
 msgid "1. В определении функции чего-то не хватает."
 msgstr "1. In the function definition something is missing."
 
-#: .\courses\i18n_junior_lessons.py:123
 msgid "2. В вызове `print` — скобки сбалансированы?"
 msgstr "2. In the `print` call — are the parentheses balanced?"
 
-#: .\courses\i18n_junior_lessons.py:124
 msgid "## Виртуальное окружение (.venv) и .gitignore"
 msgstr "## Virtual environment (.venv) and .gitignore"
 
-#: .\courses\i18n_junior_lessons.py:125
 msgid "## Второй мини-проект (если первый уже готов)"
 msgstr "## Second mini-project (if the first one is already ready)"
 
-#: .\courses\i18n_junior_lessons.py:126
 msgid "Ошибка 2: после `if` и `else` нужны двоеточия."
 msgstr "Error 2: after `if` and `else` you need colons."
 
-#: .\courses\i18n_junior_lessons.py:127
 msgid "Длина списка: `len(orders)` — сколько элементов."
 msgstr "List length: `len(orders)` - how many elements."
 
-#: .\courses\i18n_junior_lessons.py:128
 msgid "## Финальный мини-проект на выбор (рекомендуется)"
 msgstr "## Final mini-project (choose one) — recommended"
 
-#: .\courses\i18n_junior_lessons.py:129
 msgid "- Логи в **stdout** — платформа их собирает сама."
 msgstr "- Logs in **stdout** - the platform collects them itself."
 
-#: .\courses\i18n_junior_lessons.py:130
 msgid "- Статика для Django: `collectstatic` при сборке."
 msgstr "- Statics for Django: `collectstatic` on build."
 
-#: .\courses\i18n_junior_lessons.py:131
 msgid "Срезы работают и для строк — получаешь подстроку."
 msgstr "Slices also work for strings - you get a substring."
 
-#: .\courses\i18n_junior_lessons.py:132
 msgid "## Домашнее задание (три шага — обязательный трек)"
 msgstr "## Homework (three steps — required track)"
 
-#: .\courses\i18n_junior_lessons.py:133
 msgid "## Домашнее задание (часть Б — обязательно в коде)"
 msgstr "## Homework (part B — required in code)"
 
-#: .\courses\i18n_junior_lessons.py:134
 msgid "- `IsAuthenticated` — запрос без учётки → **401**."
 msgstr "- `IsAuthenticated` — request without account → **401**."
 
-#: .\courses\i18n_junior_lessons.py:135
 msgid "3. Проверь отступы у `print` — должны ли они быть?"
 msgstr "3. Check the indentation of `print` — should it be indented?"
 
-#: .\courses\i18n_junior_lessons.py:136
 msgid "4. Если `total >= 10`, умножь на 0.9 (скидка 10%)."
 msgstr "4. If `total >= 10`, multiply by 0.9 (10% discount)."
 
-#: .\courses\i18n_junior_lessons.py:137
 msgid "**Пример скелета (идея, не единственный вариант):**"
 msgstr "**Skeleton example (idea, not the only option):**"
 
-#: .\courses\i18n_junior_lessons.py:138
 msgid "# Архитектура проекта и «чистый» Python в продакшене"
 msgstr "# Project architecture and \"clean\" Python in production"
 
-#: .\courses\i18n_junior_lessons.py:139
 msgid "## Идея разбора (не обязательно совпадать построчно)"
 msgstr "## How to review your work (no need to match line for line)"
 
-#: .\courses\i18n_junior_lessons.py:140
 msgid "3. В `open` — два аргумента через запятую. Верно ли?"
 msgstr "3. In `open` — two arguments separated by comma. Correct?"
 
-#: .\courses\i18n_junior_lessons.py:141
 msgid "**Минимальный набросок моделей (если решишь кодом):**"
 msgstr "**Minimum sketch of models (if you decide with code):**"
 
-#: .\courses\i18n_junior_lessons.py:142
 msgid "- `POST /tasks` с телом `{\"title\": \"\"}` → код **400**."
 msgstr "- `POST /tasks` with body `{\"title\": \"\"}` → code **400**."
 
-#: .\courses\i18n_junior_lessons.py:143
 msgid "Напиши **текстом на 5–8 предложений** (можно списком):"
 msgstr "Write **in 5-8 sentence text** (you can use a list):"
 
-#: .\courses\i18n_junior_lessons.py:144
 msgid "## Практический трек: pytest к твоему Flask (обязательно)"
 msgstr "## Practical track: pytest for your Flask (required)"
 
-#: .\courses\i18n_junior_lessons.py:145
 msgid "- **pytest:** [docs.pytest.org](https://docs.pytest.org/)"
 msgstr "- **pytest:** [docs.pytest.org](https://docs.pytest.org/)"
 
-#: .\courses\i18n_junior_lessons.py:146
 msgid "Ошибка 1: после `def calc_total(prices)` нужно двоеточие."
 msgstr "Error 1: after `def calc_total(prices)` you need a colon."
 
-#: .\courses\i18n_junior_lessons.py:147
 msgid "## Изменяемые и неизменяемые объекты (mutable и immutable)"
 msgstr "## Mutable and immutable objects"
 
-#: .\courses\i18n_junior_lessons.py:148
 msgid "Ошибка 3: строки внутри `if` и `else` должны иметь отступ."
 msgstr "Error 3: lines inside `if` and `else` must be indented."
 
-#: .\courses\i18n_junior_lessons.py:149
 msgid "Подставь свой URL и поля — смысл тот же: статус + содержимое."
 msgstr ""
 "Substitute your URL and fields - the meaning is the same: status + content."
 
-#: .\courses\i18n_junior_lessons.py:150
 msgid "2. Посмотри на синтаксис `if` — чего не хватает после условия?"
 msgstr "2. Look at the `if` syntax — what's missing after the condition?"
 
-#: .\courses\i18n_junior_lessons.py:151
 msgid "Цель — **почувствовать разделение**, а не идеальный продакшен."
 msgstr "The goal is to **feel separation**, not perfect production."
 
-#: .\courses\i18n_junior_lessons.py:152
 msgid "2. Проверь отступы: какие строки должны выполняться внутри цикла?"
 msgstr "2. Check indentation: which lines should run inside the loop?"
 
-#: .\courses\i18n_junior_lessons.py:153
 msgid "- `DATABASE_URL`, `SECRET_KEY` — из переменных окружения хостинга."
 msgstr "- `DATABASE_URL`, `SECRET_KEY` - from hosting environment variables."
 
-#: .\courses\i18n_junior_lessons.py:154
 msgid "Цель — **сформулировать мысль**, как на собеседовании или в ревью."
 msgstr ""
 "The goal is to **formulate a thought**, as in an interview or code review."
 
-#: .\courses\i18n_junior_lessons.py:155
 msgid "Новый ключ — новое значение. Существующий ключ — изменяем значение."
 msgstr "New key - new value. Existing key - change the value."
 
-#: .\courses\i18n_junior_lessons.py:156
 msgid "Сделай **минимальный** Flask-проект (можно в одном файле `app.py`):"
 msgstr "Make a **minimal** Flask project (can be in one file `app.py`):"
 
-#: .\courses\i18n_junior_lessons.py:157
 msgid "- **Python (язык):** [docs.python.org/3](https://docs.python.org/3/)"
 msgstr ""
 "- **Python (language):** [docs.python.org/3](https://docs.python.org/3/)"
 
-#: .\courses\i18n_junior_lessons.py:158
 msgid "Пример минимальной реализации `get_logger` (можно сравнить со своей):"
 msgstr ""
 "An example of a minimal implementation of `get_logger` (can be compared with "
 "your own):"
 
-#: .\courses\i18n_junior_lessons.py:159
 msgid ""
 "1. `GET /health` — возвращает JSON `{\"status\": \"ok\"}` с кодом **200**."
 msgstr ""
 "1. `GET /health` - returns JSON `{\"status\": \"ok\"}` with code **200**."
 
-#: .\courses\i18n_junior_lessons.py:160
 msgid "Если pytest ещё не ставил: `pip install pytest` в активированном venv."
 msgstr ""
 "If pytest has not yet been installed: `pip install pytest` in the activated "
 "venv."
 
-#: .\courses\i18n_junior_lessons.py:161
 msgid "Если твой текст отражает эти три пункта — задание выполнено по смыслу."
 msgstr "If your text reflects these three points, the task is complete."
 
-#: .\courses\i18n_junior_lessons.py:162
 msgid "Ошибка 2: `print(calc_total(prices))` — не хватает закрывающей скобки."
 msgstr "Error 2: `print(calc_total(prices))` — missing closing parenthesis."
 
-#: .\courses\i18n_junior_lessons.py:163
 msgid ""
 "Ошибка 3: в `open(\"data.txt\", \"r\")` — нужна запятая между аргументами."
 msgstr ""
 "Error 3: in `open(\"data.txt\", \"r\")` — need a comma between arguments."
 
-#: .\courses\i18n_junior_lessons.py:164
 msgid "Строки `print` — внутри блока `if`, поэтому обе сдвинуты на 4 пробела."
 msgstr ""
 "The `print` lines are inside the `if` block, so both are indented by 4 "
 "spaces."
 
-#: .\courses\i18n_junior_lessons.py:165
 msgid "- **Django:** [docs.djangoproject.com](https://docs.djangoproject.com/)"
 msgstr ""
 "- **Django:** [docs.djangoproject.com](https://docs.djangoproject.com/)"
 
-#: .\courses\i18n_junior_lessons.py:166
 msgid "- Миграции: `python manage.py migrate` на старте или в release-команде."
 msgstr ""
 "- Migrations: `python manage.py migrate` at start or in the release command."
 
-#: .\courses\i18n_junior_lessons.py:167
 msgid ""
 "- В корне есть `.gitignore` со строками `.env` и `.venv/` (или `venv/`)."
 msgstr ""
 "- At the root there is `.gitignore` with the lines `.env` and `.venv/` (or "
 "`venv/`)."
 
-#: .\courses\i18n_junior_lessons.py:168
 msgid ""
 "- **Ветки** `main` / feature-ветки — привычка до первого конфликта в Git."
 msgstr ""
 "- **Branches** `main`/feature branches are a habit before the first conflict "
 "in Git."
 
-#: .\courses\i18n_junior_lessons.py:169
 msgid ""
 "1. После `for` и условием цикла должно быть двоеточие. Где его не хватает?"
 msgstr ""
 "1. After `for` and the loop condition there must be a colon. Where is it "
 "missing?"
 
-#: .\courses\i18n_junior_lessons.py:170
 msgid ""
 "Сравни с тем, что написала ты: совпадает смысл связей и индекса — отлично."
 msgstr ""
 "Compare with what you wrote: the meaning of the connections and the index "
 "coincides - excellent."
 
-#: .\courses\i18n_junior_lessons.py:171
 msgid ""
 "- `GET /health` → код **200**, в JSON есть ключ `status` со значением `ok`."
 msgstr ""
 "- `GET /health` → code **200**, in JSON there is a key `status` with the "
 "value `ok`."
 
-#: .\courses\i18n_junior_lessons.py:172
 msgid ""
 "- Создано виртуальное окружение: `python -m venv .venv` и оно активировано."
 msgstr ""
 "- The virtual environment is created: `python -m venv .venv` and it is "
 "activated."
 
-#: .\courses\i18n_junior_lessons.py:173
 msgid ""
 "- **Flask:** [flask.palletsprojects.com](https://flask.palletsprojects.com/)"
 msgstr ""
 "- **Flask:** [flask.palletsprojects.com](https://flask.palletsprojects.com/)"
 
-#: .\courses\i18n_junior_lessons.py:174
 msgid ""
 "1. Чем отличается **401 Unauthorized** от **403 Forbidden** в контексте API?"
 msgstr ""
 "1. What is the difference between **401 Unauthorized** and **403 Forbidden** "
 "in the context of the API?"
 
-#: .\courses\i18n_junior_lessons.py:175
 msgid ""
 "5. Выведи итог: `round(total, 2)` — округление до двух знаков после запятой."
 msgstr ""
 "5. Print the total: `round(total, 2)` - rounding to two decimal places."
 
-#: .\courses\i18n_junior_lessons.py:176
 msgid ""
 "Для POST с JSON проверяй и **код**, и **тело** — так ловят ошибки контракта."
 msgstr ""
 "For POST with JSON, check both the **code** and **body** - this is how "
 "contract errors are caught."
 
-#: .\courses\i18n_junior_lessons.py:177
 msgid ""
 "Ошибка 1: двоеточие после `for i in numbers:` и после `for num in numbers:`."
 msgstr ""
 "Error 1: colon after `for i in numbers:` and after `for num in numbers:`."
 
-#: .\courses\i18n_junior_lessons.py:178
 msgid ""
 "- **pytest** — удобный раннер тестов: функции `test_*`, утверждения `assert`."
 msgstr ""
 "- **pytest** - convenient test runner: `test_*` functions, `assert` "
 "statements."
 
-#: .\courses\i18n_junior_lessons.py:179
 msgid ""
 "Файл должен существовать в той же папке, что и скрипт (или укажи полный "
 "путь)."
@@ -905,7 +693,6 @@ msgstr ""
 "The file must exist in the same folder as the script (or specify the full "
 "path)."
 
-#: .\courses\i18n_junior_lessons.py:180
 msgid ""
 "Ошибка 2: отступ у `print(i * 2)` и у `total = total + num` — они внутри "
 "цикла."
@@ -913,7 +700,6 @@ msgstr ""
 "Error 2: indentation of `print(i * 2)` and of `total = total + num` — they "
 "are inside the loop."
 
-#: .\courses\i18n_junior_lessons.py:181
 msgid ""
 "2. Зачем DRF отделяет **authentication** (кто ты) и **permissions** (что "
 "можно)?"
@@ -921,7 +707,6 @@ msgstr ""
 "2. Why does DRF separate **authentication** (who are you) and "
 "**permissions** (what is possible)?"
 
-#: .\courses\i18n_junior_lessons.py:182
 msgid ""
 "Это страховка, чтобы следующий модуль не начинался с «у меня не ставится "
 "пакет»."
@@ -929,7 +714,6 @@ msgstr ""
 "This is insurance so that the next module does not start with “I don’t have "
 "the package installed.”"
 
-#: .\courses\i18n_junior_lessons.py:183
 msgid ""
 "Здесь `i` — индекс (с 0), `dish` — сам элемент. `i+1` — чтобы нумерация была "
 "с 1."
@@ -937,14 +721,12 @@ msgstr ""
 "Here `i` is the index (starting with 0), `dish` is the element itself. `i+1` "
 "- so that the numbering starts from 1."
 
-#: .\courses\i18n_junior_lessons.py:184
 msgid ""
 "Минимум: один рабочий `GET` возвращает JSON; `POST` без пользователя "
 "отклоняется."
 msgstr ""
 "Minimum: one worker `GET` returns JSON; `POST` without user is rejected."
 
-#: .\courses\i18n_junior_lessons.py:185
 msgid ""
 "Скриншот не нужен — важно, что страница админки открывается и записи "
 "сохраняются."
@@ -952,13 +734,11 @@ msgstr ""
 "A screenshot is not needed - it is important that the admin page opens and "
 "the entries are saved."
 
-#: .\courses\i18n_junior_lessons.py:186
 msgid ""
 "Если проект из блока выше **уже сделан** — сделай **второй**, на **другом "
 "стеке**:"
 msgstr ""
 
-#: .\courses\i18n_junior_lessons.py:187
 msgid ""
 "- Список `GET /api/lessons/` (можно `ReadOnlyModelViewSet` + router или "
 "`APIView`)."
@@ -966,7 +746,6 @@ msgstr ""
 "- List `GET /api/lessons/` (you can `ReadOnlyModelViewSet` + router or "
 "`APIView`)."
 
-#: .\courses\i18n_junior_lessons.py:188
 msgid ""
 "Закладки в браузере + один учебный репозиторий с README — уже привычка "
 "разработчика."
@@ -974,7 +753,6 @@ msgstr ""
 "Bookmarks in the browser + one educational repository with a README is "
 "already a developer’s habit."
 
-#: .\courses\i18n_junior_lessons.py:189
 msgid ""
 "- **Тест API** — вызываешь клиент Django/Flask, смотришь `status_code` и "
 "тело ответа."
@@ -982,7 +760,6 @@ msgstr ""
 "- **API test** - call the Django/Flask client, look at the `status_code` and "
 "the response body."
 
-#: .\courses\i18n_junior_lessons.py:190
 msgid ""
 "Цель — не идеал, а **доказательство себе**: «я могу довести идею до "
 "запускаемого кода»."
@@ -990,7 +767,6 @@ msgstr ""
 "The goal is not an ideal, but **proof to myself**: “I can bring an idea to "
 "runnable code.”"
 
-#: .\courses\i18n_junior_lessons.py:191
 msgid ""
 "- В `README.md` — какая версия Python и как активировать venv на Windows и "
 "на Mac/Linux."
@@ -998,7 +774,6 @@ msgstr ""
 "- In `README.md` - what version of Python is and how to activate venv on "
 "Windows and Mac/Linux."
 
-#: .\courses\i18n_junior_lessons.py:192
 msgid ""
 "Не обязательно делать PUT/DELETE в этом задании — цель — **маршруты, "
 "статусы, валидация**."
@@ -1006,13 +781,11 @@ msgstr ""
 "It is not necessary to do PUT/DELETE in this task - the goal is **routes, "
 "statuses, validation**."
 
-#: .\courses\i18n_junior_lessons.py:193
 msgid ""
 "1. Создай словарь `menu` с парами «название — цена» (ключи на английском, "
 "как в меню выше)."
 msgstr "1. Create a `menu` dictionary with «name — price» pairs."
 
-#: .\courses\i18n_junior_lessons.py:194
 msgid ""
 "3. `print(\"Sum:\", total)` — он должен выполниться один раз в конце или при "
 "каждой итерации?"
@@ -1020,7 +793,6 @@ msgstr ""
 "3. `print(\"Sum:\", total)` - should it be executed once at the end or at "
 "each iteration?"
 
-#: .\courses\i18n_junior_lessons.py:195
 msgid ""
 "Если ключа нет — будет ошибка. Безопаснее: `menu.get(\"tea\", 0)` — вернёт "
 "0, если ключа нет."
@@ -1028,7 +800,6 @@ msgstr ""
 "If there is no key, there will be an error. Safer: `menu.get(\"tea\", 0)` - "
 "will return 0 if there is no key."
 
-#: .\courses\i18n_junior_lessons.py:196
 msgid ""
 "Используй `pytest` и `app.test_client()` из Flask. Запуск: `pytest -q` — оба "
 "теста зелёные."
@@ -1036,7 +807,6 @@ msgstr ""
 "Use `pytest` and `app.test_client()` from Flask. Run: `pytest -q` - both "
 "tests are green."
 
-#: .\courses\i18n_junior_lessons.py:197
 msgid ""
 "Ошибка 3: `print(\"Sum:\", total)` должен быть БЕЗ отступа — снаружи цикла, "
 "один раз в конце."
@@ -1044,7 +814,6 @@ msgstr ""
 "Error 3: `print(\"Sum:\", total)` must be WITHOUT indentation - outside the "
 "loop, once at the end."
 
-#: .\courses\i18n_junior_lessons.py:198
 msgid ""
 "Третий параметр — шаг. `nums[::2]` — каждый второй элемент. `nums[::-1]` — "
 "разворот списка."
@@ -1052,7 +821,6 @@ msgstr ""
 "The third parameter is the step. `nums[::2]` — every second element. "
 "`nums[::-1]` — list rotation."
 
-#: .\courses\i18n_junior_lessons.py:199
 msgid ""
 "- `Lesson.objects.filter(course_id=1).order_by(\"order\")` — один запрос с "
 "`WHERE` и `ORDER BY`."
@@ -1060,7 +828,6 @@ msgstr ""
 "- `Lesson.objects.filter(course_id=1).order_by(\"order\")` - one query with "
 "`WHERE` and `ORDER BY`."
 
-#: .\courses\i18n_junior_lessons.py:200
 msgid ""
 "- Был Flask — добавь **короткий** Django + DRF: модель на 3 поля, список в "
 "API, **один** тест."
@@ -1068,7 +835,6 @@ msgstr ""
 "- There was Flask - add **short** Django + DRF: model for 3 fields, list in "
 "API, **one** test."
 
-#: .\courses\i18n_junior_lessons.py:201
 msgid ""
 "1. `django-admin startproject` и `python manage.py startapp` (например, "
 "приложение `lessons`)."
@@ -1076,7 +842,6 @@ msgstr ""
 "1. `django-admin startproject` and `python manage.py startapp` (for example, "
 "the `lessons` application)."
 
-#: .\courses\i18n_junior_lessons.py:202
 msgid ""
 "- Не гонись за 100% покрытием тестами сначала — лучше **узкий, но живой** "
 "набор, чем пустой CI."
@@ -1084,7 +849,6 @@ msgstr ""
 "- Don’t chase 100% test coverage at first - a **narrow but live** set is "
 "better than an empty CI."
 
-#: .\courses\i18n_junior_lessons.py:203
 msgid ""
 "- **Django REST Framework:** [django-rest-framework.org](https://www.django-"
 "rest-framework.org/)"
@@ -1092,7 +856,6 @@ msgstr ""
 "- **Django REST Framework:** [django-rest-framework.org](https://www.django-"
 "rest-framework.org/)"
 
-#: .\courses\i18n_junior_lessons.py:204
 msgid ""
 "- Установлены зависимости из `requirements.txt` или хотя бы `pip install "
 "flask` для модуля с API."
@@ -1100,7 +863,6 @@ msgstr ""
 "- Installed dependencies from `requirements.txt` or at least `pip install "
 "flask` ​​for the module with the API."
 
-#: .\courses\i18n_junior_lessons.py:205
 msgid ""
 "1. `input()` всегда возвращает строку. Можно ли сравнивать строку с числом "
 "18? Что нужно сделать?"
@@ -1108,13 +870,11 @@ msgstr ""
 "1. `input()` always returns a string. Can you compare a string with the "
 "number 18? What do you need to do?"
 
-#: .\courses\i18n_junior_lessons.py:206
 msgid ""
 "Сделай в **отдельной папке** учебный проект Django (не в репозитории "
 "платформы — свой локальный):"
 msgstr ""
 
-#: .\courses\i18n_junior_lessons.py:207
 msgid ""
 "Позже ты добавишь список в памяти или базу — сначала важно, что **маршрут "
 "живой и отвечает JSON**."
@@ -1122,7 +882,6 @@ msgstr ""
 "Later you will add a list in memory or a database - first it is important "
 "that **the route is alive and responds with JSON**."
 
-#: .\courses\i18n_junior_lessons.py:208
 msgid ""
 "Собери **один** небольшой проект в своём темпе — не на оценку, а чтобы "
 "почувствовать цельный цикл:"
@@ -1130,7 +889,6 @@ msgstr ""
 "Put together **one** small project at your own pace - not for evaluation, "
 "but to feel the whole cycle:"
 
-#: .\courses\i18n_junior_lessons.py:209
 msgid ""
 "Это не единственно верная схема, но она часто встречается и хорошо "
 "объясняется новичкам в команде."
@@ -1138,7 +896,6 @@ msgstr ""
 "This is not the only correct scheme, but it is common and well explained to "
 "newcomers to the team."
 
-#: .\courses\i18n_junior_lessons.py:210
 msgid ""
 "- **Render** — подключаешь репозиторий, задаёшь команду старта, секреты "
 "кладёшь в панель, не в Git."
@@ -1146,7 +903,6 @@ msgstr ""
 "- **Render** — connect the repository, set the start command, put the "
 "secrets in the panel, not in Git."
 
-#: .\courses\i18n_junior_lessons.py:211
 msgid ""
 "- Был Django — сделай **мини-Flask**: два маршрута (`/health` и один "
 "ресурс), **два** pytest-теста."
@@ -1154,7 +910,6 @@ msgstr ""
 "- There was Django - do a **mini-Flask**: two routes (`/health` and one "
 "resource), **two** pytest tests."
 
-#: .\courses\i18n_junior_lessons.py:212
 msgid ""
 "Если у тебя похожая логика и статусы совпадают — задание выполнено с точки "
 "зрения **договора API**."
@@ -1162,7 +917,6 @@ msgstr ""
 "If your logic is similar and the statuses match, the task is completed from "
 "the point of view of the **API contract**."
 
-#: .\courses\i18n_junior_lessons.py:213
 msgid ""
 "Цель — **закрепить** второй тип проекта, а не удвоить объём. Один README на "
 "репозиторий достаточно."
@@ -1170,7 +924,6 @@ msgstr ""
 "The goal is to **consolidate** the second type of project, not to double the "
 "scope. One README per repository is enough."
 
-#: .\courses\i18n_junior_lessons.py:214
 msgid ""
 "**Индекс** по `(course, order)` ускоряет выборку «уроки курса по порядку» — "
 "типичный запрос для LMS."
@@ -1178,7 +931,6 @@ msgstr ""
 "**Index** on `(course, order)` speeds up the selection of “course lessons in "
 "order” - a typical query for an LMS."
 
-#: .\courses\i18n_junior_lessons.py:215
 msgid ""
 "- **GET** — «дай данные». **POST** — «создай новое». **PUT/PATCH** — "
 "«обнови». **DELETE** — «удали»."
@@ -1186,7 +938,6 @@ msgstr ""
 "- **GET** - “give data.” **POST** - “create something new.” **PUT/PATCH** - "
 "“update”. **DELETE** - “delete”."
 
-#: .\courses\i18n_junior_lessons.py:216
 msgid ""
 "Реальный выклад на Render в этом задании **не обязателен** — сделаешь, когда "
 "проект стабилизируется."
@@ -1194,7 +945,6 @@ msgstr ""
 "A real deploy to Render for this assignment **is not required** — do it when "
 "your project has stabilized."
 
-#: .\courses\i18n_junior_lessons.py:217
 msgid ""
 "Срезы не изменяют оригинал — создают новую копию части. Удобно для "
 "копирования: `copy = my_list[:]`."
@@ -1202,7 +952,6 @@ msgstr ""
 "Slices do not change the original; they create a new copy of the part. "
 "Convenient for copying: `copy = my_list[:]`."
 
-#: .\courses\i18n_junior_lessons.py:218
 msgid ""
 "- **REST** — стиль, где ресурсы (задачи, заказы, пользователи) имеют адреса "
 "и стандартные HTTP-методы."
@@ -1210,7 +959,6 @@ msgstr ""
 "- **REST** is a style where resources (tasks, orders, users) have addresses "
 "and standard HTTP methods."
 
-#: .\courses\i18n_junior_lessons.py:219
 msgid ""
 "- **Сериализатор** — «переводчик» между моделью/словарём и JSON: валидация "
 "полей, вложенные структуры."
@@ -1218,7 +966,6 @@ msgstr ""
 "- **Serializer** - “translator” between the model/dictionary and JSON: field "
 "validation, nested structures."
 
-#: .\courses\i18n_junior_lessons.py:220
 msgid ""
 "`menu.items()` даёт пары (ключ, значение). В цикле можно распаковать: `for "
 "dish, price in menu.items():`"
@@ -1226,7 +973,6 @@ msgstr ""
 "`menu.items()` gives (key, value) pairs. In a loop you can unpack: `for "
 "dish, price in menu.items():`"
 
-#: .\courses\i18n_junior_lessons.py:221
 msgid ""
 "`count += 1` — то же, что `count = count + 1`. Счётчик увеличивается, и "
 "когда станет 3, цикл остановится."
@@ -1234,7 +980,6 @@ msgstr ""
 "`count += 1` is the same as `count = count + 1`. The counter increases, and "
 "when it reaches 3, the loop will stop."
 
-#: .\courses\i18n_junior_lessons.py:222
 msgid ""
 "**Сначала** отметь чеклист выше. Затем сделай **на бумаге или в новой "
 "папке** макет проекта `coffee_app/`:"
@@ -1242,7 +987,6 @@ msgstr ""
 "**First** check off the checklist above. Then make **on paper or in a new "
 "folder** a layout for the `coffee_app/` project:"
 
-#: .\courses\i18n_junior_lessons.py:223
 msgid ""
 "- **GitHub Actions** — YAML-файл в `.github/workflows/`: шаги «установить "
 "зависимости», «запустить тесты»."
@@ -1250,7 +994,6 @@ msgstr ""
 "- **GitHub Actions** - YAML file in `.github/workflows/`: steps “install "
 "dependencies”, “run tests”."
 
-#: .\courses\i18n_junior_lessons.py:224
 msgid ""
 "Если у тебя похожая логика — ты на правильном пути; главное — **один стиль** "
 "и отсутствие секретов в коде."
@@ -1258,7 +1001,6 @@ msgstr ""
 "If you have a similar logic, you are on the right track; the main thing is "
 "**one style** and no secrets in the code."
 
-#: .\courses\i18n_junior_lessons.py:225
 msgid ""
 "Перед первым серьёзным коммитом пройди шаги **на своей машине** (отметь "
 "галочками в README или в заметке):"
@@ -1266,7 +1008,6 @@ msgstr ""
 "Before your first major commit, go through the steps **on your machine** "
 "(check the boxes in the README or in a note):"
 
-#: .\courses\i18n_junior_lessons.py:226
 msgid ""
 "- **Логи** пишут в файл или в stdout — на хостинге (например, Render) удобно "
 "смотреть поток логов в панели."
@@ -1274,7 +1015,6 @@ msgstr ""
 "- **Logs** are written to a file or to stdout - on hosting (for example, "
 "Render) it is convenient to view the log stream in the panel."
 
-#: .\courses\i18n_junior_lessons.py:227
 msgid ""
 "- `ModelSerializer` для `Lesson` (поля `id`, `title`, `order` и связь с "
 "курсом — как минимум `course` по id)."
@@ -1282,7 +1022,6 @@ msgstr ""
 "- `ModelSerializer` for `Lesson` (fields `id`, `title`, `order` and "
 "connection with the course - at least `course` by id)."
 
-#: .\courses\i18n_junior_lessons.py:228
 msgid ""
 "Python подставит значения вместо `{name}` и `{age}`. Можно и выражения: "
 "`f\"Next year you will be {age + 1}\"`."
@@ -1290,7 +1029,6 @@ msgstr ""
 "Python will substitute the values ​​for `{name}` and `{age}`. You can also use "
 "the following expressions: `f\"In a year you will be {age + 1}\"`."
 
-#: .\courses\i18n_junior_lessons.py:229
 msgid ""
 "Функция может принимать много параметров. `sum(list)` — встроенная функция, "
 "возвращает сумму элементов списка."
@@ -1298,7 +1036,6 @@ msgstr ""
 "A function can take many parameters. `sum(list)` is a built-in function that "
 "returns the sum of the elements of a list."
 
-#: .\courses\i18n_junior_lessons.py:230
 msgid ""
 "Что смущает? Для создания ресурса часто ждут **201**, не 200. И отдельно "
 "стоит тест: пустой `title` → **400**."
@@ -1306,7 +1043,6 @@ msgstr ""
 "What's confusing? To create a resource, they often wait for **201**, not "
 "200. And there is a separate test: empty `title` → **400**."
 
-#: .\courses\i18n_junior_lessons.py:231
 msgid ""
 "- **PascalCase** — каждое слово с большой буквы без подчёркиваний: "
 "`CoffeeOrder`. Так чаще называют **классы**."
@@ -1314,7 +1050,6 @@ msgstr ""
 "- **PascalCase** — each word is capitalized without underscores: "
 "`CoffeeOrder`. This is what **classes** are often called."
 
-#: .\courses\i18n_junior_lessons.py:232
 msgid ""
 "- **HTTP-статус** — короткий ответ «как прошло»: 200 (OK), 201 (создали), "
 "400 (ошибка в запросе), 404 (не нашли)."
@@ -1322,7 +1057,6 @@ msgstr ""
 "- **HTTP status** — a short answer for “how it went”: 200 (OK), 201 "
 "(created), 400 (bad request), 404 (not found)."
 
-#: .\courses\i18n_junior_lessons.py:233
 msgid ""
 "- Команда `python -c \"print('venv ok')\"` выполняется без ошибки — "
 "проверка, что используешь нужный интерпретатор."
@@ -1330,7 +1064,6 @@ msgstr ""
 "- The command `python -c \"print('venv ok')\" runs without error - checking "
 "that you are using the right interpreter."
 
-#: .\courses\i18n_junior_lessons.py:234
 msgid ""
 "**Дополнительно (по желанию):** в 4–6 предложениях опиши, зачем CI на каждый "
 "push и что считаешь успешным деплоем."
@@ -1338,7 +1071,6 @@ msgstr ""
 "**Optional:** in 4–6 sentences, explain why run CI on every push and what "
 "you consider a successful deployment."
 
-#: .\courses\i18n_junior_lessons.py:235
 msgid ""
 "Зачем это нужно: единый стиль ускоряет чтение и работу в команде — по виду "
 "имени быстрее понятно, что перед тобой."
@@ -1346,7 +1078,6 @@ msgstr ""
 "Why is this necessary: ​​a unified style speeds up reading and team work - by "
 "looking at the name it’s easier to understand what’s in front of you."
 
-#: .\courses\i18n_junior_lessons.py:236
 msgid ""
 "Можно найти максимум вручную: положи в переменную первый элемент и проходи "
 "по списку. Если нашёл больше — обновляй."
@@ -1354,7 +1085,6 @@ msgstr ""
 "You can find the maximum manually: put the first element in the variable and "
 "go through the list. If you find more, please update."
 
-#: .\courses\i18n_junior_lessons.py:237
 msgid ""
 "Здесь `while True` снаружи выглядит как «бесконечный» цикл, но **`break`** "
 "завершает его, как только введено `exit`."
@@ -1362,7 +1092,6 @@ msgstr ""
 "Here `while True` looks like an \"infinite\" loop from the outside, but "
 "**`break`** ends it as soon as `exit` is entered."
 
-#: .\courses\i18n_junior_lessons.py:238
 msgid ""
 "**Деплой** зависит от хостинга — начни с документации выбранной платформы, "
 "например [Render](https://render.com/docs)."
@@ -1370,7 +1099,6 @@ msgstr ""
 "**Deploy** depends on the hosting - start with the documentation of the "
 "chosen platform, for example [Render](https://render.com/docs)."
 
-#: .\courses\i18n_junior_lessons.py:239
 msgid ""
 "- **ViewSet** — набор действий над ресурсом: список, один объект, создание, "
 "обновление, удаление. Роутер сам строит URL."
@@ -1378,7 +1106,6 @@ msgstr ""
 "- **ViewSet** — a set of actions on a resource: list, one object, creation, "
 "updating, deleting. The router builds the URL itself."
 
-#: .\courses\i18n_junior_lessons.py:240
 msgid ""
 "4. Зарегистрируй модели в `admin.py`, создай суперпользователя, открой `/"
 "admin/` и создай **один** курс и **один** урок."
@@ -1386,7 +1113,6 @@ msgstr ""
 "4. Register models in `admin.py`, create a superuser, open `/admin/` and "
 "create **one** course and **one** lesson."
 
-#: .\courses\i18n_junior_lessons.py:241
 msgid ""
 "- Один **README** в репозитории: как запустить локально, какие переменные "
 "нужны — экономит часы людям и тебе через месяц."
@@ -1394,7 +1120,6 @@ msgstr ""
 "- One **README** in the repository: how to run locally, what variables are "
 "needed - saves people hours and you in a month."
 
-#: .\courses\i18n_junior_lessons.py:242
 msgid ""
 "Когда в цикле `for` нужен и элемент списка, и его индекс — используй "
 "`enumerate()`. Он возвращает пары (индекс, элемент)."
@@ -1402,7 +1127,6 @@ msgstr ""
 "When you need both a list element and its index in a `for` loop, use "
 "`enumerate()`. It returns (index, element) pairs."
 
-#: .\courses\i18n_junior_lessons.py:243
 msgid ""
 "Впереди — ещё больше практики и системные шаги каждый день. Благодарю за "
 "доверие и желаю успехов в ваших будущих проектах!"
@@ -1410,7 +1134,6 @@ msgstr ""
 "Still ahead: more practice and steady, deliberate steps every day. Thank you "
 "for your trust — and I wish you every success in your future projects!"
 
-#: .\courses\i18n_junior_lessons.py:244
 msgid ""
 "Положить `.env` в Git «на минутку». Потом репозиторий публичный — и ключ "
 "утёк. Добавь `.env` в `.gitignore` с первого дня."
@@ -1418,7 +1141,6 @@ msgstr ""
 "Put `.env` in Git \"for a minute\". Then the repository became public - and "
 "the key leaked. Add `.env` to `.gitignore` from day one."
 
-#: .\courses\i18n_junior_lessons.py:245
 msgid ""
 "**Индекс (course, order).** Запрос «все уроки курса по порядку» выполняется "
 "часто; индекс уменьшает полный перебор таблицы."
@@ -1426,7 +1148,6 @@ msgstr ""
 "**Index (course, order).** The query “all course lessons in order” is "
 "executed frequently; the index reduces the exhaustive search of the table."
 
-#: .\courses\i18n_junior_lessons.py:246
 msgid ""
 "1. Создай три папки: `services/`, `config/`, `api/` (пустые файлы "
 "`__init__.py` можно добавить, если хочешь Python-пакеты)."
@@ -1434,7 +1155,6 @@ msgstr ""
 "1. Create three folders: `services/`, `config/`, `api/` (empty `__init__.py` "
 "files can be added if you want Python packages)."
 
-#: .\courses\i18n_junior_lessons.py:247
 msgid ""
 "2. `GET /tasks` — возвращает `{\"tasks\": [...]}` — список задач в "
 "**памяти** (глобальный список словарей достаточно для учебы)."
@@ -1442,7 +1162,6 @@ msgstr ""
 "2. `GET /tasks` - returns `{\"tasks\": [...]}` - a list of tasks in "
 "**memory** (the global list of dictionaries is enough for study)."
 
-#: .\courses\i18n_junior_lessons.py:248
 msgid ""
 "2. В `models.py` опиши модели `Course` и `Lesson` как в уроке (`slug` у "
 "`Course`, связь, `order`, индекс по `(course, order)`)."
@@ -1450,7 +1169,6 @@ msgstr ""
 "2. In `models.py` describe the `Course` and `Lesson` models as in the lesson "
 "(`slug` of `Course`, connection, `order`, index by `(course, order)`)."
 
-#: .\courses\i18n_junior_lessons.py:249
 msgid ""
 "`append(значение)` — добавляет элемент в конец списка. `remove(значение)` — "
 "удаляет первый найденный элемент с таким значением."
@@ -1458,7 +1176,6 @@ msgstr ""
 "`append(value)` - adds an element to the end of the list. `remove(value)` - "
 "removes the first element found with this value."
 
-#: .\courses\i18n_junior_lessons.py:250
 msgid ""
 "Цикл `for` проходит по элементам коллекции (списка, строки и т.д.). "
 "Переменная после `for` по очереди принимает каждый элемент."
@@ -1466,7 +1183,6 @@ msgstr ""
 "The `for` loop loops through the elements of a collection (list, string, "
 "etc.). The variable after `for` takes each element in turn."
 
-#: .\courses\i18n_junior_lessons.py:251
 msgid ""
 "**Вариант B (Django + DRF):** модели, пара endpoint’ов, `IsAuthenticated` на "
 "запись, один тест API, **README** с шагами запуска."
@@ -1474,7 +1190,6 @@ msgstr ""
 "**Option B (Django + DRF):** models, a couple of endpoints, "
 "`IsAuthenticated` per entry, one API test, **README** with launch steps."
 
-#: .\courses\i18n_junior_lessons.py:252
 msgid ""
 "**Шаг 3 — README.** Одна строка: что в репозитории гоняется CI на каждый "
 "push (или вставь бейдж GitHub Actions, если получится)."
@@ -1482,7 +1197,6 @@ msgstr ""
 "**Step 3 - README.** One line: that the repository runs CI for every push "
 "(or insert the GitHub Actions badge, if possible)."
 
-#: .\courses\i18n_junior_lessons.py:253
 msgid ""
 "Выведется три строки — по одной на каждый элемент. Отступ у `print` "
 "обязателен: он показывает, что эта строка принадлежит циклу."
@@ -1490,7 +1204,6 @@ msgstr ""
 "Three lines will be displayed, one for each element. The indentation of "
 "`print` is required: it shows that this line belongs to the cycle."
 
-#: .\courses\i18n_junior_lessons.py:254
 msgid ""
 "В **том же учебном Django-проекте**, где есть модели из прошлого модуля (или "
 "в новом), подключи **djangorestframework** и сделай:"
@@ -1498,7 +1211,6 @@ msgstr ""
 "In **the same Django tutorial project** where there are models from the "
 "previous module (or in the new one), connect **djangorestframework** and do:"
 
-#: .\courses\i18n_junior_lessons.py:255
 msgid ""
 "**Шаг 1 — pytest.** Один тест для учебного `GET /health/` (или аналога): код "
 "**200** и ключ `status` в JSON (как у тебя в ответе)."
@@ -1507,7 +1219,6 @@ msgstr ""
 "equivalent): status code **200** and a `status` key in the JSON (as in your "
 "response)."
 
-#: .\courses\i18n_junior_lessons.py:256
 msgid ""
 "- **snake_case** — слова через нижнее подчёркивание: `user_name`, "
 "`total_price`. Так обычно называют **переменные** и **функции**."
@@ -1516,7 +1227,6 @@ msgstr ""
 "`total_price`. This is what **variables** and **functions** are usually "
 "called."
 
-#: .\courses\i18n_junior_lessons.py:257
 msgid ""
 "Для выхода из цикла можно использовать `break` — он сразу прерывает цикл. "
 "Проверяй: если пользователь ввёл пустую строку — `break`."
@@ -1524,7 +1234,6 @@ msgstr ""
 "To exit the loop, you can use `break` - it immediately breaks the loop. "
 "Check: if the user entered an empty line - `break`."
 
-#: .\courses\i18n_junior_lessons.py:258
 msgid ""
 "Если **нет** аккаунта GitHub — приложи содержимое `ci.yml` и **вывод** "
 "`pytest` из терминала (последние строки) как доказательство."
@@ -1532,7 +1241,6 @@ msgstr ""
 "If you **don't** have a GitHub account, attach the contents of `ci.yml` and "
 "**output** of `pytest` from the terminal (last lines) as proof."
 
-#: .\courses\i18n_junior_lessons.py:259
 msgid ""
 "Функция `print()` выводит значение на экран. Без неё программа посчитает или "
 "сохранит что-то в переменную, но ты ничего не увидишь."
@@ -1541,7 +1249,6 @@ msgstr ""
 "program will calculate or save something into a variable, but you won’t see "
 "anything."
 
-#: .\courses\i18n_junior_lessons.py:260
 msgid ""
 "Дальше главное — **читать документацию и делать свой проект**. Ниже короткий "
 "список опорных ссылок (на английском, как в профессии):"
@@ -1550,7 +1257,6 @@ msgstr ""
 "project**. Below is a short list of reference links (in English, as in the "
 "profession):"
 
-#: .\courses\i18n_junior_lessons.py:261
 msgid ""
 "Если твой ответ отражает **автоматическую проверку** и **наблюдаемость** "
 "после выката — ты на правильном уровне абстракции для «про»."
@@ -1558,7 +1264,6 @@ msgstr ""
 "If your answer reflects **automatic verification** and **observability** "
 "after rollout, you're at the right level of abstraction for \"pro\"."
 
-#: .\courses\i18n_junior_lessons.py:262
 msgid ""
 "Синтаксис простой: `variable_name = value`. Знак `=` — это присваивание "
 "(положить в переменную), а не «равно» в математическом смысле."
@@ -1566,7 +1271,6 @@ msgstr ""
 "The syntax is simple: `variable_name = value`. The `=` sign is an assignment "
 "(put into a variable), and not “equals” in the mathematical sense."
 
-#: .\courses\i18n_junior_lessons.py:263
 msgid ""
 "**Шаг 1 (pytest).** Минимальный тест проверяет **контракт**: сервер жив и "
 "отвечает ожидаемой формой. Пример для DRF/Django `APIClient`:"
@@ -1574,7 +1278,6 @@ msgstr ""
 "**Step 1 (pytest).** A minimal test checks the **contract**: the server is "
 "up and responds in the expected shape. Example for DRF/Django `APIClient`:"
 
-#: .\courses\i18n_junior_lessons.py:264
 msgid ""
 "**Зачем так:** Python «видит» границы блока по отступам. Если отступ "
 "неправильный — программа не запустится и выдаст `IndentationError`."
@@ -1583,7 +1286,6 @@ msgstr ""
 "indentation is incorrect, the program will not start and will throw an "
 "`IndentationError`."
 
-#: .\courses\i18n_junior_lessons.py:265
 msgid ""
 "В Python принято писать так, чтобы код было легко читать. Для имён есть "
 "устоявшиеся соглашения (описаны в **PEP 8** — «этикет» для кода):"
@@ -1592,7 +1294,6 @@ msgstr ""
 "read. There are established conventions for names (described in **PEP 8** - "
 "“etiquette” for code):"
 
-#: .\courses\i18n_junior_lessons.py:266
 msgid ""
 "**`get_logger`.** Единая точка настройки логирования: потом можно сменить "
 "формат или уровень для всего проекта, не переписывая каждый файл."
@@ -1600,7 +1301,6 @@ msgstr ""
 "**`get_logger`.** Single point of logging configuration: you can then change "
 "the format or level for the entire project without rewriting each file."
 
-#: .\courses\i18n_junior_lessons.py:267
 msgid ""
 "Когда маршруты `/health` и `/tasks` работают, добавь файл `tests/"
 "test_app.py` (или `test_app.py` в корне учебной папки) с **двумя** тестами:"
@@ -1609,7 +1309,6 @@ msgstr ""
 "test_app.py` (or `test_app.py` in the root of the training folder) with "
 "**two** tests:"
 
-#: .\courses\i18n_junior_lessons.py:268
 msgid ""
 "«Только текстом» эту часть **не заменяй** — нужен хотя бы один файл с "
 "классами сериализатора и представления, даже если запускал только тестами."
@@ -1617,7 +1316,6 @@ msgstr ""
 "“Text only” **do not replace this part** - you need at least one file with "
 "the serializer and presentation classes, even if you ran it only as tests."
 
-#: .\courses\i18n_junior_lessons.py:269
 msgid ""
 "Режим `\"w\"` — запись. Внимание: он перезаписывает файл! `f.write(текст)` — "
 "записать строку. Перенос строки добавляй сам: `f.write(\"строка\\\\n\")`."
@@ -1626,7 +1324,6 @@ msgstr ""
 "`f.write(text)` writes a string. Add line breaks yourself, e.g. "
 "`f.write(\"line\\n\")`."
 
-#: .\courses\i18n_junior_lessons.py:270
 msgid ""
 "Создай цикл `for`, который выводит числа от 1 до 5 (можно через `range(1, "
 "6)`). Или выведи три любых приветствия, используя список из трёх имён."
@@ -1634,7 +1331,6 @@ msgstr ""
 "Create a `for` loop that prints numbers from 1 to 5 (you can use `range(1, "
 "6)`). Or print any three greetings using a list of three names."
 
-#: .\courses\i18n_junior_lessons.py:271
 msgid ""
 "**Сколько пробелов:** в учебных примерах и в большинстве проектов — **4 "
 "пробела** на один уровень. Не смешивай пробелы и табуляцию в одном файле."
@@ -1642,7 +1338,6 @@ msgstr ""
 "**How ​​many spaces:** in tutorials and most projects - **4 spaces** per "
 "level. Don't mix spaces and tabs in the same file."
 
-#: .\courses\i18n_junior_lessons.py:272
 msgid ""
 "2. В `config/` создай файл-пример `settings.example.env` с двумя строками-"
 "заготовками: `LOG_LEVEL=INFO` и `DATABASE_URL=` (без реального пароля)."
@@ -1650,7 +1345,6 @@ msgstr ""
 "2. In `config/` create an example file `settings.example.env` with two blank "
 "lines: `LOG_LEVEL=INFO` and `DATABASE_URL=` (without the real password)."
 
-#: .\courses\i18n_junior_lessons.py:273
 msgid ""
 "**Правило:** всё, что должно выполняться «внутри» `if`, `for`, `while`, "
 "`def` — пишется с одним и тем же отступом относительно начала этой строки."
@@ -1659,7 +1353,6 @@ msgstr ""
 "`def` is written with the same indentation relative to the beginning of this "
 "line."
 
-#: .\courses\i18n_junior_lessons.py:274
 msgid ""
 "`admin.site.register(Lesson)` даёт быстрый UI. Добавь `list_display`, "
 "`search_fields`, `list_filter` — жизнь редакторов контента становится проще."
@@ -1667,7 +1360,6 @@ msgstr ""
 "`admin.site.register(Lesson)` gives a fast UI. Add `list_display`, "
 "`search_fields`, `list_filter` - the life of content editors becomes easier."
 
-#: .\courses\i18n_junior_lessons.py:275
 msgid ""
 "Создай словарь с тремя парами: день недели — план (например, «Понедельник»: "
 "«учёба»). Выведи план на один из дней. Добавь четвёртую пару и выведи её."
@@ -1675,7 +1367,6 @@ msgstr ""
 "Create a dictionary with three pairs: weekday — plan (e.g. «Monday»: "
 "«study»). Print the plan for one day. Add a fourth pair and print it."
 
-#: .\courses\i18n_junior_lessons.py:276
 msgid ""
 "Удобно, когда клиент всегда может прочитать: `{\"error\": \"человекочитаемое "
 "сообщение\"}`. Тогда не нужно угадывать, пришла ли ошибка в HTML или в JSON."
@@ -1684,7 +1375,6 @@ msgstr ""
 "readable message\"}`. Then you don't have to guess whether the error came in "
 "HTML or JSON."
 
-#: .\courses\i18n_junior_lessons.py:277
 msgid ""
 "Цикл `while` выполняется, пока условие истинно. Важно менять переменную "
 "внутри цикла, иначе условие никогда не станет ложным и цикл будет "
@@ -1694,7 +1384,6 @@ msgstr ""
 "variable inside the loop; otherwise the condition never becomes false and "
 "the loop is infinite."
 
-#: .\courses\i18n_junior_lessons.py:278
 msgid ""
 "Разберём типичные ошибки в циклах. Ниже фрагмент кода — попробуй найти все "
 "ошибки до запуска. Цель: вывести удвоенные числа и в конце сумму всего "
@@ -1704,7 +1393,6 @@ msgstr ""
 "find all errors before launching. Goal: output double numbers and at the end "
 "the sum of the entire list."
 
-#: .\courses\i18n_junior_lessons.py:279
 msgid ""
 "Если ты выполнил домашку — поздравляю! Это отличное начало, старт положен. "
 "Впереди будет ещё интереснее: переменные, циклы, функции и свои проекты. "
@@ -1714,7 +1402,6 @@ msgstr ""
 "start has been made. There will be even more interesting things ahead: "
 "variables, loops, functions and your own projects. Good luck!"
 
-#: .\courses\i18n_junior_lessons.py:280
 msgid ""
 "**Виртуальное окружение (`.venv`)** — отдельный «набор библиотек» под "
 "проект. Без этого на одной машине легко сломать версии пакетов между разными "
@@ -1724,7 +1411,6 @@ msgstr ""
 "project. Without this, on the same machine it is easy to break package "
 "versions between different tasks."
 
-#: .\courses\i18n_junior_lessons.py:281
 msgid ""
 "**Если сейчас нельзя установить Django** — временно опиши те же пункты "
 "**словами или псевдокодом** (как в разборе ниже), но вернись к коду в "
@@ -1734,7 +1420,6 @@ msgstr ""
 "points in **words or pseudocode** (as in the analysis below), but return to "
 "the code within a week."
 
-#: .\courses\i18n_junior_lessons.py:282
 msgid ""
 "**Почему 400 при плохом теле.** 400 Bad Request — «ты прислал то, что не "
 "можем принять по правилам». Не путай с 401 (не авторизован) и 404 (нет "
@@ -1744,7 +1429,6 @@ msgstr ""
 "cannot accept according to the rules.” Do not confuse with 401 (not "
 "authorized) and 404 (no such URL)."
 
-#: .\courses\i18n_junior_lessons.py:283
 msgid ""
 "**`settings.example.env`.** В репозитории показывают **имена** переменных "
 "без секретов. Новый разработчик копирует файл в `.env` и заполняет у себя "
@@ -1754,7 +1438,6 @@ msgstr ""
 "without secrets. The new developer copies the file to `.env` and fills it in "
 "locally."
 
-#: .\courses\i18n_junior_lessons.py:284
 msgid ""
 "Список — упорядоченная коллекция элементов. Как список заказов на кухне: "
 "первое блюдо, второе, третье. Элементы хранятся по порядку и имеют индекс "
@@ -1764,7 +1447,6 @@ msgstr ""
 "kitchen: first dish, second, third. Items are kept in order and have an "
 "index (position)."
 
-#: .\courses\i18n_junior_lessons.py:285
 msgid ""
 "3. Придумай правило для «платного урока»: какие два условия ты проверишь на "
 "бэкенде (без полного кода), чтобы не полагаться только на скрытие кнопки на "
@@ -1774,7 +1456,6 @@ msgstr ""
 "check on the backend (without the full code) so as not to rely only on "
 "hiding the button on the front?"
 
-#: .\courses\i18n_junior_lessons.py:286
 msgid ""
 "**CASCADE.** Удалили курс — уроки без «сиротства» тоже удаляются. Если бы "
 "уроки должны пережить курс — выбирали бы другую политику (`PROTECT` или "
@@ -1784,7 +1465,6 @@ msgstr ""
 "deleted. If the lessons had to survive the course, they would choose a "
 "different policy (`PROTECT` or reassignment)."
 
-#: .\courses\i18n_junior_lessons.py:287
 msgid ""
 "- **Permission** — слой «можно ли этому пользователю». Например, "
 "`IsAuthenticated` — только вошедшим; свои классы — когда правила сложнее "
@@ -1794,7 +1474,6 @@ msgstr ""
 "`IsAuthenticated` - only for logged in users; your own classes - when the "
 "rules are more complex than the “administrator / non-administrator” role."
 
-#: .\courses\i18n_junior_lessons.py:288
 msgid ""
 "Срез — это способ получить часть списка или строки. Синтаксис: "
 "`object[start:end:step]`. Начало включено, конец — нет. Индексы могут быть "
@@ -1804,7 +1483,6 @@ msgstr ""
 "`object[start:end:step]`. The beginning is included, the end is not. Indexes "
 "can be negative (from the end)."
 
-#: .\courses\i18n_junior_lessons.py:289
 msgid ""
 "Параметр может иметь значение по умолчанию. Тогда при вызове его можно не "
 "указывать — подставится default. Параметры со значением по умолчанию обычно "
@@ -1814,7 +1492,6 @@ msgstr ""
 "to specify it - default will be substituted. Parameters with default values ​​"
 "are usually written at the end."
 
-#: .\courses\i18n_junior_lessons.py:290
 msgid ""
 "Соединять текст и переменные можно по-разному. Через запятую: `print(\"Hello,"
 "\", name)`. Удобнее — f-строки: буква `f` перед кавычками, переменные в "
@@ -1824,7 +1501,6 @@ msgstr ""
 "`print(\"Hello,\", name)`. More convenient are f-strings: the letter `f` "
 "before the quotes, variables in curly braces."
 
-#: .\courses\i18n_junior_lessons.py:291
 msgid ""
 "Функция может принимать несколько параметров и возвращать одно значение (или "
 "несколько — через кортеж). Всё, что после `return`, не выполнится — функция "
@@ -1834,7 +1510,6 @@ msgstr ""
 "via a tuple). Everything after `return` will not be executed - the function "
 "will end."
 
-#: .\courses\i18n_junior_lessons.py:292
 msgid ""
 "- **Изменяемые (mutable):** объект можно менять на месте. Главный пример в "
 "этом курсе — **список** `list`: `append`, замена по индексу меняют тот же "
@@ -1844,7 +1519,6 @@ msgstr ""
 "course is **list** `list`: `append`, replace by index changes the same "
 "object in memory."
 
-#: .\courses\i18n_junior_lessons.py:293
 msgid ""
 "`for` — когда заранее известно, по чему идём (список, диапазон). `while` — "
 "когда повторять нужно до какого-то события (например, пока пользователь не "
@@ -1854,7 +1528,6 @@ msgstr ""
 "`while` — when you need to repeat until something happens (e.g. until the "
 "user enters «exit»)."
 
-#: .\courses\i18n_junior_lessons.py:294
 msgid ""
 "Тогда при `git add` эти файлы будут игнорироваться. Проект остаётся чистым, "
 "а коллеги клонируют репозиторий и создают своё окружение командой `python -m "
@@ -1864,7 +1537,6 @@ msgstr ""
 "and colleagues clone the repository and create their own environment with "
 "the command `python -m venv .venv`."
 
-#: .\courses\i18n_junior_lessons.py:295
 msgid ""
 "**Почему 201 при создании.** Код 201 Created явно говорит: «ресурс "
 "появился». 200 тоже «успех», но для API «создали» принято 201 — так клиенту "
@@ -1875,7 +1547,6 @@ msgstr ""
 "accepted - this makes it easier for the client to distinguish between "
 "scenarios."
 
-#: .\courses\i18n_junior_lessons.py:296
 msgid ""
 "Ключевое слово `def`, имя функции, скобки с параметрами, двоеточие. Тело "
 "функции — с отступом. `return` — что вернуть наружу. Если `return` нет, "
@@ -1885,7 +1556,6 @@ msgstr ""
 "of the function is indented. `return` - what to return outside. If there is "
 "no `return`, the function will return `None`."
 
-#: .\courses\i18n_junior_lessons.py:297
 msgid ""
 "Создай три переменные: своё имя, возраст и любимый город. Выведи их по "
 "очереди через `print()`. Попробуй также сложить два числа (например, 10 и "
@@ -1895,7 +1565,6 @@ msgstr ""
 "one with `print()`. Also try adding two numbers (e.g. 10 and 20) and print "
 "the result."
 
-#: .\courses\i18n_junior_lessons.py:298
 msgid ""
 "**Модель** — это класс Python, который Django переводит в таблицу: колонки, "
 "типы, связи. **Миграции** — история изменений схемы: ты не правишь SQL "
@@ -1905,7 +1574,6 @@ msgstr ""
 "types, relationships. **Migrations** - history of schema changes: you don’t "
 "edit SQL with your hands at every step."
 
-#: .\courses\i18n_junior_lessons.py:299
 msgid ""
 "- На создание урока (`POST`) повесь `permission_classes = "
 "[IsAuthenticated]`: без логина — **401** или **403**, с "
@@ -1915,7 +1583,6 @@ msgstr ""
 "[IsAuthenticated]`: without login - **401** or **403**, with "
 "`APIClient.force_authenticate(user=...)` in the test - **201**."
 
-#: .\courses\i18n_junior_lessons.py:300
 msgid ""
 "Это важно при передаче данных в функции и при копировании: со списком проще "
 "случайно изменить один и тот же объект в нескольких местах (вернёмся к этому "
@@ -1925,7 +1592,6 @@ msgstr ""
 "list it is easier to accidentally change the same object in several places "
 "(we will return to this in the lesson about lists)."
 
-#: .\courses\i18n_junior_lessons.py:301
 msgid ""
 "**`.env` и логи** — про безопасность и наблюдаемость. Секреты не кладут в "
 "репозиторий; логи помогают понять, что случилось на сервере, когда "
@@ -1935,7 +1601,6 @@ msgstr ""
 "into the repository; logs help to understand what happened on the server "
 "when the user has already left the page."
 
-#: .\courses\i18n_junior_lessons.py:302
 msgid ""
 "Создай файл `hello.py`, выведи своё имя и город. Запусти программу и "
 "убедись, что всё работает. Если используешь IDE — попробуй запустить "
@@ -1944,7 +1609,6 @@ msgstr ""
 "Create `hello.py`, print your name and city. Run the program and verify it "
 "works. If you use an IDE — try Run or the menu."
 
-#: .\courses\i18n_junior_lessons.py:303
 msgid ""
 "Если нужно проверить не два, а несколько случаев — используй `elif` "
 "(сокращение от «else if»). Python проверяет условия по порядку и выполняет "
@@ -1954,7 +1618,6 @@ msgstr ""
 "if”). Python checks the conditions in order and executes the first block "
 "where the condition is true."
 
-#: .\courses\i18n_junior_lessons.py:304
 msgid ""
 "Данные из сети **нельзя** считать честными. Пустой `title`, слишком длинная "
 "строка, не тот тип — всё это обычные сценарии. Проверяй до того, как "
@@ -1964,7 +1627,6 @@ msgstr ""
 "line that is too long, the wrong type - these are all common scenarios. "
 "Check before you touch the database or business logic."
 
-#: .\courses\i18n_junior_lessons.py:305
 msgid ""
 "**Проверка вручную.** Пустой `title` после `strip()` — тоже пустой. Длину "
 "считай по строке Python, не по «видимым символам» в другом редакторе — для "
@@ -1974,7 +1636,6 @@ msgstr ""
 "the length by the Python string, not by the “visible characters” in another "
 "editor - `len(title)` is enough for learning."
 
-#: .\courses\i18n_junior_lessons.py:306
 msgid ""
 "- Свой permission: наследуешь `BasePermission`, описываешь "
 "`has_object_permission` / `has_permission` под бизнес-правила (например, "
@@ -1984,7 +1645,6 @@ msgstr ""
 "`has_object_permission` / `has_permission` according to business rules (for "
 "example, “sees a paid lesson only with access to the course”)."
 
-#: .\courses\i18n_junior_lessons.py:307
 msgid ""
 "Важно: `input()` всегда возвращает строку. Если спросишь возраст — получишь "
 "`\"25\"` (строка), а не 25 (число). Для вычислений нужно преобразовать: "
@@ -1994,7 +1654,6 @@ msgstr ""
 "get `\"25\"` (string), not 25 (number). For calculations you need to "
 "convert: `int(input(\"How old are you? \"))`."
 
-#: .\courses\i18n_junior_lessons.py:308
 msgid ""
 "Создай список из нескольких чисел (например, 3–5 штук). Выведи их с "
 "нумерацией через `enumerate` (1. ..., 2. ..., 3. ...). Или посчитай сумму "
@@ -2004,7 +1663,6 @@ msgstr ""
 "`enumerate` (1. ..., 2. ..., 3. ...). Or sum all numbers in a loop and print "
 "the result."
 
-#: .\courses\i18n_junior_lessons.py:309
 msgid ""
 "Список создаётся в квадратных скобках, элементы через запятую. Доступ по "
 "индексу: `my_list[0]` — первый, `my_list[1]` — второй. Индекс `-1` — "
@@ -2014,7 +1672,6 @@ msgstr ""
 "by index: `list[0]` is the first, `list[1]` is the second. Index `-1` is the "
 "last element, `-2` is the penultimate element."
 
-#: .\courses\i18n_junior_lessons.py:310
 msgid ""
 "**Course + Lesson.** Один курс — много уроков: значит у `Lesson` будет "
 "`ForeignKey` на `Course`. `slug` обычно уникален, чтобы ссылка была "
@@ -2024,7 +1681,6 @@ msgstr ""
 "will have a `ForeignKey` on `Course`. The `slug` is usually unique to make "
 "the link human readable: `/courses/python-basics/`."
 
-#: .\courses\i18n_junior_lessons.py:311
 msgid ""
 "**Authentication и permissions.** Первое отвечает на вопрос «удостоверение "
 "личности», второе — «разрешено ли действие». Так проще тестировать и менять "
@@ -2034,7 +1690,6 @@ msgstr ""
 "“identity”, the second answers the question “is the action allowed”. This "
 "makes it easier to test and change rules without rewriting the login."
 
-#: .\courses\i18n_junior_lessons.py:312
 msgid ""
 "Тесты я начинала писать «когда уже больно» — после регрессий. Раньше бы я "
 "добавила хотя бы **один** тест на критичный сценарий и один запуск в CI: это "
@@ -2044,7 +1699,6 @@ msgstr ""
 "Previously, I would have added at least **one** test for a critical scenario "
 "and one launch in CI: this is already less of a fear with `git push`."
 
-#: .\courses\i18n_junior_lessons.py:313
 msgid ""
 "Операторы сравнения: `==` (равно), `!=` (не равно), `>` (больше), `<` "
 "(меньше), `>=` (больше или равно), `<=` (меньше или равно). Один знак `=` — "
@@ -2054,7 +1708,6 @@ msgstr ""
 "`<` (less), `>=` (greater than or equal), `<=` (less than or equal). One `=` "
 "sign is an assignment, two `==` is a comparison."
 
-#: .\courses\i18n_junior_lessons.py:314
 msgid ""
 "3. В цикле спрашивай через `input()` (например: `What would you like?` или "
 "`Enter dish name, or blank to finish`). Если пусто — выйди из цикла. Иначе "
@@ -2064,7 +1717,6 @@ msgstr ""
 "to complete\"). If empty, exit the loop. Otherwise, find the price in the "
 "menu and add it to `total`."
 
-#: .\courses\i18n_junior_lessons.py:315
 msgid ""
 "Официальный сайт для скачивания Python: [python.org/downloads](https://"
 "www.python.org/downloads/). С главной [python.org](https://www.python.org/) "
@@ -2074,7 +1726,6 @@ msgstr ""
 "downloads/). From the main page [python.org](https://www.python.org/) the "
 "**Downloads** section in the menu also leads there."
 
-#: .\courses\i18n_junior_lessons.py:316
 msgid ""
 "После `if` идёт условие, затем двоеточие. Строки кода, которые выполняются, "
 "если условие истинно, пишутся с отступом (обычно 4 пробела). Блок `else` — "
@@ -2084,7 +1735,6 @@ msgstr ""
 "executed if the condition is true are indented (usually 4 spaces). The "
 "`else` block is what will be executed if the condition is false."
 
-#: .\courses\i18n_junior_lessons.py:317
 msgid ""
 "Сделай базовую версию: меню из 3 блюд, ввод одного блюда (или упрости — "
 "захардкодь заказ из 2 позиций), посчитай сумму и выведи. Если хочется "
@@ -2094,7 +1744,6 @@ msgstr ""
 "hardcode an order of 2 items), calculate the amount and withdraw. If you "
 "want something more complicated, add the ability to specify the quantity."
 
-#: .\courses\i18n_junior_lessons.py:318
 msgid ""
 "Сохрани файл (Ctrl+S). В терминале перейди в папку с файлом: `cd "
 "путь_к_папке`. Выполни: `python hello.py` (или `python3 hello.py` на Mac/"
@@ -2104,7 +1753,6 @@ msgstr ""
 "path_to_folder`. Run: `python hello.py` (or `python3 hello.py` on Mac/"
 "Linux). Congrats — your first program works."
 
-#: .\courses\i18n_junior_lessons.py:319
 msgid ""
 "Имя переменной должно начинаться с буквы или подчёркивания, может содержать "
 "буквы, цифры и подчёркивания. Нельзя использовать пробелы. Хорошая практика "
@@ -2114,7 +1762,6 @@ msgstr ""
 "letters, numbers, and underscores. Spaces cannot be used. It's good practice "
 "to have meaningful names: `user_name`, not `x`."
 
-#: .\courses\i18n_junior_lessons.py:320
 msgid ""
 "Когда API отдаёт не HTML, а **данные**, нужны три вещи: **кто ты** "
 "(аутентификация), **что тебе можно** (права), **в каком формате ответ** "
@@ -2124,7 +1771,6 @@ msgstr ""
 "you are** (authentication), **what you can** (permissions), **in what format "
 "the response is** (serialization). DRF bundles this into familiar classes."
 
-#: .\courses\i18n_junior_lessons.py:321
 msgid ""
 "**ORM** — способ доставать и сохранять данные через объекты: "
 "`Course.objects.filter(...)`. Это не «вместо SQL навсегда», а удобный слой, "
@@ -2134,7 +1780,6 @@ msgstr ""
 "`Course.objects.filter(...)`. This is not “instead of SQL forever,” but a "
 "convenient layer that can be debugged and optimized if necessary."
 
-#: .\courses\i18n_junior_lessons.py:322
 msgid ""
 "- **Секреты** (ключи API, пароль БД) — в `.env` локально; в репозиторий "
 "кладут только `.env.example` с пустыми именами полей. В коде читают через "
@@ -2144,7 +1789,6 @@ msgstr ""
 "`.env.example` with empty field names are put into the repository. The code "
 "is read through `os.environ` or a library like `python-dotenv`."
 
-#: .\courses\i18n_junior_lessons.py:323
 msgid ""
 "- Если в цикле для каждого урока трогаешь `lesson.course.title`, без "
 "оптимизации получишь **N+1** запросов. `select_related(\"course\")` "
@@ -2154,7 +1798,6 @@ msgstr ""
 "optimization you will get **N+1** requests. `select_related(\"course\")` "
 "pulls up a related course with **one JOIN** where appropriate."
 
-#: .\courses\i18n_junior_lessons.py:324
 msgid ""
 "Django берёт на себя рутину: описал модель — получил таблицу, формы, админку "
 "почти бесплатно. Для «про»-уровня важно понимать **что именно** создаётся в "
@@ -2165,7 +1808,6 @@ msgstr ""
 "understand **what exactly** is created in the database and **how not to "
 "multiply queries** unnecessarily."
 
-#: .\courses\i18n_junior_lessons.py:325
 msgid ""
 "Когда я впервые увидела таблицу методов и статусов, она казалась сухой. Но "
 "на практике это экономит часы: фронтенд и бэкенд спорят реже, если оба знают "
@@ -2175,7 +1817,6 @@ msgstr ""
 "practice, this saves hours: frontend and backend argue less often if they "
 "both know **the same error format** and **the same set of codes**."
 
-#: .\courses\i18n_junior_lessons.py:326
 msgid ""
 "На кухне зоны: холодный цех, гриль, десерты. В коде похоже: **данные**, "
 "**правила**, **входы-выходы (API)**. Смешивать всё в одном месте можно в "
@@ -2186,7 +1827,6 @@ msgstr ""
 "everything in one place in a prototype; For educational “pro” it is better "
 "to get used to separating."
 
-#: .\courses\i18n_junior_lessons.py:327
 msgid ""
 "Напиши программу: задай переменную `summa` (например, 30). Если `summa` "
 "больше 50 — выведи сообщение «Скидка 10%» и посчитай сумму со скидкой "
@@ -2197,7 +1837,6 @@ msgstr ""
 "with the discount (multiply by 0.9). Otherwise, print “No discount” and the "
 "same amount."
 
-#: .\courses\i18n_junior_lessons.py:328
 msgid ""
 "Синтаксис — это правила «грамматики» языка: как писать команды, куда ставить "
 "скобки и двоеточия. Python славится читаемым синтаксисом: код выглядит почти "
@@ -2208,7 +1847,6 @@ msgstr ""
 "syntax: the code looks almost like plain text. Much is understood "
 "intuitively."
 
-#: .\courses\i18n_junior_lessons.py:329
 msgid ""
 "Иногда нужно **выйти из цикла раньше**, чем основное условие `while` станет "
 "ложным. Для этого есть **`break`**: он прерывает **текущий** цикл `while` "
@@ -2218,7 +1856,6 @@ msgstr ""
 "becomes false. There's a **`break`** for this: it breaks the **current** "
 "`while` or `for` loop and execution jumps to the code **after** the loop."
 
-#: .\courses\i18n_junior_lessons.py:330
 msgid ""
 "- **SCREAMING_SNAKE_CASE** — всё заглавными, слова через `_`: `MAX_SIZE`, "
 "`DEFAULT_PORT`. Обычно для **констант** (значения, которые по смыслу "
@@ -2229,7 +1866,6 @@ msgstr ""
 "according to the meaning of the program, should not change; the language "
 "itself does not prohibit reassignment)."
 
-#: .\courses\i18n_junior_lessons.py:331
 msgid ""
 "В других языках блоки кода часто оборачивают в фигурные скобки `{ }`. В "
 "Python вместо этого используют **отступы** — пробелы в начале строки. Как "
@@ -2240,7 +1876,6 @@ msgstr ""
 "Like a paragraph in a book: inside the block the lines are shifted further "
 "to the right than outside."
 
-#: .\courses\i18n_junior_lessons.py:332
 msgid ""
 "Напиши функцию `say_hello(name)`, которая возвращает строку «Привет, "
 "[имя]!». Вызови её с твоим именем и выведи результат через `print`. Если "
@@ -2250,7 +1885,6 @@ msgstr ""
 "Call it with your name and print the result via `print`. If it works, make a "
 "function `double(x)` that returns double the number."
 
-#: .\courses\i18n_junior_lessons.py:333
 msgid ""
 "Собери в одну программу всё изученное: словари, циклы, условия, input и "
 "print. Мини-проект: калькулятор счёта для кафе. Меню: cappuccino 2.50 €, "
@@ -2261,7 +1895,6 @@ msgstr ""
 "cappuccino 2.50 €, cornetto 1.50 €, juice 2.00 €. 10% discount for orders "
 "from 10 euros."
 
-#: .\courses\i18n_junior_lessons.py:334
 msgid ""
 "Создай список из трёх городов. Выведи первый элемент (индекс 0) и последний "
 "(индекс -1). Добавь четвёртый город через `append` и выведи весь список. "
@@ -2271,7 +1904,6 @@ msgstr ""
 "last (index -1). Add a fourth city using `append` and display the entire "
 "list. Try a slice: output the first two elements through `list[:2]`."
 
-#: .\courses\i18n_junior_lessons.py:335
 msgid ""
 "**Зачем это нужно:** когда удобнее проверять условие **внутри** тела цикла "
 "(несколько разных причин для остановки, ввод пользователя, поиск элемента) — "
@@ -2282,7 +1914,6 @@ msgstr ""
 "user input, searching for an element) - instead of overloading one long line "
 "in `while`."
 
-#: .\courses\i18n_junior_lessons.py:336
 msgid ""
 "3. В `services/logger_setup.py` напиши функцию `get_logger(name: str)`, "
 "которая настраивает и возвращает стандартный `logging.Logger` с уровнем INFO "
@@ -2292,7 +1923,6 @@ msgstr ""
 "which configures and returns the standard `logging.Logger` with the INFO "
 "level (without mandatory output to a file - basic settings are enough)."
 
-#: .\courses\i18n_junior_lessons.py:337
 msgid ""
 "**Структура папок** — это не магия и не экзамен. Это договорённость: «вот "
 "здесь мы говорим с базой, вот здесь — с внешним API, вот здесь — правила "
@@ -2302,7 +1932,6 @@ msgstr ""
 "talk to the base, here we talk to the external API, here we talk to the "
 "domain rules.” This makes it easier to find bugs and connect new people."
 
-#: .\courses\i18n_junior_lessons.py:338
 msgid ""
 "Здесь `input(\"What is your name? \")` — текст в скобках показывается как "
 "приглашение. Пользователь вводит имя, нажимает Enter — и это значение "
@@ -2312,7 +1941,6 @@ msgstr ""
 "invitation. The user enters a name, presses Enter, and this value is stored "
 "in the `name` variable. Then we display a greeting with that name."
 
-#: .\courses\i18n_junior_lessons.py:339
 msgid ""
 "Проверь по чеклисту: получается ли у нового человека **запустить проект по "
 "README**; есть ли `.env.example`; отдаёт ли API предсказуемые коды; падает "
@@ -2322,7 +1950,6 @@ msgstr ""
 "there `.env.example`; does the API return predictable status codes; does the "
 "test fail if you break the contract? That’s enough for a “solo finale.”"
 
-#: .\courses\i18n_junior_lessons.py:340
 msgid ""
 "Программа часто должна принимать решения: если одно — делаем так, иначе — по-"
 "другому. В ресторане: если гость заказал пиццу — повар готовит пиццу, иначе "
@@ -2333,7 +1960,6 @@ msgstr ""
 "pizza, the chef prepares pizza, otherwise, pasta. Conditions allow you to "
 "execute different code depending on the situation."
 
-#: .\courses\i18n_junior_lessons.py:341
 msgid ""
 "Напиши программу: спроси имя пользователя и выведи фразу «Привет, [имя]!». "
 "Если сможешь — добавь вопрос про возраст и выведи «Тебе [возраст] лет.» "
@@ -2345,7 +1971,6 @@ msgstr ""
 "years old.” (convert age to a number using `int()` if you use it in the "
 "text)."
 
-#: .\courses\i18n_junior_lessons.py:342
 msgid ""
 "Функция `range(n)` создаёт последовательность от 0 до n-1. Удобно, когда "
 "нужны числа подряд — например, индекс или номер итерации. `range(5)` даёт 0, "
@@ -2357,7 +1982,6 @@ msgstr ""
 "`range(5)` gives 0, 1, 2, 3, 4. `range(2, 6)` - from 2 to 5. `range(0, 10, "
 "2)` - 0, 2, 4, 6, 8 (step 2)."
 
-#: .\courses\i18n_junior_lessons.py:343
 msgid ""
 "Когда ты выходишь за рамки учебных скриптов, появляется сразу много "
 "вопросов: куда положить настройки, где бизнес-логика, как не светить пароли "
@@ -2369,7 +1993,6 @@ msgstr ""
 "passwords in Git. This lesson sets the **framework of thinking**: not “one "
 "big file”, but areas of responsibility."
 
-#: .\courses\i18n_junior_lessons.py:344
 msgid ""
 "**Папки.** `services` — место для правил («как считаем скидку»), `api` — "
 "тонкий слой «приняли HTTP → вызвали сервис → вернули JSON», `config` — как "
@@ -2381,7 +2004,6 @@ msgstr ""
 "returned JSON”, `config` — how we read the outside world. This way there is "
 "less duplication: if the rule changes, you go to one place."
 
-#: .\courses\i18n_junior_lessons.py:345
 msgid ""
 "`python -m venv .venv` создаёт папку окружения рядом с проектом. Активация: "
 "на Windows — `.venv/Scripts/activate`, на Mac/Linux — `source .venv/bin/"
@@ -2393,7 +2015,6 @@ msgstr ""
 "`source .venv/bin/activate`. Then `pip install` installs the packages "
 "**inside** this environment, and not “just anywhere”."
 
-#: .\courses\i18n_junior_lessons.py:346
 msgid ""
 "**Про `range`:** как устроены аргументы (от, до, шаг) и какие числа попадают "
 "в последовательность, мы подробно разберём в **уроке 9** — «Циклы и списки: "
@@ -2405,7 +2026,6 @@ msgstr ""
 "“Cycles and lists: range and enumerate”. If you want to understand earlier, "
 "open that lesson, then return to your homework."
 
-#: .\courses\i18n_junior_lessons.py:347
 msgid ""
 "Python сам определяет тип по значению. Текст в кавычках — строка (`str`). "
 "Число без кавычек — целое (`int`) или с точкой — дробное (`float`). `True` и "
@@ -2417,7 +2037,6 @@ msgstr ""
 "fractional number (`float`). `True` and `False` are logical types (`bool`). "
 "Strings in quotes: `\"hello\"` or `'hello'` - no difference."
 
-#: .\courses\i18n_junior_lessons.py:348
 msgid ""
 "Напиши функцию `is_adult(age)`, которая возвращает `True`, если возраст >= "
 "18, иначе `False`. Вызови её для возрастов 17 и 20 и выведи результаты. "
@@ -2429,7 +2048,6 @@ msgstr ""
 "use `input()`: ask for age and print “Adult” or “Minor” depending on the "
 "function’s response."
 
-#: .\courses\i18n_junior_lessons.py:349
 msgid ""
 "**Шаг 2 — CI.** Файл `.github/workflows/ci.yml` в **корне учебного "
 "репозитория**: job `test` на `push`, Python 3.11+, `pip install -r "
@@ -2441,7 +2059,6 @@ msgstr ""
 "requirements.txt`, then `pytest`. You can take the template from the GitHub "
 "Actions documentation and substitute your own commands."
 
-#: .\courses\i18n_junior_lessons.py:350
 msgid ""
 "IDE (Integrated Development Environment) — среда разработки. Это программа, "
 "в которой ты пишешь код, запускаешь его, видишь ошибки и подсказки. Без IDE "
@@ -2453,7 +2070,6 @@ msgstr ""
 "IDE, you can write in Notepad, but it’s more difficult: there is no syntax "
 "highlighting, autocompletion, or debugging."
 
-#: .\courses\i18n_junior_lessons.py:351
 msgid ""
 "Открой терминал: в Windows — «Командная строка» или PowerShell, в Mac/Linux "
 "— Terminal. Введи `python` или `python3`. Увидишь приглашение `>>>` — "
@@ -2464,7 +2080,6 @@ msgstr ""
 "Terminal. Enter `python` or `python3`. You'll see `>>>` — Python is ready. "
 "You can type commands in the terminal. To exit, type `exit()`."
 
-#: .\courses\i18n_junior_lessons.py:352
 msgid ""
 "- **Неизменяемые (immutable):** «внутри» значения после создания не меняют "
 "на месте — при операции получаешь новое значение. Примеры: **числа**, "
@@ -2476,7 +2091,6 @@ msgstr ""
 "**strings**, **tuples** `tuple`. The string `s` does not change from the "
 "call to `s.upper()` - a **new** string is returned."
 
-#: .\courses\i18n_junior_lessons.py:353
 msgid ""
 "Когда ты строишь бэкенд для сайта или приложения, клиенту нужен **понятный "
 "контракт**: какой URL, какой метод, что в теле запроса, что придёт в ответе. "
@@ -2489,7 +2103,6 @@ msgstr ""
 "for the sake of abstraction,” but a convention that is repeated by millions "
 "of projects."
 
-#: .\courses\i18n_junior_lessons.py:354
 msgid ""
 "В **VS Code**: Файл → Новый файл (или Ctrl+N). Сохрани как `hello.py` — Файл "
 "→ Сохранить как (Ctrl+Shift+S). Выбери папку, введи имя `hello.py`, "
@@ -2501,7 +2114,6 @@ msgstr ""
 "extension `.py` is required. In **PyCharm**: right click on the project "
 "folder → New → Python file → enter `hello`."
 
-#: .\courses\i18n_junior_lessons.py:355
 msgid ""
 "3. `POST /tasks` — принимает JSON `{ \"title\": \"...\" }`. Если `title` "
 "пустой или строка длиннее **200** символов — верни **400** и JSON "
@@ -2513,7 +2125,6 @@ msgstr ""
 "`{\"error\": \"description\"}`. If everything is ok, add a task with an `id` "
 "field (for example, a counter) and return **201** with the created object."
 
-#: .\courses\i18n_junior_lessons.py:356
 msgid ""
 "Программа работает с данными в памяти — после закрытия всё исчезает. Файл — "
 "способ сохранить данные на диск. Как чек: записали заказ, положили в папку — "
@@ -2525,7 +2136,6 @@ msgstr ""
 "order, put it in a folder, and then you can read it. The files are needed "
 "for logs, settings, data that should survive a program restart."
 
-#: .\courses\i18n_junior_lessons.py:357
 msgid ""
 "Ошибки — часть обучения. В этом блоке мы разбираем типичные промахи, чтобы "
 "ты узнавал их и не повторял. Ниже фрагмент кода с несколькими ошибками. "
@@ -2537,7 +2147,6 @@ msgstr ""
 "several errors. Try to find them without starting the program. Think about "
 "it: what could go wrong? If you get stuck, use the hints."
 
-#: .\courses\i18n_junior_lessons.py:358
 msgid ""
 "**401 vs 403.** Частая договорённость: **401** — «мы не знаем, кто ты» (нет "
 "или битый токен / не авторизован). **403** — «мы знаем, кто ты, но этот "
@@ -2549,7 +2158,6 @@ msgstr ""
 "you’re not allowed this resource.” In practice the line can blur, but API "
 "responses should stay consistent."
 
-#: .\courses\i18n_junior_lessons.py:359
 msgid ""
 "JWT и сессии я путала долго. Коротко: **сессия** — сервер помнит тебя по "
 "cookie; **JWT** — сервер проверяет подписанный токен и часто **не хранит** "
@@ -2562,7 +2170,6 @@ msgstr ""
 "JWTs are often more convenient; For a classic Django site with forms, "
 "sessions are common."
 
-#: .\courses\i18n_junior_lessons.py:360
 msgid ""
 "Цикл — это повторение одних и тех же действий много раз. Без цикла пришлось "
 "бы копировать код. С циклом — пишешь один раз, и он выполняется для каждого "
@@ -2575,7 +2182,6 @@ msgstr ""
 "met. How the waiter goes around the tables: the same action, different "
 "tables."
 
-#: .\courses\i18n_junior_lessons.py:361
 msgid ""
 "Словарь хранит пары «ключ — значение». Как меню: название блюда — ключ, цена "
 "— значение. По ключу быстро находишь значение. Ключи уникальны: два "
@@ -2587,7 +2193,6 @@ msgstr ""
 "key. Keys are unique: no two keys can be the same. The dictionary is created "
 "in curly braces, pairs separated by commas, key and value separated by colon."
 
-#: .\courses\i18n_junior_lessons.py:362
 msgid ""
 "До сих пор данные были зашиты в коде. Но программа может спрашивать "
 "пользователя и работать с его ответами. Функция `input()` показывает вопрос "
@@ -2599,7 +2204,6 @@ msgstr ""
 "screen, stops and waits for the user to enter text and press Enter. Whatever "
 "is entered is returned as a string."
 
-#: .\courses\i18n_junior_lessons.py:363
 msgid ""
 "Функция — это именованный блок кода, который выполняет определённую задачу. "
 "Как рецепт блюда: ты передаёшь ингредиенты (аргументы), функция делает "
@@ -2611,7 +2215,6 @@ msgstr ""
 "and returns the result. Once you write, you call repeatedly from different "
 "places. The code becomes clearer and shorter."
 
-#: .\courses\i18n_junior_lessons.py:364
 msgid ""
 "**Список — изменяемый (mutable):** методы вроде `append` и `remove` меняют "
 "**тот же** объект в памяти. Строка, наоборот, **неизменяема** (immutable) — "
@@ -2623,7 +2226,6 @@ msgstr ""
 "operations produce a new string. This ties into **mutable and immutable "
 "objects** from **lesson 2**."
 
-#: .\courses\i18n_junior_lessons.py:365
 msgid ""
 "Связи `ForeignKey` я поначалу путала с «просто полем». Помогла формула: "
 "**много к одному** — много уроков ссылаются на один курс. "
@@ -2636,7 +2238,6 @@ msgstr ""
 "lines will also be removed (for educational schemes this is often the case; "
 "in life sometimes you need `PROTECT`)."
 
-#: .\courses\i18n_junior_lessons.py:366
 msgid ""
 "Благодарю вас за время, уделенное этому курсу. Как человек, прошедший путь "
 "трансформации из повара в разработчика, я знаю, что время — наш самый ценный "
@@ -2649,7 +2250,6 @@ msgstr ""
 "this course is not just study material: it is an investment in our shared "
 "growth."
 
-#: .\courses\i18n_junior_lessons.py:367
 msgid ""
 "**Шаг 2–3 (CI + README).** CI ловит поломки **до** того, как код уедет к "
 "команде или на сервер. Успешный деплой — не только «сайт открылся», но и "
@@ -2662,7 +2262,6 @@ msgstr ""
 "environment variables are set.” On Render you see this in the logs in the "
 "first minutes after release."
 
-#: .\courses\i18n_junior_lessons.py:368
 msgid ""
 "Функция `open(имя_файла, режим)` открывает файл. Режим `\"r\"` — чтение. "
 "`encoding=\"utf-8\"` — чтобы корректно читать текст, в том числе не-ASCII "
@@ -2675,7 +2274,6 @@ msgstr ""
 "automatically, even if an error occurs. `f.read()` reads the whole file into "
 "one string."
 
-#: .\courses\i18n_junior_lessons.py:369
 msgid ""
 "**Платный урок (идея проверки).** Пользователь **аутентифицирован** и у него "
 "есть **запись о покупке / подписке** на этот курс (или урок в списке "
@@ -2688,7 +2286,6 @@ msgstr ""
 "refuse if there is no access - otherwise any API call will directly bypass "
 "the “beautiful button”."
 
-#: .\courses\i18n_junior_lessons.py:370
 msgid ""
 "Я на личном опыте знаю, как непросто начинать с нуля: осваивать новый "
 "синтаксис, привыкать к другому ритму и справляться с первыми ошибками. "
@@ -2702,7 +2299,6 @@ msgstr ""
 "for anyone. Reaching the final stage already shows you are ready for real "
 "change."
 
-#: .\courses\i18n_junior_lessons.py:371
 msgid ""
 "Код без проверок живёт недолго: одна правка ломает соседнюю фичу. **Тест** — "
 "зафиксированное ожидание: «если я делаю X, должно быть Y». **CI** "
@@ -2716,7 +2312,6 @@ msgstr ""
 "**Deploy** - delivery of the working version to the server (here Render is "
 "used as an example)."
 
-#: .\courses\i18n_junior_lessons.py:372
 msgid ""
 "Создай файл `cities.txt` с тремя городами — по одному городу на строку "
 "(вручную в блокноте или через Python с `open(..., \"w\")`). Напиши "
@@ -2730,7 +2325,6 @@ msgstr ""
 "`content.splitlines()` returns a list of lines; the element at index `1` is "
 "the second line."
 
-#: .\courses\i18n_junior_lessons.py:373
 msgid ""
 "Динамическая типизация — когда программа сама определяет тип данных во время "
 "работы, а не при написании кода. Пример: пишешь `x = 5` — Python понимает, "
@@ -2744,7 +2338,6 @@ msgstr ""
 "There is no need to declare the type of a variable in advance, as in some "
 "other languages. This makes the code shorter and more flexible."
 
-#: .\courses\i18n_junior_lessons.py:374
 msgid ""
 "Переменная, созданная внутри функции, видна только внутри неё — это "
 "локальная переменная. Переменная на верхнем уровне файла — глобальная, её "
@@ -2758,7 +2351,6 @@ msgstr ""
 "global ones with the same name and disappear after the function exits. This "
 "helps avoid accidental changes."
 
-#: .\courses\i18n_junior_lessons.py:375
 msgid ""
 "Переменная — это именованное место в памяти компьютера, где хранится "
 "значение. Как полка на кухне: у каждой полки есть название (мука, масло, "
@@ -2772,7 +2364,6 @@ msgstr ""
 "name, and assign a value. Then you can use this value anywhere in the "
 "program."
 
-#: .\courses\i18n_junior_lessons.py:376
 msgid ""
 "Честно: сначала я складывала почти всё в один-два файла — «и так работает». "
 "Потом проект рос, и я тратила время не на фичи, а на поиск «где тут вообще "
@@ -2787,7 +2378,6 @@ msgstr ""
 "data), it became calmer. You don't need to be perfect from day one - you "
 "need **direction**."
 
-#: .\courses\i18n_junior_lessons.py:377
 msgid ""
 "**Вариант A (Flask или FastAPI по желанию):** простой CRUD для одной "
 "сущности (например, задачи или заметки), доступ к изменению только после "
@@ -2801,7 +2391,6 @@ msgstr ""
 "successful script and a **README** file: how to set what variables are "
 "needed, how to run."
 
-#: .\courses\i18n_junior_lessons.py:378
 msgid ""
 "`.gitignore` — файл в корне проекта для Git. В нём перечисляются файлы и "
 "папки, которые Git не должен отслеживать. Зачем? Папка `.venv` занимает "
@@ -2815,7 +2404,6 @@ msgstr ""
 "to the repository. Files with passwords (`.env`), cache, logs - too. In "
 "`.gitignore` you write one line per template:"
 
-#: .\courses\i18n_junior_lessons.py:379
 msgid ""
 "PyCharm — мощная IDE от JetBrains. Я сама начинала с неё: всё под рукой — "
 "отладка, рефакторинг, работа с проектами. Удобные фишки: умное "
@@ -2829,7 +2417,6 @@ msgstr ""
 "breakpoints, virtual environments out of the box. The downside is that it’s "
 "heavy: it takes up a lot of RAM. If the computer is weak, it may slow down."
 
-#: .\courses\i18n_junior_lessons.py:380
 msgid ""
 "Сохранять можно вручную (Ctrl+S). В VS Code и PyCharm есть автосохранение: "
 "включи в настройках «Auto Save» (VS Code) или «Save files automatically» "
@@ -2843,7 +2430,6 @@ msgstr ""
 "seconds. For beginners, it is better to first get used to manual Ctrl+S in "
 "order to control when changes go to disk."
 
-#: .\courses\i18n_junior_lessons.py:381
 msgid ""
 "Python входит в тройку самых популярных языков программирования в мире. Его "
 "отличительные черты — читаемый синтаксис и динамическая типизация. Python "
@@ -2857,7 +2443,6 @@ msgstr ""
 "learning, script automation, games and much more. If you learn Python, a "
 "huge field of possibilities will open up."
 
-#: .\courses\i18n_junior_lessons.py:382
 msgid ""
 "Для **Windows** лучше стабильная версия 3.12 или 3.11 — скачай установщик "
 "(Windows installer, 64-bit). Для **Mac** — выбери macOS 64-bit universal2 "
@@ -2872,7 +2457,6 @@ msgstr ""
 "manager: `sudo apt install python3` (Ubuntu/Debian) or `sudo dnf install "
 "python3` (Fedora)."
 
-#: .\courses\i18n_junior_lessons.py:383
 msgid ""
 "Представь: ты приходишь на кухню ресторана. Нужен нож, сковорода, плита — "
 "без инструментов не приготовишь блюдо. Python — это твой «набор "
@@ -2888,7 +2472,6 @@ msgstr ""
 "universal frying pan: suitable for different dishes without changing dishes. "
 "First, let's install Python and set up the workbench."
 
-#: .\courses\i18n_junior_lessons.py:384
 msgid ""
 "Запусти установщик. Внизу экрана есть важная галочка: **«Add Python to "
 "PATH»**. Обязательно отметь её. PATH — это список папок, в которых система "
@@ -2905,7 +2488,6 @@ msgstr ""
 "will become accessible from any folder. Click “Install Now” and wait for the "
 "installation to complete."
 
-#: .\courses\i18n_junior_lessons.py:385
 msgid ""
 "**Почему отсчёт с нуля и зачем индекс `-1`:** в Python индекс — это "
 "**смещение** от начала списка: у первого элемента смещение 0, поэтому он "
@@ -2922,7 +2504,6 @@ msgstr ""
 "you don’t need to write `len(items) - 1` every time when the length is "
 "unknown in advance."
 
-#: .\courses\i18n_junior_lessons.py:386
 msgid ""
 "Из‑за нехватки памяти я перешла на VS Code. Это лёгкий редактор от "
 "Microsoft. Сначала пришлось привыкнуть, но со временем освоила расширения: "
@@ -2939,7 +2520,6 @@ msgstr ""
 "recommend that beginners try both: PyCharm - if you want “everything at "
 "once”, VS Code - if speed and flexibility are important."
 
-#: .\courses\i18n_junior_lessons.py:387
 msgid ""
 "`.venv` — папка виртуального окружения Python. В ней лежит отдельная копия "
 "интерпретатора и все библиотеки проекта. Зачем? На компьютере может быть "
@@ -2959,650 +2539,486 @@ msgstr ""
 "the environment active, `pip install` installs packages only there. That way "
 "each project keeps its own dependencies."
 
-#: .\courses\models.py:10 .\courses\models.py:30 .\courses\models.py:94
-#: .\courses\models.py:116
 msgid "Название"
 msgstr "Title"
 
-#: .\courses\models.py:13 .\courses\models.py:44
 msgid "Категория"
 msgstr "Category"
 
-#: .\courses\models.py:14
 msgid "Категории"
 msgstr "Categories"
 
-#: .\courses\models.py:31
 msgid "Описание"
 msgstr "Description"
 
-#: .\courses\models.py:33
 msgid "Уровень"
 msgstr "Level"
 
-#: .\courses\models.py:50
 msgid "Автор"
 msgstr "Author"
 
-#: .\courses\models.py:53
 msgid "Обложка курса"
 msgstr "Course cover"
 
-#: .\courses\models.py:59
+msgid ""
+"Каталог и страница курса. Если пусто — «Картинка урока»: junior — 2-й по "
+"списку; pro — у урока с полем «Порядок» = 3 (финальный урок с «Слово автора» "
+"— отдельно)."
+msgstr ""
+
 msgid "Фото автора (блок «Слово автора»)"
 msgstr "Author photo (“Author’s word” section)"
 
-#: .\courses\models.py:64
+#, fuzzy
+#| msgid ""
+#| "Показывается в финальном уроке Pro под заголовком «Слово автора», если "
+#| "загружено."
 msgid ""
-"Показывается в финальном уроке Pro под заголовком «Слово автора», если "
-"загружено."
+"Показывается в финальном уроке Pro у маркера <!-- AUTHOR_PHOTO -->. Если не "
+"задано — можно использовать «Картинку урока» в том же уроке."
 msgstr ""
 "Shown in the final Pro lesson under the title \"Words by the Author\" if "
 "loaded."
 
-#: .\courses\models.py:68
 msgid "Цена"
 msgstr "Price"
 
-#: .\courses\models.py:73
 msgid "Опубликован"
 msgstr "Published"
 
-#: .\courses\models.py:78 .\courses\models.py:92 .\courses\models.py:114
-#: .\courses\models.py:149 .\courses\models.py:223
 msgid "Курс"
 msgstr "Course"
 
-#: .\courses\models.py:79 .\courses\templates\courses\course_list.html:7
-#: .\templates\base.html:42
 msgid "Курсы"
 msgstr "Courses"
 
-#: .\courses\models.py:95
 msgid "Ссылка"
 msgstr "Link"
 
-#: .\courses\models.py:96 .\courses\models.py:125
 msgid "Порядок"
 msgstr "Order"
 
-#: .\courses\models.py:100
 msgid "Книга"
 msgstr "Book"
 
-#: .\courses\models.py:101 .\courses\templates\courses\course_detail.html:132
 msgid "Книги"
 msgstr "Books"
 
-#: .\courses\models.py:117
 msgid "Содержание"
 msgstr "Content"
 
-#: .\courses\models.py:119
 msgid "Картинка урока"
 msgstr "Lesson picture"
 
-#: .\courses\models.py:124
+msgid ""
+"Junior: 2-й урок — запасная обложка. Pro: урок с «Порядок» 3 — обложка; "
+"финальный урок — «Слово автора» (<!-- AUTHOR_PHOTO -->). Иначе иллюстрация "
+"сверху, если урок не источник обложки."
+msgstr ""
+
 msgid "Ссылка на видео"
 msgstr "Video link"
 
-#: .\courses\models.py:129 .\courses\models.py:175 .\courses\models.py:198
 msgid "Урок"
 msgstr "Lesson"
 
-#: .\courses\models.py:130 .\courses\templates\courses\course_detail.html:85
-#: .\courses\templates\courses\lesson_detail.html:11
 msgid "Уроки"
 msgstr "Lessons"
 
-#: .\courses\models.py:155
 msgid "Запись на курс"
 msgstr "Course enrollment"
 
-#: .\courses\models.py:156
 msgid "Записи на курсы"
 msgstr "Course enrollments"
 
 # Author (teacher)
-#: .\courses\models.py:169 .\courses\models.py:192 .\courses\models.py:217
 msgid "Пользователь"
 msgstr "User"
 
-#: .\courses\models.py:177
 msgid "Дата прохождения"
 msgstr "Completed on"
 
-#: .\courses\models.py:181
 msgid "Прогресс урока"
 msgstr "Lesson progress"
 
-#: .\courses\models.py:182
 msgid "Прогресс уроков"
 msgstr "Lesson progress entries"
 
-#: .\courses\models.py:200
 msgid "Вопрос"
 msgstr "Question"
 
-#: .\courses\models.py:201
 msgid "Ответ"
 msgstr "Answer"
 
-#: .\courses\models.py:202
 msgid "Время"
 msgstr "Time"
 
-#: .\courses\models.py:206
 msgid "Сообщение ИИ по уроку"
 msgstr "Lesson AI message"
 
-#: .\courses\models.py:207
 msgid "Сообщения ИИ по урокам"
 msgstr "Lesson AI messages"
 
-#: .\courses\models.py:226
 msgid "Оценка"
 msgstr "Rating"
 
-#: .\courses\models.py:230
 msgid "Текст отзыва"
 msgstr "Review text"
 
-#: .\courses\models.py:231
 msgid "Дата"
 msgstr "Date"
 
-#: .\courses\models.py:236
 msgid "Отзыв о курсе"
 msgstr "Course review"
 
-#: .\courses\models.py:237
 msgid "Отзывы о курсах"
 msgstr "Course reviews"
 
-#: .\courses\templates\courses\access_denied.html:4
 msgid "Нет доступа"
 msgstr "No access"
 
-#: .\courses\templates\courses\access_denied.html:7
 msgid "Доступ ограничен"
 msgstr "Access denied"
 
-#: .\courses\templates\courses\access_denied.html:9
 msgid "Сообщите об этой ошибке: публичный режим не должен блокировать уроки."
 msgstr ""
 
-#: .\courses\templates\courses\access_denied.html:11
 msgid "Урок доступен только после оплаты полного доступа к курсу."
 msgstr "This lesson is available only after purchasing full course access."
 
-#: .\courses\templates\courses\access_denied.html:16
-#: .\courses\templates\courses\course_detail.html:95
-#: .\courses\templates\courses\course_detail.html:115
 #, fuzzy
 #| msgid "Купить доступ за 4 $"
 msgid "Купить полный доступ за"
 msgstr "Buy access for $4"
 
-#: .\courses\templates\courses\access_denied.html:18
 msgid "Вернуться к курсу"
 msgstr "Back to course"
 
-#: .\courses\templates\courses\checkout.html:4
 msgid "Оплата доступа к курсам"
 msgstr "Course access payment"
 
-#: .\courses\templates\courses\checkout.html:7
 msgid "Оплата доступа к Python-курсам"
 msgstr "Payment for Python course access"
 
-#: .\courses\templates\courses\checkout.html:11
-#, fuzzy
-#| msgid ""
-#| "В этом курсе первые 3 урока открыты бесплатно, остальные доступны после "
-#| "оплаты."
 msgid ""
 "На этом сайте включён открытый доступ: все уроки доступны бесплатно после "
 "входа."
 msgstr ""
-"In this course, the first 3 lessons are free. The rest are available after "
-"payment."
+"This site offers open access: all lessons are free after you sign in."
 
-#: .\courses\templates\courses\checkout.html:12
 msgid ""
 "Интеграция Stripe (оплата) реализована в коде и в README — для демонстрации "
 "в портфолио включите платный режим локально: FREE_PUBLIC_ACCESS=False и "
 "тестовые ключи Stripe."
 msgstr ""
+"Stripe (payments) is implemented in the code and README — for a portfolio "
+"demo, enable paid mode locally: FREE_PUBLIC_ACCESS=False and test Stripe "
+"keys."
 
-#: .\courses\templates\courses\checkout.html:14
 msgid "У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!"
 msgstr ""
 "You already have full access to paid content. Thank you for your support!"
 
-#: .\courses\templates\courses\checkout.html:16
 msgid "Перейти к курсам"
 msgstr "Go to courses"
 
-#: .\courses\templates\courses\checkout.html:18
 msgid "Вы приобретаете полный доступ ко всем платным урокам курсов:"
 msgstr "You are purchasing full access to all paid course lessons:"
 
-#: .\courses\templates\courses\checkout.html:23
 msgid "Стоимость:"
 msgstr "Price:"
 
-#: .\courses\templates\courses\checkout.html:23
 msgid "примерная цена чашки кофе"
 msgstr "about the price of a cup of coffee"
 
-#: .\courses\templates\courses\checkout.html:28
 msgid "Оплатить картой (Stripe Checkout)"
 msgstr "Pay by card (Stripe Checkout)"
 
-#: .\courses\templates\courses\checkout.html:31
 msgid "Оплата ещё не настроена. Скоро здесь появится форма безопасной оплаты."
 msgstr ""
 "Payment is not configured yet. A secure payment form will appear here soon."
 
-#: .\courses\templates\courses\checkout.html:35
 msgid "Вернуться к курсам"
 msgstr "Back to courses"
 
-#: .\courses\templates\courses\course_detail.html:19
 msgid "Автор:"
 msgstr "Author:"
 
-#: .\courses\templates\courses\course_detail.html:21
-#: .\courses\templates\courses\course_detail.html:33
-#: .\courses\templates\courses\course_list.html:46
-#: .\courses\templates\courses\my_courses.html:12
 msgid "уроков"
 msgstr "lessons"
 
-#: .\courses\templates\courses\course_detail.html:24
-#, fuzzy
-#| msgid "Оплата доступа к курсам"
 msgid "Полный доступ бесплатно"
-msgstr "Course access payment"
+msgstr "Full access — free"
 
-#: .\courses\templates\courses\course_detail.html:24
-#, fuzzy
-#| msgid "Последняя"
 msgid "после входа"
-msgstr "Last"
+msgstr "after sign-in"
 
-#: .\courses\templates\courses\course_detail.html:26
-#, fuzzy
-#| msgid "Нет доступа"
 msgid "Полный доступ"
-msgstr "No access"
+msgstr "Full access"
 
-#: .\courses\templates\courses\course_detail.html:33
 msgid "Пройдено"
 msgstr "Completed"
 
-#: .\courses\templates\courses\course_detail.html:33
-#: .\courses\templates\courses\student_list.html:36
 msgid "из"
 msgstr "of"
 
-#: .\courses\templates\courses\course_detail.html:38
 msgid ""
 "Все уроки этого курса доступны бесплатно после входа (публичный режим сайта)."
 msgstr ""
+"All lessons in this course are free after you sign in (public site mode)."
 
-#: .\courses\templates\courses\course_detail.html:40
-#, fuzzy
-#| msgid ""
-#| "В этом курсе первые 3 урока открыты бесплатно, остальные доступны после "
-#| "оплаты."
 msgid ""
 "В этом курсе первый урок открыт бесплатно, остальные — после оплаты полного "
 "доступа."
 msgstr ""
-"In this course, the first 3 lessons are free. The rest are available after "
-"payment."
+"In this course, the first lesson is free. The rest are available after "
+"purchasing full access."
 
-#: .\courses\templates\courses\course_detail.html:42
-#, fuzzy
-#| msgid ""
-#| "В этом курсе первые 3 урока открыты бесплатно, остальные доступны после "
-#| "оплаты."
 msgid ""
 "В этом курсе первые 2 урока открыты бесплатно, остальные — после оплаты "
 "полного доступа."
 msgstr ""
-"In this course, the first 3 lessons are free. The rest are available after "
-"payment."
+"In this course, the first 2 lessons are free. The rest are available after "
+"purchasing full access."
 
-#: .\courses\templates\courses\course_detail.html:49
 msgid "Записаться на курс"
 msgstr "Enroll in course"
 
-#: .\courses\templates\courses\course_detail.html:52 .\templates\base.html:61
-#: .\users\templates\users\login.html:11
-#: .\users\templates\users\register.html:13
 msgid "Войти"
 msgstr "Sign in"
 
-#: .\courses\templates\courses\course_detail.html:53 .\templates\base.html:62
-#: .\users\templates\users\login.html:13
-#: .\users\templates\users\register.html:7
 msgid "Регистрация"
 msgstr "Sign up"
 
-#: .\courses\templates\courses\course_detail.html:56
 msgid "Записать студента на курс"
 msgstr "Enroll student in course"
 
-#: .\courses\templates\courses\course_detail.html:64
-#: .\courses\templates\courses\course_detail.html:75
 msgid "Чему научитесь"
 msgstr "What you'll learn"
 
-#: .\courses\templates\courses\course_detail.html:66
 msgid "Синтаксис и основы Python"
 msgstr "Python syntax and basics"
 
-#: .\courses\templates\courses\course_detail.html:67
 msgid "Переменные, типы данных, циклы"
 msgstr "Variables, data types, loops"
 
-#: .\courses\templates\courses\course_detail.html:68
 msgid "Функции и модули"
 msgstr "Functions and modules"
 
-#: .\courses\templates\courses\course_detail.html:70
 msgid "Практические задания"
 msgstr "Practical exercises"
 
-#: .\courses\templates\courses\course_detail.html:77
 msgid "Web-фреймворки Flask и Django"
 msgstr "Flask and Django web frameworks"
 
-#: .\courses\templates\courses\course_detail.html:78
 msgid "Базы данных и ORM"
 msgstr "Databases and ORM"
 
-#: .\courses\templates\courses\course_detail.html:79
 msgid "Деплой приложений"
 msgstr "Application deployment"
 
-#: .\courses\templates\courses\course_detail.html:80
 msgid "Лучшие практики"
 msgstr "Best practices"
 
-#: .\courses\templates\courses\course_detail.html:94
-#: .\courses\templates\courses\course_detail.html:114
+msgid "доступно после входа"
+msgstr "available after sign-in"
+
+msgid "Войти для доступа"
+msgstr "Sign in to access"
+
 msgid "доступно после оплаты"
 msgstr "available after payment"
 
-#: .\courses\templates\courses\course_detail.html:100
-#: .\courses\templates\courses\course_detail.html:120
-#: .\courses\templates\courses\course_list.html:33
-#: .\courses\templates\courses\course_list.html:54
 msgid "Бесплатно"
 msgstr "Free"
 
-#: .\courses\templates\courses\course_detail.html:126
 msgid "Уроков пока нет."
 msgstr "No lessons yet."
 
-#: .\courses\templates\courses\course_detail.html:141
 msgid "Отзывы"
 msgstr "Reviews"
 
-#: .\courses\templates\courses\course_detail.html:146
 msgid "Оставить отзыв"
 msgstr "Leave review"
 
-#: .\courses\templates\courses\course_detail.html:161
 msgid "Пока нет отзывов."
 msgstr "No reviews yet."
 
-#: .\courses\templates\courses\course_form.html:4
 msgid "Создать курс — DevLearn"
 msgstr "Create course — DevLearn"
 
-#: .\courses\templates\courses\course_form.html:7 .\templates\base.html:54
 msgid "Создать курс"
 msgstr "Create course"
 
-#: .\courses\templates\courses\course_form.html:11
 msgid "Создать"
 msgstr "Create"
 
-#: .\courses\templates\courses\course_list.html:4
 msgid "Курсы — DevLearn"
 msgstr "Courses — DevLearn"
 
-#: .\courses\templates\courses\course_list.html:11
 msgid "Направление:"
 msgstr "Category:"
 
-#: .\courses\templates\courses\course_list.html:16
 msgid "Уровень:"
 msgstr "Level:"
 
-#: .\courses\templates\courses\course_list.html:35
 msgid "1 урок бесплатно"
 msgstr "1 lesson free"
 
-#: .\courses\templates\courses\course_list.html:37
 msgid "2 урока бесплатно"
 msgstr "2 lessons free"
 
-#: .\courses\templates\courses\course_list.html:54
-#, fuzzy
-#| msgid "доступно после оплаты"
 msgid "все уроки после входа"
-msgstr "available after payment"
+msgstr "all lessons after sign-in"
 
-#: .\courses\templates\courses\course_list.html:56
-#, fuzzy
-#| msgid "Оплата доступа к курсам"
 msgid "Полный доступ к обоим курсам"
-msgstr "Course access payment"
+msgstr "Full access to both courses"
 
-#: .\courses\templates\courses\course_list.html:62
 msgid "Курсов пока нет."
 msgstr "No courses yet."
 
-#: .\courses\templates\courses\enroll_student.html:4
 msgid "Записать студента"
 msgstr "Enroll student"
 
-#: .\courses\templates\courses\enroll_student.html:7
 msgid "Записать студента на курс:"
 msgstr "Enroll student to course:"
 
-#: .\courses\templates\courses\enroll_student.html:16
 msgid "Записать"
 msgstr "Enroll"
 
-#: .\courses\templates\courses\enroll_student.html:17
 msgid "Отмена"
 msgstr "Cancel"
 
-#: .\courses\templates\courses\lesson_detail.html:40
 msgid "Смотреть видео"
 msgstr "Watch video"
 
-#: .\courses\templates\courses\lesson_detail.html:46
 msgid "Отметить как пройденный"
 msgstr "Mark as completed"
 
-#: .\courses\templates\courses\lesson_detail.html:49
 msgid "Урок пройден"
 msgstr "Lesson completed"
 
-#: .\courses\templates\courses\lesson_detail.html:54
 msgid "Спросить ИИ по уроку"
 msgstr "Ask AI about this lesson"
 
-#: .\courses\templates\courses\lesson_detail.html:57
 msgid "Вопрос по уроку"
 msgstr "Question about the lesson"
 
-#: .\courses\templates\courses\lesson_detail.html:58
 msgid "Задайте вопрос по теме урока..."
 msgstr "Ask a question about this lesson..."
 
-#: .\courses\templates\courses\lesson_detail.html:59
 msgid "Enter — отправить; Shift+Enter — новая строка."
 msgstr "Enter — send; Shift+Enter — new line."
 
-#: .\courses\templates\courses\lesson_detail.html:61
 msgid "Отправить"
 msgstr "Send"
 
-#: .\courses\templates\courses\lesson_detail.html:65
 msgid "ИИ думает..."
 msgstr "AI is thinking..."
 
-#: .\courses\templates\courses\lesson_detail.html:70
 msgid "Ответ:"
 msgstr "Answer:"
 
-#: .\courses\templates\courses\lesson_detail.html:71
 msgid "Ошибка запроса."
 msgstr "Request error."
 
-#: .\courses\templates\courses\lesson_detail.html:74
 msgid "Ваши недавние вопросы"
 msgstr "Your recent questions"
 
-#: .\courses\templates\courses\lesson_detail.html:78
 msgid "Вы:"
 msgstr "You:"
 
-#: .\courses\templates\courses\lesson_detail.html:79
 msgid "ИИ:"
 msgstr "AI:"
 
-#: .\courses\templates\courses\lesson_detail.html:171
 msgid "Предыдущий урок"
 msgstr "Previous lesson"
 
-#: .\courses\templates\courses\lesson_detail.html:176
 msgid "Следующий урок"
 msgstr "Next lesson"
 
-#: .\courses\templates\courses\lesson_detail.html:178
 msgid "К курсу"
 msgstr "Back to course"
 
-#: .\courses\templates\courses\my_courses.html:4
 msgid "Мои курсы — DevLearn"
 msgstr "My courses — DevLearn"
 
-#: .\courses\templates\courses\my_courses.html:7 .\templates\base.html:51
 msgid "Мои курсы"
 msgstr "My courses"
 
-#: .\courses\templates\courses\my_courses.html:16
 msgid "Вы пока не записаны ни на один курс."
 msgstr "You are not enrolled in any course yet."
 
-#: .\courses\templates\courses\student_detail.html:11
-#: .\courses\templates\courses\student_list.html:18
 msgid "Логин:"
 msgstr "Username:"
 
-#: .\courses\templates\courses\student_detail.html:14
-#: .\courses\templates\courses\student_list.html:21
 msgid "Роль:"
 msgstr "Role:"
 
-#: .\courses\templates\courses\student_detail.html:16
 msgid "Аватар:"
 msgstr "Avatar:"
 
-#: .\courses\templates\courses\student_detail.html:17 .\users\models.py:24
-#: .\users\templates\users\profile_edit.html:41
 msgid "Аватар"
 msgstr "Avatar"
 
-#: .\courses\templates\courses\student_detail.html:21
 msgid "Дата присоединения:"
 msgstr "Joined on:"
 
-#: .\courses\templates\courses\student_detail.html:26
 msgid "Курсы студента"
 msgstr "Student courses"
 
-#: .\courses\templates\courses\student_detail.html:33
 msgid "Дата записи:"
 msgstr "Enrollment date:"
 
-#: .\courses\templates\courses\student_detail.html:38
 msgid "Студент ещё не записан ни на один курс."
 msgstr "The student is not enrolled in any course yet."
 
-#: .\courses\templates\courses\student_list.html:4
 msgid "Студенты — DevLearn"
 msgstr "Students — DevLearn"
 
-#: .\courses\templates\courses\student_list.html:7
-#: .\main\templates\main\index.html:30 .\templates\base.html:40
 msgid "Студенты"
 msgstr "Students"
 
-#: .\courses\templates\courses\student_list.html:23
 msgid "Подробнее →"
 msgstr "Details →"
 
-#: .\courses\templates\courses\student_list.html:32
 msgid "Первая"
 msgstr "First"
 
-#: .\courses\templates\courses\student_list.html:33 .\templates\base.html:104
 msgid "Назад"
 msgstr "Back"
 
-#: .\courses\templates\courses\student_list.html:36
 msgid "Страница"
 msgstr "Page"
 
-#: .\courses\templates\courses\student_list.html:39
 msgid "Дальше →"
 msgstr "Next →"
 
-#: .\courses\templates\courses\student_list.html:40
 msgid "Последняя"
 msgstr "Last"
 
-#: .\courses\templates\courses\student_list.html:45
 msgid "Студентов ещё нет."
 msgstr "No students yet."
 
 # Author (teacher)
-#: .\courses\templatetags\course_extras.py:15 .\users\models.py:12
 msgid "Преподаватель"
 msgstr "Teacher"
 
-#: .\courses\templatetags\course_extras.py:81
 msgid "Фото автора курса"
 msgstr "Course author photo"
 
-#: .\courses\templatetags\course_extras.py:155
 msgid "Показать решение"
 msgstr "Show solution"
 
-#: .\courses\views.py:229
 msgid "Метод не разрешён"
 msgstr "Method not allowed"
 
-#: .\courses\views.py:234
 msgid "Нет доступа к этому уроку"
 msgstr "You don't have access to this lesson"
 
-#: .\courses\views.py:238
 msgid "Введите вопрос"
 msgstr "Enter a question"
 
-#: .\courses\views.py:252
 msgid ""
 "Лимит бесплатных вопросов на сегодня исчерпан. Попробуйте завтра или "
 "оформите полный доступ."
@@ -3610,63 +3026,49 @@ msgstr ""
 "Free question limit for today is reached. Try again tomorrow or purchase "
 "full access."
 
-#: .\courses\views.py:261
 msgid "AI не настроен. Добавьте GROQ_API_KEY в .env."
 msgstr "AI is not configured. Add GROQ_API_KEY to .env."
 
-#: .\courses\views.py:307
 msgid "Модель вернула пустой ответ. Попробуйте переформулировать вопрос."
 msgstr "The model returned an empty answer. Try rephrasing your question."
 
-#: .\courses\views.py:320
 #, python-format
 msgid "Ошибка AI: %(err)s"
 msgstr "AI error: %(err)s"
 
-#: .\courses\views.py:370
 #, python-format
 msgid "Вы записаны на курс «%(title)s»"
 msgstr "You enrolled in the course «%(title)s»"
 
-#: .\courses\views.py:380
 msgid "Только записанные на курс могут оставлять отзывы."
 msgstr "Only enrolled students can leave reviews."
 
-#: .\courses\views.py:391
 msgid "Отзыв сохранён."
 msgstr "Review saved."
 
-#: .\courses\views.py:410
 msgid "Курс создан"
 msgstr "Course created"
 
-#: .\courses\views.py:420
 msgid "Урок отмечен как пройденный"
 msgstr "Lesson marked as completed"
 
-#: .\courses\views.py:441
 msgid "Только преподаватель может записывать студентов на курс."
 msgstr "Only teachers can enroll students on a course."
 
-#: .\courses\views.py:452
 #, python-format
 msgid "Студент %(username)s записан на курс «%(title)s»"
 msgstr "Student %(username)s enrolled in «%(title)s»"
 
-#: .\courses\views.py:531
 msgid "Оплата ещё не настроена. Попробуйте позже."
 msgstr "Payment is not configured yet. Please try again later."
 
-#: .\courses\views.py:554
 #, python-format
 msgid "Ошибка при создании платежа: %(err)s"
 msgstr "Error creating payment: %(err)s"
 
-#: .\courses\views.py:566
 msgid "Платёж обрабатывается. Обновите страницу через несколько секунд."
 msgstr "Payment is processing. Refresh the page in a few seconds."
 
-#: .\courses\views.py:574
 msgid ""
 "Платёж принят, но автоматическая проверка не настроена. Обратитесь в "
 "поддержку."
@@ -3674,7 +3076,6 @@ msgstr ""
 "Payment received, but automatic verification is not configured. Contact "
 "support."
 
-#: .\courses\views.py:586
 msgid ""
 "Платёж в обработке. Если доступ не откроется в течение минуты, обновите "
 "страницу."
@@ -3682,11 +3083,9 @@ msgstr ""
 "Payment is processing. If access does not open within a minute, refresh the "
 "page."
 
-#: .\courses\views.py:594
 msgid "Оплата подтверждена. Доступ к курсам открыт."
 msgstr "Payment confirmed. Course access is unlocked."
 
-#: .\courses\views.py:600
 msgid ""
 "Платёж ещё не подтверждён. Доступ откроется автоматически после "
 "подтверждения Stripe."
@@ -3694,20 +3093,15 @@ msgstr ""
 "Payment is not confirmed yet. Access will unlock automatically after Stripe "
 "confirms it."
 
-#: .\courses\views.py:609
 msgid "Оплата была отменена."
 msgstr "Payment was cancelled."
 
-#: .\main\templates\main\about.html:4
 msgid "О нас — DevLearn"
 msgstr "About us — DevLearn"
 
-#: .\main\templates\main\about.html:7 .\templates\base.html:52
-#: .\templates\base.html:113
 msgid "О нас"
 msgstr "About us"
 
-#: .\main\templates\main\about.html:10
 msgid ""
 "DevLearn — платформа для изучения Python с нуля до профессионального уровня. "
 "Мы помогаем осваивать программирование через структурированные курсы, "
@@ -3717,55 +3111,42 @@ msgstr ""
 "level. We help you master programming through structured courses, practical "
 "exercises, and AI assistant support."
 
-#: .\main\templates\main\about.html:15
 msgid "Для кого мы"
 msgstr "Who we are for"
 
-#: .\main\templates\main\about.html:17
 msgid "Новички, которые хотят начать с основ Python"
 msgstr "Beginners who want to start with Python basics"
 
-#: .\main\templates\main\about.html:18
 msgid "Разработчики, желающие углубить знания (Flask, Django, деплой)"
 msgstr "Developers looking to deepen their skills (Flask, Django, deployment)"
 
-#: .\main\templates\main\about.html:19
 msgid "Все, кто ценит практику и понятные объяснения"
 msgstr "Anyone who values hands-on practice and clear explanations"
 
-#: .\main\templates\main\about.html:22
 msgid "Что мы предлагаем"
 msgstr "What we offer"
 
-#: .\main\templates\main\about.html:24
 msgid "Курсы с чёткой структурой: теория, практика, домашние задания"
 msgstr "Courses with a clear structure: theory, practice, homework"
 
-#: .\main\templates\main\about.html:25
 msgid "AI-помощник по урокам — ответы на вопросы в контексте материала"
 msgstr "AI assistant for lessons — answers in the context of the material"
 
-#: .\main\templates\main\about.html:26
 msgid "Учёт прогресса по урокам в личном кабинете"
 msgstr "Track lesson progress in your account"
 
-#: .\main\templates\main\about.html:28
 msgid "Бесплатный доступ к урокам после входа"
 msgstr "Free access to lessons after sign-in"
 
-#: .\main\templates\main\about.html:30
 msgid "Доступная цена и прозрачные условия оплаты"
 msgstr "Affordable pricing and transparent payment terms"
 
-#: .\main\templates\main\about.html:32
 msgid "Поддержка нескольких языков: русский, английский, итальянский"
 msgstr "Support for multiple languages: Russian, English, Italian"
 
-#: .\main\templates\main\about.html:35
 msgid "Наш подход"
 msgstr "Our approach"
 
-#: .\main\templates\main\about.html:38
 msgid ""
 "Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
 "основ к реальным проектам."
@@ -3773,7 +3154,6 @@ msgstr ""
 "We focus on practice: every lesson includes exercises, and courses take you "
 "from basics to real projects."
 
-#: .\main\templates\main\about.html:40
 msgid ""
 "Мы делаем упор на практику: каждый урок содержит задания, а курсы ведут от "
 "основ к реальным проектам. Бесплатно можно пройти первые 2 урока курса для "
@@ -3786,35 +3166,27 @@ msgstr ""
 "full access to the paid lessons of both courses unlocks after a single "
 "payment."
 
-#: .\main\templates\main\about.html:45
 msgid "Посмотреть курсы"
 msgstr "View courses"
 
-#: .\main\templates\main\about.html:46
 msgid "Связаться с нами"
 msgstr "Contact us"
 
-#: .\main\templates\main\contacts.html:4
 msgid "Контакты и поддержка — DevLearn"
 msgstr "Contacts and support — DevLearn"
 
-#: .\main\templates\main\contacts.html:7
 msgid "Контакты и поддержка"
 msgstr "Contacts and support"
 
-#: .\main\templates\main\contacts.html:9
 msgid "Если у вас возникли вопросы по курсам или доступу, свяжитесь с нами:"
 msgstr "If you have questions about courses or access, contact us:"
 
-#: .\main\templates\main\contacts.html:12
 msgid "Время ответа: обычно в течение 24 часов."
 msgstr "Response time: usually within 24 hours."
 
-#: .\main\templates\main\includes\course_outcomes.html:3
 msgid "Чему вы научитесь, пройдя оба курса"
 msgstr "What you'll learn after completing both courses"
 
-#: .\main\templates\main\includes\course_outcomes.html:5
 msgid ""
 "Программа выстроена от первых шагов в Python до веб-приложений, API, тестов "
 "и деплоя — так, как это задано в уроках на платформе."
@@ -3822,175 +3194,132 @@ msgstr ""
 "The path takes you from first steps in Python to web apps, APIs, tests, and "
 "deployment — exactly as laid out in the lessons on the platform."
 
-#: .\main\templates\main\includes\course_outcomes.html:11
 msgid "Установка Python, терминал, IDE, первый запуск и стиль кода (PEP 8)"
 msgstr "Installing Python, terminal, IDE, first run, and code style (PEP 8)"
 
-#: .\main\templates\main\includes\course_outcomes.html:12
 msgid "Переменные, типы данных, ввод и вывод"
 msgstr "Variables, data types, input and output"
 
-#: .\main\templates\main\includes\course_outcomes.html:13
 msgid "Условия if/else и разбор типичных ошибок (Debug Zone)"
 msgstr "if/else conditions and debugging common mistakes (Debug Zone)"
 
-#: .\main\templates\main\includes\course_outcomes.html:15
 msgid "Списки и словари, range, enumerate, вложенные циклы"
 msgstr "Lists and dictionaries, range, enumerate, nested loops"
 
-#: .\main\templates\main\includes\course_outcomes.html:16
 msgid "Функции, параметры, области видимости, работа с файлами"
 msgstr "Functions, parameters, scope, working with files"
 
-#: .\main\templates\main\includes\course_outcomes.html:17
 msgid "Мини-проект «счёт в кафе» и задачи в формате Debug Zone"
 msgstr "Mini-project «cafe bill» and Debug Zone-style exercises"
 
-#: .\main\templates\main\includes\course_outcomes.html:23
 msgid "Архитектура проекта, venv, логирование, .env и безопасность секретов"
 msgstr "Project structure, venv, logging, .env, and keeping secrets safe"
 
-#: .\main\templates\main\includes\course_outcomes.html:24
 msgid "Flask API: CRUD, JSON, валидация, pytest и контракты HTTP"
 msgstr "Flask API: CRUD, JSON, validation, pytest, and HTTP contracts"
 
-#: .\main\templates\main\includes\course_outcomes.html:25
 msgid "Django: модели, ORM, миграции и админка"
 msgstr "Django: models, ORM, migrations, and admin"
 
-#: .\main\templates\main\includes\course_outcomes.html:26
 msgid "Django REST Framework и авторизация"
 msgstr "Django REST Framework and authentication"
 
-#: .\main\templates\main\includes\course_outcomes.html:27
 msgid "Тесты с pytest, CI (GitHub Actions) и деплой на Render"
 msgstr "Tests with pytest, CI (GitHub Actions), and deployment on Render"
 
-#: .\main\templates\main\includes\course_outcomes.html:28
 msgid "Финал: дорожная карта развития, мини-проект и итоги курса"
 msgstr "Finale: your roadmap, a mini-project, and course wrap-up"
 
-#: .\main\templates\main\index.html:4
 msgid "DevLearn — Обучение программированию"
 msgstr "DevLearn — Programming learning platform"
 
-#: .\main\templates\main\index.html:11
 msgid "Добро пожаловать на платформу"
 msgstr "Welcome to the platform"
 
-#: .\main\templates\main\index.html:14 .\templates\base.html:48
 msgid "Привет,"
 msgstr "Hi,"
 
-#: .\main\templates\main\index.html:15
 msgid "Выбери, что ты хочешь делать:"
 msgstr "Choose what you want to do:"
 
-#: .\main\templates\main\index.html:17
 msgid "Чтобы начать обучение, зарегистрируйся или войди в аккаунт."
 msgstr "To start learning, sign up or log in."
 
-#: .\main\templates\main\index.html:23
 msgid "📚 Каталог курсов"
 msgstr "📚 Course catalog"
 
-#: .\main\templates\main\index.html:24
 msgid "Исследуй большую коллекцию курсов и практик на Python"
 msgstr "Explore a large collection of Python courses and practice"
 
-#: .\main\templates\main\index.html:25
 msgid "Посмотреть курсы →"
 msgstr "View courses →"
 
-#: .\main\templates\main\index.html:31
 msgid "Посмотри список всех студентов на платформе"
 msgstr "See the full list of students on the platform"
 
-#: .\main\templates\main\index.html:32
 msgid "Список студентов →"
 msgstr "Students list →"
 
-#: .\main\templates\main\index.html:38
 msgid "📖 Мои курсы"
 msgstr "📖 My courses"
 
-#: .\main\templates\main\index.html:39
 msgid "Вернись к своим курсам и продолжи обучение"
 msgstr "Return to your courses and continue learning"
 
-#: .\main\templates\main\index.html:40
 msgid "Мои курсы →"
 msgstr "My courses →"
 
-#: .\main\templates\main\index.html:46
 msgid "➕ Создать курс"
 msgstr "➕ Create course"
 
-#: .\main\templates\main\index.html:47
 msgid "Создай новый курс и начни учить других"
 msgstr "Create a new course and start teaching others"
 
-#: .\main\templates\main\index.html:48
 msgid "Создать курс →"
 msgstr "Create course →"
 
-#: .\main\templates\main\index.html:54
 msgid "🚀 Начни учиться"
 msgstr "🚀 Start learning"
 
-#: .\main\templates\main\index.html:55
 msgid "Зарегистрируйся и присоединись к тысячам студентов"
 msgstr "Sign up and join thousands of students"
 
-#: .\main\templates\main\index.html:56
 msgid "Регистрация →"
 msgstr "Sign up →"
 
-#: .\main\templates\main\index.html:65
 msgid "Почему DevLearn"
 msgstr "Why DevLearn"
 
-#: .\main\templates\main\index.html:69
 msgid "Структурированные курсы"
 msgstr "Structured courses"
 
-#: .\main\templates\main\index.html:70
 msgid "Теория, практика и домашние задания в каждом уроке"
 msgstr "Theory, practice and homework in every lesson"
 
-#: .\main\templates\main\index.html:74
 msgid "AI-помощник"
 msgstr "AI assistant"
 
-#: .\main\templates\main\index.html:75
 msgid "Задавай вопросы по материалу прямо в уроке"
 msgstr "Ask questions about the material right in the lesson"
 
-#: .\main\templates\main\index.html:79
 msgid "Прогресс"
 msgstr "Progress"
 
-#: .\main\templates\main\index.html:80
 msgid "Отмечай пройденные уроки и смотри прогресс по курсу"
 msgstr "Mark completed lessons and track your progress in each course."
 
-#: .\main\templates\main\index.html:87
 msgid "Популярные курсы"
 msgstr "Popular courses"
 
-#: .\main\templates\main\index.html:101
 msgid "Все курсы"
 msgstr "All courses"
 
-#: .\main\templates\main\privacy_policy.html:4
 msgid "Политика конфиденциальности — DevLearn"
 msgstr "Privacy policy — DevLearn"
 
-#: .\main\templates\main\privacy_policy.html:7 .\templates\base.html:117
 msgid "Политика конфиденциальности"
 msgstr "Privacy policy"
 
-#: .\main\templates\main\privacy_policy.html:10
 msgid ""
 "Мы обрабатываем только данные, необходимые для работы платформы: логин, "
 "email, историю обучения и технические данные сессии."
@@ -3998,7 +3327,6 @@ msgstr ""
 "We process only the data required to operate the platform: username, email, "
 "learning history, and technical session data."
 
-#: .\main\templates\main\privacy_policy.html:13
 msgid ""
 "Персональные данные не передаются третьим лицам, за исключением сервисов, "
 "необходимых для функционирования платформы (например, платёжных провайдеров)."
@@ -4006,7 +3334,6 @@ msgstr ""
 "Personal data is not shared with third parties, except services required for "
 "platform operation (for example, payment providers)."
 
-#: .\main\templates\main\privacy_policy.html:16
 msgid ""
 "Вы можете запросить обновление или удаление данных, обратившись в поддержку "
 "через страницу Контакты."
@@ -4014,15 +3341,12 @@ msgstr ""
 "You may request data update or deletion by contacting support via the "
 "Contacts page."
 
-#: .\main\templates\main\public_offer.html:4
 msgid "Публичная оферта — DevLearn"
 msgstr "Public offer — DevLearn"
 
-#: .\main\templates\main\public_offer.html:7 .\templates\base.html:115
 msgid "Публичная оферта"
 msgstr "Public offer"
 
-#: .\main\templates\main\public_offer.html:10
 msgid ""
 "Настоящий документ является публичной офертой на предоставление доступа к "
 "обучающим материалам платформы DevLearn."
@@ -4030,7 +3354,6 @@ msgstr ""
 "This document is a public offer for providing access to DevLearn educational "
 "materials."
 
-#: .\main\templates\main\public_offer.html:13
 msgid ""
 "Оплачивая доступ, пользователь подтверждает согласие с условиями оферты и "
 "получает доступ к платному контенту в соответствии с выбранным тарифом."
@@ -4038,64 +3361,50 @@ msgstr ""
 "By paying for access, the user confirms agreement with the offer terms and "
 "gets access to paid content according to the selected plan."
 
-#: .\main\templates\main\public_offer.html:16
 msgid ""
 "Стоимость доступа отображается на странице оплаты и может изменяться до "
 "момента оплаты."
 msgstr ""
 "The access price is shown on the checkout page and may change until payment."
 
-#: .\main\templates\main\public_offer.html:19
 msgid "По вопросам доступа, оплаты и возвратов обращайтесь в раздел Контакты."
 msgstr ""
 "For questions about access, payments, and refunds, please use the Contacts "
 "section."
 
-#: .\templates\admin\base_site.html:3
 msgid "Django site admin"
 msgstr ""
 
-#: .\templates\admin\base_site.html:6
 msgid "Django administration"
 msgstr ""
 
-#: .\templates\base.html:30
 msgid "Основное меню"
 msgstr "Main navigation"
 
-#: .\templates\base.html:31
 msgid "Меню"
 msgstr "Menu"
 
-#: .\templates\base.html:50 .\users\templates\users\profile_edit.html:9
 msgid "Мой профиль"
 msgstr "My profile"
 
-#: .\templates\base.html:58
 msgid "Выйти"
 msgstr "Sign out"
 
-#: .\templates\base.html:77
 msgid "Переключить тему"
 msgstr "Toggle theme"
 
-#: .\templates\base.html:119
 msgid "Контакты"
 msgstr "Contacts"
 
-#: .\users\forms.py:44
 msgid "Файл больше 5 МБ."
 msgstr "File is larger than 5 MB."
 
-#: .\users\forms.py:50
 msgid "Не удалось прочитать изображение. Используйте JPEG или PNG."
 msgstr "Could not read the image. Use JPEG or PNG."
 
-#: .\users\models.py:27 .\users\templates\users\profile_edit.html:31
 msgid "Роль"
 msgstr "Role"
 
-#: .\users\models.py:33
 #, fuzzy
 #| msgid ""
 #| "У вас уже есть полный доступ к платному контенту. Спасибо за поддержку!"
@@ -4103,39 +3412,30 @@ msgid "Есть доступ к платному контенту"
 msgstr ""
 "You already have full access to paid content. Thank you for your support!"
 
-#: .\users\models.py:38
 msgid "Профиль"
 msgstr "Profile"
 
-#: .\users\models.py:39
 msgid "Профили"
 msgstr "Profiles"
 
-#: .\users\templates\users\login.html:4
 msgid "Вход — DevLearn"
 msgstr "Sign in — DevLearn"
 
-#: .\users\templates\users\login.html:7
 msgid "Вход"
 msgstr "Sign in"
 
-#: .\users\templates\users\login.html:13
 msgid "Нет аккаунта?"
 msgstr "No account?"
 
-#: .\users\templates\users\profile_edit.html:4
 msgid "Мой профиль — DevLearn"
 msgstr "My profile — DevLearn"
 
-#: .\users\templates\users\profile_edit.html:10
 msgid "Управление фото профиля и просмотр данных аккаунта."
 msgstr "Manage your profile photo and view account details."
 
-#: .\users\templates\users\profile_edit.html:12
 msgid "В публичном режиме материалы курсов доступны после входа."
 msgstr "In public mode, course materials are available after you sign in."
 
-#: .\users\templates\users\profile_edit.html:14
 msgid ""
 "Бесплатный превью: первые 2 урока курса для начинающих и 1 урок "
 "профессионального курса; полный доступ — после оплаты."
@@ -4143,44 +3443,34 @@ msgstr ""
 "Free preview: the first 2 lessons of the beginner course and the first "
 "lesson of the professional course; full access after payment."
 
-#: .\users\templates\users\profile_edit.html:20
 msgid "Аккаунт"
 msgstr "Account"
 
 # Author (teacher)
-#: .\users\templates\users\profile_edit.html:23
 msgid "Имя пользователя"
 msgstr "Username"
 
-#: .\users\templates\users\profile_edit.html:27
 msgid "Email"
 msgstr "Email"
 
-#: .\users\templates\users\profile_edit.html:38
 msgid "Фото профиля"
 msgstr "Profile photo"
 
-#: .\users\templates\users\profile_edit.html:46
 msgid "Нет фото"
 msgstr "No photo"
 
-#: .\users\templates\users\profile_edit.html:59
 msgid "Выбрать изображение"
 msgstr "Choose image"
 
-#: .\users\templates\users\profile_edit.html:60
 msgid "Файл не выбран"
 msgstr "No file selected"
 
-#: .\users\templates\users\profile_edit.html:66
 msgid "Форматы: JPEG, PNG или WebP. До 5 МБ."
 msgstr "Formats: JPEG, PNG, or WebP. Up to 5 MB."
 
-#: .\users\templates\users\profile_edit.html:69
 msgid "Сохранить"
 msgstr "Save"
 
-#: .\users\templates\users\profile_edit.html:73
 msgid ""
 "Загрузка аватара доступна только при локальном запуске проекта (учебный "
 "проект)."
@@ -4188,19 +3478,15 @@ msgstr ""
 "Avatar upload is available only when running the project locally (training "
 "project)."
 
-#: .\users\templates\users\register.html:4
 msgid "Регистрация — DevLearn"
 msgstr "Sign up — DevLearn"
 
-#: .\users\templates\users\register.html:11
 msgid "Зарегистрироваться"
 msgstr "Sign up"
 
-#: .\users\templates\users\register.html:13
 msgid "Уже есть аккаунт?"
 msgstr "Already have an account?"
 
-#: .\users\views.py:36
 msgid ""
 "Не удалось сохранить файл. Проверьте CLOUDINARY_URL на сервере и размер "
 "изображения."
@@ -4208,11 +3494,9 @@ msgstr ""
 "Could not save the file. Check CLOUDINARY_URL on the server and the image "
 "size."
 
-#: .\users\views.py:40
 msgid "Профиль обновлён."
 msgstr "Profile updated."
 
-#: .\users\views.py:51
 msgid ""
 "Не удалось обработать загрузку. Попробуйте изображение JPEG или PNG размером "
 "до 5 МБ."
