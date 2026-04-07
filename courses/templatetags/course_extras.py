@@ -35,8 +35,8 @@ def translate_category(name):
 def _lesson_for_cover_fallback(course):
     """Урок, с которого берётся картинка как обложка курса при пустой «Обложке курса».
 
-    Junior: второй по порядку (первый урок часто слишком тяжёлый для сохранения в админке на Render).
-    Pro: третий по порядку — отдельно от финального урока с «Слово автора» (там своя картинка).
+    Junior: второй по списку (первый урок часто слишком тяжёлый для сохранения в админке на Render).
+    Pro: урок с полем «Порядок» = 3; иначе третий в отсортированном списке (финал с «Слово автора» — отдельно).
     """
     if not course:
         return None
@@ -48,7 +48,13 @@ def _lesson_for_cover_fallback(course):
         return None
     if getattr(course, "level", None) == "junior":
         return lessons[1] if len(lessons) > 1 else lessons[0]
-    # pro
+    # pro: явно урок с order=3 (как в админке), не только «третья строка» в списке
+    try:
+        by_order = course.lessons.filter(order=3).order_by("id").first()
+    except Exception:
+        by_order = None
+    if by_order:
+        return by_order
     if len(lessons) >= 3:
         return lessons[2]
     if len(lessons) == 2:
