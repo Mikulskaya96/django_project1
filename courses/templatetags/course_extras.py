@@ -32,6 +32,55 @@ def translate_category(name):
     return gettext(name)
 
 
+def _lesson_for_cover_fallback(course):
+    """Урок, с которого берётся картинка как обложка курса при пустой «Обложке курса».
+
+    Junior: второй по порядку (первый урок часто слишком тяжёлый для сохранения в админке на Render).
+    Pro: третий по порядку — отдельно от финального урока с «Слово автора» (там своя картинка).
+    """
+    if not course:
+        return None
+    try:
+        lessons = list(course.lessons.order_by("order", "id"))
+    except Exception:
+        return None
+    if not lessons:
+        return None
+    if getattr(course, "level", None) == "junior":
+        return lessons[1] if len(lessons) > 1 else lessons[0]
+    # pro
+    if len(lessons) >= 3:
+        return lessons[2]
+    if len(lessons) == 2:
+        return lessons[1]
+    return lessons[0]
+
+
+@register.filter
+def course_cover_image(course):
+    """Обложка курса или картинка урока-запаса (см. _lesson_for_cover_fallback)."""
+    if not course:
+        return None
+    if course.cover_image and getattr(course.cover_image, "name", ""):
+        return course.cover_image
+    lesson = _lesson_for_cover_fallback(course)
+    if lesson and lesson.image and getattr(lesson.image, "name", ""):
+        return lesson.image
+    return None
+
+
+@register.filter
+def is_course_cover_source_lesson(lesson):
+    """True, если картинка этого урока показывается как обложка курса (нет своей обложки у курса)."""
+    if not lesson or not getattr(lesson, "course_id", None):
+        return False
+    course = lesson.course
+    if course.cover_image and getattr(course.cover_image, "name", ""):
+        return False
+    source = _lesson_for_cover_fallback(course)
+    return bool(source and source.pk == lesson.pk)
+
+
 @register.filter
 def translate_content(text):
     """Переводит контент урока построчно."""

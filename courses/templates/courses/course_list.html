@@ -23,11 +23,13 @@
     {% for course in courses %}
     <a href="{% url 'courses:course_detail' course.pk %}" class="course-card">
         <div class="course-card__cover">
-            {% if course.cover_image %}
-                <img src="{{ course.cover_image.url }}" alt="{{ course.title|translate_db_text }}">
+            {% with cover=course|course_cover_image %}
+            {% if cover %}
+                <img src="{{ cover.url }}" alt="{{ course.title|translate_db_text }}">
             {% else %}
                 <span class="course-card__placeholder">📚</span>
             {% endif %}
+            {% endwith %}
             <span class="course-card__badge badge-preview">
                 {% if free_public_access %}
                     {% trans "Бесплатно" %}

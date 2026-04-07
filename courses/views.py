@@ -74,9 +74,11 @@ class CourseListView(ListView):
     context_object_name = "courses"
 
     def get_queryset(self):
-        from django.db.models import Count
+        from django.db.models import Count, Prefetch
         qs = Course.objects.filter(is_active=True).select_related("author", "category").annotate(
             lesson_count=Count("lessons")
+        ).prefetch_related(
+            Prefetch("lessons", queryset=Lesson.objects.order_by("order", "id"))
         )
         cat = self.request.GET.get("category")
         if cat:

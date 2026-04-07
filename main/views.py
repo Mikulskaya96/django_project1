@@ -1,11 +1,17 @@
 from django.conf import settings
+from django.db.models import Prefetch
 from django.shortcuts import render
-from courses.models import Course
+from courses.models import Course, Lesson
 
 
 def index(request):
     """Главная страница DevLearn."""
-    courses_preview = Course.objects.filter(is_active=True).select_related("category", "author").order_by("-created_at")[:4]
+    courses_preview = (
+        Course.objects.filter(is_active=True)
+        .select_related("category", "author")
+        .prefetch_related(Prefetch("lessons", queryset=Lesson.objects.order_by("order", "id")))
+        .order_by("-created_at")[:4]
+    )
     return render(request, "main/index.html", {"courses_preview": courses_preview})
 
 

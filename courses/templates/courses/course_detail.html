@@ -6,11 +6,13 @@
 {% block content %}
 <div class="course-hero">
     <div class="course-hero__media">
-        {% if course.cover_image %}
-        <img src="{{ course.cover_image.url }}" alt="{{ course.title|translate_db_text }}" class="course-hero__cover">
+        {% with cover=course|course_cover_image %}
+        {% if cover %}
+        <img src="{{ cover.url }}" alt="{{ course.title|translate_db_text }}" class="course-hero__cover">
         {% else %}
         <div class="course-hero__placeholder">📚</div>
         {% endif %}
+        {% endwith %}
     </div>
     <div class="course-hero__content">
         <h1 class="course-hero__title">{{ course.title|translate_db_text }}</h1>

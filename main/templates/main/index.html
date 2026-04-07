@@ -88,9 +88,11 @@
         <div class="course-preview__grid">
             {% for course in courses_preview %}
             <a href="{% url 'courses:course_detail' course.pk %}" class="course-preview__card">
-                {% if course.cover_image %}
-                <img src="{{ course.cover_image.url }}" alt="{{ course.title|translate_db_text }}" class="course-preview__cover">
+                {% with cover=course|course_cover_image %}
+                {% if cover %}
+                <img src="{{ cover.url }}" alt="{{ course.title|translate_db_text }}" class="course-preview__cover">
                 {% endif %}
+                {% endwith %}
                 <div class="course-preview__body">
                     <h3>{{ course.title|translate_db_text }}</h3>
                     <p>{{ course.get_level_display }}</p>
