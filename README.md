@@ -77,6 +77,22 @@ Install: **`pip install -r requirements.txt`** (with your virtual environment ac
    ```
    Site: http://127.0.0.1:8000/ — admin: http://127.0.0.1:8000/admin/
 
+### Live demo (screenshots)
+
+Place image files in **`docs/screenshots/`** and commit them so they render on GitHub.
+
+**API root** (all endpoints):
+
+![API Root](docs/screenshots/api_root.png)
+
+**Courses API**:
+
+![Courses API](docs/screenshots/api_courses.png)
+
+**Django Admin**:
+
+![Django Admin](docs/screenshots/admin.png)
+
 ### Tests
 
 ```bash
@@ -172,6 +188,22 @@ To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` 
    python manage.py runserver
    ```
    Сайт: http://127.0.0.1:8000/ — админка: http://127.0.0.1:8000/admin/
+
+### Демо (скриншоты)
+
+Положите файлы в **`docs/screenshots/`** и закоммитьте — тогда картинки отобразятся на GitHub.
+
+**API root** (все endpoints):
+
+![API Root](docs/screenshots/api_root.png)
+
+**Courses API**:
+
+![Courses API](docs/screenshots/api_courses.png)
+
+**Django Admin**:
+
+![Django Admin](docs/screenshots/admin.png)
 
 ### Тесты
 
@@ -270,6 +302,22 @@ Installazione: **`pip install -r requirements.txt`** (con ambiente virtuale atti
    python manage.py runserver
    ```
    Sito: http://127.0.0.1:8000/ — admin: http://127.0.0.1:8000/admin/
+
+### Demo (screenshots)
+
+Metti i file in **`docs/screenshots/`** e committali così GitHub mostra le immagini.
+
+**API root** (tutti gli endpoint):
+
+![API Root](docs/screenshots/api_root.png)
+
+**Courses API**:
+
+![Courses API](docs/screenshots/api_courses.png)
+
+**Django Admin**:
+
+![Django Admin](docs/screenshots/admin.png)
 
 ### Test
 
