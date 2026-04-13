@@ -81,7 +81,7 @@ Install: **`pip install -r requirements.txt`** (with your virtual environment ac
 
 ### Live demo (screenshots)
 
-Place image files in **`docs/screenshots/`** and commit them so they render on GitHub.
+Screenshots live in **`docs/screenshots/`** (commit them so they render on GitHub).
 
 **API root** (all endpoints):
 
@@ -229,7 +229,7 @@ To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` 
 
 ### Демо (скриншоты)
 
-Положите файлы в **`docs/screenshots/`** и закоммитьте — тогда картинки отобразятся на GitHub.
+Скриншоты лежат в **`docs/screenshots/`** (нужен коммит, чтобы они отображались на GitHub).
 
 **API root** (все endpoints):
 
@@ -281,6 +281,7 @@ python manage.py test
 - `users` — регистрация, вход, профили (роли студент / преподаватель)
 - `courses` — курсы, уроки, записи, API `/api/`
 - `settings` — конфигурация Django
+- `LICENSE` — MIT (файл в корне репозитория)
 
 ---
 
@@ -359,7 +360,7 @@ Installazione: **`pip install -r requirements.txt`** (con ambiente virtuale atti
 
 ### Demo (screenshots)
 
-Metti i file in **`docs/screenshots/`** e committali così GitHub mostra le immagini.
+Gli screenshot sono in **`docs/screenshots/`** (committali per vederli su GitHub).
 
 **API root** (tutti gli endpoint):
 
@@ -401,6 +402,14 @@ Repo GitHub → servizio su [render.com](https://render.com), variabili d’ambi
 
 Il deploy pubblico offre **accesso gratuito dopo il login** (`FREE_PUBLIC_ACCESS=True` di default). Per **testare Stripe in locale**: `FREE_PUBLIC_ACCESS=False` nel `.env`, chiavi test da Stripe (modalità Test), `python manage.py runserver`, carta **4242 4242 4242 4242**. Vedi `.env.example`.
 
+### Struttura del progetto
+
+- `main` — home, pagine statiche (about, contatti, legal)
+- `users` — registrazione, login, profili (studente / insegnante)
+- `courses` — corsi, lezioni, iscrizioni, API `/api/`
+- `settings` — configurazione Django
+- `LICENSE` — MIT (file nella root)
+
 ### Licenza / License
 
-MIT (o indicare la propria).
+**MIT** — vedi il file **`LICENSE`** nella root del repository.
