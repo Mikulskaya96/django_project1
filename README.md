@@ -131,6 +131,10 @@ Pushes to **`main`** / **`master`** trigger **GitHub Actions** (see `.github/wor
 
 GitHub repo → service on [render.com](https://render.com), environment variables (`DJANGO_SECRET_KEY`, `DATABASE_URL`, optionally `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, superuser for build, etc.). Details: your service settings and `render.yaml` if you use it.
 
+**Screenshot** (optional): save as **`docs/screenshots/render_dashboard.png`** — e.g. Render dashboard with the **web service** status **Live** and last deploy **success** (crop or blur **Environment** tab so secrets are not visible).
+
+![Render — web service live](docs/screenshots/render_dashboard.png)
+
 ### Public access & Stripe (demo)
 
 The public production site uses **free access after sign-in** (`FREE_PUBLIC_ACCESS=True` by default). No payment is required for visitors.
@@ -251,6 +255,10 @@ python manage.py test
 
 Репозиторий на GitHub → сервис на [render.com](https://render.com), переменные окружения (`DJANGO_SECRET_KEY`, `DATABASE_URL`, при необходимости `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, суперпользователь для сборки и т.д.). Подробности — в настройках вашего сервиса и в `render.yaml`, если используется.
 
+**Скриншот** (по желанию): файл **`docs/screenshots/render_dashboard.png`** — например, панель Render: сервис **Live**, последний деплой **успешен** (обрежьте или размойте вкладку с секретами).
+
+![Render — сервис в статусе Live](docs/screenshots/render_dashboard.png)
+
 ### Публичный доступ и демо Stripe
 
 **Публичный деплой** — бесплатный доступ к урокам после входа (`FREE_PUBLIC_ACCESS=True` по умолчанию); оплата на сайте не требуется.
@@ -366,6 +374,14 @@ In produzione **Render** usa `render.yaml`. In locale: **Docker Compose** (`dock
 ```bash
 python manage.py test
 ```
+
+### Deploy su Render (breve)
+
+Repo GitHub → servizio su [render.com](https://render.com), variabili d’ambiente (`DJANGO_SECRET_KEY`, `DATABASE_URL`, ecc.). Vedi `render.yaml` e la dashboard del servizio.
+
+**Screenshot** (opzionale): salva come **`docs/screenshots/render_dashboard.png`** — dashboard Render con servizio **Live** e deploy riuscito (non mostrare segreti).
+
+![Render — servizio live](docs/screenshots/render_dashboard.png)
 
 ### Accesso pubblico e demo Stripe
 
