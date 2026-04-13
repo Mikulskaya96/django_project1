@@ -3,6 +3,8 @@ A platform for learning programming (Python, courses, lessons, progress tracking
 Платформа для изучения программирования (Python, курсы, уроки, прогресс).  
 Piattaforma per l’apprendimento della programmazione (Python, corsi, lezioni, progressi).
 
+**Live site (production):** https://devlearn-bx57.onrender.com
+
 ---
 
 ## English
@@ -129,6 +131,8 @@ Pushes to **`main`** / **`master`** trigger **GitHub Actions** (see `.github/wor
 
 ### Deploy on Render (short)
 
+**Production URL:** https://devlearn-bx57.onrender.com
+
 GitHub repo → service on [render.com](https://render.com), environment variables (`DJANGO_SECRET_KEY`, `DATABASE_URL`, optionally `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, superuser for build, etc.). Details: your service settings and `render.yaml` if you use it.
 
 **Screenshot** (optional): save as **`docs/screenshots/render_dashboard.png`** — e.g. Render dashboard with the **web service** status **Live** and last deploy **success** (crop or blur **Environment** tab so secrets are not visible).
@@ -147,8 +151,12 @@ To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` 
 - `users` — sign up, login, profiles (student / teacher roles)
 - `courses` — courses, lessons, enrollments, API `/api/`
 - `settings` — Django configuration
+- `LICENSE` — MIT (see file in repo root)
 
 ## Русский
+
+**Сайт (прод):** https://devlearn-bx57.onrender.com
+
 ### Зависимости (`requirements.txt`)
 
 Все пакеты перечислены в **`requirements.txt`**. Основные:
@@ -253,6 +261,8 @@ python manage.py test
 
 ### Деплой на Render (кратко)
 
+**Продакшен:** https://devlearn-bx57.onrender.com
+
 Репозиторий на GitHub → сервис на [render.com](https://render.com), переменные окружения (`DJANGO_SECRET_KEY`, `DATABASE_URL`, при необходимости `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, суперпользователь для сборки и т.д.). Подробности — в настройках вашего сервиса и в `render.yaml`, если используется.
 
 **Скриншот** (по желанию): файл **`docs/screenshots/render_dashboard.png`** — например, панель Render: сервис **Live**, последний деплой **успешен** (обрежьте или размойте вкладку с секретами).
@@ -275,6 +285,8 @@ python manage.py test
 ---
 
 ## Italiano
+
+**Sito in produzione:** https://devlearn-bx57.onrender.com
 
 ### Dipendenze (`requirements.txt`)
 
@@ -376,6 +388,8 @@ python manage.py test
 ```
 
 ### Deploy su Render (breve)
+
+**Produzione:** https://devlearn-bx57.onrender.com
 
 Repo GitHub → servizio su [render.com](https://render.com), variabili d’ambiente (`DJANGO_SECRET_KEY`, `DATABASE_URL`, ecc.). Vedi `render.yaml` e la dashboard del servizio.
 
