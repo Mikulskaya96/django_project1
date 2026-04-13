@@ -1,8 +1,10 @@
-version: "3.9"
+# Локальная разработка: Django + PostgreSQL (как на Render по смыслу).
+# Redis убран — в коде приложения не используется (меньше RAM).
+# Продакшен на Render идёт через render.yaml + gunicorn, не через этот compose.
 
 services:
   db:
-    image: postgres:16
+    image: postgres:16-alpine
     environment:
       POSTGRES_DB: devlearn
       POSTGRES_USER: devlearn
@@ -11,11 +13,12 @@ services:
       - devlearn_db_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-
-  redis:
-    image: redis:7
-    ports:
-      - "6379:6379"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devlearn -d devlearn"]
+      interval: 3s
+      timeout: 5s
+      retries: 15
+      start_period: 5s
 
   web:
     build: .
@@ -25,11 +28,10 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
     environment:
       DJANGO_DEBUG: "True"
-      # Django сам поймёт DATABASE_URL и переключится с sqlite на Postgres
       DATABASE_URL: "postgres://devlearn:devlearn@db:5432/devlearn"
 
 volumes:

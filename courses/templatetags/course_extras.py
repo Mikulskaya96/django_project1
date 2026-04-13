@@ -32,6 +32,32 @@ def translate_category(name):
     return gettext(name)
 
 
+def _imagefield_file_ok(field_file) -> bool:
+    """Путь в БД есть, а файла на диске/S3 нет — не показываем битую картинку (Docker, новый clone)."""
+    if not field_file or not getattr(field_file, "name", ""):
+        return False
+    try:
+        return field_file.storage.exists(field_file.name)
+    except Exception:
+        return False
+
+
+@register.filter
+def image_if_exists(field_file):
+    """Возвращает то же поле, если файл на storage есть; иначе None (для шаблонов)."""
+    if _imagefield_file_ok(field_file):
+        return field_file
+    return None
+
+
+@register.filter
+def course_has_cover_file(course):
+    """У курса реально есть файл обложки (не только путь в БД)."""
+    if not course:
+        return False
+    return bool(course.cover_image and _imagefield_file_ok(course.cover_image))
+
+
 def _lesson_for_cover_fallback(course):
     """Урок, с которого берётся картинка как обложка курса при пустой «Обложке курса».
 
@@ -67,10 +93,10 @@ def course_cover_image(course):
     """Обложка курса или картинка урока-запаса (см. _lesson_for_cover_fallback)."""
     if not course:
         return None
-    if course.cover_image and getattr(course.cover_image, "name", ""):
+    if course.cover_image and _imagefield_file_ok(course.cover_image):
         return course.cover_image
     lesson = _lesson_for_cover_fallback(course)
-    if lesson and lesson.image and getattr(lesson.image, "name", ""):
+    if lesson and lesson.image and _imagefield_file_ok(lesson.image):
         return lesson.image
     return None
 
@@ -81,7 +107,7 @@ def is_course_cover_source_lesson(lesson):
     if not lesson or not getattr(lesson, "course_id", None):
         return False
     course = lesson.course
-    if course.cover_image and getattr(course.cover_image, "name", ""):
+    if course.cover_image and _imagefield_file_ok(course.cover_image):
         return False
     source = _lesson_for_cover_fallback(course)
     return bool(source and source.pk == lesson.pk)
@@ -132,14 +158,14 @@ def inject_author_photo(html, lesson):
     img_html = ""
     url = ""
     course_img = getattr(course, "author_image", None)
-    if course_img and getattr(course_img, "name", ""):
+    if course_img and _imagefield_file_ok(course_img):
         try:
             url = course_img.url
         except ValueError:
             url = ""
     if not url:
         lesson_img = getattr(lesson, "image", None)
-        if lesson_img and getattr(lesson_img, "name", ""):
+        if lesson_img and _imagefield_file_ok(lesson_img):
             try:
                 url = lesson_img.url
             except ValueError:

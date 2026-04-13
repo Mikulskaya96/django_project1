@@ -24,16 +24,18 @@
     <div class="lesson-main">
 <h1>{{ lesson.title|translate_db_text }}</h1>
 
-{% if lesson.image %}
+{% with img=lesson.image|image_if_exists %}
+{% if img %}
     {% if "<!-- AUTHOR_PHOTO -->" not in lesson.content|default:"" %}
         {# Не дублировать: урок-источник обложки без своей обложки у курса — только в каталоге #}
-        {% if lesson.course.cover_image or not lesson|is_course_cover_source_lesson %}
+        {% if lesson.course|course_has_cover_file or not lesson|is_course_cover_source_lesson %}
         <p>
-            <img src="{{ lesson.image.url }}" alt="{{ lesson.title|translate_db_text }}" class="content-image">
+            <img src="{{ img.url }}" alt="{{ lesson.title|translate_db_text }}" class="content-image">
         </p>
         {% endif %}
     {% endif %}
 {% endif %}
+{% endwith %}
 
 {% if lesson.content %}
 <div class="lesson-content">

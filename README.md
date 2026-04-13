@@ -99,6 +99,32 @@ Place image files in **`docs/screenshots/`** and commit them so they render on G
 python manage.py test
 ```
 
+### Docker (local dev)
+
+Production on **Render** uses `render.yaml` (install, `migrate`, **gunicorn**) — not necessarily this image. **Docker here is for your machine**: same stack idea as cloud (Postgres via `DATABASE_URL`), without SQLite inside the app when `DATABASE_URL` is set.
+
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or Docker Engine + Compose plugin) installed.
+2. From the project root:
+
+```bash
+docker compose up --build
+```
+
+3. First time (new DB volume), in another terminal:
+
+```bash
+docker compose exec web python manage.py migrate
+docker compose exec web python manage.py populate_db
+```
+
+4. Open http://127.0.0.1:8000/
+
+**Docker Desktop** (running stack: `web` + `db`):
+
+![Docker Desktop](docs/screenshots/docker.desktop.png)
+
+The `web` service mounts your project directory (`.:/app`), so code changes apply without rebuilding. Postgres data persists in the Docker volume `devlearn_db_data`. **Redis** is not included in `docker-compose.yml` — the app does not use it; an older screenshot may still show a stopped `redis` container from a previous compose file.
+
 Pushes to **`main`** / **`master`** trigger **GitHub Actions** (see `.github/workflows/`).
 
 ### Deploy on Render (short)
@@ -204,6 +230,14 @@ To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` 
 **Django Admin**:
 
 ![Django Admin](docs/screenshots/admin.png)
+
+### Docker (локально)
+
+Продакшен на **Render** использует `render.yaml` (не обязательно этот образ). Локально: **Docker Compose** (`docker compose up --build`), PostgreSQL + приложение в контейнерах. Подробности — в английском разделе **Docker (local dev)** выше.
+
+**Docker Desktop** (запущенный стек `web` + `db`):
+
+![Docker Desktop](docs/screenshots/docker.desktop.png)
 
 ### Тесты
 
@@ -318,6 +352,14 @@ Metti i file in **`docs/screenshots/`** e committali così GitHub mostra le imma
 **Django Admin**:
 
 ![Django Admin](docs/screenshots/admin.png)
+
+### Docker (sviluppo locale)
+
+In produzione **Render** usa `render.yaml`. In locale: **Docker Compose** (`docker compose up --build`), PostgreSQL + app. Dettagli nella sezione inglese **Docker (local dev)**.
+
+**Docker Desktop** (stack `web` + `db` in esecuzione):
+
+![Docker Desktop](docs/screenshots/docker.desktop.png)
 
 ### Test
 

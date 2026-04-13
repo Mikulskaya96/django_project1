@@ -1,0 +1,31 @@
+# Git / IDE
+.git
+.gitignore
+.idea
+.vscode
+.cursor
+
+# Python — не копировать в контекст сборки
+.venv
+venv
+env
+__pycache__
+*.py[cod]
+*$py.class
+.pytest_cache
+.mypy_cache
+htmlcov
+
+# Секреты и локальные данные
+.env
+.env.*
+!.env.example
+db.sqlite3
+*.sqlite3
+
+# Сборка / медиа (в контейнере не нужны или пересоздаются)
+staticfiles
+media
+
+# Крупное / лишнее для образа приложения
+node_modules

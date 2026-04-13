@@ -39,6 +39,9 @@ def _effective_has_access(user) -> bool:
     """Полный доступ к платным урокам: оплата (has_access) или режим FREE_PUBLIC_ACCESS."""
     if not user.is_authenticated:
         return False
+    # Суперпользователь: все уроки без оплаты/записи (тесты и админка)
+    if getattr(user, "is_superuser", False):
+        return True
     if getattr(settings, "FREE_PUBLIC_ACCESS", False):
         return True
     profile = getattr(user, "profile", None)
@@ -121,6 +124,8 @@ class CourseDetailView(DetailView):
             is_enrolled = Enrollment.objects.filter(
                 student=user, course=course
             ).exists()
+            if user.is_superuser:
+                is_enrolled = True  # UI: прогресс, отзывы, без обязательной «Записи» для тестов
             if is_enrolled:
                 lesson_ids = [l.pk for l in course.lessons.all()]
                 completed_count = LessonProgress.objects.filter(
@@ -379,7 +384,10 @@ def enroll_course(request, pk):
 def add_review(request, pk):
     """Добавить или изменить отзыв о курсе. Только для записанных."""
     course = get_object_or_404(Course, pk=pk)
-    if not Enrollment.objects.filter(student=request.user, course=course).exists():
+    if not (
+        request.user.is_superuser
+        or Enrollment.objects.filter(student=request.user, course=course).exists()
+    ):
         messages.error(request, _("Только записанные на курс могут оставлять отзывы."))
         return redirect("courses:course_detail", pk=pk)
 
@@ -418,7 +426,9 @@ class CourseCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 def complete_lesson(request, pk):
     """Отметить урок как пройденный."""
     lesson = get_object_or_404(Lesson, pk=pk)
-    if Enrollment.objects.filter(student=request.user, course=lesson.course).exists():
+    if request.user.is_superuser or Enrollment.objects.filter(
+        student=request.user, course=lesson.course
+    ).exists():
         LessonProgress.objects.get_or_create(user=request.user, lesson=lesson)
         messages.success(request, _("Урок отмечен как пройденный"))
     return redirect("courses:lesson_detail", pk=pk)
