@@ -3053,6 +3053,9 @@ msgstr "Non ci sono ancora studenti."
 msgid "Преподаватель"
 msgstr "Docente"
 
+msgid "DevLearn team"
+msgstr "Team DevLearn"
+
 msgid "Фото автора курса"
 msgstr "Foto dell'autore del corso"
 

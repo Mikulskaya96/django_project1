@@ -10,9 +10,9 @@ register = template.Library()
 
 @register.filter
 def translate_author(username):
-    """Переводит 'teacher' как 'Преподаватель', остальные возвращает как есть."""
+    """Служебный пользователь teacher показывается как бренд автора, не как личность."""
     if username == "teacher":
-        return gettext("Преподаватель")
+        return gettext("DevLearn team")
     return username
 
 

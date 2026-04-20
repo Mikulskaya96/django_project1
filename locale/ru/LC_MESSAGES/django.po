@@ -2319,6 +2319,9 @@ msgstr ""
 msgid "Преподаватель"
 msgstr ""
 
+msgid "DevLearn team"
+msgstr "Команда DevLearn"
+
 msgid "Фото автора курса"
 msgstr ""
 
