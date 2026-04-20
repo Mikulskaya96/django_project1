@@ -3278,11 +3278,13 @@ msgstr "Create a new course and start teaching others"
 msgid "Создать курс →"
 msgstr "Create course →"
 
-msgid "🚀 Начни учиться"
-msgstr "🚀 Start learning"
+msgid "Начать обучение"
+msgstr "Start learning"
 
-msgid "Зарегистрируйся и присоединись к тысячам студентов"
-msgstr "Sign up and join thousands of students"
+msgid "Зарегистрируйтесь бесплатно и начните путь в Python — платформа развивается, мы приглашаем первых активных учеников и ценим обратную связь."
+msgstr ""
+"Sign up for free and start your Python path — we're growing the platform "
+"and welcome early learners and feedback."
 
 msgid "Регистрация →"
 msgstr "Sign up →"
