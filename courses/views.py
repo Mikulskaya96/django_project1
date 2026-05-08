@@ -140,7 +140,6 @@ class CourseDetailView(DetailView):
             lesson.is_locked = not (is_free or has_access or is_teacher)
             lesson.display_order = idx
 
-        # Группировка по модулям для курса Junior
         lesson_modules = None
         if course.level == "junior" and len(lessons) >= 15:
             JUNIOR_MODULES = [
@@ -220,7 +219,6 @@ class LessonDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
             user=self.request.user,
             lesson=lesson,
         )[:10]
-        # Предыдущий и следующий урок
         lessons = list(lesson.course.lessons.all().order_by("order", "id"))
         idx = next((i for i, l in enumerate(lessons) if l.pk == lesson.pk), -1)
         context["prev_lesson"] = lessons[idx - 1] if idx > 0 else None

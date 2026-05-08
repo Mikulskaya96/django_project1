@@ -8,7 +8,6 @@ from .viewsets import (
     EnrollmentViewSet,
 )
 
-# Создаем router и регистрируем ViewSets
 router = DefaultRouter()
 router.register(r"categories", CategoryViewSet, basename="api-category")
 router.register(r"courses", CourseViewSet, basename="api-course")

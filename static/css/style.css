@@ -30,21 +30,16 @@
 }
 
 [data-theme="light"] {
-    --color-bg: #f0f2f5;              /* мягкий серо-голубой фон, не режет глаза */
-    --color-bg-alt: #e8eaef;          /* панели навбара */
-    --color-text: #2e3440;            /* тёмно‑серый, нейтральный */
+    --color-bg: #f0f2f5;
+    --color-bg-alt: #e8eaef;
+    --color-text: #2e3440;
+    --color-primary: #3776AB;
+    --color-primary-light: #4B8BBE;
+    --color-accent: #FFE873;
+    --color-border: #dde1e6;
+    --color-surface: #f5f6f8;
+    --color-muted: #6b7280;
 
-    /* Python accents */
-    --color-primary: #3776AB;         /* фирменный синий Python */
-    --color-primary-light: #4B8BBE;   /* светлый синий */
-    --color-accent: #FFE873;          /* мягкий жёлтый Python */
-
-    /* Тёплые элементы */
-    --color-border: #dde1e6;          /* мягкая светлая граница */
-    --color-surface: #f5f6f8;         /* карточки — приглушённый белый */
-    --color-muted: #6b7280;           /* приглушённый серый */
-
-    /* Тени */
     --color-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     --color-shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.10);
 
@@ -56,10 +51,6 @@
     --card-shadow-hover: var(--color-shadow-strong);
     --hr-color: var(--color-border);
 }
-
-
-
-
 
 /* Тёмная тема */
 [data-theme="dark"] {
@@ -432,7 +423,7 @@ footer {
 .nav-time {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #d4a017; /* золотисто‑бежевый */
+    color: #d4a017;
 }
 
 /* Форма выхода */
@@ -1802,7 +1793,7 @@ a:hover {
 .msg.error {
     background: linear-gradient(135deg, var(--color-bg-alt), var(--color-surface));
     color: var(--color-text);
-    border-left: 4px solid #ef4444; /* Можно адаптировать под переменную, если нужно */
+    border-left: 4px solid #ef4444;
 }
 
 /* 7. ЗАГОЛОВКИ — единый стиль на всех страницах */
@@ -2044,19 +2035,19 @@ footer {
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 999px;
-    background: var(--color-primary); /* по умолчанию (тёмная тема) — синий */
+    background: var(--color-primary);
     transition: 0.25s;
 }
 
 .theme-toggle__icon {
     width: 0.9rem;
     height: 0.9rem;
-    display: none; /* минимальный, более строгий вид без эмодзи */
+    display: none;
 }
 
 .theme-toggle[data-theme-state="light"] .theme-toggle__thumb {
     transform: translateX(0.9rem);
-    background: #d4a017; /* светлая тема — жёлтый как у часов */
+    background: #d4a017;
 }
 
 .theme-toggle[data-theme-state="dark"] .theme-toggle__thumb {

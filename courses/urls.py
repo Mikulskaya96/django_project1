@@ -19,9 +19,7 @@ urlpatterns = [
     path("lesson/<int:pk>/complete/", views.complete_lesson, name="complete_lesson"),
     path("lesson/<int:pk>/ask-ai/", views.ask_lesson_ai, name="ask_lesson_ai"),
     path("book/<int:pk>/go/", views.book_redirect, name="book_redirect"),
-    # Студенты
     path("students/", views.StudentListView.as_view(), name="student_list"),
     path("students/<int:pk>/", views.StudentDetailView.as_view(), name="student_detail"),
-    # Запись студентов (только для преподавателей)
     path("<int:pk>/enroll-student/", views.enroll_student, name="enroll_student"),
 ]

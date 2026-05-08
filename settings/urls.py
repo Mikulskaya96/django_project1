@@ -1,19 +1,4 @@
-"""
-URL configuration for settings project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+"""Корневые маршруты (API, вебхук Stripe, i18n-префикс)."""
 
 from django.contrib import admin
 from django.urls import path, include
@@ -25,7 +10,7 @@ from django.conf.urls.i18n import i18n_patterns
 from courses.views import stripe_webhook
 
 urlpatterns = [
-    path("api/", include("courses.api_urls")),  # REST API для курсов
+    path("api/", include("courses.api_urls")),
     path("markdownx/", include("markdownx.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
     # Webhook должен быть вне i18n_patterns, иначе Stripe получает redirect (302).

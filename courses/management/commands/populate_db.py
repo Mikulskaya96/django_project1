@@ -21,7 +21,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write("Начинаем добавление тестовых данных...")
 
-        # 1. Создаём категории
         categories_data = [
             {"name": "Python"},
         ]
@@ -32,7 +31,6 @@ class Command(BaseCommand):
             if created:
                 self.stdout.write(self.style.SUCCESS(f"Категория {cat_data['name']} создана"))
 
-        # 2. Создаём преподавателя
         teacher, created = User.objects.get_or_create(
             username="teacher",
             defaults={
@@ -54,7 +52,6 @@ class Command(BaseCommand):
         if created:
             self.stdout.write(self.style.SUCCESS(f"Преподаватель '{teacher.username}' создан"))
 
-        # 3. Создаём студентов
         students_data = [
             {"username": "student1", "email": "student1@example.com", "first_name": "Александр", "last_name": "Иванов"},
             {"username": "student2", "email": "student2@example.com", "first_name": "Мария", "last_name": "Петрова"},
@@ -83,7 +80,6 @@ class Command(BaseCommand):
             if created:
                 self.stdout.write(self.style.SUCCESS(f"[OK] Студент '{student.username}' создан"))
 
-        # 4. Удаляем лишние курсы, оставляем только 2 по Python
         KEEP_TITLES = ("Python для начинающих", "Python для профессионалов")
         extra = Course.objects.exclude(title__in=KEEP_TITLES)
         deleted = extra.count()
@@ -91,7 +87,6 @@ class Command(BaseCommand):
         if deleted:
             self.stdout.write(self.style.WARNING(f"Удалено лишних курсов: {deleted}"))
 
-        # 5. Создаём/обновляем 2 курса по Python
         courses_data = [
             {
                 "title": "Python для начинающих",
@@ -135,7 +130,6 @@ class Command(BaseCommand):
             else:
                 self.stdout.write(self.style.SUCCESS(f"[OK] Курс '{course.title}' обновлён"))
 
-        # 6. Заполняем уроки Junior — Модуль 1 (переработанный контент)
         junior = courses["Python для начинающих"]
         # Удаляем старые уроки, чтобы не осталось устаревшего контента
         Lesson.objects.filter(course=junior).delete()
@@ -426,7 +420,6 @@ else
 <!-- SPOILER_END -->
                 """,
             ),
-            # === МОДУЛЬ 2 ===
             (
                 6,
                 "Циклы for и while",
@@ -678,7 +671,6 @@ print("Sum:", total)
 <!-- SPOILER_END -->
                 """,
             ),
-            # === МОДУЛЬ 3 ===
             (
                 11,
                 "Функции",
@@ -843,7 +835,6 @@ with open("data.txt" "r") as f:
         for order, title, content in junior_lessons:
             self._upsert_lesson(junior, order, title, content)
 
-        # 7. Заполняем уроки Pro (в том же стиле, что и Junior)
         pro = courses["Python для профессионалов"]
         Lesson.objects.filter(course=pro).delete()
         pro_lessons = [
@@ -1357,7 +1348,6 @@ def test_health(api_client):
         for order, title, content in pro_lessons:
             self._upsert_lesson(pro, order, title, content)
 
-        # 8. Рекомендуемые книги (полная замена списка — названия на английском)
         books_map = {
             "Python для начинающих": [
                 ("Automate the Boring Stuff with Python", "https://automatetheboringstuff.com"),

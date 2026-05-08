@@ -25,7 +25,7 @@ All packages are listed in **`requirements.txt`**. Main ones:
 | Cloud media (optional) | `django-cloudinary-storage` |
 | Production (Render, etc.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
 
-Install: **`pip install -r requirements.txt`** (with your virtual environment activated).
+Install: **`pip install -r requirements.txt`** (inside an activated virtual environment).
 
 ### Stack
 
@@ -58,7 +58,7 @@ Install: **`pip install -r requirements.txt`** (with your virtual environment ac
    copy .env.example .env
    ```
    (Linux/macOS: `cp .env.example .env`)  
-   Edit `.env` as needed. For production, set `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`.  
+   Adjust `.env` for local vs production use (e.g. `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False` on production).  
    For the AI block on lessons: **`GROQ_API_KEY`** (and optionally `GEMINI_API_KEY` — see `settings.py`).  
    For Stripe and Cloudinary, see the comments in `.env.example`.
 
@@ -79,9 +79,15 @@ Install: **`pip install -r requirements.txt`** (with your virtual environment ac
    ```
    Site: http://127.0.0.1:8000/ — admin: http://127.0.0.1:8000/admin/
 
+**URLs / i18n:** Russian is the default language. http://127.0.0.1:8000/ may redirect to http://127.0.0.1:8000/ru/ . Switch to EN or IT via the site language selector.
+
+**`.env` (first run):** Copy `.env.example` to `.env`. Minimum fields: `DJANGO_DEBUG=True` for local runs and a unique `DJANGO_SECRET_KEY` (generation command documented in `.env.example`). `GROQ_API_KEY`, `GEMINI_API_KEY`, Stripe variables, Cloudinary, and `GA4_MEASUREMENT_ID` are optional until those features are enabled.
+
 ### Live demo (screenshots)
 
-Screenshots live in **`docs/screenshots/`** (commit them so they render on GitHub).
+Screenshots live in **`docs/screenshots/`** — add those files to the repository so Markdown images load on GitHub.
+
+They may include browser chrome (tabs, toolbar) or the OS taskbar: they reflect the actual local or dashboard setup at capture time, not retouched marketing assets.
 
 **API root** (all endpoints):
 
@@ -103,7 +109,7 @@ python manage.py test
 
 ### Docker (local dev)
 
-Production on **Render** uses `render.yaml` (install, `migrate`, **gunicorn**) — not necessarily this image. **Docker here is for your machine**: same stack idea as cloud (Postgres via `DATABASE_URL`), without SQLite inside the app when `DATABASE_URL` is set.
+Production on **Render** uses `render.yaml` (install, `migrate`, **gunicorn**) — not necessarily this image. **Docker Compose targets local development**: same overall stack as cloud (PostgreSQL via `DATABASE_URL`), without SQLite inside the app when `DATABASE_URL` is set.
 
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or Docker Engine + Compose plugin) installed.
 2. From the project root:
@@ -125,7 +131,7 @@ docker compose exec web python manage.py populate_db
 
 ![Docker Desktop](docs/screenshots/docker.desktop.png)
 
-The `web` service mounts your project directory (`.:/app`), so code changes apply without rebuilding. Postgres data persists in the Docker volume `devlearn_db_data`. **Redis** is not included in `docker-compose.yml` — the app does not use it; an older screenshot may still show a stopped `redis` container from a previous compose file.
+The `web` service bind-mounts the project directory (`.:/app`), so code changes apply without rebuilding. Postgres data persists in the Docker volume `devlearn_db_data`. **`redis` is not included** — the app does not use Redis (ignore a `redis` container if an old screenshot shows one).
 
 Pushes to **`main`** / **`master`** trigger **GitHub Actions** (see `.github/workflows/`).
 
@@ -133,9 +139,9 @@ Pushes to **`main`** / **`master`** trigger **GitHub Actions** (see `.github/wor
 
 **Production URL:** https://devlearn-bx57.onrender.com
 
-GitHub repo → service on [render.com](https://render.com), environment variables (`DJANGO_SECRET_KEY`, `DATABASE_URL`, optionally `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, superuser for build, etc.). Details: your service settings and `render.yaml` if you use it.
+Deploy from the GitHub repository to [render.com](https://render.com): set environment variables (`DJANGO_SECRET_KEY`, `DATABASE_URL`, optionally `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, superuser for build, etc.). Full checklist: Render dashboard + `render.yaml` when Blueprint deploy is enabled.
 
-**Screenshot** (optional): save as **`docs/screenshots/render_dashboard.png`** — e.g. Render dashboard with the **web service** status **Live** and last deploy **success** (crop or blur **Environment** tab so secrets are not visible).
+**Screenshot** (optional), file **`docs/screenshots/render_dashboard.png`**: e.g. **web service** **Live**, last deploy **succeeded**. **Do not expose secrets** — omit or blur the **Environment** tab (keys/values).
 
 ![Render — web service live](docs/screenshots/render_dashboard.png)
 
@@ -143,7 +149,7 @@ GitHub repo → service on [render.com](https://render.com), environment variabl
 
 The public production site uses **free access after sign-in** (`FREE_PUBLIC_ACCESS=True` by default). No payment is required for visitors.
 
-To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` in `.env`, add test **`STRIPE_SECRET_KEY`** and **`STRIPE_PRICE_ID`** from [Stripe Dashboard](https://dashboard.stripe.com) (Test mode), run `python manage.py runserver`, open the checkout page, and pay with test card **4242 4242 4242 4242**. See `.env.example`.
+To **try Stripe Checkout locally**: set `FREE_PUBLIC_ACCESS=False` in `.env`, add test **`STRIPE_SECRET_KEY`** and **`STRIPE_PRICE_ID`** from [Stripe Dashboard](https://dashboard.stripe.com) (Test mode), run `python manage.py runserver`, open the checkout page, and use test card **4242 4242 4242 4242**. See `.env.example`.
 
 ### Project layout
 
@@ -206,7 +212,7 @@ To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` 
    copy .env.example .env
    ```
    (Linux/macOS: `cp .env.example .env`)  
-   При необходимости отредактируйте `.env`. Для продакшена задайте `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`.  
+   Редактирование `.env` — по необходимости. Для продакшена: `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`.  
    Для AI-блока на уроке: **`GROQ_API_KEY`** (и при необходимости `GEMINI_API_KEY` — см. `settings.py`).  
    Для Stripe, Cloudinary — см. комментарии в `.env.example`.
 
@@ -227,9 +233,15 @@ To **demo Stripe Checkout locally** (portfolio): set `FREE_PUBLIC_ACCESS=False` 
    ```
    Сайт: http://127.0.0.1:8000/ — админка: http://127.0.0.1:8000/admin/
 
+**URL и языки:** язык по умолчанию — русский. При открытии http://127.0.0.1:8000/ возможен редирект на http://127.0.0.1:8000/ru/ . Переключение EN/IT — через селектор языка в интерфейсе.
+
+**`.env` (первый запуск):** скопировать `.env.example` в `.env`. Минимум: `DJANGO_DEBUG=True` для локальной работы и уникальный `DJANGO_SECRET_KEY` (генерация — в `.env.example`). `GROQ_API_KEY`, `GEMINI_API_KEY`, переменные Stripe, Cloudinary и `GA4_MEASUREMENT_ID` не обязательны, пока не используются соответствующие возможности.
+
 ### Демо (скриншоты)
 
-Скриншоты лежат в **`docs/screenshots/`** (нужен коммит, чтобы они отображались на GitHub).
+Скриншоты — в **`docs/screenshots/`**; файлы должны быть закоммичены, иначе картинки в Markdown на GitHub не загрузятся.
+
+На них могут быть элементы браузера и интерфейса ОС — зафиксировано реальное окружение во время съёмки, без отдельной постобработки под «витринный» вид.
 
 **API root** (все endpoints):
 
@@ -263,9 +275,9 @@ python manage.py test
 
 **Продакшен:** https://devlearn-bx57.onrender.com
 
-Репозиторий на GitHub → сервис на [render.com](https://render.com), переменные окружения (`DJANGO_SECRET_KEY`, `DATABASE_URL`, при необходимости `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, суперпользователь для сборки и т.д.). Подробности — в настройках вашего сервиса и в `render.yaml`, если используется.
+Деплой с GitHub на [render.com](https://render.com): переменные окружения (`DJANGO_SECRET_KEY`, `DATABASE_URL`, при необходимости `GROQ_API_KEY`, Stripe, `CLOUDINARY_URL`, суперпользователь для сборки и т.д.). Полный список — в панели Render и в `render.yaml` при деплое по Blueprint.
 
-**Скриншот** (по желанию): файл **`docs/screenshots/render_dashboard.png`** — например, панель Render: сервис **Live**, последний деплой **успешен** (обрежьте или размойте вкладку с секретами).
+**Скриншот** (по желанию), файл **`docs/screenshots/render_dashboard.png`**: статус сервиса **Live**, последний деплой **успешен**. **Секреты не показывать** — не включать в кадр вкладку **Environment** (ключи и значения) или размыть эту область.
 
 ![Render — сервис в статусе Live](docs/screenshots/render_dashboard.png)
 
@@ -273,7 +285,7 @@ python manage.py test
 
 **Публичный деплой** — бесплатный доступ к урокам после входа (`FREE_PUBLIC_ACCESS=True` по умолчанию); оплата на сайте не требуется.
 
-**Демо оплаты Stripe локально** (для портфолио): в `.env` задайте `FREE_PUBLIC_ACCESS=False`, тестовые `STRIPE_SECRET_KEY` и `STRIPE_PRICE_ID` из [Stripe Dashboard](https://dashboard.stripe.com) (режим Test), запустите `python manage.py runserver`, откройте оплату, карта **4242 4242 4242 4242**. Подробности — в `.env.example`.
+**Демо оплаты Stripe локально**: в `.env` — `FREE_PUBLIC_ACCESS=False`, тестовые `STRIPE_SECRET_KEY` и `STRIPE_PRICE_ID` из [Stripe Dashboard](https://dashboard.stripe.com) (режим Test), затем `python manage.py runserver`, страница оплаты, тестовая карта **4242 4242 4242 4242**. Подробнее — `.env.example`.
 
 ### Структура проекта
 
@@ -305,7 +317,7 @@ Tutti i pacchetti sono elencati in **`requirements.txt`**. Esempi:
 | Media cloud (opzionale) | `django-cloudinary-storage` |
 | Produzione (Render ecc.) | `gunicorn`, `whitenoise`, `dj-database-url`, `psycopg2-binary` |
 
-Installazione: **`pip install -r requirements.txt`** (con ambiente virtuale attivo).
+Installazione: **`pip install -r requirements.txt`** (ambiente virtuale attivo).
 
 ### Stack
 
@@ -358,9 +370,15 @@ Installazione: **`pip install -r requirements.txt`** (con ambiente virtuale atti
    ```
    Sito: http://127.0.0.1:8000/ — admin: http://127.0.0.1:8000/admin/
 
+**URL / i18n:** lingua predefinita: russo. Su http://127.0.0.1:8000/ si può essere reindirizzati a http://127.0.0.1:8000/ru/ . EN/IT tramite il selettore lingua nel sito.
+
+**`.env` (primo avvio):** copiare `.env.example` in `.env`. Valori minimi: `DJANGO_DEBUG=True` in locale e un `DJANGO_SECRET_KEY` dedicato (generazione nel commento di `.env.example`). `GROQ_API_KEY`, `GEMINI_API_KEY`, variabili Stripe, Cloudinary e `GA4_MEASUREMENT_ID` sono facoltativi finché quelle integrazioni non servono.
+
 ### Demo (screenshots)
 
-Gli screenshot sono in **`docs/screenshots/`** (committali per vederli su GitHub).
+Gli screenshot sono in **`docs/screenshots/`** — vanno inclusi nel repository affinché le immagini Markdown si caricino su GitHub.
+
+Possono includere barre del browser o della finestra e elementi del sistema operativo: illustrano l’ambiente locale o la dashboard nel momento della cattura, senza ritocco «promozionale».
 
 **API root** (tutti gli endpoint):
 
@@ -388,13 +406,15 @@ In produzione **Render** usa `render.yaml`. In locale: **Docker Compose** (`dock
 python manage.py test
 ```
 
+Push su **`main`** / **`master`** attivano **GitHub Actions** (vedi `.github/workflows/`).
+
 ### Deploy su Render (breve)
 
 **Produzione:** https://devlearn-bx57.onrender.com
 
-Repo GitHub → servizio su [render.com](https://render.com), variabili d’ambiente (`DJANGO_SECRET_KEY`, `DATABASE_URL`, ecc.). Vedi `render.yaml` e la dashboard del servizio.
+Deploy da repo GitHub a [render.com](https://render.com): variabili d’ambiente (`DJANGO_SECRET_KEY`, `DATABASE_URL`, ecc.). Dettaglio: dashboard Render + `render.yaml` se si usa Blueprint.
 
-**Screenshot** (opzionale): salva come **`docs/screenshots/render_dashboard.png`** — dashboard Render con servizio **Live** e deploy riuscito (non mostrare segreti).
+**Screenshot** (opzionale), file **`docs/screenshots/render_dashboard.png`**: servizio **Live**, ultimo deploy **riuscito**. **Non esporre segreti** — escludere o sfocare la scheda **Environment** (chiavi/valori).
 
 ![Render — servizio live](docs/screenshots/render_dashboard.png)
 
